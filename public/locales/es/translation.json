@@ -198,7 +198,8 @@
                     "edatosgraphs": "Formato edatosgraphs",
                     "svg": "Formato svg",
                     "widget": "Formato widget",
-                    "png": "Formato png"
+                    "png": "Formato png",
+                    "jpg": "Formato jpg"
                 }
             },
             "login": {

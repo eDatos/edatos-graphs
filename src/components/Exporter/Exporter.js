@@ -70,6 +70,9 @@ export default function Exporter({
       case 'png':
         download(`${currentFile}.png`, 'png');
         break;
+      case 'jpg':
+        download(`${currentFile}.jpg`, 'jpg');
+        break;
       case 'edatosgraphs':
         downloadProject(`${currentFile || 'viz'}.edatosgraphs`);
         break;
@@ -179,6 +182,11 @@ export default function Exporter({
                 format: 'png',
                 text: 'global.section.export.formats.png',
                 icon: 'fa-file-png',
+              },
+              {
+                format: 'jpg',
+                text: 'global.section.export.formats.jpg',
+                icon: 'fa-file-jpg',
               },
             ];
       setExportFormats(newExportFormats);
