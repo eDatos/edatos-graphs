@@ -28,7 +28,7 @@ export default function StackSelector({
           <Dropdown.Toggle
             as={CustomToggle}
             id="dropdown-custom-components"
-            className="d-flex align-items-center truncate-160px form-control"
+            className="d-flex align-items-center form-control"
             disabled={list.length === 0}
           >
             <span>
