@@ -256,11 +256,7 @@ textarea.form-control {
     justify-content: flex-start;
   }
 }
-.truncate-160px span {
-  max-width: 160px;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-}
+
 .custom-card {
   border-radius: 5px;
   border: 1.004px solid $color-blue-dark-100;
