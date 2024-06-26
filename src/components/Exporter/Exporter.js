@@ -303,7 +303,7 @@ export default function Exporter({
               </button>
             )}
             {currentFormat.format === 'widget' && (
-              <CopyToClipboardButton content={getWidget(dataSource.type)} />
+              <CopyToClipboardButton content={getWidget(dataSource.type !== 'wms' ? 'egraph' : 'wms')} />
             )}
             {/*<button className="text-icon-button btn-thin-default d-flex align-items-center" type="button" onClick={//TODO nueva funcionalidad (en siguiente fase)}>
                                 <i className="fa-thin fa-save"></i>
