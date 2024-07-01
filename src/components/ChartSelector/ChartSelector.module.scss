@@ -28,13 +28,13 @@
 
 span.chartTitle {
   font-size: $size-14;
-  font-weight: 400;
+  font-weight: $font-weight-600;
 }
 
 .chartText,
 h4 {
-  font-size: $size-14;
-  font-weight: 300;
+  font-size: $size-12;
+  font-weight: $font-weight-400;
 }
 
 .custom-card .card-body {
