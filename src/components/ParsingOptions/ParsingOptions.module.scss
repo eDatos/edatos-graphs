@@ -64,7 +64,7 @@
         border-right: 1px solid $color-black-0;
       }
       &:last-child {
-        min-width: calc($container-max-width/5);
+        min-width: calc($container-max-width/6);
         border-radius: 0 5px 0 0;
       }
     }
@@ -102,7 +102,7 @@
   gap: 10px;
 
   font-size: $size-12;
-  font-weight: 300;
+  font-weight: 400;
   background: $color-blue-dark-5;
 }
 
@@ -114,19 +114,10 @@
   }
 }
 
-.labelSeparator {
-  color: $color-blue-dark-100;
-}
-
-/*.inputSeparator{  //TODO ver si se puede eliminar
-  display: flex;
-  align-items: center;
-}*/
-
 .inputSeparator button,
 .inputSeparator input {
   gap: 5px;
-  min-width: 95px;
+  min-width: 95px;  
   justify-content: space-between;
   background: $color-black-0;
   font-size: $size-12;

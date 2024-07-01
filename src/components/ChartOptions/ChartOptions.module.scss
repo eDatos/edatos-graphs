@@ -8,18 +8,23 @@
 
 .options-group {
   height: auto;
-  overflow: visible;
-  border-bottom: 1px solid $color-blue-dark-5;
+  overflow: visible;  
 
   .group-header {
     padding: 5px 10px;
     height: 28px;
     background: $color-blue-dark-100;
     border-bottom: 1px solid $color-blue-5;
-  }
+  }  
+
   .collapse-button {
     font-size: $size-14;
     color: $color-black-0;
+  }
+
+  &:first-child {     
+    border-top: 0;
+    border-radius: 5px 5px 0px 0px;
   }
 
   &.collapsed {
@@ -28,16 +33,19 @@
 
     .label-chart-option {
       color: $color-blue-dark-100;
-    }
-
-    &:last-child {
-      border-bottom: 0;
-      border-radius: 0 0 5px 5px;
-    }
+    }        
 
     .group-header {
       border-bottom: 1px solid $color-blue-dark-5;
-      background-color: $color-blue-dark-5;
+      background-color: $color-blue-5;
+    }
+
+    &:last-child {
+      border-radius: 0 0 5px 5px;
+    }
+
+    &:last-child .group-header {
+      border-bottom: 0;
     }
 
     .collapse-button {
@@ -56,10 +64,6 @@
         opacity: 0.8;
         backdrop-filter: blur(1px);
         transition: opacity 0.5s ease;
-      }
-
-      &:first-child {
-        border-radius: 3px 3px 0 0 !important; //no está haciendo efecto, pero no sé si es necesario aún
       }
     }
 
@@ -80,12 +84,13 @@
 .chart-options {
   border: 1px solid $color-blue-dark-100;
   border-radius: 5px;
+  background: $color-blue-5;
 }
 
 .label-chart-option {
   color: $color-black-0;
   font-size: $size-14;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .chart-options {
@@ -111,17 +116,22 @@
         padding-right: 0;
       }
     }
-  }
 
+    &:last-child {
+      border-bottom: 0px;
+      border-radius: 0px 0px 5px 5px;
+    }
+  }
+  
   .chart-option .chart-option-label,
   .color-swatches-list .chart-option-label {
-    font-weight: 300;
-    font-size: $size-14;
+    font-weight: $font-weight-400;
+    font-size: $size-12;
     color: $color-blue-dark-100;
     padding-left: 10px;
     padding-right: 0;
     &.small {
-      font-size: $size-12;
+      font-size: $size-10;
       color: $color-black-80;
     }
   }
