@@ -8,7 +8,7 @@ export function LoadDataButton({ disabled, loading }) {
     <button
       className="text-icon-button btn-thin-first"
       disabled={disabled}
-      type="submit"      
+      type="submit"
     >
       <i
         className={'fa-thin fa-cloud-arrow-up ' + (loading ? 'fa-spin' : '')}
