@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import InilineColorPicker from '../../InlineColorPicker';
 import ColorSchemesDropDown from './ColorSchemesDropDown';
-import { Row, Col, Dropdown } from 'react-bootstrap';
+import { Col, Dropdown } from 'react-bootstrap';
 import { ResetBtn, InvertBtn, LockBtn } from './ColorScaleUtils';
 import { SCALES_LABELS, defaultPalette } from '../../../constants';
 import { CustomToggle } from '../../CustomDropdown/CustomDropdownToggle';
@@ -495,7 +495,11 @@ const ChartOptionColorScale = ({
             </div>
           ))}
 
-          <Row>
+          <div
+            className={[props.className, styles['color-swatch-actions']].join(
+              ' '
+            )}
+          >
             <Col className="d-flex justify-content-end">
               <ResetBtn resetScale={resetScale} text={t('resetDomain')} />
               {userValues.length > 1 && (
@@ -508,7 +512,7 @@ const ChartOptionColorScale = ({
                 />
               )}
             </Col>
-          </Row>
+          </div>
         </div>
       )}
     </>
