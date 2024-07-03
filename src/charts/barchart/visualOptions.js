@@ -41,24 +41,24 @@ export const visualOptions = {
       },
     ],
     default: 'name',
-  },
+  },  
   // labels
   showBarsName: {
     type: 'boolean',
     default: false,
-    group: 'labels',
+    group: 'barslabels',
   },
   customBarsName: {
     type: 'text',
     default: '',
-    group: 'labels',
+    group: 'barslabels',
     disabled: {
       showBarsName: false,
     },
   },
   barsNameLocation: {
     type: 'text',
-    group: 'labels',
+    group: 'barslabels',
     disabled: {
       showBarsName: false,
     },
@@ -80,7 +80,7 @@ export const visualOptions = {
   },
   barsNameGap: {
     type: 'number',
-    group: 'labels',
+    group: 'barslabels',
     disabled: {
       showBarsName: false,
     },
@@ -89,11 +89,11 @@ export const visualOptions = {
   showBarsLabels: {
     type: 'boolean',
     default: true,
-    group: 'labels',
+    group: 'barslabels',
   },
   barsLabelsRotate: {
     type: 'number',
-    group: 'labels',
+    group: 'barslabels',
     disabled: {
       showBarsLabels: false,
     },
@@ -101,7 +101,7 @@ export const visualOptions = {
   },
   barsLabelsFontSize: {
     type: 'number',
-    group: 'labels',
+    group: 'barslabels',
     disabled: {
       showBarsLabels: false,
     },
@@ -109,7 +109,7 @@ export const visualOptions = {
   },
   barsLabelsFormat: {
     type: 'text',
-    group: 'labels',
+    group: 'barslabels',
     default: 'original',
     options: [
       {
@@ -124,19 +124,19 @@ export const visualOptions = {
   showBarsSizeName: {
     type: 'boolean',
     default: false,
-    group: 'labels',
+    group: 'barsSizelabels',
   },
   customBarsSizeName: {
     type: 'text',
     default: '',
-    group: 'labels',
+    group: 'barsSizelabels',
     disabled: {
       showBarsSizeName: false,
     },
   },
   barsSizeNameLocation: {
     type: 'text',
-    group: 'labels',
+    group: 'barsSizelabels',
     disabled: {
       showBarsSizeName: false,
     },
@@ -158,31 +158,20 @@ export const visualOptions = {
   },
   barsSizeNameGap: {
     type: 'number',
-    group: 'labels',
+    group: 'barsSizelabels',
     disabled: {
       showBarsSizeName: false,
     },
     default: 35,
-  },
-  tooltipValueFormat: {
-    type: 'text',
-    group: 'labels',
-    default: 'standard',
-    options: visualOptionsNumberFormat.options,
-  },
-  units: {
-    type: 'text',
-    default: '',
-    group: 'labels',
-  },
+  },  
   showBarsSizeLabels: {
     type: 'boolean',
     default: true,
-    group: 'labels',
+    group: 'barsSizelabels',
   },
   barsSizeLabelsRotate: {
     type: 'number',
-    group: 'labels',
+    group: 'barsSizelabels',
     disabled: {
       showBarsSizeName: false,
     },
@@ -190,7 +179,7 @@ export const visualOptions = {
   },
   barsSizeLabelsFontSize: {
     type: 'number',
-    group: 'labels',
+    group: 'barsSizelabels',
     disabled: {
       showBarsSizeName: false,
     },
@@ -198,12 +187,28 @@ export const visualOptions = {
   },
   barsSizeLabelsFormat: {
     type: 'text',
-    group: 'labels',
+    group: 'barsSizelabels',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
     disabled: {
       showBarsSizeLabels: false,
     },
+  },
+  showTooltip: {
+    type: 'boolean',
+    default: true,
+    group: 'tooltip',
+  },
+  tooltipValueFormat: {
+    type: 'text',
+    group: 'tooltip',
+    default: 'standard',
+    options: visualOptionsNumberFormat.options,
+  },
+  units: {
+    type: 'text',
+    default: '',
+    group: 'tooltip',
   },
   colorScale: {
     type: 'colorScale',

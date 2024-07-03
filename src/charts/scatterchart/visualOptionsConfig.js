@@ -19,10 +19,10 @@ export function getVisualOptionsConfig(mapping) {
     ...visualOptions.yAxisFormat,
     ...yAxisFormat,
   };
-  customVisualOptions.tooltipValueFormat = {
-    ...visualOptions.tooltipValueFormat,
-    ...yAxisFormat,
-  };
+
+  if (mapping?.y?.mappedType) {
+    customVisualOptions.tooltipValueFormat.options = yAxisFormat.options;
+  }
   return getOptionsConfig(customVisualOptions);
 }
 

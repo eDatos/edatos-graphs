@@ -31,75 +31,7 @@ export const baseVisualOptions = {
     default: 30,
     group: 'artboard',
   },
-  showLegend: {
-    type: 'boolean',
-    default: true,
-    group: 'artboard',
-  },
-  legendWidth: {
-    type: 'number',
-    default: 900,
-    group: 'artboard',
-    disabled: {
-      showLegend: false,
-    },
-  },
-  legendOrient: {
-    type: 'text',
-    group: 'artboard',
-    options: [
-      {
-        label: 'vertical',
-        value: 'vertical',
-      },
-      {
-        label: 'horizontal',
-        value: 'horizontal',
-      },
-    ],
-    default: 'horizontal',
-    disabled: {
-      showLegend: false,
-    },
-  },
-  legendMarginRight: {
-    type: 'number',
-    default: 'auto',
-    group: 'artboard',
-    disabled: {
-      showLegend: false,
-    },
-  },
-  legendMarginBottom: {
-    type: 'number',
-    default: 10,
-    group: 'artboard',
-    disabled: {
-      showLegend: false,
-    },
-  },
-  legendTextSize: {
-    type: 'number',
-    default: 12,
-    group: 'artboard',
-    disabled: {
-      showLegend: false,
-    },
-  },
-  legendItemSize: {
-    type: 'number',
-    default: 100,
-    group: 'artboard',
-    disabled: {
-      showLegend: false,
-    },
-  },
   showToolbox: {
-    type: 'boolean',
-    default: true,
-    group: 'artboard',
-  },
-  showTooltip: {
     type: 'boolean',
     default: true,
     group: 'artboard',
@@ -119,9 +51,72 @@ export const baseVisualOptions = {
     ],
     default: 'svg',
   },
+  showLegend: {
+    type: 'boolean',
+    default: true,
+    group: 'legend',
+  },
+  legendWidth: {
+    type: 'number',
+    default: 900,
+    group: 'legend',
+    disabled: {
+      showLegend: false,
+    },
+  },
+  legendOrient: {
+    type: 'text',
+    group: 'legend',
+    options: [
+      {
+        label: 'vertical',
+        value: 'vertical',
+      },
+      {
+        label: 'horizontal',
+        value: 'horizontal',
+      },
+    ],
+    default: 'horizontal',
+    disabled: {
+      showLegend: false,
+    },
+  },
+  legendMarginRight: {
+    type: 'number',
+    default: 'auto',
+    group: 'legend',
+    disabled: {
+      showLegend: false,
+    },
+  },
+  legendMarginBottom: {
+    type: 'number',
+    default: 10,
+    group: 'legend',
+    disabled: {
+      showLegend: false,
+    },
+  },
+  legendTextSize: {
+    type: 'number',
+    default: 12,
+    group: 'legend',
+    disabled: {
+      showLegend: false,
+    },
+  },
+  legendItemSize: {
+    type: 'number',
+    default: 100,
+    group: 'legend',
+    disabled: {
+      showLegend: false,
+    },
+  },  
   background: {
     type: 'color',
     default: white,
     group: 'colors',
-  },
+  },  
 };

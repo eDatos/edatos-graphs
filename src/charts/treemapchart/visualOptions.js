@@ -70,16 +70,21 @@ export const visualOptions = {
     default: 'original',
     options: visualOptionsDateFormat.options,
   },
+  showTooltip: {
+    type: 'boolean',
+    default: true,
+    group: 'tooltip',
+  },
   tooltipValueFormat: {
     type: 'text',
-    group: 'labels',
+    group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
   },
   units: {
     type: 'text',
     default: '',
-    group: 'labels',
+    group: 'tooltip',
   },
   colorScale: {
     type: 'colorScale',

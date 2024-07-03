@@ -86,7 +86,7 @@ export const visualOptions = {
       },
     ],
     default: 'value',
-  },
+  },  
   valuesFormat: {
     type: 'text',
     group: 'labels',
@@ -96,6 +96,11 @@ export const visualOptions = {
   units: {
     type: 'text',
     default: '',
+    group: 'labels',
+  },
+  showTooltipExtended: {
+    type: 'boolean',
+    default: true,
     group: 'labels',
   },
   colorScale: {
