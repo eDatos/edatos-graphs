@@ -305,7 +305,7 @@ function App() {
         <div className="col col-12">
           <div className="app-header">
             <span className="app-title">{t('global.appName')}</span>
-            <span className="app-description"> </span>
+            <span className="app-description">{t('global.appDescription')}</span>
           </div>
           <Tabs
             id="tab-menu"

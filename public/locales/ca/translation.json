@@ -1,6 +1,7 @@
 {
     "global": {
         "appName": "Les meves visualitzacions a mida",
+        "appDescription": "El sistema de visualitzacions a mida és una eina amb la qual pots crear de forma senzilla els diferents tipus de gràfics que posem a la teva disposició. forma interactiva. A més, en aquesta aplicació et donem l'opció de desar el teu projecte per a futures actualitzacions si així ho desitges.",
         "accepts": "Accepta",
         "download": "Descarregar",
         "save": "Guardar",
