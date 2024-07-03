@@ -1,6 +1,7 @@
 {
     "global": {
         "appName": "Mis visualizaciones a medida",
+        "appDescription": "El sistema de visualizaciones a medida es una herramienta con la que puedes crear de forma sencilla los diferentes tipos de gráficos que ponemos a tu disposición.Puedes utilizar estos gráficos para tus informes o noticias, tanto como una imagen estática como en tu página web, de forma interactiva. Además, en esta aplicación te damos la opción de guardar tu proyecto para futuras actualizaciones si así lo deseas.",
         "accepts": "Acepta",
         "download": "Descargar",
         "save": "Guardar",
@@ -318,5 +319,5 @@
         "correlations": "correlaciones",
         "proportions": "proporciones",
         "hierarchy": "jerarquía"
-    }
+    }    
 } 
