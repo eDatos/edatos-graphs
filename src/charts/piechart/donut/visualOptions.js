@@ -122,6 +122,11 @@ export const visualOptions = {
     default: '',
     group: 'labels',
   },
+  showTooltipExtended: {
+    type: 'boolean',
+    default: true,
+    group: 'labels',
+  },
   colorScale: {
     type: 'colorScale',
     domain: 'colorDomain',

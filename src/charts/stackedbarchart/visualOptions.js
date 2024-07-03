@@ -59,19 +59,19 @@ export const visualOptions = {
   showBarsName: {
     type: 'boolean',
     default: false,
-    group: 'labels',
+    group: 'barslabels',
   },
   customBarsName: {
     type: 'text',
     default: '',
-    group: 'labels',
+    group: 'barslabels',
     disabled: {
       showBarsName: false,
     },
   },
   barsNameLocation: {
     type: 'text',
-    group: 'labels',
+    group: 'barslabels',
     disabled: {
       showBarsName: false,
     },
@@ -93,7 +93,7 @@ export const visualOptions = {
   },
   barsNameGap: {
     type: 'number',
-    group: 'labels',
+    group: 'barslabels',
     disabled: {
       showBarsName: false,
     },
@@ -101,7 +101,7 @@ export const visualOptions = {
   },
   barsLabelsFormat: {
     type: 'text',
-    group: 'labels',
+    group: 'barslabels',
     default: 'original',
     options: [
       {
@@ -113,11 +113,11 @@ export const visualOptions = {
   showXaxisLabels: {
     type: 'boolean',
     default: true,
-    group: 'labels',
+    group: 'labelsx',
   },
   showXaxisLabelsRotate: {
     type: 'number',
-    group: 'labels',
+    group: 'labelsx',
     disabled: {
       showXaxisLabels: false,
     },
@@ -125,7 +125,7 @@ export const visualOptions = {
   },
   showXaxisLabelsFontSize: {
     type: 'number',
-    group: 'labels',
+    group: 'labelsx',
     disabled: {
       showXaxisLabels: false,
     },
@@ -134,11 +134,11 @@ export const visualOptions = {
   showBarsSizeName: {
     type: 'boolean',
     default: false,
-    group: 'labels',
+    group: 'barsSizelabels',
   },
   customBarsSizeName: {
     type: 'text',
-    group: 'labels',
+    group: 'barsSizelabels',
     default: '',
     disabled: {
       showBarsSizeName: false,
@@ -146,7 +146,7 @@ export const visualOptions = {
   },
   barsSizeNameLocation: {
     type: 'text',
-    group: 'labels',
+    group: 'barsSizelabels',
     disabled: {
       showBarsSizeName: false,
     },
@@ -168,7 +168,7 @@ export const visualOptions = {
   },
   barsSizeNameGap: {
     type: 'number',
-    group: 'labels',
+    group: 'barsSizelabels',
     disabled: {
       showBarsSizeName: false,
     },
@@ -176,7 +176,7 @@ export const visualOptions = {
   },
   barsSizeLabelsFormat: {
     type: 'text',
-    group: 'labels',
+    group: 'barsSizelabels',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
     disabled: {
@@ -186,11 +186,11 @@ export const visualOptions = {
   showYaxisLabels: {
     type: 'boolean',
     default: true,
-    group: 'labels',
+    group: 'labelsy',
   },
   showYaxisLabelsRotate: {
     type: 'number',
-    group: 'labels',
+    group: 'labelsy',
     disabled: {
       showYaxisLabels: false,
     },
@@ -198,22 +198,27 @@ export const visualOptions = {
   },
   showYaxisLabelsFontSize: {
     type: 'number',
-    group: 'labels',
+    group: 'labelsy',
     disabled: {
       showYaxisLabels: false,
     },
     default: 12,
   },
+  showTooltip: {
+    type: 'boolean',
+    default: true,
+    group: 'tooltip',
+  },
   tooltipValueFormat: {
     type: 'text',
-    group: 'labels',
+    group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
   },
   units: {
     type: 'text',
     default: '',
-    group: 'labels',
+    group: 'tooltip',
   },
   colorScale: {
     type: 'colorScale',

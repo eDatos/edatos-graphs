@@ -1,4 +1,4 @@
-import { visualOptionsNumberFormat } from '../../constants';
+import { defaultColor, visualOptionsNumberFormat } from '../../constants';
 import { baseVisualOptions } from '../baseVisualOptions';
 
 export const visualOptions = {
@@ -8,7 +8,6 @@ export const visualOptions = {
     default: false,
     group: 'chart',
   },
-
   dotsDiameter: {
     type: 'number',
     default: 2,
@@ -48,19 +47,19 @@ export const visualOptions = {
   showXaxisName: {
     type: 'boolean',
     default: false,
-    group: 'labels',
+    group: 'labelsx',
   },
   customXaxisName: {
     type: 'text',
     default: '',
-    group: 'labels',
+    group: 'labelsx',
     disabled: {
       showXaxisName: false,
     },
   },
   xAxisNamePosition: {
     type: 'text',
-    group: 'labels',
+    group: 'labelsx',
     disabled: {
       showXaxisName: false,
     },
@@ -82,7 +81,7 @@ export const visualOptions = {
   },
   xAxisNameGap: {
     type: 'number',
-    group: 'labels',
+    group: 'labelsx',
     disabled: {
       showXaxisName: false,
     },
@@ -91,11 +90,11 @@ export const visualOptions = {
   showXaxisLabels: {
     type: 'boolean',
     default: true,
-    group: 'labels',
+    group: 'labelsx',
   },
   showXaxisLabelsRotate: {
     type: 'number',
-    group: 'labels',
+    group: 'labelsx',
     disabled: {
       showXaxisLabels: false,
     },
@@ -103,7 +102,7 @@ export const visualOptions = {
   },
   showXaxisLabelsFontSize: {
     type: 'number',
-    group: 'labels',
+    group: 'labelsx',
     disabled: {
       showXaxisLabels: false,
     },
@@ -111,7 +110,7 @@ export const visualOptions = {
   },
   xAxisFormat: {
     type: 'text',
-    group: 'labels',
+    group: 'labelsx',
     default: 'original',
     options: [
       {
@@ -126,19 +125,19 @@ export const visualOptions = {
   showYaxisName: {
     type: 'boolean',
     default: false,
-    group: 'labels',
+    group: 'labelsy',
   },
   customYaxisName: {
     type: 'text',
     default: '',
-    group: 'labels',
+    group: 'labelsy',
     disabled: {
       showYaxisName: false,
     },
   },
   yAxisNamePosition: {
     type: 'text',
-    group: 'labels',
+    group: 'labelsy',
     disabled: {
       showYaxisName: false,
     },
@@ -160,7 +159,7 @@ export const visualOptions = {
   },
   yAxisNameGap: {
     type: 'number',
-    group: 'labels',
+    group: 'labelsy',
     disabled: {
       showYaxisName: false,
     },
@@ -169,11 +168,11 @@ export const visualOptions = {
   showYaxisLabels: {
     type: 'boolean',
     default: true,
-    group: 'labels',
+    group: 'labelsy',
   },
   showYaxisLabelsRotate: {
     type: 'number',
-    group: 'labels',
+    group: 'labelsy',
     disabled: {
       showYaxisLabels: false,
     },
@@ -181,7 +180,7 @@ export const visualOptions = {
   },
   showYaxisLabelsFontSize: {
     type: 'number',
-    group: 'labels',
+    group: 'labelsy',
     disabled: {
       showYaxisLabels: false,
     },
@@ -189,23 +188,28 @@ export const visualOptions = {
   },
   yAxisFormat: {
     type: 'text',
-    group: 'labels',
+    group: 'labelsy',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
     disabled: {
       showYaxisLabels: false,
     },
   },
+  showTooltip: {
+    type: 'boolean',
+    default: true,
+    group: 'tooltip',
+  },
   tooltipValueFormat: {
     type: 'text',
-    group: 'labels',
+    group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
   },
   units: {
     type: 'text',
     default: '',
-    group: 'labels',
+    group: 'tooltip',
   },
   colorScale: {
     type: 'colorScale',
@@ -213,7 +217,7 @@ export const visualOptions = {
     default: {
       scaleType: 'ordinal',
       interpolator: 'defaultPalette',
-      defaultColor: '#009BD7',
+      defaultColor: defaultColor,
     },
     group: 'colors',
   },
