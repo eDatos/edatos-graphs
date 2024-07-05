@@ -26,6 +26,8 @@ const CHART_OPTION_COMPONENTS = {
   boolean: ChartOptionBoolean,
 };
 
+const optionFocus = ['legend', 'colors', 'chart','artboard'];
+
 function getPartialMapping(mapping, dimension, repeatIndex) {
   const nv = get(mapping[dimension], `value[${repeatIndex}]`);
   return {
@@ -198,11 +200,10 @@ const ChartOptions = ({
     return getEnabledOptions(optionsConfig, visualOptions, mapping);
   }, [optionsConfig, visualOptions, mapping]);
 
-  // const enabledGroupsByName = useMemo(() => {
-  //   const enabledGroupsNames = Object.keys(optionsConfig).map(optionName => enabledOptions[optionName] ? optionsConfig[optionName].group : null).filter(x => !!x)
-  //   return mapValues(keyBy(enabledGroupsNames), x => true)
-  // }, [enabledOptions, optionsConfig])
-  // // #TODO we can use enabledGroupsByName to disable the group
+  const sortOptions = (array, sortArray) => {
+    return [...array]
+      .sort((a, b) => sortArray.indexOf(b[0]) - sortArray.indexOf(a[0]));
+  };
 
   const optionsDefinitionsByGroup = useMemo(() => {
     // update "collapseStatus" state
@@ -215,15 +216,17 @@ const ChartOptions = ({
       }
     }
     setCollapseStatus(groups);
-    return Object.keys(optionsConfig).reduce((acc, optionId) => {
-      const option = optionsConfig[optionId];
-      const group = option?.group || '';
-      if (!acc[group]) {
-        acc[group] = {};
-      }
-      acc[group][optionId] = option;
-      return acc;
-    }, {});
+    const array = Object.keys(optionsConfig).reduce((acc, optionId) => {
+        const option = optionsConfig[optionId];
+        const group = option?.group || '';
+        if (!acc[group]) {
+          acc[group] = {};
+        }
+        acc[group][optionId] = option;
+        return acc;
+      }, {}
+    );
+    return sortOptions(Object.entries(array), optionFocus);
   }, [optionsConfig]);
 
   const containerOptions = useMemo(() => {
@@ -240,7 +243,7 @@ const ChartOptions = ({
 
   return (
     <div className={[styles['chart-options']].join(' ')}>
-      {map(optionsDefinitionsByGroup, (options, groupName) => {
+      {optionsDefinitionsByGroup.map(([groupName, options]) => {
         return (
           <div
             key={groupName}
