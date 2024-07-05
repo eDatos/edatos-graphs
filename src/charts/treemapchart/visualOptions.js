@@ -7,7 +7,12 @@ import {
 import { baseVisualOptions } from '../baseVisualOptions';
 
 export const visualOptions = {
-  ...baseVisualOptions,
+  ...Object.fromEntries(
+    //Eliminamos el grupo de la leyenda al no ser una opción configurable
+    Object.entries(baseVisualOptions).filter(
+      ([,value]) => value.group !== 'legend'
+    )
+  ),
   gapColor: {
     type: 'color',
     default: white,
@@ -27,32 +32,6 @@ export const visualOptions = {
     type: 'number',
     default: 5,
     group: 'chart',
-  },
-  showLegend: {
-    type: 'boolean',
-    default: false,
-    group: 'artboard',
-    show: false,
-  },
-  legendWidth: {
-    type: 'boolean',
-    group: 'artboard',
-    show: false,
-  },
-  legendOrient: {
-    type: 'boolean',
-    group: 'artboard',
-    show: false,
-  },
-  legendMarginRight: {
-    type: 'boolean',
-    group: 'artboard',
-    show: false,
-  },
-  legendMarginTop: {
-    type: 'boolean',
-    group: 'artboard',
-    show: false,
   },
   showLabel: {
     type: 'boolean',
