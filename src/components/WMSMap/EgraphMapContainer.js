@@ -10,10 +10,21 @@ import styles from './WMSMap.module.scss';
 export default function EgraphMapContainer(props) {
   const styleMap = { width: '100%', height: '80vh' };
   const [bingKey, setBingKey] = useState(null);
-  const [accessToken, setAccesToken] = useState(null);
+  const [mapboxUrl, setMapBoxUrl] = useState(null);
+  const [center, setCenter] = useState(props.center);
+  const [zoom, setZoom] = useState(props.zoom);
+  const [applicationConfigLoad, setApplicationConfigLoad] = useState(false);
+
   applicationConfig(props.baseUrl).then((applicationConfigJson) => {
     setBingKey(applicationConfigJson['maps']['bing_key']);
-    setAccesToken(applicationConfigJson['maps']['mapbox_token']);
+    setMapBoxUrl(applicationConfigJson['maps']['mapbox_url']);
+    if (!center) {
+      setCenter(applicationConfigJson['maps']['center']);
+    }
+    if (!zoom) {
+      setZoom(applicationConfigJson['maps']['zoom']);
+    }
+    setApplicationConfigLoad(true);
   });
 
   const selectedStyles = useCallback((layer) => {
@@ -32,34 +43,40 @@ export default function EgraphMapContainer(props) {
   }, []);
 
   return (
-    <MapContainer
-      center={props.center}
-      zoom={props.zoom}
-      scrollWheelZoom={false}
-      style={styleMap}
-      className={styles['map-border']}
-      ref={props.setMap}
-    >
-      {bingKey && accessToken && (
+    applicationConfigLoad && (
+      <MapContainer
+        center={center}
+        zoom={zoom}
+        scrollWheelZoom={false}
+        style={styleMap}
+        className={styles['map-border']}
+        ref={props.setMap}
+      >
         <LayersControl position="topright">
-          <LayersControl.BaseLayer name="ISTAC" checked>
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://www.mapbox.com/feedback/">Mapbox</a>'
-              url={`https://api.mapbox.com/styles/v1/istac/cjucn2je5190f1ft71y0c829a/tiles/{z}/{x}/{y}?access_token=${accessToken}`}
-            />
-          </LayersControl.BaseLayer>
-          <LayersControl.BaseLayer name="Bing Maps Aerial With Labels">
-            <BingTileLayer
-              bingMapsKey={bingKey}
-              imagerySet="AerialWithLabels"
-            />
-          </LayersControl.BaseLayer>
-          <LayersControl.BaseLayer name="Bing Maps Aerial">
-            <BingTileLayer bingMapsKey={bingKey} imagerySet="Aerial" />
-          </LayersControl.BaseLayer>
-          <LayersControl.BaseLayer name="Bing Maps Roads">
-            <BingTileLayer bingMapsKey={bingKey} imagerySet="Road" />
-          </LayersControl.BaseLayer>
+          {mapboxUrl && (
+            <LayersControl.BaseLayer name="EDATOS" checked>
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://www.mapbox.com/feedback/">Mapbox</a>'
+                url={mapboxUrl}
+              />
+            </LayersControl.BaseLayer>
+          )}
+          {bingKey && (
+            <>
+              <LayersControl.BaseLayer name="Bing Maps Aerial With Labels">
+                <BingTileLayer
+                  bingMapsKey={bingKey}
+                  imagerySet="AerialWithLabels"
+                />
+              </LayersControl.BaseLayer>
+              <LayersControl.BaseLayer name="Bing Maps Aerial">
+                <BingTileLayer bingMapsKey={bingKey} imagerySet="Aerial" />
+              </LayersControl.BaseLayer>
+              <LayersControl.BaseLayer name="Bing Maps Roads">
+                <BingTileLayer bingMapsKey={bingKey} imagerySet="Road" />
+              </LayersControl.BaseLayer>
+            </>
+          )}
           <LayersControl.BaseLayer name="Positron (Light)">
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
@@ -92,22 +109,22 @@ export default function EgraphMapContainer(props) {
             })
           )}
         </LayersControl>
-      )}
-      {props.sources.map((source) =>
-        source.selectedLayers.map((layer) => {
-          return selectedStyles(layer).map((style) => (
-            <React.Fragment key={layerName(layer, style)}>
-              {layer.showLegend && (
-                <Legend
-                  legendURL={style.LegendURL}
-                  layer={layerName(layer, style)}
-                  layerTitle={layerName(layer, style)}
-                />
-              )}
-            </React.Fragment>
-          ));
-        })
-      )}
-    </MapContainer>
+        {props.sources.map((source) =>
+          source.selectedLayers.map((layer) => {
+            return selectedStyles(layer).map((style) => (
+              <React.Fragment key={layerName(layer, style)}>
+                {layer.showLegend && (
+                  <Legend
+                    legendURL={style.LegendURL}
+                    layer={layerName(layer, style)}
+                    layerTitle={layerName(layer, style)}
+                  />
+                )}
+              </React.Fragment>
+            ));
+          })
+        )}
+      </MapContainer>
+    )
   );
 }
