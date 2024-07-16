@@ -7,11 +7,10 @@
     "statisticalOperationsPathKey": "metamac.statistical_operations.rest.internal",
     "faviconPathKey": "metamac.app.style.favicon.url"
   },
-  "municipalities": {
-    "endpoint": "https://datos.canarias.es/catalogos/estadisticas/dataset/6dd8baf4-14f4-43a3-88b2-984d034c965c/resource/74237bc8-1e5f-43f1-9f6b-24ef9e073903/download/municipios_desde2007_20170101.csv"
-  },
   "maps": {
-    "bing_key": "ApzG8h1sQqyEW-bdAWhNQ8g3ZVfxX_q5HsepUWacOJXXQmCYzkm2Np3ydSQrqrtO",
-    "mapbox_token": "pk.eyJ1IjoiaXN0YWMiLCJhIjoiY2p1Y21zenNiMG53MDQ0cGk1OGtzczl1MCJ9.Yp_T9Jf8_bHI2j0FsGXiKw"
+    "bing_key": "ApzG8h1sQqyEW-bdAWhNQ8g3ZVfxX_q5HsepUWacOJXXQmCYzkm2Np3ydSQrqrtO",    
+    "mapbox_url": "https://api.mapbox.com/styles/v1/istac/cjucn2je5190f1ft71y0c829a/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaXN0YWMiLCJhIjoiY2p1Y21zenNiMG53MDQ0cGk1OGtzczl1MCJ9.Yp_T9Jf8_bHI2j0FsGXiKw",
+    "center": [28.2, -16.5],
+    "zoom": 8
   }
 }
