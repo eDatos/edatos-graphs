@@ -23,7 +23,7 @@ export default function StackSelector({
   return (
     <div className={styles.horizontalSeparator}>
       <span className={styles.labelSeparator}>{title}</span>
-      <div className={styles.inputSeparator}>
+      <div className={styles.bigInputSeparator}>
         <Dropdown className="raw-dropdown">
           <Dropdown.Toggle
             as={CustomToggle}
