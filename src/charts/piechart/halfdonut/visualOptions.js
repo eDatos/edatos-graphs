@@ -17,15 +17,7 @@ export const visualOptions = {
     type: 'number',
     default: 15,
     group: 'artboard',
-  },
-  legendMarginTop: {
-    type: 'number',
-    default: 450,
-    group: 'artboard',
-    disabled: {
-      showLegend: false,
-    },
-  },
+  },  
   // chart
   borderWidth: {
     type: 'number',

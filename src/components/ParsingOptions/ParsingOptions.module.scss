@@ -126,3 +126,28 @@
     color: $color-blue-dark-100;
   }
 }
+
+.smallInputSeparator input {  
+  gap: 5px;
+  min-width: 95px;
+  max-width: 95px;
+  justify-content: space-between;
+  background: $color-black-0;
+  font-size: $size-12;
+  font-weight: 400;
+  i {
+    color: $color-blue-dark-100;
+  }
+}
+
+.bigInputSeparator button {
+  gap: 5px;
+  min-width: 200px;  
+  justify-content: space-between;
+  background: $color-black-0;
+  font-size: $size-12;
+  font-weight: 400;
+  i {
+    color: $color-blue-dark-100;
+  }
+}

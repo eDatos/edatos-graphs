@@ -23,7 +23,7 @@
   position: -webkit-sticky; /* Safari */
   position: sticky;
   z-index: $zindex-sticky;
-  top: calc(23px + var(--header-height));
+  top: 0px;
 
   button.nav-link {
     border: transparent;

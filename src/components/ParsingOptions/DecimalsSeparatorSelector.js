@@ -22,7 +22,7 @@ export default function DecimalsSeparatorSelector({
   return (
     <div className={styles.horizontalSeparator}>
       <span className={styles.labelSeparator}>{title}</span>
-      <div className={styles.inputSeparator}>
+      <div className={styles.smallInputSeparator}>
         <input
           type="text"
           className="form-control d-inline-block"
