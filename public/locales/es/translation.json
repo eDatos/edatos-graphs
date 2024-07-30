@@ -62,7 +62,8 @@
                     "rows": "filas más",
                     "remaining": "El resto de",
                     "look": "revise",
-                    "fine": "bien"
+                    "fine": "bien",
+                    "wmsServerError": "No es posible cargar los datos WMS de la URL indicada"
                 },
                 "options": {
                     "1": "OPCIÓN 1",

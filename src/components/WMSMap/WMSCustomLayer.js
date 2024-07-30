@@ -19,6 +19,7 @@ const WMSCustomLayer = ({ layer, url, style, identify }) => {
         this._map.openPopup(info, latlng, {
           maxWidth: '1600',
           keepInView: true,
+          autoPan: true,
         });
       }
     },

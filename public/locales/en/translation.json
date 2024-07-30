@@ -62,7 +62,8 @@
                     "rows": "more rows",
                     "remaining": "The remaining",
                     "look": "look",
-                    "fine": "fine"
+                    "fine": "fine",
+                    "wmsServerError": "It's not possible to load WMS data from the indicated URL"
                 },
                 "options": {
                     "1": "OPTION 1",

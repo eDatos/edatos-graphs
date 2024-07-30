@@ -40,6 +40,7 @@ import {
 import favicon from './hooks/favicon';
 import { Tab, Tabs } from 'react-bootstrap';
 import classNames from 'classnames';
+import { applicationConfig } from './components/ApplicationConfig/ApplicationConfig';
 
 //Custom colors
 colorPresets.ordinal = {
@@ -66,6 +67,11 @@ function App() {
   const { t, i18n } = useTranslation();
   const [activeTab, setActiveTab] = useState('graphs');
   const [activeSubTab, setActiveSubTab] = useState('eDatos');
+  const [enableMaps, setEnableMaps] = useState(false);
+
+  applicationConfig().then((applicationConfigJson) => {
+    setEnableMaps(applicationConfigJson['maps']['enable'] ?? true);
+  });
 
   const handleTabChange = (tab) => {
     resetDataLoader();
@@ -623,68 +629,70 @@ function App() {
                 </Tabs>
               }
             </Tab>
-            <Tab
-              eventKey="maps"
-              title={t('global.section.loaddata.tabs.createMaps.title')}
-            >
-              {
-                <div className="app-sections">
-                  {logged && (
-                    <>
-                      {showWMSMap() && (
+            { enableMaps && (
+              <Tab
+                eventKey="maps"
+                title={t('global.section.loaddata.tabs.createMaps.title')}
+              >
+                {
+                  <div className="app-sections">
+                    {logged && (
+                      <>
+                        {showWMSMap() && (
+                          <Section
+                            title={t('global.section.loadLayers.title')}
+                            number={1}
+                          >
+                            <WMSMap
+                              sources={dataLoader.dataSource?.sources}
+                              setMap={setMap}
+                            />
+                          </Section>
+                        )}
                         <Section
-                          title={t('global.section.loadLayers.title')}
+                          title={
+                            !showWMSMap()
+                              ? t('global.section.loadLayers.title')
+                              : ''
+                          }
                           number={1}
+                          loading={loading}
                         >
-                          <WMSMap
-                            sources={dataLoader.dataSource?.sources}
-                            setMap={setMap}
+                          <DataLoader
+                            {...dataLoader}
+                            initialState="WMS"
+                            hydrateFromProject={importProject}
                           />
                         </Section>
-                      )}
-                      <Section
-                        title={
-                          !showWMSMap()
-                            ? t('global.section.loadLayers.title')
-                            : ''
-                        }
-                        number={1}
-                        loading={loading}
-                      >
-                        <DataLoader
-                          {...dataLoader}
-                          initialState="WMS"
-                          hydrateFromProject={importProject}
-                        />
-                      </Section>
 
-                      {showExportOptions() && (
-                        <Section
-                          title={t('global.section.export.map.title')}
-                          number={2}
-                        >
-                          <Exporter
-                            rawViz={rawViz}
-                            exportProject={exportProject}
-                            userData={dataLoader.userData}
-                            dataSource={dataLoader.dataSource}
-                            chartIndex={chartIndex}
-                            mapping={mapping}
-                            visualOptions={visualOptions}
-                            dataTypes={data?.dataTypes}
-                            dimensions={currentChart.dimensions}
-                            locale={i18n.language}
-                            decimalsSeparator={dataLoader.decimalsSeparator}
-                            thousandsSeparator={dataLoader.thousandsSeparator}
-                            map={map}
-                          />
-                        </Section>
-                      )}
-                    </>
-                  )}
-                </div>
-              }
-            </Tab>
+                        {showExportOptions() && (
+                          <Section
+                            title={t('global.section.export.map.title')}
+                            number={2}
+                          >
+                            <Exporter
+                              rawViz={rawViz}
+                              exportProject={exportProject}
+                              userData={dataLoader.userData}
+                              dataSource={dataLoader.dataSource}
+                              chartIndex={chartIndex}
+                              mapping={mapping}
+                              visualOptions={visualOptions}
+                              dataTypes={data?.dataTypes}
+                              dimensions={currentChart.dimensions}
+                              locale={i18n.language}
+                              decimalsSeparator={dataLoader.decimalsSeparator}
+                              thousandsSeparator={dataLoader.thousandsSeparator}
+                              map={map}
+                            />
+                          </Section>
+                        )}
+                      </>
+                    )}
+                  </div>
+                }
+              </Tab>
+            )}
             {/*<Tab eventKey="widgets" title="Crear Widgets">
                             //TODO nueva funcionalidad (en siguiente fase)
                         </Tab>*/}

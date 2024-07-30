@@ -7,6 +7,7 @@ import axios from 'axios';
 import LayersOptionCard from '../../LayersOptionCard/LayersOptionCard';
 import { ResetButton } from './../../ResetButton';
 import styles from './../DataLoader.module.scss';
+import WarningMessage from '../../WarningMessage';
 
 export default class WMSFetch extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class WMSFetch extends React.Component {
       loading: false,
       sources: [],
       type: 'wms',
+      error: undefined
     };
   }
 
@@ -127,12 +129,13 @@ export default class WMSFetch extends React.Component {
             });
             return [...acc, entry];
           }, []);
-        this.setState({ sources: [...this.state.sources, source] });
+        this.setState({ url: '', sources: [...this.state.sources, source], error: undefined });
         this.props.setDataSource({
           type: this.state.type,
           sources: this.state.sources,
         });
       })
+      .catch(() => this.setState({ error: { variant: 'danger', message: 'global.section.loaddata.errors.wmsServerError' }}))
       .finally(() => this.setState({ loading: false }));
   };
 
@@ -157,17 +160,20 @@ export default class WMSFetch extends React.Component {
                   className={classNames('form-control', styles['borderBox'])}
                   value={this.state.url}
                   onChange={(event) => {
-                    this.setState({ url: event.target.value });
+                    this.setState({ url: event.target.value, error: undefined });
                   }}
-                />
+                />                
               </Form.Group>
+              {this.state.error && (
+                  <WarningMessage variant={this.state.error.variant} message={t(this.state.error.message)} />
+              )}
               <div className="general-buttons row">
                 <button
                   className="text-icon-button btn-thin-first"
                   disabled={!this.state.url || this.state.loading}
                   type="submit"
                 >
-                  <i className="fa-thin fa-cloud-arrow-up"></i>
+                  <i className={'fa-thin fa-cloud-arrow-up ' + (this.state.loading ? 'fa-spin' : '')}></i>                  
                   <span>
                     {this.state.sources.length > 0
                       ? t(

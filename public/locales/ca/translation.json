@@ -62,7 +62,8 @@
                     "rows": "files més",
                     "remaining": "La resta de",
                     "look": "reviseu",
-                    "fine": "bé"
+                    "fine": "bé",
+                    "wmsServerError": "No es poden carregar les dades WMS de la URL indicada"
                 },
                 "options": {
                     "1": "OPCIÓ 1",
