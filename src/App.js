@@ -311,7 +311,9 @@ function App() {
         <div className="col col-12">
           <div className="app-header">
             <span className="app-title">{t('global.appName')}</span>
-            <span className="app-description">{t('global.appDescription')}</span>
+            <span className="app-description">
+              {t('global.appDescription')}
+            </span>
           </div>
           <Tabs
             id="tab-menu"
@@ -629,7 +631,7 @@ function App() {
                 </Tabs>
               }
             </Tab>
-            { enableMaps && (
+            {enableMaps && (
               <Tab
                 eventKey="maps"
                 title={t('global.section.loaddata.tabs.createMaps.title')}

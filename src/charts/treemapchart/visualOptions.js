@@ -10,7 +10,7 @@ export const visualOptions = {
   ...Object.fromEntries(
     //Eliminamos el grupo de la leyenda al no ser una opción configurable
     Object.entries(baseVisualOptions).filter(
-      ([,value]) => value.group !== 'legend'
+      ([, value]) => value.group !== 'legend'
     )
   ),
   gapColor: {

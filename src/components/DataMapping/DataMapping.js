@@ -66,7 +66,7 @@ function handleReplaceLocalMapping(
     value: moveFn(prevToMapping.value ?? [], toIndex, removedItem.value),
   };
 
-  const dimension = dimensions.filter(d => d.id === toDimension)[0];
+  const dimension = dimensions.filter((d) => d.id === toDimension)[0];
   if (dimension?.aggregation) {
     let newAggregation;
     if (removedItem.aggregation) {

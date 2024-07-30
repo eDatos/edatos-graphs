@@ -41,7 +41,7 @@ export const visualOptions = {
       },
     ],
     default: 'name',
-  },  
+  },
   // labels
   showBarsName: {
     type: 'boolean',
@@ -163,7 +163,7 @@ export const visualOptions = {
       showBarsSizeName: false,
     },
     default: 35,
-  },  
+  },
   showBarsSizeLabels: {
     type: 'boolean',
     default: true,

@@ -2,7 +2,7 @@ import { defaultColor, visualOptionsNumberFormat } from '../../constants';
 import { baseVisualOptions } from '../baseVisualOptions';
 
 export const visualOptions = {
-  ...baseVisualOptions,  
+  ...baseVisualOptions,
   symbolSize: {
     type: 'number',
     default: 10,
@@ -177,7 +177,7 @@ export const visualOptions = {
   showTooltip: {
     type: 'boolean',
     group: 'tooltip',
-    default: true,    
+    default: true,
   },
   tooltipValueFormat: {
     type: 'text',

@@ -17,7 +17,7 @@ export const visualOptions = {
     type: 'number',
     default: 15,
     group: 'artboard',
-  },  
+  },
   // chart
   borderWidth: {
     type: 'number',
