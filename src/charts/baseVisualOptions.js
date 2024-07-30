@@ -113,10 +113,10 @@ export const baseVisualOptions = {
     disabled: {
       showLegend: false,
     },
-  },  
+  },
   background: {
     type: 'color',
     default: white,
     group: 'colors',
-  },  
+  },
 };

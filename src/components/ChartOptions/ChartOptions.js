@@ -26,7 +26,7 @@ const CHART_OPTION_COMPONENTS = {
   boolean: ChartOptionBoolean,
 };
 
-const optionFocus = ['legend', 'colors', 'chart','artboard'];
+const optionFocus = ['legend', 'colors', 'chart', 'artboard'];
 
 function getPartialMapping(mapping, dimension, repeatIndex) {
   const nv = get(mapping[dimension], `value[${repeatIndex}]`);
@@ -201,8 +201,9 @@ const ChartOptions = ({
   }, [optionsConfig, visualOptions, mapping]);
 
   const sortOptions = (array, sortArray) => {
-    return [...array]
-      .sort((a, b) => sortArray.indexOf(b[0]) - sortArray.indexOf(a[0]));
+    return [...array].sort(
+      (a, b) => sortArray.indexOf(b[0]) - sortArray.indexOf(a[0])
+    );
   };
 
   const optionsDefinitionsByGroup = useMemo(() => {
@@ -217,15 +218,14 @@ const ChartOptions = ({
     }
     setCollapseStatus(groups);
     const array = Object.keys(optionsConfig).reduce((acc, optionId) => {
-        const option = optionsConfig[optionId];
-        const group = option?.group || '';
-        if (!acc[group]) {
-          acc[group] = {};
-        }
-        acc[group][optionId] = option;
-        return acc;
-      }, {}
-    );
+      const option = optionsConfig[optionId];
+      const group = option?.group || '';
+      if (!acc[group]) {
+        acc[group] = {};
+      }
+      acc[group][optionId] = option;
+      return acc;
+    }, {});
     return sortOptions(Object.entries(array), optionFocus);
   }, [optionsConfig]);
 

@@ -86,7 +86,7 @@ export const visualOptions = {
       },
     ],
     default: 'value',
-  },  
+  },
   valuesFormat: {
     type: 'text',
     group: 'labels',
