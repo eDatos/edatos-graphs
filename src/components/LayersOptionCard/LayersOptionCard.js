@@ -233,7 +233,8 @@ function LayersOptionCard({
                     )
                   ),
                 []
-              );
+              )
+              .sort((a, b) => a.styleTitle.localeCompare(b.styleTitle));
             return (
               <React.Fragment key={index}>
                 {options.length > 0 && (
