@@ -7,9 +7,7 @@ export function colorDomain(data, mapping, visualOptions) {
       .filter((value, index, self) => self.indexOf(value) === index);
     mapping.bars.value.forEach((bar) => {
       stacks.forEach((stack) => {
-        domain.push(
-          visualOptions.groupSeriesInStack ? stack : `${bar} - ${stack}`
-        );
+        domain.push(stack);
       });
     });
   } else if (data && mapping.bars) {
