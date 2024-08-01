@@ -204,11 +204,7 @@ const getSeries = (sortedMapData, bars, visualOptions) => {
       .map((item) => item.series)
       .filter((value, index, self) => self.indexOf(value) === index);
     myStacks.forEach((stack) => {
-      const name = stack
-        ? visualOptions.groupSeriesInStack
-          ? stack
-          : `${bar} - ${stack}`
-        : bar;
+      const name = stack ? stack : bar;
       let serie = {
         name: name,
         type: 'bar',
