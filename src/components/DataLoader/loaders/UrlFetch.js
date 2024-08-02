@@ -55,12 +55,9 @@ export default function UrlFetch({
 
   return (
     <>
-      <div className={`d-flex ${styles['options-section']}`}>
-        <span className={styles['options-section-number']}>
-          {t('global.section.loaddata.options.3')}
-        </span>
+      <div className={`d-flex ${styles['options-section']}`}>        
         <span className={styles['options-section-text']}>
-          {t('global.section.loaddata.options.label3')}
+          {t('global.section.loaddata.url.message')}
         </span>
       </div>
       <form

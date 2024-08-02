@@ -14,7 +14,8 @@
                         "title": "Crear gràfics",
                         "fromEdatos": "Des del banc de dades",
                         "fromFiles": "Des dels teus fitxers",
-                        "fromProjects": "Des dels teus projectes"
+                        "fromProjects": "Des dels teus projectes",
+                        "fromUrl": "Des d'URL"
                     },
                     "createMaps": {
                         "title": "Crear mapes"
@@ -30,7 +31,7 @@
                     "name": "Provar exemples de dades"
                 },
                 "url": {
-                    "message": "Introduïu una adreça web (URL) que apunti a les dades (per exemple, un fitxer públic de Dropbox, una API pública, ...). Assegureu-vos que el servidor té CORS habilitat.",
+                    "message": "Introdueix una adreça web (URL) que apunta a les dades (per exemple, un fitxer Dropbox públic, una API pública, ...). Assegureu-vos que el servidor té CORS activat.",
                     "clearFieldsButton": "Esborrar camps"
                 },
                 "project": {
@@ -69,9 +70,7 @@
                     "1": "OPCIÓ 1",
                     "label1": "Copia i enganxa les teves dades d'altres aplicacions o llocs web. Podeu utilitzar dades tabulars (TSV, CSV, DSV) o JSON.",
                     "2": "OPCIÓ 2",
-                    "label2": "Pot carregar dades tabulars (TSV, CSV, DSV) o JSON.",
-                    "3": "OPCIÓ 3",
-                    "label3": "Introdueix una adreça web (URL) que apunta a les dades (per exemple, un fitxer Dropbox públic, una API pública, ...).\nAssegureu-vos que el servidor té CORS activat."
+                    "label2": "Pot carregar dades tabulars (TSV, CSV, DSV) o JSON."                                        
                 },
                 "loadButton": "Carregar dades",
                 "loadingButton": "Carregant dades"                

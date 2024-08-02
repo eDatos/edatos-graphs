@@ -99,12 +99,7 @@ function DataLoader({
             setUserInput(rawInput, { type: 'upload' })
           }
           setLoadingError={setLoadingError}
-        />,
-        <UrlFetch
-          userInput={userInput}
-          setUserInput={(rawInput, source) => setUserInput(rawInput, source)}
-          setLoadingError={setLoadingError}
-        />,
+        />,        
       ],
       allowedForReplace: true,
     },
@@ -117,6 +112,17 @@ function DataLoader({
         />
       ),
       disabled: true,
+      allowedForReplace: true,
+    },
+    {
+      id: 'url',
+      loader: (
+        <UrlFetch
+          userInput={userInput}
+          setUserInput={(rawInput, source) => setUserInput(rawInput, source)}
+          setLoadingError={setLoadingError}
+        />
+      ),
       allowedForReplace: true,
     },
     {
