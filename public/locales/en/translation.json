@@ -14,7 +14,8 @@
                         "title": "Create graphs",
                         "fromEdatos": "From your data bank",
                         "fromFiles": "From your files",
-                        "fromProjects": "From your projects"
+                        "fromProjects": "From your projects",
+                        "fromUrl": "From URL"
                     },
                     "createMaps": {
                         "title": "Create maps"
@@ -69,9 +70,7 @@
                     "1": "OPTION 1",
                     "label1": "Copy and paste your data here.",
                     "2": "OPTION 2",
-                    "label2": "Puede cargar datos tabulares (TSV, CSV, DSV) o JSON.",
-                    "3": "OPTION 3",
-                    "label3": "Introduzca una dirección web (URL) que apunte a los datos (por ejemplo, un archivo público de Dropbox, una API pública, ...).\nPor favor, asegúrese de que el servidor tiene CORS habilitado."
+                    "label2": "Load tabular data (TSV, CSV, DSV) or JSON."                    
                 },
                 "loadButton": "Load data",
                 "loadingButton": "Loading data"                
