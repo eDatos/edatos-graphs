@@ -14,27 +14,25 @@ export default class WMSFetch extends React.Component {
     super(props);
     this.state = {
       url: '',
-      loading: false,
-      sources: [],
+      loading: false,      
       type: 'wms',
       error: undefined,
     };
-  }
+  }  
 
   removeWMS = (index) => {
-    const newSources = [...this.state.sources];
+    const newSources = [...this.props.sources];
     newSources.splice(index, 1);
     this.updateSources(newSources);
   };
 
   setSelectedLayers = (layers, index) => {
-    const sources = [...this.state.sources];
+    const sources = [...this.props.sources];
     sources[index].selectedLayers = layers;
     this.updateSources(sources);
   };
 
-  updateSources(sources) {
-    this.setState({ sources: sources });
+  updateSources(sources) {    
     this.props.setDataSource({
       type: this.state.type,
       sources: sources,
@@ -129,15 +127,7 @@ export default class WMSFetch extends React.Component {
             });
             return [...acc, entry];
           }, []);
-        this.setState({
-          url: '',
-          sources: [...this.state.sources, source],
-          error: undefined,
-        });
-        this.props.setDataSource({
-          type: this.state.type,
-          sources: this.state.sources,
-        });
+        this.updateSources([...this.props?.sources ?? [], source]);        
       })
       .catch(() =>
         this.setState({
@@ -160,7 +150,7 @@ export default class WMSFetch extends React.Component {
               className={classNames(
                 styles['form'],
                 'd-flex flex-column py-top-20',
-                this.state.sources.length > 0 ? styles['layer-loaded'] : ''
+                this.props?.sources?.length > 0 ? styles['layer-loaded'] : ''
               )}
             >
               <Form.Group>
@@ -197,7 +187,7 @@ export default class WMSFetch extends React.Component {
                     }
                   ></i>
                   <span>
-                    {this.state.sources.length > 0
+                    {this.props?.sources?.length > 0
                       ? t(
                           'global.section.loadLayers.addWmsButton'
                         ).toUpperCase()
@@ -206,10 +196,10 @@ export default class WMSFetch extends React.Component {
                         ).toUpperCase()}
                   </span>
                 </button>
-                {this.state.sources.length > 0 && <ResetButton />}
+                {this.props?.sources?.length > 0 && <ResetButton />}
               </div>
             </Form>
-            {this.state.sources.map((source, index) => (
+            {this.props?.sources?.map((source, index) => (
               <LayersOptionCard
                 key={index}
                 index={index}

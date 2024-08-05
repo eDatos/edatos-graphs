@@ -411,8 +411,10 @@ function App() {
             id="tab-menu"
             activeKey={activeTab}
             onSelect={(key) => {
-              setActiveTab(key);
-              resetDataLoader();
+              if (activeTab !== key) {
+                setActiveTab(key);
+                resetDataLoader();
+              }
             }}
             className="subsection-tab"
           >
@@ -447,6 +449,23 @@ function App() {
                     </div>                    
                   </Tab>
                   <Tab
+                    eventKey="url"
+                    title={t(
+                      'global.section.loaddata.tabs.createGraphs.fromUrl'
+                    )}
+                  >
+                    <div className="app-sections">
+                      {logged && (                        
+                        <>
+                          { loadOptions("url") }
+                          { chartSelector }
+                          { chartConfigurator }                      
+                          { exportOptions }
+                        </>
+                      )}
+                      </div>
+                  </Tab>
+                  <Tab
                     eventKey="files"
                     title={t(
                       'global.section.loaddata.tabs.createGraphs.fromFiles'
@@ -479,24 +498,7 @@ function App() {
                         </>
                       )}
                     </div>                    
-                  </Tab>
-                  <Tab
-                    eventKey="url"
-                    title={t(
-                      'global.section.loaddata.tabs.createGraphs.fromUrl'
-                    )}
-                  >
-                    <div className="app-sections">
-                      {logged && (                        
-                        <>
-                          { loadOptions("url") }
-                          { chartSelector }
-                          { chartConfigurator }                      
-                          { exportOptions }
-                        </>
-                      )}
-                      </div>
-                  </Tab>
+                  </Tab>                  
                 </Tabs>
               }
             </Tab>
