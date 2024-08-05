@@ -127,7 +127,7 @@ function DataLoader({
     },
     {
       id: 'WMS',
-      loader: <WMSFetch setDataSource={setDataSource} />,
+      loader: <WMSFetch setDataSource={setDataSource} sources={dataSource?.sources}/>,
       allowedForReplace: false,
     },
   ];
