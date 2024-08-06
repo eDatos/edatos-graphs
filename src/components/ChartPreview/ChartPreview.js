@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import useDebounce from '../../hooks/useDebounce';
 import WarningMessage from '../WarningMessage';
 import ReactEcharts from 'echarts-for-react';
@@ -18,7 +18,8 @@ const ChartPreview = ({
   setRawViz,
 }) => {
   const domRef = useRef(null);
-  const vizOptionsDebounced = useDebounce(visualOptions, 200);
+  const vizOptionsDebounced = useDebounce(visualOptions, 300);
+  const [options, setOptions] = useState({});
   const { t, i18n } = useTranslation(['translation', 'dataloader']);
   echarts.registerLocale('es', LangES);
   echarts.registerLocale('ca', LangESCa);
@@ -102,29 +103,29 @@ const ChartPreview = ({
         return;
       }
     }
+    setRawViz(domRef.current.getEchartsInstance());
   }, [setError, vizOptionsDebounced, setRawViz, chart, mapping, t]);
-
-  var options = {};
-  try {
-    options =
-      error === null
-        ? chart.getChartOptions(
-            visualOptions,
-            data,
-            mapping,
-            chart.dataTypes,
-            chart.dimensions,
-            i18n.language
-          )
-        : {};
-    if (domRef && domRef.current && !error) {
-      domRef.current.getEchartsInstance().setOption(options, true);
-      setRawViz(domRef.current?.getEchartsInstance());
+  
+  useEffect(() => {
+    try {        
+      setOptions( 
+        error === null
+          ? chart.getChartOptions(
+              vizOptionsDebounced,
+              data,
+              mapping,
+              chart.dataTypes,
+              chart.dimensions,
+              i18n.language
+            )
+          : {});
+    } catch (e) {
+      setError({ variant: 'danger', message: 'Chart error. ' + e.message });
+      setRawViz(null);
     }
-  } catch (e) {
-    setError({ variant: 'danger', message: 'Chart error. ' + e.message });
-    setRawViz(null);
-  }
+  
+  }, [vizOptionsDebounced, chart, data, error, i18n.language, mapping, setError, setRawViz]);  
+  
   return (
     <>
       <div

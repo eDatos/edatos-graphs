@@ -118,7 +118,6 @@ function App() {
     return getDefaultOptionsValues(options);
   });
   const [rawViz, setRawViz] = useState(null);
-  const [mappingLoading, setMappingLoading] = useState(false);
   const dataMappingRef = useRef(null);
 
   const columnNames = useMemo(() => {
@@ -340,7 +339,7 @@ function App() {
         <Section
           title={t('global.section.mapping.title')}
           number={3}
-          loading={mappingLoading}
+          loading={loading}
         >
           <DataMapping
             ref={dataMappingRef}
@@ -363,7 +362,6 @@ function App() {
           visualOptions={visualOptions}
           setVisualOptions={setVisualOptions}
           setRawViz={setRawViz}
-          setMappingLoading={setMappingLoading}
         />
       </Section>
     </>
@@ -438,7 +436,7 @@ function App() {
                     )}
                   >                    
                     <div className="app-sections">
-                      {logged && (
+                      {logged && activeSubTab === 'eDatos' && (
                         <>                          
                           { loadOptions("eDatos") }
                           { chartSelector }
@@ -455,7 +453,7 @@ function App() {
                     )}
                   >
                     <div className="app-sections">
-                      {logged && (                        
+                      {logged && activeSubTab === 'url' && (                        
                         <>
                           { loadOptions("url") }
                           { chartSelector }
@@ -472,11 +470,11 @@ function App() {
                     )}
                   >                    
                     <div className="app-sections">
-                      {logged && (
+                      {logged && activeSubTab === 'files' && (
                         <>
                           { loadOptions("files") }
                           { chartSelector }
-                          { chartConfigurator }                      
+                          { chartConfigurator }
                           { exportOptions }
                         </>                          
                       )}
@@ -489,7 +487,7 @@ function App() {
                     )}
                   >                    
                     <div className="app-sections">
-                      {logged && (
+                      {logged && activeSubTab === 'project' && (
                         <>
                           { loadOptions("project") }
                           { chartSelector }

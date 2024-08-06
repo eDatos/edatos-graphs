@@ -127,7 +127,8 @@ export default class WMSFetch extends React.Component {
             });
             return [...acc, entry];
           }, []);
-        this.updateSources([...this.props?.sources ?? [], source]);        
+        this.updateSources([...this.props?.sources ?? [], source]);
+        this.setState({ url: '', error: undefined });
       })
       .catch(() =>
         this.setState({

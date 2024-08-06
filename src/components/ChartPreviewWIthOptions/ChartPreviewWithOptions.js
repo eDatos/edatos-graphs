@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ChartOptions from '../ChartOptions';
 import ChartPreview from '../ChartPreview';
-import { mapDataInWorker } from '../../worker';
-import { WEBWORKER_ACTIVE } from '../../constants';
 
 const ChartPreviewWithOptions = ({
   chart,
@@ -13,47 +11,11 @@ const ChartPreviewWithOptions = ({
   visualOptions,
   setVisualOptions,
   setRawViz,
-  setMappingLoading,
 }) => {
   const [error, setError] = useState({
     variant: 'secondary',
     message: 'Required chart variables',
   });
-
-  useEffect(() => {
-    try {
-      setMappingLoading(true);
-
-      if (WEBWORKER_ACTIVE) {
-        mapDataInWorker(
-          chart.metadata.name,
-          {
-            data: dataset,
-            mapping: mapping,
-            dataTypes,
-          },
-          chart.rawCustomChart
-        )
-          .catch((err) => {
-            console.error(err);
-          })
-          .finally(() => setMappingLoading(false));
-      } else {
-        setMappingLoading(false);
-      }
-    } catch (e) {
-      console.error(e);
-      setMappingLoading(false);
-    }
-  }, [
-    chart,
-    mapping,
-    dataTypes,
-    setError,
-    setRawViz,
-    setMappingLoading,
-    dataset,
-  ]);
 
   return (
     <Row>
