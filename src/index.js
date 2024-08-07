@@ -5,15 +5,18 @@ import App from './App';
 import './i18n';
 import * as serviceWorker from './serviceWorker';
 import { CookiesProvider } from 'react-cookie';
+import { HeadProvider } from 'react-head';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+root.render(  
   <React.StrictMode>
-    <CookiesProvider>
-      <React.Suspense fallback="loading">
-        <App />
-      </React.Suspense>
-    </CookiesProvider>
+    <HeadProvider>
+      <CookiesProvider>
+        <React.Suspense fallback="loading">
+          <App />
+        </React.Suspense>
+      </CookiesProvider>
+    </HeadProvider>
   </React.StrictMode>
 );
 
