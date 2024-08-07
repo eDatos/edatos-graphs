@@ -41,6 +41,7 @@ import favicon from './hooks/favicon';
 import { Tab, Tabs } from 'react-bootstrap';
 import classNames from 'classnames';
 import { applicationConfig } from './components/ApplicationConfig/ApplicationConfig';
+import { Title } from 'react-head';
 
 //Custom colors
 colorPresets.ordinal = {
@@ -396,6 +397,7 @@ function App() {
 
   return (
     <div className="app">
+      <Title>{t('global.appName')}</Title>
       <Header value={i18n.language} setLogged={setLogged} />
       <div className="container">
         <div className="col col-12">
