@@ -3,7 +3,7 @@ export const dimensions = [
     id: 'x',
     name: 'global.section.chartselection.linechart.dimensions.xAxis',
     operation: 'get',
-    validTypes: ['number', 'date'],
+    validTypes: ['number', 'string', 'date'],
     required: true,
   },
 

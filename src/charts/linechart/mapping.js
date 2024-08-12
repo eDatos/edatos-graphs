@@ -82,6 +82,7 @@ const getXAxis = (visualOptions, xData, name, locale, mappedType) => {
     data: xData.map((data) =>
       format(data, visualOptions.xAxisFormat, locale, mappedType)
     ),
+    scale: visualOptions.xAxisOriginTo0,
   };
 };
 
@@ -98,6 +99,7 @@ const getYAxis = (visualOptions, name, locale) => {
         return formatNumber(value, visualOptions.yAxisFormat, locale);
       },
     },
+    scale: visualOptions.yAxisOriginTo0,
   };
 };
 
@@ -152,7 +154,7 @@ export function getChartOptions(
           valueFormatter: (value) =>
             formatNumber(value, visualOptions.tooltipValueFormat, locale) +
             visualOptions.units,
-        },
+        }
       };
     });
 
