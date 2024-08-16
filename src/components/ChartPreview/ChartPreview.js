@@ -105,11 +105,10 @@ const ChartPreview = ({
     }
     setRawViz(domRef.current.getEchartsInstance());
   }, [setError, vizOptionsDebounced, setRawViz, chart, mapping, t]);
-  
+   
   useEffect(() => {
-    try {        
-      setOptions( 
-        error === null
+    try {
+      const chartOptions = error === null
           ? chart.getChartOptions(
               vizOptionsDebounced,
               data,
@@ -118,7 +117,11 @@ const ChartPreview = ({
               chart.dimensions,
               i18n.language
             )
-          : {});
+          : {};
+      setOptions(chartOptions);
+      if (domRef && domRef.current && !error) {
+        domRef.current.getEchartsInstance().setOption(chartOptions, true);  
+      }
     } catch (e) {
       setError({ variant: 'danger', message: 'Chart error. ' + e.message });
       setRawViz(null);

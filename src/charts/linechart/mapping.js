@@ -72,17 +72,14 @@ const getXAxis = (visualOptions, xData, name, locale, mappedType) => {
     name: visualOptions.showXaxisName ? name : '',
     nameLocation: visualOptions.xAxisNamePosition,
     nameGap: visualOptions.xAxisNameGap,
-    type: 'category',
+    type: mappedType === 'number' ? 'value' : 'category',
     boundaryGap: false,
     axisLabel: {
       show: visualOptions.showXaxisLabels,
       rotate: visualOptions.showXaxisLabelsRotate,
       fontSize: visualOptions.showXaxisLabelsFontSize,
     },
-    data: xData.map((data) =>
-      format(data, visualOptions.xAxisFormat, locale, mappedType)
-    ),
-    scale: visualOptions.xAxisOriginTo0,
+    scale: !visualOptions.xAxisOriginTo0,
   };
 };
 
@@ -99,7 +96,7 @@ const getYAxis = (visualOptions, name, locale) => {
         return formatNumber(value, visualOptions.yAxisFormat, locale);
       },
     },
-    scale: visualOptions.yAxisOriginTo0,
+    scale: !visualOptions.yAxisOriginTo0,
   };
 };
 
@@ -135,9 +132,9 @@ export function getChartOptions(
       xData.forEach((e) => {
         let value = _.find(data[item], ['x', e], 0);
         if (value) {
-          lineData.push(value.y);
+          lineData.push([format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType), value.y]);
         } else {
-          lineData.push('');
+          lineData.push([format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType), '']);
         }
       });
       return {
