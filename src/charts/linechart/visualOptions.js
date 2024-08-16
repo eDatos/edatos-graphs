@@ -46,7 +46,7 @@ export const visualOptions = {
   },
   xAxisOriginTo0: {
     type: 'boolean',
-    default: true,
+    default: false,
     group: 'chart',
   },
   yAxisOriginTo0: {
