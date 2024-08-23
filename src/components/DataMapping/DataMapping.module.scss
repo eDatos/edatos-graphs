@@ -1,0 +1,128 @@
+@import '../../styles/variables';
+
+.column-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  border-radius: 3px;
+  height: 48px;
+  padding: 5px 10px;
+
+  font-size: $size-14;
+  font-weight: 300;
+
+  cursor: grab;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  border: 1px dashed $color-blue-5;
+  background: $color-blue-dark-5;
+  color: $color-blue-dark-100;
+
+  &.header {
+    background: $color-blue-dark-100;
+    border: 0;
+    border-bottom: 1px solid $color-blue-dark-100;
+    border-radius: 3px 3px 0 0;
+    color: $color-black-0;
+    font-weight: 400;
+
+    cursor: auto;
+  }
+}
+
+.column-title {
+  flex-grow: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:global .is-dragging {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  opacity: 0.5;
+}
+
+.data-type-icon {
+  width: 16px;
+}
+
+.chart-dimension {
+  margin-bottom: 15px;
+  padding: 20px 10px 10px 10px;
+  height: fit-content;
+  border-radius: 3px;
+  border: 1px solid $color-black-60;
+  gap: 10px;
+}
+
+.chart-dimension-header {
+  font-weight: 400;
+  font-size: $size-14;
+  line-height: 14px;
+  color: $color-black-80;
+  :global span {
+    width: calc(100% / 3);
+  }
+}
+
+.accepted-type-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.dimension-required {
+  font-size: 25px;
+  color: $color-red-100;
+}
+
+.assigned-column {
+  cursor: pointer;
+  color: $color-black-0;
+  &.column-valid {
+    background-color: $color-blue-dark-100;
+  }
+
+  &.column-invalid {
+    background-color: $color-red-100;
+  }
+}
+
+.remove-assigned {
+  border: none;
+  background: none;
+  color: white;
+  padding: 0px;
+
+  svg {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  border-radius: 3px;
+  border: 1px dashed $color-black-40;
+  font-weight: 300;
+  font-size: $size-14;
+  color: $color-black-40;
+
+  &.active {
+    background-color: var(--primary-lighter);
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+}
+
+.cardChartContent {
+  display: flex;
+  min-width: 200px;
+  flex-direction: column;
+  gap: 5px;
+}

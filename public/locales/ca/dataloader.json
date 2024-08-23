@@ -1,0 +1,35 @@
+{
+    "separator": {
+        "title" : "ESTRUCTURA DE DADES",
+        "column" :  {
+            "name": "Separador columna"
+        },
+        "thousands": {
+            "name": "Separador milers"
+        },
+        "decimals": {
+            "name": "Separador decimals"
+        }   
+    },
+    "datelocale":"Data local",
+    "refreshdata": "Recarregar dades des d'url",
+    "datatransform": {
+        "title": "TRANSFORMAR LES DADES",
+        "stack": "Agrupar"
+    },
+    "datamismatch": {
+        "warning": "Advertència",
+        "parsingerror": "error de sintaxi",
+        "missingcolumn": "falta columna",
+        "typemismatch": "discrepància en el tipus de dades",
+        "parsingerrortitle": "Es va produir un error en analitzar les noves dades.",
+        "parsingerrordesc": "Podeu carregar les noves dades i intentar corregir l'error o tornar a les dades prèviament carregades.",
+        "missingcolumntitle": "El mapatge de dades d'aquest projecte requereix la dimensió",
+        "missingcolumntitle2": "que no es troba a les noves dades.",
+        "missingcolumndesc": "Podeu crear un nou mapeig de dades o tornar a les dades prèviament carregades.",
+        "typemismatchtitle": "Els tipus de dades establerts prèviament per a aquest projecte no es poden aplicar a les noves dades.",
+        "typemismatchdesc": "Podeu utilitzar les noves dades i restablir els tipus de dades o tornar a les dades carregades prèviament.",
+        "load": "Carregar noves dades",
+        "cancel": "Cancel·lar"
+    }
+}

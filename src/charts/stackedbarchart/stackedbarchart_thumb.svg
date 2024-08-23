@@ -1,0 +1,87 @@
+<svg width="952" height="794" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 952 794">
+<rect width="952" height="794" x="0" y="0" id="0" fill="none"></rect>
+<path d="M95.2 694.5L856.8 694.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M95.2 567.5L856.8 567.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M95.2 440.5L856.8 440.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M95.2 313.5L856.8 313.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M95.2 187.5L856.8 187.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M95.2 60.5L856.8 60.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M95.2 694.5L856.8 694.5" fill="none" stroke="#6E7079" stroke-linecap="round"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(871.8 694)" fill="#6E7079">X Axis</text>
+<path d="M95.5 694L95.5 699" fill="none" stroke="#6E7079"></path>
+<path d="M171.5 694L171.5 699" fill="none" stroke="#6E7079"></path>
+<path d="M247.5 694L247.5 699" fill="none" stroke="#6E7079"></path>
+<path d="M323.5 694L323.5 699" fill="none" stroke="#6E7079"></path>
+<path d="M400.5 694L400.5 699" fill="none" stroke="#6E7079"></path>
+<path d="M476.5 694L476.5 699" fill="none" stroke="#6E7079"></path>
+<path d="M552.5 694L552.5 699" fill="none" stroke="#6E7079"></path>
+<path d="M628.5 694L628.5 699" fill="none" stroke="#6E7079"></path>
+<path d="M704.5 694L704.5 699" fill="none" stroke="#6E7079"></path>
+<path d="M780.5 694L780.5 699" fill="none" stroke="#6E7079"></path>
+<path d="M857.5 694L857.5 699" fill="none" stroke="#6E7079"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(87.2 694)" fill="#6E7079">0</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(87.2 567.2)" fill="#6E7079">1</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(87.2 440.4)" fill="#6E7079">2</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(87.2 313.6)" fill="#6E7079">3</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(87.2 186.8)" fill="#6E7079">4</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(87.2 60)" fill="#6E7079">5</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(133.28 702)" fill="#6E7079">Class0</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(209.44 702)" fill="#6E7079">Class1</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(285.6 702)" fill="#6E7079">Class2</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(361.76 702)" fill="#6E7079">Class3</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(437.92 702)" fill="#6E7079">Class4</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(514.08 702)" fill="#6E7079">Class5</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(590.24 702)" fill="#6E7079">Class6</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(666.4 702)" fill="#6E7079">Class7</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(742.56 702)" fill="#6E7079">Class8</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(818.72 702)" fill="#6E7079">Class9</text>
+<path d="M105.4816 694l25.2713 0l0 -101.44l-25.2713 0Z" fill="rgb(84,112,198)"></path>
+<path d="M181.6416 694l25.2713 0l0 -49.452l-25.2713 0Z" fill="rgb(84,112,198)"></path>
+<path d="M257.8016 694l25.2713 0l0 -7.608l-25.2713 0Z" fill="rgb(84,112,198)"></path>
+<path d="M333.9616 694l25.2713 0l0 -216.828l-25.2713 0Z" fill="rgb(84,112,198)"></path>
+<path d="M410.1216 694l25.2713 0l0 -147.088l-25.2713 0Z" fill="rgb(84,112,198)"></path>
+<path d="M486.2816 694l25.2713 0l0 -20.288l-25.2713 0Z" fill="rgb(84,112,198)"></path>
+<path d="M562.4416 694l25.2713 0l0 -43.112l-25.2713 0Z" fill="rgb(84,112,198)"></path>
+<path d="M638.6016 694l25.2713 0l0 -248.528l-25.2713 0Z" fill="rgb(84,112,198)"></path>
+<path d="M714.7616 694l25.2713 0l0 -181.324l-25.2713 0Z" fill="rgb(84,112,198)"></path>
+<path d="M790.9216 694l25.2713 0l0 -109.048l-25.2713 0Z" fill="rgb(84,112,198)"></path>
+<path d="M105.4816 592.56l25.2713 0l0 -328.412l-25.2713 0Z" fill="rgb(145,204,117)"></path>
+<path d="M181.6416 644.548l25.2713 0l0 -83.688l-25.2713 0Z" fill="#91cc75"></path>
+<path d="M257.8016 686.392l25.2713 0l0 -434.924l-25.2713 0Z" fill="#91cc75"></path>
+<path d="M333.9616 477.172l25.2713 0l0 -109.048l-25.2713 0Z" fill="#91cc75"></path>
+<path d="M410.1216 546.912l25.2713 0l0 -31.7l-25.2713 0Z" fill="#91cc75"></path>
+<path d="M486.2816 673.712l25.2713 0l0 -410.832l-25.2713 0Z" fill="#91cc75"></path>
+<path d="M562.4416 650.888l25.2713 0l0 -540.168l-25.2713 0Z" fill="#91cc75"></path>
+<path d="M638.6016 445.472l25.2713 0l0 -45.648l-25.2713 0Z" fill="#91cc75"></path>
+<path d="M714.7616 512.676l25.2713 0l0 -339.824l-25.2713 0Z" fill="#91cc75"></path>
+<path d="M790.9216 584.952l25.2713 0l0 -408.296l-25.2713 0Z" fill="#91cc75"></path>
+<path d="M135.8071 694l25.2713 0l0 -124.264l-25.2713 0Z" fill="#fac858"></path>
+<path d="M211.9671 694l25.2713 0l0 -67.204l-25.2713 0Z" fill="#fac858"></path>
+<path d="M288.1271 694l25.2713 0l0 -88.76l-25.2713 0Z" fill="#fac858"></path>
+<path d="M364.2871 694l25.2713 0l0 -98.904l-25.2713 0Z" fill="#fac858"></path>
+<path d="M440.4471 694l25.2713 0l0 -135.676l-25.2713 0Z" fill="#fac858"></path>
+<path d="M516.6071 694l25.2713 0l0 -128.068l-25.2713 0Z" fill="#fac858"></path>
+<path d="M592.7671 694l25.2713 0l0 -76.08l-25.2713 0Z" fill="#fac858"></path>
+<path d="M668.9271 694l25.2713 0l0 -96.368l-25.2713 0Z" fill="#fac858"></path>
+<path d="M745.0871 694l25.2713 0l0 -92.564l-25.2713 0Z" fill="#fac858"></path>
+<path d="M821.2471 694l25.2713 0l0 -72.276l-25.2713 0Z" fill="#fac858"></path>
+<path d="M135.8071 569.736l25.2713 0l0 -24.092l-25.2713 0Z" fill="#ee6666"></path>
+<path d="M211.9671 626.796l25.2713 0l0 -46.916l-25.2713 0Z" fill="#ee6666"></path>
+<path d="M288.1271 605.24l25.2713 0l0 -67.204l-25.2713 0Z" fill="#ee6666"></path>
+<path d="M364.2871 595.096l25.2713 0l0 -103.976l-25.2713 0Z" fill="#ee6666"></path>
+<path d="M440.4471 558.324l25.2713 0l0 -34.236l-25.2713 0Z" fill="#ee6666"></path>
+<path d="M516.6071 565.932l25.2713 0l0 -21.556l-25.2713 0Z" fill="#ee6666"></path>
+<path d="M592.7671 617.92l25.2713 0l0 -29.164l-25.2713 0Z" fill="#ee6666"></path>
+<path d="M668.9271 597.632l25.2713 0l0 -19.02l-25.2713 0Z" fill="#ee6666"></path>
+<path d="M745.0871 601.436l25.2713 0l0 -27.896l-25.2713 0Z" fill="#ee6666"></path>
+<path d="M821.2471 621.724l25.2713 0l0 -65.936l-25.2713 0Z" fill="#ee6666"></path>
+<path d="M-5 -5l249.3965 0l0 24l-249.3965 0Z" transform="translate(100.2 5)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#ccc" stroke-width="0"></path>
+<path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0" transform="translate(100.2 5)" fill="#5470c6"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" x="30" y="7" transform="translate(100.2 5)" fill="#333">bar</text>
+<path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0" transform="translate(157.5438 5)" fill="#91cc75"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" x="30" y="7" transform="translate(157.5438 5)" fill="#333">bar2</text>
+<path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0" transform="translate(221.5613 5)" fill="#fac858"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" x="30" y="7" transform="translate(221.5613 5)" fill="#333">bar3</text>
+<path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0" transform="translate(285.5789 5)" fill="#ee6666"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" x="30" y="7" transform="translate(285.5789 5)" fill="#333">bar4</text>
+</svg>

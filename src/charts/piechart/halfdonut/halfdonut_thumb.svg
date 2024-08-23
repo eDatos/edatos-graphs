@@ -1,0 +1,27 @@
+<svg width="1000" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 1000 600">
+<rect width="1000" height="600" x="0" y="0" id="0" fill="#FFFFFF"></rect>
+<polyline points="238.1 336.5 224.2 330.8 209.2 330.8" fill="none" stroke="#009bd7"></polyline>
+<polyline points="391.5 183.1 385.8 169.2 370.8 169.2" fill="none" stroke="#f0a82d"></polyline>
+<polyline points="608.5 183.1 614.2 169.2 629.2 169.2" fill="none" stroke="#e95000"></polyline>
+<polyline points="761.9 336.5 775.8 330.8 790.8 330.8" fill="none" stroke="#af46a8"></polyline>
+<path d="M216.5 445A283.5 283.5 0 0 1 299.5352 244.5352L428.4054 373.4054A101.25 101.25 0 0 0 398.75 445Z" fill="#009bd7" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"></path>
+<path d="M299.5352 244.5352A283.5 283.5 0 0 1 500 161.5L500 343.75A101.25 101.25 0 0 0 428.4054 373.4054Z" fill="#f0a82d" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"></path>
+<path d="M500 161.5A283.5 283.5 0 0 1 700.4648 244.5352L571.5946 373.4054A101.25 101.25 0 0 0 500 343.75Z" fill="#e95000" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"></path>
+<path d="M700.4648 244.5352A283.5 283.5 0 0 1 783.5 445L601.25 445A101.25 101.25 0 0 0 571.5946 373.4054Z" fill="rgb(175,70,168)" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"></path>
+<path d="M783.5 445A283.5 283.5 0 1 1 216.5 445L398.75 445A101.25 101.25 0 0 0 601.25 445Z" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"></path>
+<path d="M783.5 445A283.5 283.5 0 1 1 216.5 445L398.75 445A101.25 101.25 0 0 0 601.25 445Z" fill="url(#zr1-p0)" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(204.222 330.769)" fill="#333" stroke="rgb(255,255,255)" stroke-width="2" paint-order="stroke" stroke-miterlimit="2">Premiere_Year</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(365.769 169.222)" fill="#333" stroke="rgb(255,255,255)" stroke-width="2" paint-order="stroke" stroke-miterlimit="2">Seasons</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" transform="translate(634.231 169.222)" fill="#333" stroke="rgb(255,255,255)" stroke-width="2" paint-order="stroke" stroke-miterlimit="2">Episodes</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" transform="translate(795.778 330.769)" fill="#333" stroke="rgb(255,255,255)" stroke-width="2" paint-order="stroke" stroke-miterlimit="2">IMDB_Rating</text>
+<defs >
+<pattern width="10" height="10" patternUnits="userSpaceOnUse" id="zr1-p0">
+<g >
+<path d="" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+</g>
+</pattern>
+</defs>
+</svg>

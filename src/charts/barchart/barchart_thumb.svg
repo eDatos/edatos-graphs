@@ -1,0 +1,38 @@
+<svg width="1072" height="723" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 1072 723">
+<rect width="1072" height="723" x="0" y="0" id="0" fill="none"></rect>
+<path d="M107.2 653.5L964.8 653.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M107.2 534.5L964.8 534.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M107.2 416.5L964.8 416.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M107.2 297.5L964.8 297.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M107.2 178.5L964.8 178.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M107.2 60.5L964.8 60.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M107.2 653.5L964.8 653.5" fill="none" stroke="#6E7079" stroke-linecap="round"></path>
+<path d="M107.5 653L107.5 658" fill="none" stroke="#6E7079"></path>
+<path d="M321.5 653L321.5 658" fill="none" stroke="#6E7079"></path>
+<path d="M536.5 653L536.5 658" fill="none" stroke="#6E7079"></path>
+<path d="M750.5 653L750.5 658" fill="none" stroke="#6E7079"></path>
+<path d="M965.5 653L965.5 658" fill="none" stroke="#6E7079"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(99.2 653)" fill="#6E7079">0</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(99.2 534.4)" fill="#6E7079">20</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(99.2 415.8)" fill="#6E7079">40</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(99.2 297.2)" fill="#6E7079">60</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(99.2 178.6)" fill="#6E7079">80</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(99.2 60)" fill="#6E7079">100</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" y="6" transform="translate(214.4 661)" fill="#6E7079">Matcha Latte</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" y="6" transform="translate(428.8 661)" fill="#6E7079">Milk Tea</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" y="6" transform="translate(643.2 661)" fill="#6E7079">Cheese Cocoa</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" y="6" transform="translate(857.6 661)" fill="#6E7079">Walnut Brownie</text>
+<path d="M131.856 653l48.5553 0l0 -256.769l-48.5553 0Z" fill="rgb(84,112,198)"></path>
+<path d="M346.256 653l48.5553 0l0 -492.783l-48.5553 0Z" fill="#5470c6"></path>
+<path d="M560.656 653l48.5553 0l0 -512.352l-48.5553 0Z" fill="#5470c6"></path>
+<path d="M775.056 653l48.5553 0l0 -429.332l-48.5553 0Z" fill="#5470c6"></path>
+<path d="M190.1224 653l48.5553 0l0 -508.794l-48.5553 0Z" fill="rgb(145,204,117)"></path>
+<path d="M404.5224 653l48.5553 0l0 -435.262l-48.5553 0Z" fill="#91cc75"></path>
+<path d="M618.9224 653l48.5553 0l0 -386.636l-48.5553 0Z" fill="#91cc75"></path>
+<path d="M833.3224 653l48.5553 0l0 -319.627l-48.5553 0Z" fill="#91cc75"></path>
+<path d="M248.3887 653l48.5553 0l0 -555.641l-48.5553 0Z" fill="rgb(250,200,88)"></path>
+<path d="M462.7887 653l48.5553 0l0 -326.743l-48.5553 0Z" fill="#fac858"></path>
+<path d="M677.1887 653l48.5553 0l0 -489.225l-48.5553 0Z" fill="#fac858"></path>
+<path d="M891.5887 653l48.5553 0l0 -231.863l-48.5553 0Z" fill="#fac858"></path>
+<path d="M-5 -5l200.0859 0l0 24l-200.0859 0Z" transform="translate(440.957 5)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#ccc" stroke-width="0"></path>
+</svg>

@@ -1,0 +1,324 @@
+{
+    "global": {
+        "appName": "My custom visualizations",
+        "appDescription": "The custom visualization system is a tool with which you can easily create the different types of graphics that we make available to you. You can use these graphics for your reports or news, both as a static image and on your website, interactive way. Additionally, in this application we give you the option to save your project for future updates if you wish.",
+        "accepts": "Accepts",
+        "download": "Download",
+        "save": "Save",
+        "mandatory": "Mandatory",
+        "section": {
+            "loaddata": {
+                "title": "Load your data",
+                "tabs" : {
+                    "createGraphs": {
+                        "title": "Create graphs",
+                        "fromEdatos": "From your data bank",
+                        "fromFiles": "From your files",
+                        "fromProjects": "From your projects",
+                        "fromUrl": "From URL"
+                    },
+                    "createMaps": {
+                        "title": "Create maps"
+                    }
+                },
+                "paste": {
+                    "message": "Copy and paste your data from other applications or websites. You can use tabular (TSV, CSV, DSV) or JSON data."
+                },
+                "upload": {
+                    "message": "You can load tabular (TSV, CSV, DSV) or JSON data."
+                },
+                "sample": {
+                    "name": "Try our data samples"
+                },
+                "url": {
+                    "message": "Enter a web address (URL) pointing to the data (e.g. a public Dropbox file, a public API, ...). Please, be sure the server is CORS-enabled.",
+                    "clearFieldsButton": "Clear fields"
+                },
+                "project": {
+                    "message": "Load a .edatosgraphs project.",
+                    "dragAndBrowseFile": "Drag or browse a file here",
+                    "browseFile": "Browse a file",
+                    "drag": "Drag a file here or",
+                    "browse": "Browse",
+                    "file": "a file from your computer",
+                    "accepted": "All files will be accepted",
+                    "rejected": "Some files will be rejected"
+                },
+                "edatos": {
+                    "statisticalOperations": "Statistical operations",
+                    "cubes": "Cubes",
+                    "clearFieldsButton": "Clear fields"
+                },
+                "types": {
+                    "number": "Number",
+                    "string": "String",
+                    "date": "Date"
+                },
+                "errors": {
+                    "check": "Ops, please check",
+                    "row": "row",
+                    "column": "at column",
+                    "issueRow": "There's another issue at row",
+                    "issues": "There are issues in",
+                    "rows": "more rows",
+                    "remaining": "The remaining",
+                    "look": "look",
+                    "fine": "fine",
+                    "wmsServerError": "It's not possible to load WMS data from the indicated URL"
+                },
+                "options": {
+                    "1": "OPTION 1",
+                    "label1": "Copy and paste your data here.",
+                    "2": "OPTION 2",
+                    "label2": "Load tabular data (TSV, CSV, DSV) or JSON."                    
+                },
+                "loadButton": "Load data",
+                "loadingButton": "Loading data"                
+            },
+            "sampleData" : {
+                "sample1": "Proportion of people who have completed studies or training in the last four weeks according to age groups. Canary Islands. 2022.",
+                "sample2": "Consumer Price Indices according to ECOICOP groups. Canary Islands. April 2023.",
+                "sample3": "Final consumption of electrical energy according to large sectors. Canary Islands. December 31, 2022.",
+                "sample4": "Expenditures according to branches of education. Canarian public universities. 2021.",
+                "sample5": "Population aged 16 and over according to smoking habit. Canary Islands. 2021.",
+                "sample6": "Results of Autonomous elections according to candidates. Regional deputies. Elections of May 28, 2023.",
+                "sample7": "Population. Canary Islands and years.",
+                "sample8": "Accommodated travelers according to main nationalities and events. Canary Islands. 2022.",
+                "source": "Source"
+            },
+            "loadLayers": {
+                "title": "Load and sort your layers",
+                "message": "Enter a web address (URL) of the WMS server you want to work with",
+                "loadWmsButton": "Load WMS",
+                "addWmsButton": "Add WMS"
+            },
+            "wmslayerselection": {
+                "configuration": {
+                    "title": "Layer settings",
+                    "placeholder": "Choose layers"
+                },
+                "style": {
+                    "title": "Select style for layer",
+                    "placeholder": "Select styles",
+                    "legend": "Show legend",
+                    "showlayer": "Show layer name",
+                    "hidestyle": "Hide style name"
+                }
+            },
+            "wmsmunicipalityselection": {
+                "title": "Choose municipality"
+            },
+            "chartselection": {
+                "title": "Choose the chart you need",
+                "barchart": {
+                    "title": "Bar chart",
+                    "description": "It displays a categorical dimension and related amounts. Each bar represents a category, width is proportional to the quantitative dimension.",
+                    "dimensions": {
+                        "bars": "Bars",
+                        "size": "Size",
+                        "series": "Series"
+                    }
+                },
+                "linechart": {
+                    "title": "Line chart",
+                    "description": "It displays a quantitative dimension over a continuous interval or time period. Colour can be optionally used to encode an additional quantitative or categorical dimension.",
+                    "dimensions": {
+                        "xAxis": "X Axis",
+                        "yAxis": "Y Axis",
+                        "lines": "Lines"
+                    }
+                },
+                "piechart": {
+                    "title": "Pie chart",
+                    "description": "It allows you to see the proportions between values that make up a whole, by using arcs composing a circle.",
+                    "dimensions": {
+                        "arcs": "Arcs",
+                        "series": "Series"                        
+                    }
+                },
+                "donutchart": {
+                    "title": "Donut chart",
+                    "description": "It allows you to see the proportions between values that make up a whole, by using arcs composing a circle."
+                },
+                "halfdonutchart": {
+                    "title": "Half donut chart",
+                    "description": "It allows you to see the proportions between values that make up a whole, by using arcs composing a circle."
+                },
+                "scatterchart": {
+                    "title": "Scatter chart",
+                    "description": "The basic layout is a scatter plot, which allows to see correlations among two continuous dimensions.",
+                    "dimensions": {
+                        "xAxis": "X Axis",
+                        "yAxis": "Y Axis",
+                        "labels": "Labels"
+                    }
+                },
+                "treemapchart": {
+                    "title": "Tree map chart",
+                    "description": "It displays hierarchically structured data and a related quantitative dimension. It is composed of an area divided into small rectangles, representing the last level of the tree structure. The rectangles’ size depends on the quantitative dimension.",                    
+                    "dimensions": {
+                        "hierarchy": "Hierarchy",
+                        "size": "Size"                        
+                    }
+                },
+                "stackedbarchart": {
+                    "title": "Stacked bar chart",
+                    "description": "It displays multiple quantitative dimensions related to categories. Bars are visually stacked according to the categorical dimension, each bar represents a quantitative dimension, mapped on its height.",
+                    "dimensions": {
+                        "axis": "Axis",
+                        "size": "Size",
+                        "series": "Series"
+                    }
+                },
+                "warnings": {
+                    "required": "Required chart variables",
+                    "map": "you need to map dimensions"
+                }
+            },
+            "mapping": {
+                "title": "Map the variables on the graph",
+                "chartvariables":{
+                    "dimensions": "DIMENSIONS",
+                    "dropdimension" : "Drop dimension here",
+                    "dropanotherdimen": "Drop another dimension here"
+                }
+            },
+            "customize": {
+                "title": "Customize  your chart"
+            },
+            "export": {
+                "graph": {
+                    "title": "Export or save your graph",
+                    "dynamicWidget": "Generate dynamic widget with data loading by url"
+                },
+                "map": {
+                    "title": "Export or save your map"
+                },
+                "formats": {
+                    "title": "Format",
+                    "edatosgraphs": "Edatosgraphs format",
+                    "svg": "Svg format",
+                    "widget": "Widget format",
+                    "png": "Png format",
+                    "jpg": "Jpg format"
+                }
+            },
+            "login": {
+                "title": "Login",
+                "description": "It is necessary to have a registered user to access the application"
+            }
+        },
+        "reset": "Reset",
+        "refreshdata": "Refresh data",
+        "reloadingdata": "Reloading data",
+        "editdata": "Edit data",
+        "maximize": "Maximize",
+        "minimize": "Minimize",
+        "column": "Column",
+        "copyclipboard": "Copy to clipboard",
+        "copiedclipboard": "Copied to clipboard",
+        "message": {
+            "loadrows": {
+                "succes": "<p><strong>{{rowsnumber}} rows </strong>({{cellsnumber}} cells) have been successfully parsed, now you can choose a chart!</p>"
+            },
+            "sizeoutput": {
+                "part1": "The final output will be",
+                "part2": "including the legend."
+            }
+        },
+        "screenSizeAlert": {
+            "gotIt": "Got it!",
+            "header": "Welcome to My custom visualizations!",
+            "body": {
+                "header": "My custom visualizations is designed for bigger screens!",
+                "text": {
+                    "1": "Resize your browser window or ",
+                    "2": "send yourself a reminder ",
+                    "3": "to come back at a better time."
+                },
+                "footer": "Touch devices are not fully supported yet."
+            }
+        }
+
+    },
+    "separator" : {
+        "Tab":"Tab",
+        "Semicolon":"Semicolon",
+        "Comma":"Comma",
+        "Pipe":"Pipe"
+    },
+    "palettes": {
+        "sex": {
+            "name": "Sex",
+            "men": "Men",
+            "women": "Women",
+            "total": "Total"
+        },
+        "island": {
+            "name": "Islands"            
+        },
+        "territory": {
+            "name": "Territories",
+            "canary": "Canary Islands",
+            "spain": "Spain",
+            "others": "Others"
+        },
+        "gray": {
+            "1": "Black",
+            "2": "Black 2",
+            "3": "Black 3",
+            "4": "Black 4",
+            "5": "Black 5",
+            "6": "Black 6",
+            "7": "Black 7",
+            "8": "Black 8",
+            "9": "Black 9"
+        },
+        "blue": {
+            "1": "Dark Blue",
+            "2": "Dark Blue 2",
+            "3": "Dark Blue 3",
+            "4": "Dark Blue 4",
+            "5": "Dark Blue 5",
+            "6": "Dark Blue 6",
+            "7": "Blue ISTAC",
+            "8": "Blue 2",
+            "9": "Blue 3",
+            "10": "Blue 4",
+            "11": "Blue 5"
+        },
+        "default": {
+            "1": "Blue ISTAC",
+            "2": "Yellow",
+            "3": "Orange",
+            "4": "Purple",
+            "5": "Sand",
+            "6": "Green",
+            "7": "Rojo",
+            "8": "Blue 2",
+            "9": "Yellow 2",
+            "10": "Orange 2",
+            "11": "Purple 2",
+            "12": "Sand 2",
+            "13": "Green 2",
+            "14": "Rojo 2",
+            "15": "Blue 3",
+            "16": "Yellow 3",
+            "17": "Orange 3",
+            "18": "Purple 3",
+            "19": "Sand 3",
+            "20": "Green 3",
+            "21": "Rojo 3",
+            "22": "Blue 4",
+            "23": "Blue dark 5",
+            "24": "Blue 5",
+            "25": "Blue dark 6"
+        }
+    },
+    "categories": {
+        "timeseries": "time series",
+        "correlations": "correlations",
+        "proportions": "proportions",
+        "hierarchy": "hierarchy"
+    }
+} 

@@ -1,0 +1,35 @@
+{
+    "separator": {
+        "title" : "DATA STRUCTURE",
+        "column" :  {
+            "name": "Column separator"
+        },
+        "thousands": {
+            "name": "Thousands separator"
+        },
+        "decimals": {
+            "name": "Decimals separators"
+        }   
+    },
+    "datelocale":"Date locale",
+    "refreshdata": "Refresh data from url",
+    "datatransform": {
+        "title": "TRANSFORM DATA",
+        "stack": "Stack on"
+    },
+    "datamismatch": {
+        "warning": "Warning",
+        "parsingerror": "parsing error",
+        "missingcolumn": "missing column",
+        "typemismatch": "data-type mismatch",
+        "parsingerrortitle": "There was an error while parsing new data.",
+        "parsingerrordesc": "You can load the new data and try to fix the error or return to the data previously loaded.",
+        "missingcolumntitle": "The data mapping of this project requires the dimension",
+        "missingcolumntitle2": "that we can't find in the new data.",
+        "missingcolumndesc": "You can create a new data mapping with the new data or return to the data previously loaded.",
+        "typemismatchtitle": "The data-types previously set for this project can't be applied to the new data.",
+        "typemismatchdesc": "You can use the new data and re-set data-types or return to the data previously loaded.",
+        "load": "Load new data",
+        "cancel": "Cancel"
+    } 
+}

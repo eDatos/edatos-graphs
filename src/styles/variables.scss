@@ -1,0 +1,240 @@
+$color-blue-100: #009bd7;
+$color-blue-50: #66c3e7;
+$color-blue-25: #b2e1f3;
+$color-blue-10: #d8f0f9;
+$color-blue-5: #ccdae4;
+$color-blue-dark-100: #004678;
+$color-blue-dark-50: #4d7ea0;
+$color-blue-dark-25: #99b5c9;
+$color-blue-dark-25-opacity-50: #99b5c980;
+$color-blue-dark-10: #cce0ed;
+$color-blue-dark-5: #e5ecf1;
+$color-purple-100: #af46a8;
+$color-purple-50: #cf90cb;
+$color-purple-25: #e7c7e5;
+$color-green-100: #009245;
+$color-green-50: #66be8f;
+$color-green-25: #b2dec7;
+$color-sand-100: #a18979;
+$color-sand-50: #c7b8af;
+$color-sand-25: #e3dcd7;
+$color-orange-100: #e95000;
+$color-orange-50: #f29666;
+$color-orange-25: #f8cab2;
+$color-yellow-100: #f0a82d;
+$color-yellow-50: #f6cb81;
+$color-yellow-25: #fbe5c0;
+$color-red-100: #bb1709;
+$color-red-50: #f9928b;
+$color-red-25: #fcc9c5;
+$color-black-100: #000000;
+$color-black-80: #333333;
+$color-black-60: #666666;
+$color-black-40: #999999;
+$color-black-20: #cccccc;
+$color-black-15: #d9d9d9;
+$color-black-5: #f2f2f2;
+$color-black-0: #ffffff;
+
+$grey-lightest: #f8f8f8;
+$grey-light: #e7e7e7;
+$grey-medium: #c4c4c4;
+$grey-dark: #5a616d;
+$grey-darkest: #3c3c3c;
+
+$main-light: #61a6e8;
+$main-medium: #2c7bd0;
+$main-dark: #313949;
+$accent-medium: #f94758;
+$accent-dark: #b10616;
+$green-medium: #5cb85c;
+
+$istac-blue: #0072a2;
+$istac-blue-dark: #005d83;
+
+$severidad-info: #2376b5;
+$severidad-menor: #85bb43;
+$severidad-mayor: #ff9900;
+$severidad-menor: #d4333f;
+
+$primary-navbar-height: 70px;
+$primary-navbar-zindex: 20;
+$secondary-navbar-height: 58px;
+$secondary-navbar-zindex: 15;
+
+$istac-gray: #59656e;
+$istac-gray-dark: #434b52;
+
+$navbar-content-height: 30px;
+$navbar-padding-y: 5px;
+/* $navbar-height: $navbar-content-height + ($navbar-padding-y) * 2; */
+$navbar-height: 42px; /* TODO: sincronizar con el navbar de bootstrap */
+$nav-link-padding: $navbar-padding-y 1em;
+
+$font-weight-light: 300;
+
+$entity-header-height: 48px;
+$entity-search-default-height: 76px;
+
+$letter-spacing: -0.04em;
+
+$nav-shadow: 0 3px 3px $grey-light;
+
+$side-menu-width: 240px;
+
+/* Bootstrap */
+$gray-lightest: $grey-lightest;
+$gray-lighter: $grey-light;
+$gray-light: $grey-medium;
+$gray: $grey-dark;
+$gray-dark: $grey-darkest;
+
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+
+$btn-primary-color: $color-black-0;
+$btn-primary-bg: $main-light;
+$btn-primary-border: $main-medium;
+
+$btn-secondary-color: $grey-dark;
+$btn-secondary-bg: $color-black-0;
+$btn-secondary-border: $grey-medium;
+
+$btn-padding-x: 1rem;
+$btn-padding-y: 0.5rem;
+$btn-line-height: 1.25;
+
+$border-width: 1px;
+
+$table-bg-hover: $grey-lightest;
+$table-border-width: $border-width;
+$table-border-color: $grey-lightest;
+$table-cell-padding: 0.75rem;
+
+$font-family-sans-serif: 'Open Sans', -apple-system, system-ui,
+  BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+$pagination-border-width: 0;
+$pagination-color: $color-black-100;
+$pagination-active-color: $pagination-color;
+$pagination-active-bg: transparent;
+$pagination-active-border: $pagination-active-bg;
+$pagination-disabled-color: $grey-medium;
+
+$enable-transitions: true;
+
+$font-size-base: 1rem;
+
+$font-size-h1: 2rem;
+$font-size-h2: 1.8rem;
+$font-size-h3: 1.3rem;
+$font-size-h4: 1.2rem;
+$font-size-h5: 1.1rem;
+$font-size-h6: 1rem;
+
+$badge-font-weight: $font-weight-normal;
+$badge-padding-x: 0.5em;
+$badge-padding-y: 0.3em;
+
+$zindex-dropdown: 1000;
+$zindex-fixed: 1030;
+$zindex-sticky: 1020;
+$zindex-modal-backdrop: 1040;
+$zindex-modal: 1050;
+$zindex-popover: 1060;
+$zindex-tooltip: 1070;
+$grid-gutter-width-base: 30px;
+
+$grid-columns: 12;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+$grid-gutter-widths: (
+  xs: $grid-gutter-width-base,
+  sm: $grid-gutter-width-base,
+  md: $grid-gutter-width-base,
+  lg: $grid-gutter-width-base,
+  xl: $grid-gutter-width-base,
+);
+
+$spacer-y: 1rem;
+$spacer-x: 2rem;
+
+$input-padding-x: 0.75rem;
+$input-padding-y: 0.5rem;
+$brand-success: $green-medium;
+$brand-danger: $accent-medium;
+
+$form-group-margin-bottom: $spacer-y;
+$border-radius: 2px;
+$btn-font-weight: $font-weight-light;
+
+$input-color: $color-black-100;
+$input-border-color: $grey-medium;
+$input-border-focus: $main-light;
+$input-line-height: 1.25;
+
+$tooltip-color: $grey-darkest;
+$tooltip-bg: $color-black-0;
+$tooltip-arrow-color: $grey-medium;
+/* end bootstrap */
+$page-padding: 36px;
+$page-padding-left: $page-padding * 2;
+$page-padding-right: $page-padding;
+
+$dataTable-toggle-width: $page-padding-left;
+$primeng-dropdown-button-width: 2em;
+
+$border-width-required: $border-width * 5;
+$border-required-none: $border-width-required solid transparent;
+$border-required-error: $border-width-required solid $accent-dark;
+$border-required-valid: $border-width-required solid $brand-success;
+
+$page-padding-left: 40px;
+$page-padding-right: 20px;
+$page-header-height: 50px;
+$page-header-zindex: 10;
+
+$footer-height: 100px;
+$min-height-page: 860px;
+$min-height-page-min-with-900: 640px;
+
+$font-weight-300: 300;
+$font-weight-400: 400;
+$font-weight-500: 500;
+$font-weight-600: 600;
+$font-weight-700: 700;
+
+$size-10: 10px;
+$size-12: 12px;
+$size-13: 13px;
+$size-14: 14px;
+$size-16: 16px;
+$size-18: 18px;
+$size-28: 28px;
+
+$height-nav: 45px;
+$height-general-search: 60px;
+
+$padding-10px: 10px;
+$padding-15px: 15px;
+$padding-20px: 20px;
+
+$container-max-width: 1280px;
+$container-2columns-max-width: calc(
+  $container-max-width / 2 - 3 * $padding-10px
+);
+$empty-td-container-width: calc($container-max-width / 4 + $padding-10px);
+$container-max-width-description: calc(
+  2 * ($container-max-width - 2 * $padding-20px) / 3
+);
+
+$scroll-width-default: 8px;
+
+$title-bar-height: 55.1px;
+$istac-navbar-height: 72.8px;
+$istac-footer-height: 47px;

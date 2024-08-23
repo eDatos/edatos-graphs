@@ -1,0 +1,323 @@
+{
+    "global": {
+        "appName": "Mis visualizaciones a medida",
+        "appDescription": "El sistema de visualizaciones a medida es una herramienta con la que puedes crear de forma sencilla los diferentes tipos de gráficos que ponemos a tu disposición.Puedes utilizar estos gráficos para tus informes o noticias, tanto como una imagen estática como en tu página web, de forma interactiva. Además, en esta aplicación te damos la opción de guardar tu proyecto para futuras actualizaciones si así lo deseas.",
+        "accepts": "Acepta",
+        "download": "Descargar",
+        "save": "Guardar",
+        "mandatory": "Obligatorio",
+        "section": {
+            "loaddata": {
+                "title": "Carga tus datos",
+                "tabs" : {
+                    "createGraphs": {
+                        "title": "Crear gráficos",
+                        "fromEdatos": "Desde el banco de datos",
+                        "fromFiles": "Desde tus ficheros",
+                        "fromProjects": "Desde tus proyectos",
+                        "fromUrl": "Desde URL"
+                    },
+                    "createMaps": {
+                        "title": "Crear mapas"
+                    }
+                },
+                "paste": {
+                    "message": "Copie y pegue sus datos de otras aplicaciones o sitios web. Puede usar datos tabulares (TSV, CSV, DSV) o JSON."
+                },
+                "upload": {
+                    "message": "Puede cargar datos tabulares (TSV, CSV, DSV) o JSON."
+                },
+                "sample": {
+                    "name": "Probar ejemplos de datos"
+                },
+                "url": {
+                    "message": "Introduzca una dirección web (URL) que apunte a los datos (por ejemplo, un archivo público de Dropbox, una API pública, ...). Por favor, asegúrese de que el servidor tiene CORS habilitado.",
+                    "clearFieldsButton": "Limpiar campos"
+                },
+                "project": {
+                    "message": "Cargar un proyecto .edatosgraphs.",
+                    "dragAndBrowseFile": "Arrastre un archivo o seleccione un archivo local",
+                    "browseFile": "Seleccionar archivo",
+                    "drag": "Arrastre un archivo o",
+                    "browse": "Seleccione",
+                    "file": "un archivo local",
+                    "accepted": "Todos los ficheros han sido aceptados",
+                    "rejected": "Algunos ficheros han sido rechazados"
+                },
+                "edatos": {
+                    "statisticalOperations": "Selecciona operación estadística",
+                    "cubes": "Cubos",
+                    "clearFieldsButton": "Limpiar campos"
+                },
+                "types": {
+                    "number": "Número",
+                    "string": "Cadena",
+                    "date": "Fecha"
+                },
+                "errors": {
+                    "check": "Por favor, revise",
+                    "row": "fila",
+                    "column": "en la columna",
+                    "issueRow": "Hay otra incidencia en la fila",
+                    "issues": "Hay incidencias en",
+                    "rows": "filas más",
+                    "remaining": "El resto de",
+                    "look": "revise",
+                    "fine": "bien",
+                    "wmsServerError": "No es posible cargar los datos WMS de la URL indicada"
+                },
+                "options": {
+                    "1": "OPCIÓN 1",
+                    "label1": "Copie y pegue sus datos de otras aplicaciones o sitios web. Puede usar datos tabulares (TSV, CSV, DSV) o JSON.",
+                    "2": "OPCIÓN 2",
+                    "label2": "Puede cargar datos tabulares (TSV, CSV, DSV) o JSON."                                        
+                },
+                "loadButton": "Cargar datos",
+                "loadingButton": "Cargando datos"                
+            },
+            "sampleData" : {
+                "sample1": "Proporción de personas que han realizado estudios o formación en las últimas cuatro semanas según grupos de edad. Canarias. 2022.",
+                "sample2": "Índices de Precios de Consumo según grupos de la ECOICOP. Canarias. Abril de 2023.",
+                "sample3": "Consumo final de energía eléctrica según grandes sectores. Islas de Canarias. 31 de diciembre de 2022.",
+                "sample4": "Egresos según ramas de enseñanza. Universidades públicas canarias. 2021.",
+                "sample5": "Población de 16 y más años según hábito tabáquico. Canarias. 2021.",
+                "sample6": "Resultados de elecciones Autonómicas según candidaturas. Diputados/Diputadas autonómicas. Elecciones de 28 de mayo de 2023.",
+                "sample7": "Población. Islas de Canarias y años.",
+                "sample8": "Viajeros alojados según principales nacionalidades y eventos. Canarias. 2022.",
+                "source": "Fuente"
+            },
+            "loadLayers": {
+                "title": "Carga y ordena tus capas",
+                "message": "Introduzca una dirección web (URL) del servidor WMS con el que quiere trabajar",
+                "loadWmsButton": "Cargar WMS",
+                "addWmsButton": "Añadir WMS"
+            },
+            "wmslayerselection": {
+                "configuration": {
+                    "title": "Configuración de capas",
+                    "placeholder": "Seleccione capas"
+                },
+                "style": {
+                    "title": "Selecciona estilo para capa",
+                    "placeholder": "Seleccione estilos",
+                    "legend": "Mostrar leyenda",
+                    "showlayer": "Mostrar nombre de capa",
+                    "hidestyle": "Ocultar nombre de estilo"
+                }
+            },
+            "wmsmunicipalityselection": {
+                "title": "Seleccione municipio"
+            },
+            "chartselection": {
+                "title": "Escoge el gráfico que necesites",
+                "barchart": {
+                    "title": "Diagrama de barras",
+                    "description": "Muestra una dimensión categórica y cantidades relacionadas. Cada barra representa una categoría, el ancho es proporcional a la dimensión cuantitativa.",
+                    "dimensions": {
+                        "bars": "Barras",
+                        "size": "Magnitud",
+                        "series": "Series"
+                    }
+                },
+                "linechart": {
+                    "title": "Diagrama de líneas",
+                    "description": "Muestra una dimensión cuantitativa sobre un intervalo continuo o período de tiempo. El color se puede usar opcionalmente para codificar una dimensión cuantitativa o categórica adicional.",
+                    "dimensions": {
+                        "xAxis": "Eje X",
+                        "yAxis": "Eje Y",
+                        "lines": "Líneas"
+                    }
+                },
+                "piechart": {
+                    "title": "Diagrama de sectores",
+                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen un círculo.",
+                    "dimensions": {
+                        "arcs": "Arcos",
+                        "series": "Series"                        
+                    }
+                },
+                "donutchart": {
+                    "title": "Diagrama de donut",
+                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen un donut."
+                },
+                "halfdonutchart": {
+                    "title": "Diagrama de medio donut",
+                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen medio donut."
+                },
+                "scatterchart": {
+                    "title": "Diagrama de dispersión",
+                    "description": "El diseño básico es un gráfico de dispersión, que permite ver las correlaciones entre dos dimensiones continuas.",
+                    "dimensions": {
+                        "xAxis": "Eje X",
+                        "yAxis": "Eje Y",
+                        "labels": "Etiquetas"
+                    }
+                },
+                "treemapchart": {
+                    "title": "Mapa de árbol",
+                    "description": "Muestra datos estructurados jerárquicamente y una dimensión cuantitativa relacionada. Está compuesto por un área dividida en pequeños rectángulos, que representan el último nivel de la estructura de árbol. El tamaño de los rectángulos depende de la dimensión cuantitativa.",                    
+                    "dimensions": {
+                        "hierarchy": "Jerarquía",
+                        "size": "Magnitud"                        
+                    }
+                },
+                "stackedbarchart": {
+                    "title": "Diagrama de barras apiladas",
+                    "description": "Muestra múltiples dimensiones cuantitativas relacionadas con categorías. Las barras se apilan visualmente de acuerdo con la dimensión categórica, cada barra representa una dimensión cuantitativa, mapeada en su altura.",
+                    "dimensions": {
+                        "axis": "Eje",
+                        "size": "Magnitud",
+                        "series": "Series"
+                    }
+                },
+                "warnings": {
+                    "required": "Variables de gráfico requeridas",
+                    "map": "necesita indicar dimensiones"
+                }
+            },
+            "mapping": {
+                "title": "Mapea las variables en el gráfico",
+                "chartvariables":{
+                    "dimensions": "DIMENSIONES",
+                    "dropdimension" : "Arrastre dimensión aquí",
+                    "dropanotherdimen": "Arrastre otra dimensión aquí"
+                }
+            },
+            "customize": {
+                "title": "Personaliza tu gráfico"
+            },
+            "export": {
+                "graph": {
+                    "title": "Exporta o guarda tu gráfico",
+                    "dynamicWidget": "Generar widget dinámico con carga de datos por url"
+                },
+                "map": {
+                    "title": "Exporta o guarda tu mapa"
+                },
+                "formats": {
+                    "title": "Formato",
+                    "edatosgraphs": "Formato edatosgraphs",
+                    "svg": "Formato svg",
+                    "widget": "Formato widget",
+                    "png": "Formato png",
+                    "jpg": "Formato jpg"
+                }
+            },
+            "login": {
+                "title": "Acceder",
+                "description": "Es necesario disponer de un usuario registrado para acceder a la aplicación"
+            }
+        },
+        "reset": "Reiniciar",
+        "refreshdata": "Recargar datos",
+        "reloadingdata": "Recargando datos",
+        "editdata": "Editar datos",
+        "maximize": "Maximizar",
+        "minimize": "Minimizar",
+        "column": "Columna",
+        "copyclipboard": "Copiar al portapapeles",
+        "copiedclipboard": "Copiado al portapapeles",
+        "message": {
+            "loadrows": {
+                "succes": "<p><strong>{{rowsnumber}} filas </strong>({{cellsnumber}} celdas) han sido correctamente parseadas, ahora puedes elegir un gráfico!</p>"
+            },
+            "sizeoutput": {
+                "part1": "El resultado final será de",
+                "part2": "incluida la leyenda."
+            }
+        },
+        "screenSizeAlert": {
+            "gotIt": "¡Entendido!",
+            "header": "¡Bienvenido a Mis visualizaciones a medida!",
+            "body": {
+                "header": "!Mis visualizaciones a medida está diseñado para pantallas mayores!",
+                "text": {
+                    "1": "Redimensiona la pantalla de tu navegador o ",
+                    "2": "envíe a si mismo un recordatorio ",
+                    "3": "para regresar en un mejor momento."
+                },
+                "footer": "Los dispositivos táctiles aún no son totalmente compatibles."
+            }
+        }
+    },         
+    "separator" : {
+        "Tab":"Tabulador",
+        "Semicolon":"Punto y coma",
+        "Comma":"Coma",
+        "Pipe":"Barra"
+    },
+    "palettes": {
+        "sex": {
+            "name": "Sexo",
+            "men": "Hombres",
+            "women": "Mujeres",
+            "total": "Total"
+        },
+        "island": {
+            "name": "Islas"            
+        },
+        "territory": {
+            "name": "Territorios",
+            "canary": "Canarias",
+            "spain": "España",
+            "others": "Otros"
+        },
+        "gray": {
+            "1": "Negro",
+            "2": "Negro 2",
+            "3": "Negro 3",
+            "4": "Negro 4",
+            "5": "Negro 5",
+            "6": "Negro 6",
+            "7": "Negro 7",
+            "8": "Negro 8",
+            "9": "Negro 9"
+        },
+        "blue": {
+            "1": "Azul oscuro",
+            "2": "Azul oscuro 2",
+            "3": "Azul oscuro 3",
+            "4": "Azul oscuro 4",
+            "5": "Azul oscuro 5",
+            "6": "Azul oscuro 6",
+            "7": "Azul ISTAC",
+            "8": "Azul 2",
+            "9": "Azul 3",
+            "10": "Azul 4",
+            "11": "Azul 5"
+        },
+        "default": {
+            "1": "Azul ISTAC",
+            "2": "Amarillo",
+            "3": "Naranja",
+            "4": "Morado",
+            "5": "Arena",
+            "6": "Verde",
+            "7": "Rojo",
+            "8": "Azul 2",
+            "9": "Amarillo 2",
+            "10": "Naranaja 2",
+            "11": "Morado 2",
+            "12": "Arena 2",
+            "13": "Verde 2",
+            "14": "Rojo 2",
+            "15": "Azul 3",
+            "16": "Amarillo 3",
+            "17": "Naranja 3",
+            "18": "Morado 3",
+            "19": "Arena 3",
+            "20": "Verde 3",
+            "21": "Rojo 3",
+            "22": "Azul 4",
+            "23": "Azul oscuro 5",
+            "24": "Azul 5",
+            "25": "Azul oscuro 6"
+        }
+    },
+    "categories": {
+        "timeseries": "series temporales",
+        "correlations": "correlaciones",
+        "proportions": "proporciones",
+        "hierarchy": "jerarquía"
+    }    
+} 

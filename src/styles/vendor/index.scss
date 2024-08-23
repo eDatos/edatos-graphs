@@ -1,0 +1,53 @@
+@import '../variables.scss';
+@import '@fontsource/open-sans';
+@import '@fontsource/open-sans/300.css';
+@import '@fontsource/open-sans/600.css';
+@import '@fontsource/open-sans/700.css';
+
+//input
+$input-font-size: 0.88rem; // 14px
+$input-padding-y: 0.438rem; // 7px
+$input-padding-x: 0.438rem; // 7px
+$input-height: 30px;
+
+$input-border-color: $color-black-60;
+$input-border-width: 1px;
+$input-border-radius: 5px;
+$input-color: $color-black-60;
+$input-placeholder-color: $color-black-40;
+$input-focus-border-color: none;
+$input-focus-box-shadow: none;
+$link-hover-decoration: none;
+
+$input-disabled-bg: $color-black-5;
+
+//custom-checkbox
+$custom-checkbox-indicator-border-radius: 4px;
+$custom-control-indicator-checked-border-color: $color-black-60;
+$custom-checkbox-indicator-indeterminate-bg: $color-black-0;
+$custom-control-indicator-border-color: $color-black-60;
+$custom-control-indicator-checked-color: $color-blue-dark-100;
+$custom-control-indicator-checked-bg: $color-black-0;
+$custom-control-indicator-active-bg: $color-black-0;
+$custom-control-indicator-active-border-color: $color-black-60;
+$custom-control-label-disabled-color: $color-black-40;
+
+//cards
+$card-border-radius: 10px;
+$card-inner-border-radius: 8px;
+$card-cap-bg: $color-blue-dark-100;
+$card-cap-color: $color-black-0;
+$card-spacer-y: 5px;
+$card-spacer-x: 10px;
+
+//dropdown-menu
+$dropdown-border-width: 0px;
+$dropdown-border-radius: 5px;
+$dropdown-link-hover-bg: $color-blue-25;
+$dropdown-link-hover-color: $color-blue-dark-100;
+$dropdown-link-color: $color-blue-dark-100;
+$dropdown-item-padding-y: 0;
+$dropdown-item-padding-x: 5px;
+
+// Boostrap scss
+@import '~bootstrap/scss/bootstrap';

@@ -1,0 +1,153 @@
+@import './../../styles/variables';
+
+.parsingOptions {
+  :global .dropdown {
+    margin-left: 8px;
+
+    .dropdown-item:hover {
+      background-color: $color-blue-25;
+      border-radius: 15px;
+    }
+    button {
+      padding-right: 24px;
+      height: 40px;
+    }
+  }
+
+  :global .option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
+  }
+
+  .refresh-button {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.separator-preview {
+  background-color: $color-black-15;
+  color: $color-black-60;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 3px;
+  font-size: $size-14;
+  line-height: 16px;
+}
+
+.customTable {
+  border-top: 0;
+  border-bottom: 0;
+  margin: 20px 0;
+
+  tr.headerContainer,
+  .datatransformContainer {
+    th {
+      border-top: 0;
+      padding: 5px 10px;
+      background: $color-blue-dark-100;
+      border-bottom: 1px solid $color-black-0;
+      height: 28px;
+      color: $color-black-0;
+      font-size: $size-14;
+      font-weight: 400;
+      &:first-child {
+        border-radius: 5px 0 0 0;
+        border-right: 1px solid $color-black-0;
+      }
+      &:last-child {
+        min-width: calc($container-max-width/6);
+        border-radius: 0 5px 0 0;
+      }
+    }
+  }
+
+  tr.bodyContainer {
+    td {
+      border-top: 0;
+      vertical-align: middle;
+      padding: 5px 10px;
+      border-right: 1px solid $color-black-0;
+      border-bottom: 1px solid $color-black-0;
+      height: 48px;
+      background: $color-blue-dark-5;
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+}
+
+.headerContainer {
+  border-radius: 5px 0 0 0;
+}
+
+.datatransformContainer {
+  border-radius: 0 5px 0 0;
+}
+
+.horizontalSeparator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  font-size: $size-12;
+  font-weight: 400;
+  background: $color-blue-dark-5;
+}
+
+.inlineContainer {
+  display: inline-block;
+
+  > div {
+    min-width: 220px;
+  }
+}
+
+.inputSeparator button,
+.inputSeparator input {
+  gap: 5px;
+  min-width: 95px;
+  justify-content: space-between;
+  background: $color-black-0;
+  font-size: $size-12;
+  font-weight: 400;
+  i {
+    color: $color-blue-dark-100;
+  }
+}
+
+.smallInputSeparator input {
+  gap: 5px;
+  min-width: 95px;
+  max-width: 95px;
+  justify-content: space-between;
+  background: $color-black-0;
+  font-size: $size-12;
+  font-weight: 400;
+  i {
+    color: $color-blue-dark-100;
+  }
+}
+
+.bigInputSeparator button {
+  gap: 5px;
+  min-width: 200px;
+  justify-content: space-between;
+  background: $color-black-0;
+  font-size: $size-12;
+  font-weight: 400;
+  i {
+    color: $color-blue-dark-100;
+  }
+}

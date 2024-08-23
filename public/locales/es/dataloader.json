@@ -1,0 +1,35 @@
+{
+    "separator": {
+        "title" : "ESTRUCTURA DE LOS DATOS",
+        "column" :  {
+            "name": "Separador columna"
+        },
+        "thousands": {
+            "name": "Separador miles"
+        },
+        "decimals": {
+            "name": "Separador decimales"
+        }   
+    },
+    "datelocale":"Fecha local",
+    "refreshdata": "Recargar datos desde url",
+    "datatransform": {
+        "title": "TRANSFORMAR LOS DATOS",
+        "stack": "Agrupar"
+    },
+    "datamismatch": {
+        "warning": "Advertencia",
+        "parsingerror": "error de sintaxis",
+        "missingcolumn": "falta columna",
+        "typemismatch": "discrepancia en el tipo de datos",
+        "parsingerrortitle": "Se produjo un error al analizar los nuevos datos.",
+        "parsingerrordesc": "Puede cargar los nuevos datos e intentar corregir el error o volver a los datos previamente cargados.",
+        "missingcolumntitle": "El mapeo de datos de este proyecto requiere la dimensión",
+        "missingcolumntitle2": "que no se encuentra en los nuevos datos.",
+        "missingcolumndesc": "Puede crear un nuevo mapeo de datos o volver a los datos previamente cargados.",
+        "typemismatchtitle": "Los tipos de datos establecidos previamente para este proyecto no se pueden aplicar a los nuevos datos.",
+        "typemismatchdesc": "Puede utilizar los nuevos datos y restablecer los tipos de datos o volver a los datos cargados previamente.",
+        "load": "Cargar nuevos datos",
+        "cancel": "Cancelar"
+    }    
+}

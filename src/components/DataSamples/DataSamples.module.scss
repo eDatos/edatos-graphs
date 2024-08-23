@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+div.card-sample {
+  h2 {
+    font-size: $size-13;
+    font-weight: $font-weight-400;
+    line-height: 18px;
+    letter-spacing: -0.24px;
+    color: $color-black-80;
+  }
+  span,
+  a {
+    font-size: $size-12;
+    font-weight: $font-weight-400;
+    line-height: 14.061px;
+  }
+
+  a.dataset-source {
+    color: $color-blue-dark-50;
+    width: fit-content;
+  }
+}
+
+div.container-samples {
+  padding-top: $padding-20px;
+
+  span.title-samples {
+    font-size: $size-14;
+    font-weight: $font-weight-600;
+  }
+}

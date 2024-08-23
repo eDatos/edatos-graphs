@@ -1,0 +1,33 @@
+@import '../../../styles/variables.scss';
+
+.dropzone {
+  height: 249px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid $color-blue-dark-100;
+}
+
+.dropzone.reject {
+  border: 2px dashed var(--danger);
+}
+
+.dropzone.accept {
+  border: 2px dashed var(--success);
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+
+  span:first-child {
+    font-weight: 300;
+    font-size: $size-14;
+    line-height: 19px;
+    color: $color-black-80;
+  }
+}

@@ -1,0 +1,44 @@
+@import '../../styles/variables';
+
+.section {
+  padding: 20px 20px 0;
+}
+
+.header {
+  display: flex;
+  padding: 10px 10px 10px 20px;
+  align-items: center;
+  gap: 10px;
+  background-color: $color-black-5;
+  height: 48px;
+  margin-left: -10px;
+  margin-right: -10px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.circle {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  background-color: $color-black-100;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color-black-100;
+}
+
+.circleContent {
+  color: $color-black-0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  font-feature-settings: 'clig' off, 'liga' off;
+}
+
+.title {
+  color: $color-black-100;
+  font-family: 'Open Sans';
+  font-size: $size-18;
+  font-weight: 600;
+}

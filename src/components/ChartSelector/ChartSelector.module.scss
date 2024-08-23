@@ -1,0 +1,42 @@
+@import '../../styles/variables';
+
+.thumbnail {
+  font-size: 36px;
+  padding-left: 16px;
+}
+
+.currentChartContainer {
+  padding: 20px 10px 0;
+  &:first-child {
+    padding-left: 15px;
+  }
+}
+
+.currentChart:hover {
+  background-color: white !important;
+}
+
+.disabled {
+  pointer-events: none;
+  filter: grayscale(1);
+}
+
+.currentChart {
+  border-radius: 3px;
+  border: 1px solid $color-blue-dark-100;
+}
+
+span.chartTitle {
+  font-size: $size-14;
+  font-weight: $font-weight-600;
+}
+
+.chartText,
+h4 {
+  font-size: $size-12;
+  font-weight: $font-weight-400;
+}
+
+.custom-card .card-body {
+  gap: 5px;
+}

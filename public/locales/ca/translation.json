@@ -1,0 +1,323 @@
+{
+    "global": {
+        "appName": "Les meves visualitzacions a mida",
+        "appDescription": "El sistema de visualitzacions a mida és una eina amb la qual pots crear de forma senzilla els diferents tipus de gràfics que posem a la teva disposició. forma interactiva. A més, en aquesta aplicació et donem l'opció de desar el teu projecte per a futures actualitzacions si així ho desitges.",
+        "accepts": "Accepta",
+        "download": "Descarregar",
+        "save": "Guardar",
+        "mandatory": "Obligatori",
+        "section": {
+            "loaddata": {
+                "title": "Carrega les teves dades",
+                "tabs" : {
+                    "createGraphs": {
+                        "title": "Crear gràfics",
+                        "fromEdatos": "Des del banc de dades",
+                        "fromFiles": "Des dels teus fitxers",
+                        "fromProjects": "Des dels teus projectes",
+                        "fromUrl": "Des d'URL"
+                    },
+                    "createMaps": {
+                        "title": "Crear mapes"
+                    }
+                },
+                "paste": {
+                    "message": "Copieu i enganxeu les dades d'altres aplicacions o llocs web. Podeu utilitzar dades tabulars (TSV, CSV, DSV) o JSON."
+                },
+                "upload": {
+                    "message": "Podeu carregar dades tabulars (TSV, CSV, DSV) o JSON."
+                },
+                "sample": {
+                    "name": "Provar exemples de dades"
+                },
+                "url": {
+                    "message": "Introdueix una adreça web (URL) que apunta a les dades (per exemple, un fitxer Dropbox públic, una API pública, ...). Assegureu-vos que el servidor té CORS activat.",
+                    "clearFieldsButton": "Esborrar camps"
+                },
+                "project": {
+                    "message": "Carregar un projecte .edatosgraphs.",
+                    "dragAndBrowseFile": "Arrossegueu un fitxer o seleccioneu un fitxer local",
+                    "browseFile": "Seleccionar arxiu",
+                    "drag": "Arrossegueu un fitxer o",
+                    "browse": "Seleccioneu",
+                    "file": "un fitxer local",
+                    "accepted": "Tots els fitxers han estat acceptats",
+                    "rejected": "Alguns els fitxers han estat rebutjats"
+                },
+                "edatos": {
+                    "statisticalOperations": "Selecciona operació estadística",
+                    "cubes": "Cubs",
+                    "clearFieldsButton": "Esborrar camps"
+                },
+                "types": {
+                    "number": "Número",
+                    "string": "Corda",
+                    "date": "Data"
+                },
+                "errors": {
+                    "check": "Si us plau, reviseu",
+                    "row": "fila",
+                    "column": "a la columna",
+                    "issueRow": "Hi ha una altra incidència a la fila",
+                    "issues": "Hi ha incidències a",
+                    "rows": "files més",
+                    "remaining": "La resta de",
+                    "look": "reviseu",
+                    "fine": "bé",
+                    "wmsServerError": "No es poden carregar les dades WMS de la URL indicada"
+                },
+                "options": {
+                    "1": "OPCIÓ 1",
+                    "label1": "Copia i enganxa les teves dades d'altres aplicacions o llocs web. Podeu utilitzar dades tabulars (TSV, CSV, DSV) o JSON.",
+                    "2": "OPCIÓ 2",
+                    "label2": "Pot carregar dades tabulars (TSV, CSV, DSV) o JSON."                                        
+                },
+                "loadButton": "Carregar dades",
+                "loadingButton": "Carregant dades"                
+            },
+            "sampleData" : {
+                "sample1": "Proporció de persones que han finalitzat estudis o formació en les últimes quatre setmanes segons grups d'edat. Illes Canàries. 2022.",
+                "sample2": "Índexs de preus de consum segons grups ECOICOP. Illes Canàries. Abril 2023.",
+                "sample3": "Consum final d'energia elèctrica segons grans sectors. Illes Canàries. 31 de desembre de 2022.",
+                "sample4": "Despeses per branques d'educació. Universitats públiques canàries. 2021.",
+                "sample5": "Població de 16 anys i més segons l'hàbit de fumar. Illes Canàries. 2021.",
+                "sample6": "Resultats de les eleccions autonòmiques segons candidats. Diputats regionals. Eleccions del 28 de maig de 2023.",
+                "sample7": "Població. Illes Canàries i anys.",
+                "sample8": "Viatgers allotjats segons principals nacionalitats i esdeveniments. Canàries. 2022.",
+                "source": "Font"
+            },
+            "loadLayers": {
+                "title": "Carrega i ordena les teves capes",
+                "message": "Introduïu una adreça web (URL) del servidor WMS amb què voleu treballar",
+                "loadWmsButton": "Carregar WMS",
+                "addWmsButton": "Afegir WMS"
+            },
+            "wmslayerselection": {
+                "configuration": {
+                    "title": "Configuració de capes",
+                    "placeholder": "Seleccioneu capes"
+                },
+                "style": {
+                    "title": "Seleccioneu l'estil per a la capa",
+                    "placeholder": "Seleccioneu estils",
+                    "legend": "Mostra llegenda",
+                    "showlayer": "Mostra nom de capa",
+                    "hidestyle": "Oculta nom de l'estil"
+                }
+            },
+            "wmsmunicipalityselection": {
+                "title": "Seleccioneu municipi"
+            },
+            "chartselection": {
+                "title": "Selecciona el gràfic que necessitis",
+                "barchart": {
+                    "title": "Diagrama de barres",
+                    "description": "Mostra una dimensió categòrica i quantitats relacionades. Cada barra representa una categoria, l'amplada és proporcional a la dimensió quantitativa.",
+                    "dimensions": {
+                        "bars": "Bars",
+                        "size": "Mida",
+                        "series": "Sèries"
+                    }
+                },
+                "linechart": {
+                    "title": "Diagrama de línies",
+                    "description": "Mostra una dimensió quantitativa durant un interval continu o període de temps. El color es pot utilitzar opcionalment per codificar una dimensió quantitativa o categòrica addicional.",
+                    "dimensions": {
+                        "xAxis": "Eix X",
+                        "yAxis": "Eix Y",
+                        "lines": "Línies"
+                    }
+                },
+                "piechart": {
+                    "title": "Diagrama de sectors",
+                    "description": "Permet veure les proporcions entre els valors que formen un tot, utilitzant arcs que componen un cercle.",
+                    "dimensions": {
+                        "arcs": "Arcs",
+                        "series": "Sèries"                        
+                    }
+                },
+                "donutchart": {
+                    "title": "Diagrama de donut",
+                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen un donut."
+                },
+                "halfdonutchart": {
+                    "title": "Diagrama de mig donut",
+                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen medio donut."
+                },                
+                "scatterchart": {
+                    "title": "Diagrama de dispersió",
+                    "description": "El disseny bàsic és un diagrama de dispersió, que permet veure correlacions entre dues dimensions contínues.",
+                    "dimensions": {
+                        "xAxis": "Eix X",
+                        "yAxis": "Eix Y",
+                        "labels": "Etiquetes"
+                    }
+                },
+                "treemapchart": {
+                    "title": "Mapa d'arbre",
+                    "description": "Mostra dades estructurades jeràrquicament i una dimensió quantitativa relacionada. Està compost per una zona dividida en petits rectangles, que representen l'últim nivell de l'estructura arbòria. La mida dels rectangles depèn de la dimensió quantitativa.",                    
+                    "dimensions": {
+                        "hierarchy": "Jerarquia",
+                        "size": "Mida"                        
+                    }
+                },
+                "stackedbarchart": {
+                    "title": "Diagrama de barres apilades",
+                    "description": "Mostra múltiples dimensions quantitatives relacionades amb categories. Les barres s'apilen visualment segons la dimensió categòrica, cada barra representa una dimensió quantitativa, mapejada a la seva alçada.",
+                    "dimensions": {
+                        "axis": "Eix",
+                        "size": "Mida",
+                        "series": "Sèries"
+                    }
+                },
+                "warnings": {
+                    "required": "Variables de gràfic requerides",
+                    "map": "necessita indicar dimensions"
+                }
+            },
+            "mapping": {
+                "title": "Mapeja les variables al gràfic",
+                "chartvariables":{
+                    "dimensions": "DIMENSIONS",
+                    "dropdimension" : "Arrossegueu dimensió aquí",
+                    "dropanotherdimen": "Arrossegueu una altra dimensió aqu"
+                }
+            },
+            "customize": {
+                "title": "Personalitza el teu gràfic"
+            },
+            "export": {
+                "graph": {
+                    "title": "Exporta o desa el teu gràfic",
+                    "dynamicWidget": "Generar widget dinàmic amb càrrega de dades per url"
+                },
+                "map": {
+                    "title": "Exporta o desa el teu mapa"
+                },
+                "formats": {
+                    "title": "Format",
+                    "edatosgraphs": "Format edatosgraphs",
+                    "svg": "Format svg",
+                    "widget": "Format widget",
+                    "png": "Format png",
+                    "jpg": "Format jpg"
+                }
+            },
+            "login": {
+                "title": "Accedir",
+                "description": "Cal tenir un usuari registrat per accedir a l'aplicació"
+            }
+        },
+        "reset": "Reiniciar",
+        "refreshdata": "Recarregar dades",
+        "reloadingdata": "Recarcant dades",
+        "editdata": "Editar dades",
+        "maximize": "Maximitzar",
+        "minimize": "Minimitzar",
+        "column": "Columna",
+        "copyclipboard": "Copiar al porta-retalls",
+        "copiedclipboard": "Copiat al porta-retalls",
+        "message": {
+            "loadrows": {
+                "succes": "<p><strong>{{rowsnumber}} files </strong>({{cellsnumber}} cel·les) han estat correctament parsejades, ara pots triar un gràfic!</p>"
+            },
+            "sizeoutput": {
+                "part1": "El resultat final serà de",
+                "part2": "inclosa la llegenda."
+            }
+        },
+        "screenSizeAlert": {
+            "gotIt": "Ho tinc!",
+            "header": "Benvingut a Les meves visualitzacions a mida!",
+            "body": {
+                "header": "Les meves visualitzacions a mida està dissenyat per a pantalles més grans!",
+                "text": {
+                    "1": "Canvia la mida de la finestra del navegador o ",
+                    "2": "envia't un recordatori ",
+                    "3": "per tornar en un moment millor."
+                },
+                "footer": "Els dispositius tàctils encara no són totalment compatibles."
+            }
+        }
+    },         
+    "separator" : {
+        "Tab":"Tabulador",
+        "Semicolon":"Punt i coma",
+        "Comma":"Coma",
+        "Pipe":"Barra"
+    },
+    "palettes": {
+        "sex": {
+            "name": "Sexe",
+            "men": "Homes",
+            "women": "Dones",
+            "total": "Total"
+        },
+        "island": {
+            "name": "Illes"            
+        },
+        "territory": {
+            "name": "Territoris",
+            "canary": "Canàries",
+            "spain": "Espanya",
+            "others": "Altres"
+        },
+        "gray": {
+            "1": "Negre",
+            "2": "Negre 2",
+            "3": "Negre 3",
+            "4": "Negre 4",
+            "5": "Negre 5",
+            "6": "Negre 6",
+            "7": "Negre 7",
+            "8": "Negre 8",
+            "9": "Negre 9"
+        },
+        "blue": {
+            "1": "Blau fosc",
+            "2": "Blau fosc 2",
+            "3": "Blau fosc 3",
+            "4": "Blau fosc 4",
+            "5": "Blau fosc 5",
+            "6": "Blau fosc 6",
+            "7": "Blau ISTAC",
+            "8": "Blau 2",
+            "9": "Blau 3",
+            "10": "Blau 4",
+            "11": "Blau 5"
+        },
+        "default": {
+            "1": "Blau ISTAC",
+            "2": "Groc",
+            "3": "Taronja",
+            "4": "Morat",
+            "5": "Sorra",
+            "6": "Verd",
+            "7": "Vermell",
+            "8": "Blau 2",
+            "9": "Groc 2",
+            "10": "Taronja 2",
+            "11": "Morat 2",
+            "12": "Sorra 2",
+            "13": "Verd 2",
+            "14": "Vermell 2",
+            "15": "Blau 3",
+            "16": "Groc 3",
+            "17": "Taronja 3",
+            "18": "Morat 3",
+            "19": "Sorra 3",
+            "20": "Verd 3",
+            "21": "Vermell 3",
+            "22": "Blau 4",
+            "23": "Blau fosc 5",
+            "24": "Blau 5",
+            "25": "Blau fosc 6"
+        }
+    },
+    "categories": {
+        "timeseries": "sèries temporals",
+        "correlations": "correlacions",
+        "proportions": "proporcions",
+        "hierarchy": "jerarquia"
+    }
+} 

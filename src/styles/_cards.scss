@@ -1,0 +1,29 @@
+.custom-card-container {
+  padding: 10px;
+  &:nth-child(3n) {
+    padding-right: 15px;
+  }
+  &:nth-child(3n + 1) {
+    padding-left: 15px;
+  }
+}
+
+.card-header {
+  .title {
+    font-weight: 600;
+    font-size: $size-18;
+  }
+
+  i {
+    cursor: pointer;
+  }
+}
+
+.card-title {
+  .title {
+    font-weight: 600;
+    font-size: $size-14;
+    line-height: 24px;
+    color: $color-black-80;
+  }
+}
