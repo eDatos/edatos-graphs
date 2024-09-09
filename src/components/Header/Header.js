@@ -34,9 +34,10 @@ export default function Header({ value, setLogged }) {
         requestOptions
       );
       const headerUrlData = await responseHeaderURL.json();
+	  const appVersion = applicationConfigJson['appVersion'];
       return await (
         await fetch(
-          `${headerUrlData['value']}?appName=${appName}&chosenLocale=${value}&appId=egraficos&enableAuthentication`,
+          `${headerUrlData['value']}?appName=${appName}&chosenLocale=${value}&appId=egraficos&enableAuthentication&appVersion=${appVersion}`,
           requestOptions
         )
       ).text();

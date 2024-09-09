@@ -81,6 +81,26 @@
 								</resources>
 							</configuration>
 						</execution>
+						<execution>
+							<id>copy-resources-properties</id>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>${basedir}/target/classes</outputDirectory>
+								<resources>
+									<resource>
+										<directory>${basedir}/public</directory>
+										<includes>
+											<include>application.json</include>
+										</includes>
+										<filtering>true</filtering>
+									</resource>
+								</resources>
+								<delimiters>@</delimiters>
+							</configuration>
+						</execution>
 					</executions>
 				</plugin>
 				<plugin>
