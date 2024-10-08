@@ -99,7 +99,7 @@ function DataLoader({
             setUserInput(rawInput, { type: 'upload' })
           }
           setLoadingError={setLoadingError}
-        />,        
+        />,
       ],
       allowedForReplace: true,
     },
@@ -127,7 +127,9 @@ function DataLoader({
     },
     {
       id: 'WMS',
-      loader: <WMSFetch setDataSource={setDataSource} sources={dataSource?.sources}/>,
+      loader: (
+        <WMSFetch setDataSource={setDataSource} sources={dataSource?.sources} />
+      ),
       allowedForReplace: false,
     },
   ];

@@ -54,6 +54,26 @@ export const visualOptions = {
     default: true,
     group: 'chart',
   },
+  endLabel: {
+    type: 'boolean',
+    default: false,
+    group: 'chart',
+  },
+  showMax: {
+    type: 'boolean',
+    default: false,
+    group: 'chart',
+  },
+  showMin: {
+    type: 'boolean',
+    default: false,
+    group: 'chart',
+  },
+  showAvgLine: {
+    type: 'boolean',
+    default: false,
+    group: 'chart',
+  },
   showXaxisName: {
     type: 'boolean',
     default: false,

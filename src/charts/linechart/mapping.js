@@ -132,9 +132,15 @@ export function getChartOptions(
       xData.forEach((e) => {
         let value = _.find(data[item], ['x', e], 0);
         if (value) {
-          lineData.push([format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType), value.y]);
+          lineData.push([
+            format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType),
+            value.y,
+          ]);
         } else {
-          lineData.push([format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType), '']);
+          lineData.push([
+            format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType),
+            '',
+          ]);
         }
       });
       return {
@@ -147,11 +153,25 @@ export function getChartOptions(
         symbolSize: visualOptions.dotsDiameter,
         color: colorValue,
         data: lineData,
+        endLabel: {
+          show: visualOptions.endLabel,
+          formatter: (params) => formatNumber(params.value[1], visualOptions.tooltipValueFormat, locale)
+        },
+        markPoint: {
+          data: [
+            visualOptions.showMax ? { type: 'max', name: 'Max', 
+              label: { 
+                formatter: (params) => formatNumber(params.value, visualOptions.tooltipValueFormat, locale),
+              },              
+            } : {},
+            visualOptions.showMin ? { type: 'min', name: 'Min' } : {},
+          ],
+        },
         tooltip: {
           valueFormatter: (value) =>
             formatNumber(value, visualOptions.tooltipValueFormat, locale) +
             visualOptions.units,
-        }
+        },
       };
     });
 
