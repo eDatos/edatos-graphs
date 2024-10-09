@@ -2,7 +2,7 @@
     {
       "name": "global.section.sampleData.sample1",
       "category": "global.section.chartselection.barchart.title",
-      "url": "./sample-datasets/Tasa Insercion por edad - canarias.csv",
+      "url": "./sample-datasets/ISTAC/Tasa Insercion por edad - canarias.csv",
       "delimiter": ",",
       "sourceName": "ISTAC",
       "sourceURL":
@@ -11,7 +11,7 @@
     {
       "name": "global.section.sampleData.sample2",
       "category": "global.section.chartselection.barchart.title",
-      "url": "./sample-datasets/IPC - canarias.csv",
+      "url": "./sample-datasets/ISTAC/IPC - canarias.csv",
       "delimiter": ",",
       "sourceName": "ISTAC",
       "sourceURL":
@@ -20,7 +20,7 @@
     {
       "name": "global.section.sampleData.sample3",
       "category": "global.section.chartselection.stackedbarchart.title",
-      "url": "./sample-datasets/Consumo energetico por sectores - canarias.csv",
+      "url": "./sample-datasets/ISTAC/Consumo energetico por sectores - canarias.csv",
       "delimiter": ",",
       "sourceName": "ISTAC",
       "sourceURL":
@@ -29,7 +29,7 @@
     {
       "name": "global.section.sampleData.sample7",
       "category": "global.section.chartselection.linechart.title",
-      "url": "./sample-datasets/Poblacion canaria.csv",
+      "url": "./sample-datasets/ISTAC/Poblacion canaria.csv",
       "delimiter": ",",
       "sourceName": "ISTAC",
       "sourceURL":
@@ -38,7 +38,7 @@
     {
       "name": "global.section.sampleData.sample4",
       "category": "global.section.chartselection.piechart.title",
-      "url": "./sample-datasets/Egresos por ramas - canarias.csv",
+      "url": "./sample-datasets/ISTAC/Egresos por ramas - canarias.csv",
       "delimiter": ",",
       "sourceName": "ISTAC",
       "sourceURL":
@@ -47,7 +47,7 @@
     {
       "name": "global.section.sampleData.sample5",
       "category": "global.section.chartselection.donutchart.title",
-      "url": "./sample-datasets/Tabaquismo por edad - canarias.csv",
+      "url": "./sample-datasets/ISTAC/Tabaquismo por edad - canarias.csv",
       "delimiter": ",",
       "sourceName": "ISTAC",
       "sourceURL":
@@ -56,7 +56,7 @@
     {
       "name": "global.section.sampleData.sample6",
       "category": "global.section.chartselection.halfdonutchart.title",
-      "url": "./sample-datasets/Elecciones autonomicas 2023 - canarias.csv",
+      "url": "./sample-datasets/ISTAC/Elecciones autonomicas 2023 - canarias.csv",
       "delimiter": ",",
       "sourceName": "ISTAC",
       "sourceURL":
@@ -65,7 +65,7 @@
     {
       "name": "global.section.sampleData.sample8",
       "category": "global.section.chartselection.treemapchart.title",
-      "url": "./sample-datasets/Relacion Evento Turistas por paises - canarias.csv",
+      "url": "./sample-datasets/ISTAC/Relacion Evento Turistas por paises - canarias.csv",
       "delimiter": ",",
       "sourceName": "ISTAC",
       "sourceURL":

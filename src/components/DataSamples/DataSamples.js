@@ -3,12 +3,16 @@ import { Row, Col, Card } from 'react-bootstrap';
 import styles from './DataSamples.module.scss';
 import { useTranslation } from 'react-i18next';
 import { applicationSampleDatasets } from '../ApplicationConfig/ApplicationConfig';
+import { applicationConfig } from '../ApplicationConfig/ApplicationConfig';
 
 export default function DataSamples({ onSampleReady, setLoadingError }) {
   const { t } = useTranslation();
   const [samplesList, setSamplesList] = useState([]);
+  
   useEffect(() => {
-    applicationSampleDatasets().then((json) => setSamplesList(json));
+    applicationConfig().then((applicationConfigJson) => {      
+      applicationSampleDatasets(applicationConfigJson['metadata']['client']).then((json) => setSamplesList(json));
+    });    
   }, [setSamplesList]);
 
   const select = async (sample) => {

@@ -1,0 +1,11 @@
+[    
+    {
+      "name": "global.section.sampleData.sample7",
+      "category": "global.section.chartselection.linechart.title",
+      "url": "./sample-datasets/IBESTAT/Poblacion canaria.csv",
+      "delimiter": ",",
+      "sourceName": "ISTAC",
+      "sourceURL":
+        "https://datos.canarias.es/api/estadisticas/statistical-resources/v1.0/datasets/ISTAC/E30245A_000002/~latest?representation=MEDIDAS[POBLACION]:TERRITORIO[ES708|ES704|ES705|ES709|ES706|ES707|ES703]:SEXO[_T]"
+    }
+  ]
