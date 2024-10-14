@@ -82,7 +82,7 @@ const EDatosGraph = (props) => {
       return getChartOptions(parsedUserData);
     };
 
-    if (props.data?.lenght > 0) {
+    if (props.data?.length > 0) {
       setOptions(getChartOptions(props.data));
     } else {
       fetchOptions(props.source).then((options) => {
