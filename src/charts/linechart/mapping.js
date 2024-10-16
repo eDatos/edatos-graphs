@@ -153,18 +153,30 @@ export function getChartOptions(
         symbolSize: visualOptions.dotsDiameter,
         color: colorValue,
         data: lineData,
+        labelLayout: {
+          hideOverlap: true
+        },
         endLabel: {
-          show: visualOptions.endLabel,
-          formatter: (params) => formatNumber(params.value[1], visualOptions.tooltipValueFormat, locale)
+          show: visualOptions.endLabel,          
+          fontSize: visualOptions.endLabelSize,
+          formatter: (params) =>
+            formatNumber(
+              params.value[1],
+              visualOptions.endLabelFormat,
+              locale
+            ),
         },
         markPoint: {
           data: [
-            visualOptions.showMax ? { type: 'max', name: 'Max', 
-              label: { 
-                formatter: (params) => formatNumber(params.value, visualOptions.tooltipValueFormat, locale),
-              },              
-            } : {},
-            visualOptions.showMin ? { type: 'min', name: 'Min' } : {},
+            visualOptions.endLabel 
+              ? {
+                  type: 'last',
+                  coord: [mapping.x.mappedType === 'category' ? lineData.length - 1 : lineData[lineData.length - 1][0], 
+                          lineData[lineData.length - 1][1]],
+                  symbol: 'circle',
+                  symbolSize: visualOptions.endLabelPointDiameter,          
+                } 
+              : {}            
           ],
         },
         tooltip: {

@@ -138,5 +138,9 @@
     "grayPalette2": "Paleta de grisos",
     "bluePalette": "Blaus",    
     "resetDomain": "Restablir el domini",
-    "invert": "Invertir"
+    "invert": "Invertir",
+    "endLabel": "Etiqueta últim valor",    
+    "endLabelSize": "Mida d'etiqueta d'últim valor",
+    "endLabelFormat": "Format d'últim valor",
+    "endLabelPointDiameter": "Diàmetre de punt últim valor"
 }

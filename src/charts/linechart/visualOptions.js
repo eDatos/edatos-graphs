@@ -58,20 +58,21 @@ export const visualOptions = {
     type: 'boolean',
     default: false,
     group: 'chart',
-  },
-  showMax: {
-    type: 'boolean',
-    default: false,
+  },  
+  endLabelSize: {
+    type: 'number',
+    default: 12,
     group: 'chart',
   },
-  showMin: {
-    type: 'boolean',
-    default: false,
+  endLabelFormat: {
+    type: 'text',
+    default: 'standard',
+    options: visualOptionsNumberFormat.options,
     group: 'chart',
   },
-  showAvgLine: {
-    type: 'boolean',
-    default: false,
+  endLabelPointDiameter: {
+    type: 'number',
+    default: 7,
     group: 'chart',
   },
   showXaxisName: {
