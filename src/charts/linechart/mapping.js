@@ -131,50 +131,44 @@ export function getChartOptions(
       let lineData = [];
       xData.forEach((e) => {
         let value = _.find(data[item], ['x', e], 0);
-        if (value) {
-          lineData.push([
+        let y = value ? value.y : '';
+        lineData.push([
             format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType),
-            value.y,
-          ]);
-        } else {
-          lineData.push([
-            format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType),
-            '',
-          ]);
-        }
+            y,
+        ]);
       });
       return {
         name: item,
-        type: 'line',        
+        type: 'line',
         emphasis: { focus: 'series' },
         showSymbol: visualOptions.showPoints,
         symbolSize: visualOptions.dotsDiameter,
         color: colorValue,
         data: lineData,
         labelLayout: {
-          hideOverlap: true
+          hideOverlap: true,
         },
         endLabel: {
-          show: visualOptions.endLabel,          
+          show: visualOptions.endLabel,
           fontSize: visualOptions.endLabelSize,
           formatter: (params) =>
-            formatNumber(
-              params.value[1],
-              visualOptions.endLabelFormat,
-              locale
-            ),
+            formatNumber(params.value[1], visualOptions.endLabelFormat, locale),
         },
         markPoint: {
           data: [
-            visualOptions.endLabel 
+            visualOptions.endLabel
               ? {
                   type: 'last',
-                  coord: [mapping.x.mappedType === 'category' ? lineData.length - 1 : lineData[lineData.length - 1][0], 
-                          lineData[lineData.length - 1][1]],
+                  coord: [
+                    mapping.x.mappedType === 'category'
+                      ? lineData.length - 1
+                      : lineData[lineData.length - 1][0],
+                    lineData[lineData.length - 1][1],
+                  ],
                   symbol: 'circle',
-                  symbolSize: visualOptions.endLabelPointDiameter,          
-                } 
-              : {}            
+                  symbolSize: visualOptions.endLabelPointDiameter,
+                }
+              : {},
           ],
         },
         tooltip: {

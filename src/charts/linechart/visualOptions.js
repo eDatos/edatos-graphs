@@ -15,12 +15,12 @@ export const visualOptions = {
     disabled: {
       showPoints: false,
     },
-  },  
+  },
   reverseOrder: {
     type: 'boolean',
     default: false,
     group: 'chart',
-  },  
+  },
   xAxisOriginTo0: {
     type: 'boolean',
     default: false,
@@ -35,7 +35,7 @@ export const visualOptions = {
     type: 'boolean',
     default: false,
     group: 'chart',
-  },  
+  },
   endLabelSize: {
     type: 'number',
     default: 12,
