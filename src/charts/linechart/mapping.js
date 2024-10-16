@@ -145,9 +145,7 @@ export function getChartOptions(
       });
       return {
         name: item,
-        type: 'line',
-        smooth: visualOptions.smooth,
-        step: visualOptions.stepCurve ? visualOptions.stepType : false,
+        type: 'line',        
         emphasis: { focus: 'series' },
         showSymbol: visualOptions.showPoints,
         symbolSize: visualOptions.dotsDiameter,

@@ -15,35 +15,12 @@ export const visualOptions = {
     disabled: {
       showPoints: false,
     },
-  },
-  stepCurve: {
-    type: 'boolean',
-    default: false,
-    group: 'chart',
-  },
-  stepType: {
-    type: 'text',
-    default: 'start',
-    options: [
-      { label: 'start', value: 'start' },
-      { label: 'middle', value: 'middle' },
-      { label: 'end', value: 'end' },
-    ],
-    group: 'chart',
-    disabled: {
-      stepCurve: false,
-    },
-  },
+  },  
   reverseOrder: {
     type: 'boolean',
     default: false,
     group: 'chart',
-  },
-  smooth: {
-    type: 'boolean',
-    default: false,
-    group: 'chart',
-  },
+  },  
   xAxisOriginTo0: {
     type: 'boolean',
     default: false,
