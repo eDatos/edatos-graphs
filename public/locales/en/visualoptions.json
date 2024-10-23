@@ -138,5 +138,9 @@
     "grayPalette2": "Gray Palette",
     "bluePalette": "Blues",
     "resetDomain": "Reset domain",
-    "invert": "Invert"
+    "invert": "Invert",
+    "endLabel": "Etiqueta último valor",    
+    "endLabelSize": "Last value label fontsize",
+    "endLabelFormat": "Last value format",
+    "endLabelPointDiameter": "Last value point diameter"
 }
