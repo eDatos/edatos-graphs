@@ -3,7 +3,7 @@
 	<groupId>es.gobcan.istac.edatos-graphs</groupId>
 	<artifactId>edatos-graphs</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.1.0</version>
 	<name>Edatos Graphs</name>
 	<description>Sistema producción visualizaciones</description>
 
@@ -99,7 +99,7 @@
 		<connection>scm:git:https://git.arte-consultores.com/istac/edatos-graphs</connection>
 		<developerConnection>scm:git:https://git.arte-consultores.com/istac/edatos-graphs</developerConnection>
 		<url>https://git.arte-consultores.com/istac/edatos-graphs</url>
-		<tag>HEAD</tag>
+		<tag>20241025-1118-v1.1.0</tag>
 	</scm>
 	<distributionManagement>
 		<repository>
