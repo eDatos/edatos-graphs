@@ -138,5 +138,9 @@
     "grayPalette2": "Paleta de grises",
     "bluePalette": "Azules",
     "resetDomain": "Restablecer dominio",
-    "invert": "Invertir"
+    "invert": "Invertir",
+    "endLabel": "Etiqueta último valor",    
+    "endLabelSize": "Tamaño de etiqueta de último valor",
+    "endLabelFormat": "Formato de último valor",
+    "endLabelPointDiameter": "Diámetro de punto último valor"
 }

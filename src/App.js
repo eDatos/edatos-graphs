@@ -316,41 +316,38 @@ function App() {
         hydrateFromProject={importProject}
       />
     </Section>
-  )
+  );
 
-  const chartSelector = (
-    showChartSelector() && (
+  const chartSelector = showChartSelector() && (
+    <Section
+      title={t('global.section.chartselection.title')}
+      number={2}
+      loading={loading}
+    >
+      <ChartSelector
+        availableCharts={charts}
+        currentChart={currentChart}
+        setCurrentChart={handleChartChange}
+      />
+    </Section>
+  );
+
+  const chartConfigurator = showChartConfigurator() && (
+    <>
       <Section
-        title={t('global.section.chartselection.title')}
-        number={2}
+        title={t('global.section.mapping.title')}
+        number={3}
         loading={loading}
       >
-        <ChartSelector
-          availableCharts={charts}
-          currentChart={currentChart}
-          setCurrentChart={handleChartChange}
+        <DataMapping
+          ref={dataMappingRef}
+          dimensions={currentChart.dimensions}
+          dataTypes={data.dataTypes}
+          mapping={mapping}
+          setMapping={setMapping}
         />
       </Section>
-    )
-  );  
-
-  const chartConfigurator = (
-    showChartConfigurator() && (
-      <>
-        <Section
-          title={t('global.section.mapping.title')}
-          number={3}
-          loading={loading}
-        >
-          <DataMapping
-            ref={dataMappingRef}
-            dimensions={currentChart.dimensions}
-            dataTypes={data.dataTypes}
-            mapping={mapping}
-            setMapping={setMapping}
-          />
-        </Section>
-        <Section
+      <Section
         title={t('global.section.customize.title')}
         number={4}
         loading={loading}
@@ -366,33 +363,30 @@ function App() {
         />
       </Section>
     </>
-    )
   );
 
-  const exportOptions = (
-    showExportOptions() && (
-      <Section
-        title={t('global.section.export.graph.title')}
-        number={showWMSMap() ? 2 : 5}
-        loading={loading}
-      >
-        <Exporter
-          rawViz={rawViz}
-          exportProject={exportProject}
-          userData={dataLoader.userData}
-          dataSource={dataLoader.dataSource}
-          chartIndex={chartIndex}
-          mapping={mapping}
-          visualOptions={visualOptions}
-          dataTypes={data?.dataTypes}
-          dimensions={currentChart.dimensions}
-          locale={i18n.language}
-          decimalsSeparator={dataLoader.decimalsSeparator}
-          thousandsSeparator={dataLoader.thousandsSeparator}
-          map={map}
-        />
-      </Section>
-    )
+  const exportOptions = showExportOptions() && (
+    <Section
+      title={t('global.section.export.graph.title')}
+      number={showWMSMap() ? 2 : 5}
+      loading={loading}
+    >
+      <Exporter
+        rawViz={rawViz}
+        exportProject={exportProject}
+        userData={dataLoader.userData}
+        dataSource={dataLoader.dataSource}
+        chartIndex={chartIndex}
+        mapping={mapping}
+        visualOptions={visualOptions}
+        dataTypes={data?.dataTypes}
+        dimensions={currentChart.dimensions}
+        locale={i18n.language}
+        decimalsSeparator={dataLoader.decimalsSeparator}
+        thousandsSeparator={dataLoader.thousandsSeparator}
+        map={map}
+      />
+    </Section>
   );
 
   return (
@@ -436,17 +430,17 @@ function App() {
                     title={t(
                       'global.section.loaddata.tabs.createGraphs.fromEdatos'
                     )}
-                  >                    
+                  >
                     <div className="app-sections">
                       {logged && activeSubTab === 'eDatos' && (
-                        <>                          
-                          { loadOptions("eDatos") }
-                          { chartSelector }
-                          { chartConfigurator }                      
-                          { exportOptions }
+                        <>
+                          {loadOptions('eDatos')}
+                          {chartSelector}
+                          {chartConfigurator}
+                          {exportOptions}
                         </>
                       )}
-                    </div>                    
+                    </div>
                   </Tab>
                   <Tab
                     eventKey="url"
@@ -455,50 +449,50 @@ function App() {
                     )}
                   >
                     <div className="app-sections">
-                      {logged && activeSubTab === 'url' && (                        
+                      {logged && activeSubTab === 'url' && (
                         <>
-                          { loadOptions("url") }
-                          { chartSelector }
-                          { chartConfigurator }                      
-                          { exportOptions }
+                          {loadOptions('url')}
+                          {chartSelector}
+                          {chartConfigurator}
+                          {exportOptions}
                         </>
                       )}
-                      </div>
+                    </div>
                   </Tab>
                   <Tab
                     eventKey="files"
                     title={t(
                       'global.section.loaddata.tabs.createGraphs.fromFiles'
                     )}
-                  >                    
+                  >
                     <div className="app-sections">
                       {logged && activeSubTab === 'files' && (
                         <>
-                          { loadOptions("files") }
-                          { chartSelector }
-                          { chartConfigurator }
-                          { exportOptions }
-                        </>                          
+                          {loadOptions('files')}
+                          {chartSelector}
+                          {chartConfigurator}
+                          {exportOptions}
+                        </>
                       )}
-                    </div>                    
+                    </div>
                   </Tab>
                   <Tab
                     eventKey="project"
                     title={t(
                       'global.section.loaddata.tabs.createGraphs.fromProjects'
                     )}
-                  >                    
+                  >
                     <div className="app-sections">
                       {logged && activeSubTab === 'project' && (
                         <>
-                          { loadOptions("project") }
-                          { chartSelector }
-                          { chartConfigurator }                      
-                          { exportOptions }                          
+                          {loadOptions('project')}
+                          {chartSelector}
+                          {chartConfigurator}
+                          {exportOptions}
                         </>
                       )}
-                    </div>                    
-                  </Tab>                  
+                    </div>
+                  </Tab>
                 </Tabs>
               }
             </Tab>
@@ -538,7 +532,7 @@ function App() {
                           />
                         </Section>
 
-                        { exportOptions }
+                        {exportOptions}
                       </>
                     )}
                   </div>

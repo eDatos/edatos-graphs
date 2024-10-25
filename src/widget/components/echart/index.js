@@ -50,7 +50,7 @@ const EDatosGraph = (props) => {
     const fetchData = async (source) => {
       const response = await fetch(source.url, {
         method: 'GET',
-        headers: { Accept: source.acceptHeader ?? 'text/csv'},
+        headers: { Accept: source.acceptHeader ?? 'text/csv' },
       });
       return await response.text();
     };

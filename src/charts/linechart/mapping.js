@@ -131,27 +131,51 @@ export function getChartOptions(
       let lineData = [];
       xData.forEach((e) => {
         let value = _.find(data[item], ['x', e], 0);
-        if (value) {
-          lineData.push([format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType), value.y]);
-        } else {
-          lineData.push([format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType), '']);
-        }
+        let y = value ? value.y : '';
+        lineData.push([
+            format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType),
+            y,
+        ]);
       });
       return {
         name: item,
         type: 'line',
-        smooth: visualOptions.smooth,
-        step: visualOptions.stepCurve ? visualOptions.stepType : false,
         emphasis: { focus: 'series' },
         showSymbol: visualOptions.showPoints,
         symbolSize: visualOptions.dotsDiameter,
         color: colorValue,
         data: lineData,
+        labelLayout: {
+          hideOverlap: true,
+        },
+        endLabel: {
+          show: visualOptions.endLabel,
+          fontSize: visualOptions.endLabelSize,
+          formatter: (params) =>
+            formatNumber(params.value[1], visualOptions.endLabelFormat, locale),
+        },
+        markPoint: {
+          data: [
+            visualOptions.endLabel
+              ? {
+                  type: 'last',
+                  coord: [
+                    mapping.x.mappedType === 'category'
+                      ? lineData.length - 1
+                      : lineData[lineData.length - 1][0],
+                    lineData[lineData.length - 1][1],
+                  ],
+                  symbol: 'circle',
+                  symbolSize: visualOptions.endLabelPointDiameter,
+                }
+              : {},
+          ],
+        },
         tooltip: {
           valueFormatter: (value) =>
             formatNumber(value, visualOptions.tooltipValueFormat, locale) +
             visualOptions.units,
-        }
+        },
       };
     });
 

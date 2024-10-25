@@ -8,7 +8,7 @@ import { CookiesProvider } from 'react-cookie';
 import { HeadProvider } from 'react-head';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(  
+root.render(
   <React.StrictMode>
     <HeadProvider>
       <CookiesProvider>
