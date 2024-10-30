@@ -16,30 +16,7 @@ export const visualOptions = {
       showPoints: false,
     },
   },
-  stepCurve: {
-    type: 'boolean',
-    default: false,
-    group: 'chart',
-  },
-  stepType: {
-    type: 'text',
-    default: 'start',
-    options: [
-      { label: 'start', value: 'start' },
-      { label: 'middle', value: 'middle' },
-      { label: 'end', value: 'end' },
-    ],
-    group: 'chart',
-    disabled: {
-      stepCurve: false,
-    },
-  },
   reverseOrder: {
-    type: 'boolean',
-    default: false,
-    group: 'chart',
-  },
-  smooth: {
     type: 'boolean',
     default: false,
     group: 'chart',
@@ -52,6 +29,27 @@ export const visualOptions = {
   yAxisOriginTo0: {
     type: 'boolean',
     default: true,
+    group: 'chart',
+  },
+  endLabel: {
+    type: 'boolean',
+    default: false,
+    group: 'chart',
+  },
+  endLabelSize: {
+    type: 'number',
+    default: 12,
+    group: 'chart',
+  },
+  endLabelFormat: {
+    type: 'text',
+    default: 'standard',
+    options: visualOptionsNumberFormat.options,
+    group: 'chart',
+  },
+  endLabelPointDiameter: {
+    type: 'number',
+    default: 7,
     group: 'chart',
   },
   showXaxisName: {

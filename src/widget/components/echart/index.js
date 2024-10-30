@@ -48,7 +48,10 @@ const EDatosGraph = (props) => {
 
   useEffect(() => {
     const fetchData = async (source) => {
-      const response = await fetch(source.url);
+      const response = await fetch(source.url, {
+        method: 'GET',
+        headers: { Accept: source.acceptHeader ?? 'text/csv' },
+      });
       return await response.text();
     };
 
@@ -71,18 +74,18 @@ const EDatosGraph = (props) => {
 
     const chart = charts[props.chartIndex];
 
-    const fetchOptions = async () => {
-      const data = await fetchData(props.source);
+    const fetchOptions = async (source) => {
+      const data = await fetchData(source);
       const [dataType, parsedUserData, error, extra] = parseAndCheckData(data, {
         separator: null,
       });
       return getChartOptions(parsedUserData);
     };
 
-    if (props.data) {
+    if (props.data?.length > 0) {
       setOptions(getChartOptions(props.data));
     } else {
-      fetchOptions(props).then((options) => {
+      fetchOptions(props.source).then((options) => {
         setOptions(options);
       });
     }

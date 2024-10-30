@@ -190,10 +190,11 @@ export default class EDatosFetch extends React.Component {
     const source = {
       type: 'url',
       url: this.state.url,
+      acceptHeader: 'text/csv',
     };
     fetch(this.state.url, {
       method: 'GET',
-      headers: { Accept: 'text/csv' },
+      headers: { Accept: source.acceptHeader },
     })
       .then((response) => response.text())
       .then((data) => {

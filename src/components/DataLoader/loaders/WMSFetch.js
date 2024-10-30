@@ -14,11 +14,11 @@ export default class WMSFetch extends React.Component {
     super(props);
     this.state = {
       url: '',
-      loading: false,      
+      loading: false,
       type: 'wms',
       error: undefined,
     };
-  }  
+  }
 
   removeWMS = (index) => {
     const newSources = [...this.props.sources];
@@ -32,7 +32,7 @@ export default class WMSFetch extends React.Component {
     this.updateSources(sources);
   };
 
-  updateSources(sources) {    
+  updateSources(sources) {
     this.props.setDataSource({
       type: this.state.type,
       sources: sources,
@@ -127,7 +127,7 @@ export default class WMSFetch extends React.Component {
             });
             return [...acc, entry];
           }, []);
-        this.updateSources([...this.props?.sources ?? [], source]);
+        this.updateSources([...(this.props?.sources ?? []), source]);
         this.setState({ url: '', error: undefined });
       })
       .catch(() =>
