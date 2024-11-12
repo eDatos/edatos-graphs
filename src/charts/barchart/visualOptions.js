@@ -42,7 +42,7 @@ export const visualOptions = {
     ],
     default: 'name',
   },
-  // labels
+  // labels  
   showBarsName: {
     type: 'boolean',
     default: false,
@@ -119,6 +119,29 @@ export const visualOptions = {
     ],
     disabled: {
       showBarsLabels: false,
+    },
+  },
+  showBarsSizeValues: {
+    type: 'boolean',
+    default: false,
+    group: 'barsSizelabels',
+  },
+  barsSizeValuesPosition: {
+    type: 'text',
+    group: 'barsSizelabels',
+    default: 'outside',
+    options: [
+      {
+        label: 'outside',
+        value: 'outside',
+      },
+      {
+        label: 'inside',
+        value: 'inside',
+      },
+    ],
+    disabled: {
+      showBarsSizeValues: false,
     },
   },
   showBarsSizeName: {

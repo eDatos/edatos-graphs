@@ -131,6 +131,37 @@ export const visualOptions = {
     },
     default: 12,
   },
+  showBarsSizeValues: {
+    type: 'boolean',
+    default: false,
+    group: 'barsSizelabels',
+  },
+  barsSizeValuesPosition: {
+    type: 'text',
+    group: 'barsSizelabels',
+    default: 'inside',
+    options: [
+      {
+        label: 'outside',
+        value: 'outside',
+      },
+      {
+        label: 'inside',
+        value: 'inside',
+      },
+    ],
+    disabled: {
+      showBarsSizeValues: false,
+    },
+  },
+  barsSizeLabelsFontSize: {
+    type: 'number',
+    group: 'barsSizelabels',
+    disabled: {
+      showBarsSizeName: false,
+    },
+    default: 12,
+  },
   showBarsSizeName: {
     type: 'boolean',
     default: false,
@@ -178,10 +209,7 @@ export const visualOptions = {
     type: 'text',
     group: 'barsSizelabels',
     default: 'standard',
-    options: visualOptionsNumberFormat.options,
-    disabled: {
-      showBarsSizeLabels: false,
-    },
+    options: visualOptionsNumberFormat.options    
   },
   showYaxisLabels: {
     type: 'boolean',

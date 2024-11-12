@@ -115,7 +115,7 @@
     "barsSizeNameGap": "Espacio de nombre",
     "showBarsSizeLabels": "Mostrar etiquetas",
     "barsSizeLabelsRotate": "Rotación de etiquetas",
-    "barsSizeLabelsFontSize": "Tamaño de etiquetas",
+    "barsSizeLabelsFontSize": "Tamaño",
     "barsSizeLabelsFormat": "Formato de etiquetas",
     "standard": "Estándar",
     "scientific": "Científico",
@@ -142,5 +142,7 @@
     "endLabel": "Etiqueta último valor",    
     "endLabelSize": "Tamaño de etiqueta de último valor",
     "endLabelFormat": "Formato de último valor",
-    "endLabelPointDiameter": "Diámetro de punto último valor"
+    "endLabelPointDiameter": "Diámetro de punto último valor",
+    "showBarsSizeValues": "Mostrar valores",
+    "barsSizeValuesPosition": "Posición de valores"
 }
