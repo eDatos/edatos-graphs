@@ -142,5 +142,8 @@
     "endLabel": "Etiqueta últim valor",    
     "endLabelSize": "Mida d'etiqueta d'últim valor",
     "endLabelFormat": "Format d'últim valor",
-    "endLabelPointDiameter": "Diàmetre de punt últim valor"
+    "endLabelPointDiameter": "Diàmetre de punt últim valor",
+    "showBarsSizeValues": "Mostrar valors",
+    "barsSizeValuesPosition": "Posició de valors",
+    "barsSizeValuesFontSize": "Mida"
 }

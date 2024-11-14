@@ -114,7 +114,7 @@
     "barsSizeNameLocation": "Name position",
     "barsSizeNameGap": "Name gap",
     "showBarsSizeLabels": "Show labels",
-    "barsSizeLabelsRotate": "Labels rotation",
+    "barsSizeLabelsRotate": "Label rotation",
     "barsSizeLabelsFontSize": "Label fontsize",
     "barsSizeLabelsFormat": "Label format",
     "standard": "Standard",
@@ -142,5 +142,8 @@
     "endLabel": "Etiqueta último valor",    
     "endLabelSize": "Last value label fontsize",
     "endLabelFormat": "Last value format",
-    "endLabelPointDiameter": "Last value point diameter"
+    "endLabelPointDiameter": "Last value point diameter",
+    "showBarsSizeValues": "Show values",
+    "barsSizeValuesPosition": "Values position",
+    "barsSizeValuesFontSize": "Size"
 }

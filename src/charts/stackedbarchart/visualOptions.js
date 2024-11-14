@@ -130,7 +130,7 @@ export const visualOptions = {
       showXaxisLabels: false,
     },
     default: 12,
-  },
+  },    
   showBarsSizeName: {
     type: 'boolean',
     default: false,
@@ -178,10 +178,7 @@ export const visualOptions = {
     type: 'text',
     group: 'barsSizelabels',
     default: 'standard',
-    options: visualOptionsNumberFormat.options,
-    disabled: {
-      showBarsSizeLabels: false,
-    },
+    options: visualOptionsNumberFormat.options    
   },
   showYaxisLabels: {
     type: 'boolean',
@@ -201,6 +198,37 @@ export const visualOptions = {
     group: 'labelsy',
     disabled: {
       showYaxisLabels: false,
+    },
+    default: 12,
+  },
+  showBarsSizeValues: {
+    type: 'boolean',
+    default: false,
+    group: 'labels',
+  },
+  barsSizeValuesPosition: {
+    type: 'text',
+    group: 'labels',
+    default: 'inside',
+    options: [
+      {
+        label: 'outside',
+        value: 'outside',
+      },
+      {
+        label: 'inside',
+        value: 'inside',
+      },
+    ],
+    disabled: {
+      showBarsSizeValues: false,
+    },
+  },
+  barsSizeValuesFontSize: {
+    type: 'number',
+    group: 'labels',
+    disabled: {
+      showBarsSizeValues: false,
     },
     default: 12,
   },
