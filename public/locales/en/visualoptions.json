@@ -114,7 +114,7 @@
     "barsSizeNameLocation": "Name position",
     "barsSizeNameGap": "Name gap",
     "showBarsSizeLabels": "Show labels",
-    "barsSizeLabelsRotate": "Labels rotation",
+    "barsSizeLabelsRotate": "Label rotation",
     "barsSizeLabelsFontSize": "Label fontsize",
     "barsSizeLabelsFormat": "Label format",
     "standard": "Standard",
@@ -144,5 +144,6 @@
     "endLabelFormat": "Last value format",
     "endLabelPointDiameter": "Last value point diameter",
     "showBarsSizeValues": "Show values",
-    "barsSizeValuesPosition": "Values position"
+    "barsSizeValuesPosition": "Values position",
+    "barsSizeValuesFontSize": "Size"
 }

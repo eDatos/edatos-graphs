@@ -130,39 +130,7 @@ export const visualOptions = {
       showXaxisLabels: false,
     },
     default: 12,
-  },
-  //FIXME: Pasar a grupo de etiquetas
-  showBarsSizeValues: {
-    type: 'boolean',
-    default: false,
-    group: 'barsSizelabels',
-  },
-  barsSizeValuesPosition: {
-    type: 'text',
-    group: 'barsSizelabels',
-    default: 'inside',
-    options: [
-      {
-        label: 'outside',
-        value: 'outside',
-      },
-      {
-        label: 'inside',
-        value: 'inside',
-      },
-    ],
-    disabled: {
-      showBarsSizeValues: false,
-    },
-  },
-  barsSizeLabelsFontSize: {
-    type: 'number',
-    group: 'barsSizelabels',
-    disabled: {
-      showBarsSizeName: false,
-    },
-    default: 12,
-  },
+  },    
   showBarsSizeName: {
     type: 'boolean',
     default: false,
@@ -230,6 +198,37 @@ export const visualOptions = {
     group: 'labelsy',
     disabled: {
       showYaxisLabels: false,
+    },
+    default: 12,
+  },
+  showBarsSizeValues: {
+    type: 'boolean',
+    default: false,
+    group: 'labels',
+  },
+  barsSizeValuesPosition: {
+    type: 'text',
+    group: 'labels',
+    default: 'inside',
+    options: [
+      {
+        label: 'outside',
+        value: 'outside',
+      },
+      {
+        label: 'inside',
+        value: 'inside',
+      },
+    ],
+    disabled: {
+      showBarsSizeValues: false,
+    },
+  },
+  barsSizeValuesFontSize: {
+    type: 'number',
+    group: 'labels',
+    disabled: {
+      showBarsSizeValues: false,
     },
     default: 12,
   },

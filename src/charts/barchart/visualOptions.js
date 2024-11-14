@@ -120,31 +120,7 @@ export const visualOptions = {
     disabled: {
       showBarsLabels: false,
     },
-  },
-  showBarsSizeValues: {
-    type: 'boolean',
-    default: false,
-    group: 'barsSizelabels',
-  },
-  barsSizeValuesPosition: {
-    type: 'text',
-    group: 'barsSizelabels',
-    default: 'outside',
-    options: [
-      {
-        label: 'outside',
-        value: 'outside',
-      },
-      {
-        label: 'inside',
-        value: 'inside',
-      },
-    ],
-    disabled: {
-      showBarsSizeValues: false,
-    },
-  },
-  //TODO: Pasar a nuevo grupo de etiquetas
+  },    
   showBarsSizeName: {
     type: 'boolean',
     default: false,
@@ -217,6 +193,37 @@ export const visualOptions = {
     disabled: {
       showBarsSizeLabels: false,
     },
+  },  
+  showBarsSizeValues: {
+    type: 'boolean',
+    default: false,
+    group: 'labels',
+  },
+  barsSizeValuesPosition: {
+    type: 'text',
+    group: 'labels',
+    default: 'outside',
+    options: [
+      {
+        label: 'outside',
+        value: 'outside',
+      },
+      {
+        label: 'inside',
+        value: 'inside',
+      },
+    ],
+    disabled: {
+      showBarsSizeValues: false,
+    },
+  },
+  barsSizeValuesFontSize: {
+    type: 'number',
+    group: 'labels',
+    disabled: {
+      showBarsSizeValues: false,
+    },
+    default: 12,
   },
   showTooltip: {
     type: 'boolean',

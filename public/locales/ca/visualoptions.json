@@ -144,5 +144,6 @@
     "endLabelFormat": "Format d'últim valor",
     "endLabelPointDiameter": "Diàmetre de punt últim valor",
     "showBarsSizeValues": "Mostrar valors",
-    "barsSizeValuesPosition": "Posició de valors"
+    "barsSizeValuesPosition": "Posició de valors",
+    "barsSizeValuesFontSize": "Mida"
 }

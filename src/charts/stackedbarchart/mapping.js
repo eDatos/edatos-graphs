@@ -353,7 +353,7 @@ export const getChartOptions = function (
           locale
         ) + visualOptions.units
       },
-      fontSize: visualOptions.barsSizeLabelsFontSize
+      fontSize: visualOptions.barsSizeValuesFontSize
     },
     labelLayout: {
       hideOverlap: true
