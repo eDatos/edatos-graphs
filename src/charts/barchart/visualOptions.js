@@ -144,6 +144,7 @@ export const visualOptions = {
       showBarsSizeValues: false,
     },
   },
+  //TODO: Pasar a nuevo grupo de etiquetas
   showBarsSizeName: {
     type: 'boolean',
     default: false,

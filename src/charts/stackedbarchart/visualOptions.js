@@ -131,6 +131,7 @@ export const visualOptions = {
     },
     default: 12,
   },
+  //FIXME: Pasar a grupo de etiquetas
   showBarsSizeValues: {
     type: 'boolean',
     default: false,
