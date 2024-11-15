@@ -173,7 +173,7 @@ export const visualOptions = {
     type: 'number',
     group: 'barsSizelabels',
     disabled: {
-      showBarsSizeName: false,
+      showBarsSizeLabels: false,
     },
     default: 0,
   },
@@ -181,7 +181,7 @@ export const visualOptions = {
     type: 'number',
     group: 'barsSizelabels',
     disabled: {
-      showBarsSizeName: false,
+      showBarsSizeLabels: false,
     },
     default: 12,
   },
