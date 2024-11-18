@@ -220,7 +220,7 @@ export const getChartOptions = function (
             params.value[params.seriesName],
             visualOptions.tooltipValueFormat,
             locale
-          ) + visualOptions.units
+          ) + (visualOptions.showUnits ? visualOptions.units : '')
         },
         fontSize: visualOptions.barsSizeValuesFontSize
       },
