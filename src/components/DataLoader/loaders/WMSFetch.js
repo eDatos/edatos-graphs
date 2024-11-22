@@ -159,6 +159,8 @@ export default class WMSFetch extends React.Component {
                   {t('global.section.loadLayers.message')}
                 </Form.Label>
                 <input
+                  list="url-options"
+                  id="combo-input"
                   className={classNames('form-control', styles['borderBox'])}
                   value={this.state.url}
                   onChange={(event) => {
@@ -166,8 +168,15 @@ export default class WMSFetch extends React.Component {
                       url: event.target.value,
                       error: undefined,
                     });
-                  }}
+                  }}                                    
                 />
+                <datalist id="url-options">
+                  {this.props.defaultsWMS.map((option) => (
+                    <option key={option.key} value={option.value}>
+                      {option.key}
+                    </option>
+                  ))}
+                </datalist>                                    
               </Form.Group>
               {this.state.error && (
                 <WarningMessage

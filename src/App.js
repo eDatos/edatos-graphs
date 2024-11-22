@@ -69,9 +69,11 @@ function App() {
   const [activeTab, setActiveTab] = useState('graphs');
   const [activeSubTab, setActiveSubTab] = useState('eDatos');
   const [enableMaps, setEnableMaps] = useState(false);
+  const [defaultsWMS, setDefaultsWMS] = useState([]);
 
   applicationConfig().then((applicationConfigJson) => {
     setEnableMaps(applicationConfigJson['maps']['enable'] ?? true);
+    setDefaultsWMS(applicationConfigJson['maps']['defaultsWMS'] ?? [])
   });
 
   const handleTabChange = (tab) => {
@@ -529,6 +531,7 @@ function App() {
                             {...dataLoader}
                             initialState="WMS"
                             hydrateFromProject={importProject}
+                            defaultsWMS={defaultsWMS}
                           />
                         </Section>
 

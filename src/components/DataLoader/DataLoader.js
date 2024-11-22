@@ -55,6 +55,7 @@ function DataLoader({
   replaceRequiresConfirmation,
   hydrateFromProject,
   initialState,
+  defaultsWMS
 }) {
   const handle = useFullScreenHandle();
   const [loadingError, setLoadingError] = useState();
@@ -128,7 +129,7 @@ function DataLoader({
     {
       id: 'WMS',
       loader: (
-        <WMSFetch setDataSource={setDataSource} sources={dataSource?.sources} />
+        <WMSFetch setDataSource={setDataSource} sources={dataSource?.sources} defaultsWMS={defaultsWMS}/>
       ),
       allowedForReplace: false,
     },
