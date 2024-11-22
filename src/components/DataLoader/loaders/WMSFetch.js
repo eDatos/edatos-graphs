@@ -27,7 +27,7 @@ export default class WMSFetch extends React.Component {
 
   componentDidMount() {
     applicationConfig().then((applicationConfigJson) => {
-      this.setState({defaultsWMS : applicationConfigJson["maps"]["defaultsWMS"]})
+      this.setState({defaultsWMS : applicationConfigJson["maps"]["defaultsWMS"] ?? []})
     })
   }
 
