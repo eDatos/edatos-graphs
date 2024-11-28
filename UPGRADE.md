@@ -10,7 +10,7 @@
 
 
 ## 1.1.0 a 1.1.1-SNAPSHOT
-* Se ha modificado el fichero application.json para permitir las siguientes propiedades cuando la opción de mapas está habilitada en ficho fichero:
+* Se ha modificado el fichero application.json para permitir las siguientes propiedades cuando la opción de mapas está habilitada en dicho fichero:
 ** maps.zoom
 ** maps.defaultsWMS
 * La propiedad maps.defaultsWMS permite múltiples valores estableciendo el valor de las siguientes propiedades:
