@@ -17,3 +17,6 @@
 ** maps.defaultsWMS.key
 ** maps.defaultsWMS.value 
 * Debe modificarse en el fichero application.json en el proyecto de sistemas para adecuar estas propiedades en función del entorno/cliente.
+
+## 0.0.0 a 1.1.0
+* El proceso de actualizaciones entre versiones para versiones anteriores a la 1.1.0 está definido en el archivo README.md
