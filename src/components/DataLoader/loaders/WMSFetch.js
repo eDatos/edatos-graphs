@@ -8,6 +8,8 @@ import LayersOptionCard from '../../LayersOptionCard/LayersOptionCard';
 import { ResetButton } from './../../ResetButton';
 import styles from './../DataLoader.module.scss';
 import WarningMessage from '../../WarningMessage';
+import { applicationConfig } from '../../ApplicationConfig/ApplicationConfig';
+import { Typeahead } from 'react-bootstrap-typeahead';
 
 export default class WMSFetch extends React.Component {
   constructor(props) {
@@ -17,7 +19,16 @@ export default class WMSFetch extends React.Component {
       loading: false,
       type: 'wms',
       error: undefined,
+      showOptions: false,
+      defaultsWMS: [],
+      selectedWMS: []
     };
+  }
+
+  componentDidMount() {
+    applicationConfig().then((applicationConfigJson) => {
+      this.setState({defaultsWMS : applicationConfigJson["maps"]["defaultsWMS"] ?? []})
+    })
   }
 
   removeWMS = (index) => {
@@ -128,7 +139,7 @@ export default class WMSFetch extends React.Component {
             return [...acc, entry];
           }, []);
         this.updateSources([...(this.props?.sources ?? []), source]);
-        this.setState({ url: '', error: undefined });
+        this.setState({ url: '', error: undefined, selectedWMS: [] });
       })
       .catch(() =>
         this.setState({
@@ -158,16 +169,20 @@ export default class WMSFetch extends React.Component {
                 <Form.Label>
                   {t('global.section.loadLayers.message')}
                 </Form.Label>
-                <input
-                  className={classNames('form-control', styles['borderBox'])}
-                  value={this.state.url}
-                  onChange={(event) => {
-                    this.setState({
-                      url: event.target.value,
-                      error: undefined,
-                    });
+                <Typeahead
+                  id="combo-input"
+                  className="raw-dropdown"
+                  options={this.state.defaultsWMS}
+                  labelKey="key"                  
+                  onInputChange={(text) => this.setState({url: text})} // Captura texto personalizado
+                  onChange={(selected) => {
+                    const url = selected[0]?.customOption ? selected[0]?.key : selected[0]?.value;
+                    this.setState({url: url, selectedWMS: selected});
                   }}
-                />
+                  selected={this.state.selectedWMS} // Sincroniza la selección
+                  allowNew // Permite entradas personalizadas
+                  newSelectionPrefix="" // Prefijo para las entradas nuevas
+                />                
               </Form.Group>
               {this.state.error && (
                 <WarningMessage
