@@ -145,5 +145,6 @@
     "endLabelPointDiameter": "Diàmetre de punt últim valor",
     "showBarsSizeValues": "Mostrar valors",
     "barsSizeValuesPosition": "Posició de valors",
-    "barsSizeValuesFontSize": "Mida"
+    "barsSizeValuesFontSize": "Mida",
+    "showUnits": "Mostrar unitats"
 }

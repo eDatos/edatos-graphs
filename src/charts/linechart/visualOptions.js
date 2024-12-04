@@ -182,6 +182,11 @@ export const visualOptions = {
       showYaxisLabels: false,
     },
   },
+  units: {
+    type: 'text',
+    default: '',
+    group: 'labelsy',
+  },  
   endLabel: {
     type: 'boolean',
     default: false,
@@ -203,6 +208,11 @@ export const visualOptions = {
     default: 7,
     group: 'labels',
   },
+  showUnits: {
+    type: 'boolean',
+    default: true,
+    group: 'labels'
+  },
   showTooltip: {
     type: 'boolean',
     default: true,
@@ -213,12 +223,7 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
-  },
-  units: {
-    type: 'text',
-    default: '',
-    group: 'tooltip',
-  },
+  },  
   colorScale: {
     type: 'colorScale',
     domain: 'colorDomain',

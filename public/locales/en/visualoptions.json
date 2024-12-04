@@ -145,5 +145,6 @@
     "endLabelPointDiameter": "Last value point diameter",
     "showBarsSizeValues": "Show values",
     "barsSizeValuesPosition": "Values position",
-    "barsSizeValuesFontSize": "Size"
+    "barsSizeValuesFontSize": "Size",
+    "showUnits": "Show units"
 }
