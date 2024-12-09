@@ -212,6 +212,18 @@ export const getChartOptions = function (
       type: 'bar',
       datasetIndex: visualOptions.sortBarsBy !== 'original' ? 1 : 0,
       color: colorValue,
+      label: {
+        show: visualOptions.showBarsSizeValues,
+        position: visualOptions.barsSizeValuesPosition,
+        formatter(params) {
+          return formatNumber(
+            params.value[params.seriesName],
+            visualOptions.tooltipValueFormat,
+            locale
+          ) + (visualOptions.showUnits ? visualOptions.units : '')
+        },
+        fontSize: visualOptions.barsSizeValuesFontSize
+      },
     };
 
     function getColorValue() {

@@ -152,7 +152,8 @@ export function getChartOptions(
           show: visualOptions.endLabel,
           fontSize: visualOptions.endLabelSize,
           formatter: (params) =>
-            formatNumber(params.value[1], visualOptions.endLabelFormat, locale),
+            formatNumber(params.value[1], visualOptions.endLabelFormat, locale) + 
+          (visualOptions.showUnits ? visualOptions.units : ''),
         },
         markPoint: {
           data: [
