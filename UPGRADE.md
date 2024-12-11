@@ -9,7 +9,7 @@
 *Se deberá realizar primero la actualización de la versión 1.0.0 a la 2.0.0 y luego desde la 2.0.0 a la 3.0.0*
 
 
-## 1.1.0 a 1.1.1-SNAPSHOT
+## 1.1.0 a 1.2.0
 * Se ha modificado el fichero application.json para permitir las siguientes propiedades cuando la opción de mapas está habilitada en dicho fichero:
 ** maps.zoom
 ** maps.defaultsWMS
