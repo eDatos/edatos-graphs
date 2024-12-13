@@ -22,5 +22,4 @@
         "value": "https://idecan1.grafcan.es/ServicioWMS/OrtoExpress?service=wms&request=getcapabilities"}
     ]
   }
-  "appVersion": "@project.version@"
 }
