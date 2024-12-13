@@ -142,5 +142,9 @@
     "endLabel": "Etiqueta último valor",    
     "endLabelSize": "Tamaño de etiqueta de último valor",
     "endLabelFormat": "Formato de último valor",
-    "endLabelPointDiameter": "Diámetro de punto último valor"
+    "endLabelPointDiameter": "Diámetro de punto último valor",
+    "showBarsSizeValues": "Mostrar valores",
+    "barsSizeValuesPosition": "Posición de valores",
+    "barsSizeValuesFontSize": "Tamaño",
+    "showUnits": "Mostrar unidades"
 }

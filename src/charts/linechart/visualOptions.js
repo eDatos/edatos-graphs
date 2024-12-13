@@ -30,28 +30,7 @@ export const visualOptions = {
     type: 'boolean',
     default: true,
     group: 'chart',
-  },
-  endLabel: {
-    type: 'boolean',
-    default: false,
-    group: 'chart',
-  },
-  endLabelSize: {
-    type: 'number',
-    default: 12,
-    group: 'chart',
-  },
-  endLabelFormat: {
-    type: 'text',
-    default: 'standard',
-    options: visualOptionsNumberFormat.options,
-    group: 'chart',
-  },
-  endLabelPointDiameter: {
-    type: 'number',
-    default: 7,
-    group: 'chart',
-  },
+  },  
   showXaxisName: {
     type: 'boolean',
     default: false,
@@ -203,6 +182,37 @@ export const visualOptions = {
       showYaxisLabels: false,
     },
   },
+  units: {
+    type: 'text',
+    default: '',
+    group: 'labelsy',
+  },  
+  endLabel: {
+    type: 'boolean',
+    default: false,
+    group: 'labels',
+  },
+  endLabelSize: {
+    type: 'number',
+    default: 12,
+    group: 'labels',
+  },
+  endLabelFormat: {
+    type: 'text',
+    default: 'standard',
+    options: visualOptionsNumberFormat.options,
+    group: 'labels',
+  },
+  endLabelPointDiameter: {
+    type: 'number',
+    default: 7,
+    group: 'labels',
+  },
+  showUnits: {
+    type: 'boolean',
+    default: true,
+    group: 'labels'
+  },
   showTooltip: {
     type: 'boolean',
     default: true,
@@ -213,12 +223,7 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
-  },
-  units: {
-    type: 'text',
-    default: '',
-    group: 'tooltip',
-  },
+  },  
   colorScale: {
     type: 'colorScale',
     domain: 'colorDomain',

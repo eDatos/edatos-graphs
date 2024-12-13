@@ -130,7 +130,7 @@ export const visualOptions = {
       showXaxisLabels: false,
     },
     default: 12,
-  },
+  },    
   showBarsSizeName: {
     type: 'boolean',
     default: false,
@@ -178,10 +178,12 @@ export const visualOptions = {
     type: 'text',
     group: 'barsSizelabels',
     default: 'standard',
-    options: visualOptionsNumberFormat.options,
-    disabled: {
-      showBarsSizeLabels: false,
-    },
+    options: visualOptionsNumberFormat.options    
+  },
+  units: {
+    type: 'text',
+    default: '',
+    group: 'barsSizelabels',
   },
   showYaxisLabels: {
     type: 'boolean',
@@ -204,6 +206,42 @@ export const visualOptions = {
     },
     default: 12,
   },
+  showBarsSizeValues: {
+    type: 'boolean',
+    default: false,
+    group: 'labels',
+  },
+  barsSizeValuesPosition: {
+    type: 'text',
+    group: 'labels',
+    default: 'inside',
+    options: [
+      {
+        label: 'outside',
+        value: 'outside',
+      },
+      {
+        label: 'inside',
+        value: 'inside',
+      },
+    ],
+    disabled: {
+      showBarsSizeValues: false,
+    },
+  },
+  barsSizeValuesFontSize: {
+    type: 'number',
+    group: 'labels',
+    disabled: {
+      showBarsSizeValues: false,
+    },
+    default: 12,
+  },
+  showUnits: {
+    type: 'boolean',
+    default: true,
+    group: 'labels'
+  },
   showTooltip: {
     type: 'boolean',
     default: true,
@@ -214,12 +252,7 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
-  },
-  units: {
-    type: 'text',
-    default: '',
-    group: 'tooltip',
-  },
+  },  
   colorScale: {
     type: 'colorScale',
     domain: 'colorDomain',

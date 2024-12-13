@@ -343,6 +343,21 @@ export const getChartOptions = function (
     },
     toolbox: toolbox(visualOptions.showToolbox),
     grid: grid(visualOptions),
+    label: {
+      show: visualOptions.showBarsSizeValues,
+      position: visualOptions.barsSizeValuesPosition,
+      formatter(params) {
+        return formatNumber(
+          params.value,
+          visualOptions.tooltipValueFormat,
+          locale
+        ) + (visualOptions.showUnits ? visualOptions.units : '')
+      },
+      fontSize: visualOptions.barsSizeValuesFontSize
+    },
+    labelLayout: {
+      hideOverlap: true
+    },
     xAxis: getAxis(
       sortedMapData,
       getXAxisItem(visualOptions, mapping.stacks, locale),
