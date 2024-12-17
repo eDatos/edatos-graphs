@@ -17,11 +17,4 @@
 * Debe modificarse en el fichero application.json en el proyecto de sistemas para adecuar estas propiedades en función del entorno/cliente.
 
 ## 0.0.0 a 1.0.0
-* El fichero application.json, a parte de definir las propiedades de metadata por cliente, permite la configuración relacionada con los mapas:
-  * maps.enable: permite habilitar o no la sección de mapas de la aplicación
-  * maps.bing_key: propiedad para definir la clave necesaria para usar mapas de bing
-  * maps.mapbox_url: url para el uso de mapas mapbox
-  * maps.center: propiedad usada para definir donde debe centrarse el mapa por defecto
-  * maps.zoom: propiedad usada para definir el zoom inicial del mapa
-* Debe modificarse en el fichero application.json en el proyecto de sistemas para adecuar estas propiedades en función del entorno/cliente.
 * Proceso de instalación definido en el archivo README.md
