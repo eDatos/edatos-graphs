@@ -23,6 +23,9 @@ Es necesario tener **maven** instalado, el resto de componentes, npm y node se i
   * maps.mapbox_url: url para el uso de mapas mapbox
   * maps.center: propiedad usada para definir donde debe centrarse el mapa por defecto
   * maps.zoom: propiedad usada para definir el zoom inicial del mapa
+  * maps.defaultsWMS: permite múltiples valores estableciendo el valor de las siguientes propiedades:
+    * maps.defaultsWMS.key: Nombre del WMS
+    * maps.defaultsWMS.value: Url del WMS
 * Debe modificarse en el fichero application.json en el proyecto de sistemas para adecuar estas propiedades en función del entorno/cliente.
 
 ### Instrucciones de instalación
