@@ -6,7 +6,11 @@ import { useTranslation } from 'react-i18next';
 import styles from '../DataLoader.module.scss';
 import classNames from 'classnames';
 
-export async function fetchData(url, acceptHeader = 'text/csv') {
+export async function fetchData(source) {
+  return fetchFromUrl(source.url, source.acceptHeader);
+}
+
+async function fetchFromUrl(url, acceptHeader = 'text/csv') {
   const response = await fetch(url, {
     method: 'GET',
     headers: { Accept: acceptHeader },
@@ -32,7 +36,7 @@ export default function UrlFetch({
       setLoading(true);
       let data;
       try {
-        data = await fetchData(url, acceptHeader);
+        data = await fetchFromUrl(url, acceptHeader);
         setUserInput(data, source);
         setLoadingError(null);
       } catch (e) {

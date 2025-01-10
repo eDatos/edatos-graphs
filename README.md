@@ -16,6 +16,18 @@ La forma más sencilla de probar la aplicación es accediendo a la url de [desar
 
 Es necesario tener **maven** instalado, el resto de componentes, npm y node se instalarán automáticamente.
 
+### Configuración
+* El fichero application.json, a parte de definir las propiedades de metadata por cliente, permite la configuración relacionada con los mapas:
+  * maps.enable: permite habilitar o no la sección de mapas de la aplicación
+  * maps.bing_key: propiedad para definir la clave necesaria para usar mapas de bing
+  * maps.mapbox_url: url para el uso de mapas mapbox
+  * maps.center: propiedad usada para definir donde debe centrarse el mapa por defecto
+  * maps.zoom: propiedad usada para definir el zoom inicial del mapa
+  * maps.defaultsWMS: permite múltiples valores estableciendo el valor de las siguientes propiedades:
+    * maps.defaultsWMS.key: Nombre del WMS
+    * maps.defaultsWMS.value: Url del WMS
+* Debe modificarse en el fichero application.json en el proyecto de sistemas para adecuar estas propiedades en función del entorno/cliente.
+
 ### Instrucciones de instalación
 
 El siguiente script descargará todos los módulos necesarios para la compilación del proyecto y a continuación generará en la carpeta build el ejecutable:
