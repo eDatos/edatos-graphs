@@ -44,7 +44,7 @@ colorPresets.ordinal = {
 const EDatosGraph = (props) => {
   const [options, setOptions] = useState({});
   echarts.registerLocale('es', LangES);
-  echarts.registerLocale('ca', LangESCa);
+  echarts.registerLocale('ca', LangESCa);   
 
   useEffect(() => {
     const fetchData = async (source) => {
@@ -82,11 +82,22 @@ const EDatosGraph = (props) => {
       return getChartOptions(parsedUserData);
     };
 
+    const legendConfig = { 
+      legend: { 
+          selected: props.selectedSeries 
+      } 
+    };
+
     if (props.data?.length > 0) {
-      setOptions(getChartOptions(props.data));
+      setOptions({
+        ...getChartOptions(props.data),
+        ...legendConfig
+      });
     } else {
       fetchOptions(props.source).then((options) => {
-        setOptions(options);
+        setOptions({
+          ...options,
+          ...legendConfig});
       });
     }
   }, [props]);
