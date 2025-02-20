@@ -16,6 +16,7 @@ const ChartPreview = ({
   error,
   setError,
   setRawViz,
+  setSelectedSeries
 }) => {
   const domRef = useRef(null);
   const vizOptionsDebounced = useDebounce(visualOptions, 300);
@@ -122,6 +123,7 @@ const ChartPreview = ({
       setOptions(chartOptions);
       if (domRef && domRef.current && !error) {
         domRef.current.getEchartsInstance().setOption(chartOptions, true);
+        domRef.current.getEchartsInstance().on('legendselectchanged', event => setSelectedSeries(event.selected));
       }
     } catch (e) {
       setError({ variant: 'danger', message: 'Chart error. ' + e.message });
@@ -136,6 +138,7 @@ const ChartPreview = ({
     mapping,
     setError,
     setRawViz,
+    setSelectedSeries
   ]);
 
   return (

@@ -17,6 +17,7 @@ export default {
               source={config.source}
               chartIndex={config.chartIndex}
               visualOptions={config.visualOptions}
+              selectedSeries={config.selectedSeries}
               mapping={config.mapping}
               dataTypes={config.dataTypes}
               dimensions={config.dimensions}
