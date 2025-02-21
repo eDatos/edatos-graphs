@@ -120,6 +120,7 @@ function App() {
   });
   const [rawViz, setRawViz] = useState(null);
   const dataMappingRef = useRef(null);
+  const [selectedSeries, setSelectedSeries] = useState({});
 
   const columnNames = useMemo(() => {
     if (get(data, 'dataTypes')) {
@@ -360,6 +361,7 @@ function App() {
           visualOptions={visualOptions}
           setVisualOptions={setVisualOptions}
           setRawViz={setRawViz}
+          setSelectedSeries={setSelectedSeries}
         />
       </Section>
     </>
@@ -379,6 +381,7 @@ function App() {
         chartIndex={chartIndex}
         mapping={mapping}
         visualOptions={visualOptions}
+        selectedSeries={selectedSeries}
         dataTypes={data?.dataTypes}
         dimensions={currentChart.dimensions}
         locale={i18n.language}

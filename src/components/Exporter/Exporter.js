@@ -25,6 +25,7 @@ export default function Exporter({
   chartIndex,
   mapping,
   visualOptions,
+  selectedSeries,
   dataTypes,
   dimensions,
   locale,
@@ -146,6 +147,7 @@ export default function Exporter({
       dataTypes: getFilteredDataTypes(),
       dimensions: dimensions,
       data: !dynamicLoadWidget || !dataSource?.url ? getFilteredUserData() : [],
+      selectedSeries: selectedSeries
     };
   }
 

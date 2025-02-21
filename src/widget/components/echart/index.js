@@ -82,12 +82,20 @@ const EDatosGraph = (props) => {
       return getChartOptions(parsedUserData);
     };
 
-    if (props.data?.length > 0) {
-      setOptions(getChartOptions(props.data));
+    const updateLegend = (options) => ({
+      ...options,
+      legend: {
+          ...options.legend, 
+          selected: props.selectedSeries
+      }
+    });    
+
+    if (props.data?.length > 0) {      
+      setOptions(updateLegend(getChartOptions(props.data)));
     } else {
-      fetchOptions(props.source).then((options) => {
-        setOptions(options);
-      });
+      fetchOptions(props.source).then((options) => {        
+        setOptions(updateLegend(getChartOptions(options)));
+      });      
     }
   }, [props]);
 
