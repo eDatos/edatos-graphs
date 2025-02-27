@@ -94,7 +94,7 @@ const EDatosGraph = (props) => {
       setOptions(updateLegend(getChartOptions(props.data)));
     } else {
       fetchOptions(props.source).then((options) => {        
-        setOptions(updateLegend(getChartOptions(options)));
+        setOptions(updateLegend(options));
       });      
     }
   }, [props]);
