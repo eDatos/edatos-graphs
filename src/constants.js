@@ -120,6 +120,7 @@ export const COLOR_SCHEMES_LABELS = {
 };
 
 export const white = '#FFFFFF';
+export const transparent = '#FFFFFF00';
 
 export const defaultColor = '#009BD7';
 
