@@ -139,12 +139,19 @@
     "bluePalette": "Blues",
     "resetDomain": "Reset domain",
     "invert": "Invert",
-    "endLabel": "Etiqueta último valor",    
-    "endLabelSize": "Last value label fontsize",
+    "endLabel": "Last value label",    
+    "endLabelSize": "Last value label font size",
     "endLabelFormat": "Last value format",
     "endLabelPointDiameter": "Last value point diameter",
     "showBarsSizeValues": "Show values",
     "barsSizeValuesPosition": "Values position",
     "barsSizeValuesFontSize": "Size",
-    "showUnits": "Show units"
+    "showUnits": "Show units",
+    "fontWeight": "Label weight",
+    "endLabelWeight": "Last value label font weight",
+    "bold": "Bold",
+    "normal": "Normal",
+    "bolder": "Bolder",
+    "lighter": "Lighter",
+    "lineWidth": "Line width"
 }

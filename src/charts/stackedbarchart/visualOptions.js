@@ -237,6 +237,28 @@ export const visualOptions = {
     },
     default: 12,
   },
+  fontWeight: {
+    type: 'text',
+    group: 'labels',
+    disabled: {
+      endLabel: false,
+    },
+    options: [
+      {
+        label: 'normal',
+        value: 'normal',
+      },
+      {
+        label: 'bold',
+        value: 'bold',
+      },      
+      {
+        label: 'lighter',
+        value: 'lighter',
+      }
+    ],
+    default: 'normal',
+  },
   showUnits: {
     type: 'boolean',
     default: true,

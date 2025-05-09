@@ -146,5 +146,12 @@
     "showBarsSizeValues": "Mostrar valors",
     "barsSizeValuesPosition": "Posició de valors",
     "barsSizeValuesFontSize": "Mida",
-    "showUnits": "Mostrar unitats"
+    "showUnits": "Mostrar unitats",
+    "fontWeight": "Gruix",
+    "endLabelWeight": "Gruix de etiqueta últim valor",
+    "bold": "Negreta",
+    "normal": "Normal",
+    "bolder": "Extra negreta",
+    "lighter": "Prim",
+    "lineWidth": "Ample de línia"
 }

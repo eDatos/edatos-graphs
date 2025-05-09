@@ -112,6 +112,28 @@ export const visualOptions = {
     default: 'standard',
     options: visualOptionsNumberFormat.options,
   },
+  fontWeight: {
+    type: 'text',
+    group: 'labels',
+    disabled: {
+      endLabel: false,
+    },
+    options: [
+      {
+        label: 'normal',
+        value: 'normal',
+      },
+      {
+        label: 'bold',
+        value: 'bold',
+      },      
+      {
+        label: 'lighter',
+        value: 'lighter',
+      }
+    ],
+    default: 'normal',
+  },
   units: {
     type: 'text',
     default: '',

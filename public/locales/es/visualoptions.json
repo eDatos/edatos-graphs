@@ -38,8 +38,8 @@
     "showSeriesLabelsPosition": "Posición de títulos",
     "rowsNumber": "Filas",
     "drawDonut": "Donut",
-    "halfDonut": "Medio donut",
-    "arcTichkness": "Ancho del donut",
+    "halfDonut": "Medio dónut",
+    "arcTichkness": "Ancho del dónut",
     "nightingaleChart": "Diagrama Nightingale",
     "nightingaleChartOption": "Nightingale",
     "showPoints": "Mostrar puntos",
@@ -146,5 +146,12 @@
     "showBarsSizeValues": "Mostrar valores",
     "barsSizeValuesPosition": "Posición de valores",
     "barsSizeValuesFontSize": "Tamaño",
-    "showUnits": "Mostrar unidades"
+    "showUnits": "Mostrar unidades",
+    "fontWeight": "Grosor",
+    "endLabelWeight": "Grosor de etiqueta de último valor",
+    "bold": "Negrita",
+    "normal": "Normal",
+    "bolder": "Extra negrita",
+    "lighter": "Ligera",
+    "lineWidth": "Ancho de línea"
 }

@@ -105,10 +105,12 @@ const getSeries = (
       label: {
         show: visualOptions.showLabel,
         formatter: '{b}',
+        fontWeight: visualOptions.fontWeight,
       },
       upperLabel: {
         show: visualOptions.showUpperLabel,
         height: 30,
+        fontWeight: visualOptions.fontWeight,
       },
       itemStyle: {
         borderColor: white,

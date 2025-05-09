@@ -441,7 +441,7 @@ const ChartOptionColorScale = ({
               className={[props.className, styles['color-swatch']].join(' ')}
             >
               <Col
-                xs={6}
+                xs={5}
                 className={classNames(styles['color-scale-item'], 'd-flex')}
               >
                 {scaleType === 'ordinal' &&
@@ -483,7 +483,7 @@ const ChartOptionColorScale = ({
                   </>
                 )}
               </Col>
-              <Col xs={6}>
+              <Col xs={7}>
                 <InilineColorPicker
                   color={userValue.userRange}
                   onChange={(color) => {

@@ -222,7 +222,8 @@ export const getChartOptions = function (
             locale
           ) + (visualOptions.showUnits ? visualOptions.units : '')
         },
-        fontSize: visualOptions.barsSizeValuesFontSize
+        fontSize: visualOptions.barsSizeValuesFontSize,
+        fontWeight: visualOptions.fontWeight,
       },
     };
 

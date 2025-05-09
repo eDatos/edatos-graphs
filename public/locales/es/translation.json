@@ -137,12 +137,12 @@
                     }
                 },
                 "donutchart": {
-                    "title": "Diagrama de donut",
-                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen un donut."
+                    "title": "Diagrama de dónut",
+                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen un dónut."
                 },
                 "halfdonutchart": {
-                    "title": "Diagrama de medio donut",
-                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen medio donut."
+                    "title": "Diagrama de medio dónut",
+                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen medio dónut."
                 },
                 "scatterchart": {
                     "title": "Diagrama de dispersión",
