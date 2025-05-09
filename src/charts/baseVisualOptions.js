@@ -1,4 +1,4 @@
-import { white } from '../constants';
+import { transparent } from '../constants';
 
 export const baseVisualOptions = {
   title: {
@@ -7,7 +7,7 @@ export const baseVisualOptions = {
   },
   width: {
     type: 'number',
-    default: 900,
+    default: 1000,
     container: 'width',
     group: 'artboard',
   },
@@ -92,7 +92,7 @@ export const baseVisualOptions = {
   },
   legendMarginBottom: {
     type: 'number',
-    default: 10,
+    default: 18,
     group: 'legend',
     disabled: {
       showLegend: false,
@@ -108,7 +108,7 @@ export const baseVisualOptions = {
   },
   legendItemSize: {
     type: 'number',
-    default: 100,
+    default: 50,
     group: 'legend',
     disabled: {
       showLegend: false,
@@ -116,7 +116,7 @@ export const baseVisualOptions = {
   },
   background: {
     type: 'color',
-    default: white,
+    default: transparent,
     group: 'colors',
   },
 };

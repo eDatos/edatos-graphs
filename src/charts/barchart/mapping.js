@@ -177,14 +177,15 @@ function getDataset(resultMap, mapping, visualOptions) {
   return [
     {
       dimensions: dimensions,
-      source: resultMap.map((res) => {
-        if (res.series) {
-          return { bars: res.bars, [parseObject(res.series)]: res.size };
-        } else {
-          const sizeName = mapping.size.value ?? 'Size';
-          return { bars: res.bars, [sizeName]: res.size };
-        }
-      }),
+      source: resultMap.filter(res => typeof res.size === 'number' && !isNaN(res.size))
+        .map((res) => {
+          if (res.series) {
+            return { bars: res.bars, [parseObject(res.series)]: res.size };
+          } else {
+            const sizeName = mapping.size.value ?? 'Size';
+            return { bars: res.bars, [sizeName]: res.size };
+          }
+        }),
     },
     getSorterConfig(visualOptions, dimensions, mapping),
   ];

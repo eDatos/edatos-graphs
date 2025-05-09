@@ -3,6 +3,16 @@ import { baseVisualOptions } from '../baseVisualOptions';
 
 export const visualOptions = {
   ...baseVisualOptions,
+  marginRight: {
+    type: 'number',
+    default: 40,
+    group: 'artboard',
+  },  
+  marginLeft: {
+    type: 'number',
+    default: 40,
+    group: 'artboard',
+  },
   symbolSize: {
     type: 'number',
     default: 10,
@@ -59,7 +69,7 @@ export const visualOptions = {
     disabled: {
       showXaxisName: false,
     },
-    default: 25,
+    default: 32,
   },
   showXaxisLabels: {
     type: 'boolean',
@@ -184,6 +194,14 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
+  },
+  legendMarginBottom: {
+    type: 'number',
+    default: 20,
+    group: 'legend',
+    disabled: {
+      showLegend: false,
+    },
   },
   colorScale: {
     type: 'colorScale',
