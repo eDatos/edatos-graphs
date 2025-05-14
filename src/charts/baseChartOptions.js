@@ -11,6 +11,13 @@ export const legend = (visualOptions) => {
     },
     itemWidth: (25 * visualOptions.legendItemSize) / 100,
     itemHeight: (14 * visualOptions.legendItemSize) / 100,
+    formatter: function (name) {
+      const maxLen = visualOptions.legendLabelWidth;
+      return name.length > maxLen ? name.slice(0, maxLen) + '…' : name;
+    },
+    tooltip: {
+      show: true
+    }
   };
 };
 

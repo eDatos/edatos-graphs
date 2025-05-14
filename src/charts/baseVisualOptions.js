@@ -106,6 +106,14 @@ export const baseVisualOptions = {
       showLegend: false,
     },
   },
+  legendLabelWidth: {
+    type: 'number',
+    default: 20,
+    group: 'legend',
+    disabled: {
+      showLegend: false,
+    },
+  },
   legendItemSize: {
     type: 'number',
     default: 50,
