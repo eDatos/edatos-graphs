@@ -150,6 +150,7 @@ export function getChartOptions(
       label: {
         show: visualOptions.showSeriesLabels,
         position: visualOptions.showSeriesLabelsPosition,
+        fontWeight: visualOptions.fontWeight,
         formatter(param) {
           const value = visualOptions.showValueOnSeriesLabels
             ? `(${labelValue(

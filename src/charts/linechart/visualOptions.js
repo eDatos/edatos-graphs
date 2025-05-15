@@ -36,6 +36,12 @@ export const visualOptions = {
       showPoints: false,
     },
   },
+  lineWidth: {
+    type: 'number',
+    default: 2,
+    group: 'chart',
+    min: 0
+  },
   reverseOrder: {
     type: 'boolean',
     default: false,
@@ -216,6 +222,28 @@ export const visualOptions = {
     type: 'number',
     default: 14,
     group: 'labels',
+  },
+  endLabelWeight: {
+    type: 'text',
+    group: 'labels',
+    disabled: {
+      endLabel: false,
+    },
+    options: [
+      {
+        label: 'normal',
+        value: 'normal',
+      },
+      {
+        label: 'bold',
+        value: 'bold',
+      },      
+      {
+        label: 'lighter',
+        value: 'lighter',
+      }
+    ],
+    default: 'normal',
   },
   endLabelFormat: {
     type: 'text',
