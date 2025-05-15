@@ -40,6 +40,7 @@ export const visualOptions = {
     type: 'number',
     default: 2,
     group: 'chart',
+    min: 0,
   },
   reverseOrder: {
     type: 'boolean',
