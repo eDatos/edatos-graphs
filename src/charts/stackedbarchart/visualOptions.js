@@ -3,6 +3,21 @@ import { baseVisualOptions } from '../baseVisualOptions';
 
 export const visualOptions = {
   ...baseVisualOptions,
+  marginTop: {
+    type: 'number',
+    default: 46,
+    group: 'artboard',
+  },
+  marginRight: {
+    type: 'number',
+    default: 40,
+    group: 'artboard',
+  },
+  marginBottom: {
+    type: 'number',
+    default: 60,
+    group: 'artboard',
+  },
   barsOrientation: {
     type: 'text',
     label: 'Bars orientation',
@@ -177,7 +192,7 @@ export const visualOptions = {
   barsSizeLabelsFormat: {
     type: 'text',
     group: 'barsSizelabels',
-    default: 'standard',
+    default: 'compact',
     options: visualOptionsNumberFormat.options    
   },
   units: {
@@ -208,7 +223,7 @@ export const visualOptions = {
   },
   showBarsSizeValues: {
     type: 'boolean',
-    default: false,
+    default: true,
     group: 'labels',
   },
   barsSizeValuesPosition: {
@@ -235,11 +250,33 @@ export const visualOptions = {
     disabled: {
       showBarsSizeValues: false,
     },
-    default: 12,
+    default: 14,
+  },
+  fontWeight: {
+    type: 'text',
+    group: 'labels',
+    disabled: {
+      endLabel: false,
+    },
+    options: [
+      {
+        label: 'normal',
+        value: 'normal',
+      },
+      {
+        label: 'bold',
+        value: 'bold',
+      },      
+      {
+        label: 'lighter',
+        value: 'lighter',
+      }
+    ],
+    default: 'normal',
   },
   showUnits: {
     type: 'boolean',
-    default: true,
+    default: false,
     group: 'labels'
   },
   showTooltip: {
