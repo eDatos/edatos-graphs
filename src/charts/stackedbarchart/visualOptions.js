@@ -34,7 +34,7 @@ export const visualOptions = {
     ],
     default: 'vertical',
   },
-  sortBarsBy: {
+  sortBy: {
     type: 'text',
     group: 'chart',
     options: [
@@ -45,15 +45,7 @@ export const visualOptions = {
       {
         label: 'totalAscending',
         value: 'totalAscending',
-      },
-      {
-        label: 'name',
-        value: 'name',
-      },
-      {
-        label: 'name(desc)',
-        value: 'name(desc)',
-      },
+      },      
       {
         label: 'original',
         value: 'original',
@@ -63,8 +55,8 @@ export const visualOptions = {
         value: 'original(desc)',
       },
     ],
-    default: 'name',
-  },
+    default: 'totalDescending',
+  },  
   groupSeriesInStack: {
     type: 'boolean',
     group: 'chart',
@@ -145,7 +137,38 @@ export const visualOptions = {
       showXaxisLabels: false,
     },
     default: 12,
-  },    
+  },
+  sortBarsBy: {
+    type: 'text',
+    group: 'labelsx',
+    options: [
+      {
+        label: 'totalDescending',
+        value: 'totalDescending',
+      },
+      {
+        label: 'totalAscending',
+        value: 'totalAscending',
+      },
+      {
+        label: 'name',
+        value: 'name',
+      },
+      {
+        label: 'name(desc)',
+        value: 'name(desc)',
+      },
+      {
+        label: 'original',
+        value: 'original',
+      },
+      {
+        label: 'original(desc)',
+        value: 'original(desc)',
+      },
+    ],
+    default: 'name',
+  },
   showBarsSizeName: {
     type: 'boolean',
     default: false,
