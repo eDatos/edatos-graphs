@@ -56,7 +56,30 @@ export const visualOptions = {
     type: 'boolean',
     default: true,
     group: 'chart',
-  },  
+  },
+  sortBy: {
+    type: 'text',
+    group: 'chart',
+    options: [
+      {
+        label: 'totalDescending',
+        value: 'totalDescending',
+      },
+      {
+        label: 'totalAscending',
+        value: 'totalAscending',
+      },      
+      {
+        label: 'original',
+        value: 'original',
+      },
+      {
+        label: 'original(desc)',
+        value: 'original(desc)',
+      },
+    ],
+    default: 'totalDescending',
+  },
   showXaxisName: {
     type: 'boolean',
     default: false,

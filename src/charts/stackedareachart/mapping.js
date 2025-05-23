@@ -177,6 +177,18 @@ export function getChartOptions(
             visualOptions.units,
         },
       };
+    }).sort((a, b) => {
+      const sumValor = obj => obj.data.reduce((acc, [_, y]) => acc + y, 0);
+      switch(visualOptions.sortBy){
+        case 'original(desc)':
+          return -1;
+        case 'totalAscending':
+          return sumValor(a) - sumValor(b);
+        case 'totalDescending':
+          return sumValor(b) - sumValor(a);
+        default: 
+          return 0;
+      }      
     });
 
   const xAxisName = visualOptions.customXaxisName
