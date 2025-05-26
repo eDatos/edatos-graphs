@@ -159,7 +159,7 @@ export function getChartOptions(
           width: visualOptions.lineWidth
         },
         symbolSize: function (value, params) {
-          let dotsDiameter = visualOptions.showPoints ? visualOptions.dotsDiameter : 0;
+          let dotsDiameter = visualOptions.showPoints ? visualOptions.dotsDiameter : 1;
           let lastDotDiameter = visualOptions.endLabel ? visualOptions.endLabelPointDiameter : dotsDiameter;
           return params.dataIndex === (lineData.length - 1) ?  lastDotDiameter : dotsDiameter;
         },
