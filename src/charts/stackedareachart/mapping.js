@@ -17,7 +17,7 @@ export const mapData = function (data, mapping, dataTypes, dimensions) {
     };
   }
 
-  const multiplesSeries = mapping.series.value?.length > 0;
+  const isSeriesDefined = mapping.series.value?.length > 0;
   let results = [];
 
   d3.rollups(
@@ -29,7 +29,7 @@ export const mapData = function (data, mapping, dataTypes, dimensions) {
           const item = {
             x: parseObject(vv[0][mapping.x.value]), //get the first one since it's grouped
             y: yAggregator[0](vv.map((d) => d[mapping.y.value])), // aggregate
-            series: multiplesSeries
+            series: isSeriesDefined
               ? parseObject(vv[0][mapping.series.value])
               : 'y', //get the first one since it's grouped
           };
@@ -44,13 +44,12 @@ export const mapData = function (data, mapping, dataTypes, dimensions) {
 };
 function getDimensions(resultMap, mapping) {
   if (mapping.series.value === undefined || mapping.series.value.length === 0) {
-    return ['x', 'y'];
+    return ['y'];
   } else {
     var dimensions = resultMap
       .map((res) => parseObject(res.series))
       .filter((value, index, self) => self.indexOf(value) === index)
-      .sort();
-    dimensions.unshift('x');
+      .sort();    
     return dimensions;
   }
 }
@@ -117,8 +116,7 @@ export function getChartOptions(
 
   let data = _.groupBy(resultMap, 'series');
 
-  const series = getDimensions(resultMap, mapping)
-    .filter((dimension) => dimension !== 'x')
+  const series = getDimensions(resultMap, mapping)    
     .map(function (item, index) {
       let colorValue;
       if (visualOptions.colorScale.userScaleValues?.length === 1) {
@@ -153,13 +151,9 @@ export function getChartOptions(
           fontSize: visualOptions.endLabelSize,
           fontWeight: visualOptions.endLabelWeight,
           position: 'right',
-          formatter: (params) => {
-            if (params.dataIndex === lineData.length - 1) {
-              return formatNumber(params.value[1], visualOptions.endLabelFormat, locale) + 
-                  (visualOptions.showUnits ? visualOptions.units : '')
-            }
-            return '';
-          }
+          formatter: (params) =>
+            formatNumber(params.value[1], visualOptions.endLabelFormat, locale) + 
+          (visualOptions.showUnits ? visualOptions.units : ''),
         },
         lineStyle: {
           width: visualOptions.lineWidth
@@ -210,7 +204,7 @@ export function getChartOptions(
     tooltip: {
       show: visualOptions.showTooltip,
       trigger: 'axis',
-    }, //añadir a las opciones
+    },
     toolbox: toolbox(visualOptions.showToolbox),
     grid: grid(visualOptions),
     xAxis: getXAxis(
