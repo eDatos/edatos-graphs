@@ -121,9 +121,22 @@ const ChartPreview = ({
             )
           : {};
       setOptions(chartOptions);
-      if (domRef && domRef.current && !error) {
-        domRef.current.getEchartsInstance().setOption(chartOptions, true);
-        domRef.current.getEchartsInstance().on('legendselectchanged', event => setSelectedSeries(event.selected));
+      const echartsInstance = domRef.current?.getEchartsInstance();
+      if (!echartsInstance) return;
+
+      const legendSelectChanged = (legendSelected) => {
+        var option = echartsInstance.getOption();
+
+        // Esto forzará a redibujar las series y recolocar endLabels
+        echartsInstance.setOption(option, {
+          replaceMerge: ['series']
+        });
+        // Guardamos selección de leyenda
+        setSelectedSeries(legendSelected);
+      };
+      if (!error) {
+        echartsInstance.setOption(chartOptions, true);        
+        echartsInstance.on('legendselectchanged', event => legendSelectChanged(event.selected));
       }
     } catch (e) {
       setError({ variant: 'danger', message: 'Chart error. ' + e.message });

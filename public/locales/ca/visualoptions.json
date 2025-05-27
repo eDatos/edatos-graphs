@@ -24,6 +24,7 @@
     "legendMarginRight": "Marge (dret)",
     "legendMarginBottom": "Marge (inferior)",
     "legendTextSize": "Mida de text", 
+    "legendLabelWidth": "Ample de etiqueta",
     "legendItemSize": "% mida d'ítem", 
     "showToolbox": "Mostra eines",
     "render": "Visualització",
@@ -153,5 +154,5 @@
     "normal": "Normal",
     "bolder": "Extra negreta",
     "lighter": "Prim",
-    "lineWidth": "Ample de línia"
+    "lineWidth": "Ample de línia"    
 }

@@ -7,15 +7,17 @@ import {
   scatterchart,
   treemapchart,
   stackedbarchart,
+  stackedareachart,
 } from './charts/index.js';
 
 let charts = [
   barchart,
   stackedbarchart,
-  linechart,
+  linechart,  
   piechart,
   donut,
   halfdonut,
+  stackedareachart,
   scatterchart,
   treemapchart,
 ];
