@@ -8,13 +8,11 @@ export const legend = (visualOptions) => {
     icon: 'rect',
     textStyle: {
       fontSize: visualOptions.legendTextSize,
+      width: visualOptions.legendLabelWidth,
+      overflow: "truncate" 
     },
     itemWidth: (25 * visualOptions.legendItemSize) / 100,
-    itemHeight: (14 * visualOptions.legendItemSize) / 100,
-    formatter: function (name) {
-      const maxLen = visualOptions.legendLabelWidth;
-      return name.length > maxLen ? name.slice(0, maxLen) + '…' : name;
-    },
+    itemHeight: (14 * visualOptions.legendItemSize) / 100,    
     tooltip: {
       show: true
     }

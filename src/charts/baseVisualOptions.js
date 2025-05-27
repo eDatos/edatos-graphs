@@ -108,7 +108,7 @@ export const baseVisualOptions = {
   },
   legendLabelWidth: {
     type: 'number',
-    default: 20,
+    default: 100,
     group: 'legend',
     disabled: {
       showLegend: false,

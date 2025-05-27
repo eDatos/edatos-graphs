@@ -24,7 +24,7 @@
     "legendMarginRight": "Marge (dret)",
     "legendMarginBottom": "Marge (inferior)",
     "legendTextSize": "Mida de text", 
-    "legendItemWidth": "Ample de etiqueta",
+    "legendLabelWidth": "Ample de etiqueta",
     "legendItemSize": "% mida d'ítem", 
     "showToolbox": "Mostra eines",
     "render": "Visualització",

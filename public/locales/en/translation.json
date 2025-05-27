@@ -134,7 +134,7 @@
                     "dimensions": {
                         "xAxis": "X Axis",
                         "yAxis": "Y Axis",
-                        "series": "Series"
+                        "series": "Areas"
                     }
                 },
                 "piechart": {
