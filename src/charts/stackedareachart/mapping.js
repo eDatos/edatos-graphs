@@ -21,7 +21,7 @@ export const mapData = function (data, mapping, dataTypes, dimensions) {
   let results = [];
 
   d3.rollups(
-    data,
+    data.filter((d) => d[mapping.y.value[0]] !== null),
     (v) =>
       d3.rollups(
         v,

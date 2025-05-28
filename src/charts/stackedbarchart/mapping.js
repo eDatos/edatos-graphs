@@ -267,20 +267,22 @@ const mapData = function (
       // for every dimension in the bars field, create an item
       mapping.bars.value.forEach((barName, i) => {
         //getting values for aggregation
-        const valuesForSize = v.map((x) => x[barName]);
-        //getting i-th aggregator
-        const aggregator = barsAggregators[i];
+        const valuesForSize = v.map((x) => x[barName]).filter(v => v !== null);
+        if (valuesForSize.length > 0) {
+          //getting i-th aggregator
+          const aggregator = barsAggregators[i];
 
-        // create the item
-        const item = {
-          series: v[0][mapping.series.value], // get the first one since it's grouped
-          stacks: mapping.stacks?.value
-            ? parseObject(v[0][mapping.stacks?.value])
-            : '', // get the first one since it's grouped
-          bars: barName,
-          size: aggregator(valuesForSize),
-        };
-        results.push(item);
+          // create the item
+          const item = {
+            series: v[0][mapping.series.value], // get the first one since it's grouped
+            stacks: mapping.stacks?.value
+              ? parseObject(v[0][mapping.stacks?.value])
+              : '', // get the first one since it's grouped
+            bars: barName,
+            size: aggregator(valuesForSize),
+          };
+          results.push(item);
+        }
       });
     },
     (d) => d[mapping.series.value], // series grouping
