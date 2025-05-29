@@ -129,7 +129,7 @@ export function getChartOptions(
       let lineData = [];
       xData.forEach((e) => {
         let value = _.find(data[item], ['x', e], 0);
-        let y = value ? value.y : '';
+        let y = value ? value.y : null;
         lineData.push([
             format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType),
             y,
@@ -161,7 +161,10 @@ export function getChartOptions(
         symbolSize: function (value, params) {
           let dotsDiameter = visualOptions.showPoints ? visualOptions.dotsDiameter : 1;
           let lastDotDiameter = visualOptions.endLabel ? visualOptions.endLabelPointDiameter : dotsDiameter;
-          return params.dataIndex === (lineData.length - 1) ?  lastDotDiameter : dotsDiameter;
+          const lastValidIndex = lineData.map((point, index) => ({ index, y: point[1] }))
+                                         .filter(p => p.y != null && !isNaN(p.y))
+                                         .at(-1)?.index ?? -1;
+          return params.dataIndex === lastValidIndex ?  lastDotDiameter : dotsDiameter;
         },
         symbol: 'circle',
         showSymbol: true,        

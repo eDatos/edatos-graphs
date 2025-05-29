@@ -245,6 +245,27 @@ const mapData = function (
   barsLabelsFormat,
   locale
 ) {
+
+  function filterValidGroups(data) {
+    // Agrupar los valores por la clave de agrupación
+    const grouped = data.reduce((acc, item) => {
+      const group = item.stacks;
+      acc[group] = acc[group] || [];
+      acc[group].push(item.size);
+      return acc;
+    }, {});
+  
+    // Obtener los grupos que tienen al menos un valor no nulo
+    const validGroups = new Set(
+      Object.entries(grouped)
+        .filter(([_, values]) => values.some(v => v != null))
+        .map(([group]) => group)
+    );
+
+    // Filtrar los objetos que pertenecen a un grupo válido
+    return data.filter(item => validGroups.has(item.stacks));
+  }      
+  
   // as we are working on a multiple dimension (bars), `getDimensionAggregator` will return an array of aggregator functions
   // the order of aggregators is the same as the value of the mapping
   const barsAggregators = getDimensionAggregator(
@@ -268,21 +289,21 @@ const mapData = function (
       mapping.bars.value.forEach((barName, i) => {
         //getting values for aggregation
         const valuesForSize = v.map((x) => x[barName]).filter(v => v !== null);
-        if (valuesForSize.length > 0) {
-          //getting i-th aggregator
-          const aggregator = barsAggregators[i];
+        
+        //getting i-th aggregator
+        const aggregator = barsAggregators[i];
 
-          // create the item
-          const item = {
-            series: v[0][mapping.series.value], // get the first one since it's grouped
-            stacks: mapping.stacks?.value
-              ? parseObject(v[0][mapping.stacks?.value])
-              : '', // get the first one since it's grouped
-            bars: barName,
-            size: aggregator(valuesForSize),
-          };
-          results.push(item);
-        }
+        // create the item
+        const item = {
+          series: v[0][mapping.series.value], // get the first one since it's grouped
+          stacks: mapping.stacks?.value
+            ? parseObject(v[0][mapping.stacks?.value])
+            : '', // get the first one since it's grouped
+          bars: barName,
+          size: valuesForSize.length > 0 ? aggregator(valuesForSize) : null,
+        };
+        results.push(item);
+      
       });
     },
     (d) => d[mapping.series.value], // series grouping
@@ -293,8 +314,8 @@ const mapData = function (
         locale,
         mapping.stacks?.mappedType
       ) // stacks grouping.
-  );
-  return results;
+  );  
+  return filterValidGroups(results);
 };
 
 export const getChartOptions = function (
