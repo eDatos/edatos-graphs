@@ -288,7 +288,7 @@ const mapData = function (
       // for every dimension in the bars field, create an item
       mapping.bars.value.forEach((barName, i) => {
         //getting values for aggregation
-        const valuesForSize = v.map((x) => x[barName]).filter(v => v !== null);
+        const valuesForSize = v.map((x) => x[barName]).filter(value => value !== null);
         
         //getting i-th aggregator
         const aggregator = barsAggregators[i];
