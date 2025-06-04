@@ -164,13 +164,13 @@ export function getChartOptions(
         endLabel: {
           show: visualOptions.endLabel,
           fontSize: visualOptions.endLabelSize,
-          fontWeight: visualOptions.endLabelWeight,
+          fontWeight: visualOptions.endLabelWeight ?? 'bold',
           formatter: (params) =>
             formatNumber(params.value[1], visualOptions.endLabelFormat, locale) + 
           (visualOptions.showUnits ? visualOptions.units : ''),
         },
         lineStyle: {
-          width: visualOptions.lineWidth
+          width: visualOptions.lineWidth ?? 2
         },
         markPoint: {
           data: [
