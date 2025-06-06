@@ -128,6 +128,15 @@
                         "lines": "Lines"
                     }
                 },
+                "stackedareachart": {
+                    "title": "Stacked area chart",
+                    "description": "It displays multiple quantitative dimensions over a continuous interval or time period. Colour can be optionally used to encode an additional quantitative or categorical dimension.",
+                    "dimensions": {
+                        "xAxis": "X Axis",
+                        "yAxis": "Y Axis",
+                        "series": "Areas"
+                    }
+                },
                 "piechart": {
                     "title": "Pie chart",
                     "description": "It allows you to see the proportions between values that make up a whole, by using arcs composing a circle.",

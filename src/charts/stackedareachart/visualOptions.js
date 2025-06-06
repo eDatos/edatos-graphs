@@ -10,7 +10,7 @@ export const visualOptions = {
   },
   marginRight: {
     type: 'number',
-    default: 40,
+    default: 80,
     group: 'artboard',
   },
   marginBottom: {
@@ -18,21 +18,44 @@ export const visualOptions = {
     default: 60,
     group: 'artboard',
   },
-  barsOrientation: {
-    type: 'text',
-    label: 'Bars orientation',
+  marginLeft: {
+    type: 'number',
+    default: 40,
+    group: 'artboard',
+  },
+  showPoints: {
+    type: 'boolean',
+    default: false,
     group: 'chart',
-    options: [
-      {
-        label: 'vertical',
-        value: 'vertical',
-      },
-      {
-        label: 'horizontal',
-        value: 'horizontal',
-      },
-    ],
-    default: 'vertical',
+  },
+  dotsDiameter: {
+    type: 'number',
+    default: 2,
+    group: 'chart',
+    disabled: {
+      showPoints: false,
+    },
+  },
+  lineWidth: {
+    type: 'number',
+    default: 2,
+    group: 'chart',
+    min: 0,
+  },
+  reverseOrder: {
+    type: 'boolean',
+    default: false,
+    group: 'chart',
+  },
+  xAxisOriginTo0: {
+    type: 'boolean',
+    default: false,
+    group: 'chart',
+  },
+  yAxisOriginTo0: {
+    type: 'boolean',
+    default: true,
+    group: 'chart',
   },
   sortBy: {
     type: 'text',
@@ -56,31 +79,25 @@ export const visualOptions = {
       },
     ],
     default: 'totalDescending',
-  },  
-  groupSeriesInStack: {
-    type: 'boolean',
-    group: 'chart',
-    default: true,
   },
-  // labels
-  showBarsName: {
+  showXaxisName: {
     type: 'boolean',
     default: false,
-    group: 'barslabels',
+    group: 'labelsx',
   },
-  customBarsName: {
+  customXaxisName: {
     type: 'text',
     default: '',
-    group: 'barslabels',
+    group: 'labelsx',
     disabled: {
-      showBarsName: false,
+      showXaxisName: false,
     },
   },
-  barsNameLocation: {
+  xAxisNamePosition: {
     type: 'text',
-    group: 'barslabels',
+    group: 'labelsx',
     disabled: {
-      showBarsName: false,
+      showXaxisName: false,
     },
     options: [
       {
@@ -98,24 +115,13 @@ export const visualOptions = {
     ],
     default: 'middle',
   },
-  barsNameGap: {
+  xAxisNameGap: {
     type: 'number',
-    group: 'barslabels',
+    group: 'labelsx',
     disabled: {
-      showBarsName: false,
+      showXaxisName: false,
     },
-    default: 25,
-  },
-  barsLabelsFormat: {
-    type: 'text',
-    group: 'barslabels',
-    default: 'original',
-    options: [
-      {
-        label: 'original',
-        value: 'original',
-      },
-    ],
+    default: 20,
   },
   showXaxisLabels: {
     type: 'boolean',
@@ -138,55 +144,38 @@ export const visualOptions = {
     },
     default: 12,
   },
-  sortBarsBy: {
+  xAxisFormat: {
     type: 'text',
     group: 'labelsx',
+    default: 'original',
     options: [
-      {
-        label: 'totalDescending',
-        value: 'totalDescending',
-      },
-      {
-        label: 'totalAscending',
-        value: 'totalAscending',
-      },
-      {
-        label: 'name',
-        value: 'name',
-      },
-      {
-        label: 'name(desc)',
-        value: 'name(desc)',
-      },
       {
         label: 'original',
         value: 'original',
       },
-      {
-        label: 'original(desc)',
-        value: 'original(desc)',
-      },
     ],
-    default: 'name',
-  },
-  showBarsSizeName: {
-    type: 'boolean',
-    default: false,
-    group: 'barsSizelabels',
-  },
-  customBarsSizeName: {
-    type: 'text',
-    group: 'barsSizelabels',
-    default: '',
     disabled: {
-      showBarsSizeName: false,
+      showXaxisLabels: false,
     },
   },
-  barsSizeNameLocation: {
+  showYaxisName: {
+    type: 'boolean',
+    default: false,
+    group: 'labelsy',
+  },
+  customYaxisName: {
     type: 'text',
-    group: 'barsSizelabels',
+    default: '',
+    group: 'labelsy',
     disabled: {
-      showBarsSizeName: false,
+      showYaxisName: false,
+    },
+  },
+  yAxisNamePosition: {
+    type: 'text',
+    group: 'labelsy',
+    disabled: {
+      showYaxisName: false,
     },
     options: [
       {
@@ -204,24 +193,13 @@ export const visualOptions = {
     ],
     default: 'middle',
   },
-  barsSizeNameGap: {
+  yAxisNameGap: {
     type: 'number',
-    group: 'barsSizelabels',
+    group: 'labelsy',
     disabled: {
-      showBarsSizeName: false,
+      showYaxisName: false,
     },
     default: 35,
-  },
-  barsSizeLabelsFormat: {
-    type: 'text',
-    group: 'barsSizelabels',
-    default: 'compact',
-    options: visualOptionsNumberFormat.options    
-  },
-  units: {
-    type: 'text',
-    default: '',
-    group: 'barsSizelabels',
   },
   showYaxisLabels: {
     type: 'boolean',
@@ -244,38 +222,31 @@ export const visualOptions = {
     },
     default: 12,
   },
-  showBarsSizeValues: {
+  yAxisFormat: {
+    type: 'text',
+    group: 'labelsy',
+    default: 'compact',
+    options: visualOptionsNumberFormat.options,
+    disabled: {
+      showYaxisLabels: false,
+    },
+  },
+  units: {
+    type: 'text',
+    default: '',
+    group: 'labelsy',
+  },  
+  endLabel: {
     type: 'boolean',
     default: true,
     group: 'labels',
   },
-  barsSizeValuesPosition: {
-    type: 'text',
-    group: 'labels',
-    default: 'inside',
-    options: [
-      {
-        label: 'outside',
-        value: 'outside',
-      },
-      {
-        label: 'inside',
-        value: 'inside',
-      },
-    ],
-    disabled: {
-      showBarsSizeValues: false,
-    },
-  },
-  barsSizeValuesFontSize: {
+  endLabelSize: {
     type: 'number',
-    group: 'labels',
-    disabled: {
-      showBarsSizeValues: false,
-    },
     default: 14,
+    group: 'labels',
   },
-  fontWeight: {
+  endLabelWeight: {
     type: 'text',
     group: 'labels',
     disabled: {
@@ -296,6 +267,17 @@ export const visualOptions = {
       }
     ],
     default: 'normal',
+  },
+  endLabelFormat: {
+    type: 'text',
+    default: 'standard',
+    options: visualOptionsNumberFormat.options,
+    group: 'labels',
+  },
+  endLabelPointDiameter: {
+    type: 'number',
+    default: 10,
+    group: 'labels',
   },
   showUnits: {
     type: 'boolean',

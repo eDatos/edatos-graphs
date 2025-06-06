@@ -11,13 +11,13 @@ export const mapData = function (data, mapping, dataTypes, dimensions) {
     dataTypes,
     dimensions
   );
-  if (mapping.lines === undefined) {
-    mapping.lines = {
+  if (mapping.series === undefined) {
+    mapping.series = {
       value: undefined,
     };
   }
 
-  const multiplesLines = mapping.lines.value?.length > 0;
+  const isSeriesDefined = mapping.series.value?.length > 0;
   let results = [];
 
   d3.rollups(
@@ -29,28 +29,27 @@ export const mapData = function (data, mapping, dataTypes, dimensions) {
           const item = {
             x: parseObject(vv[0][mapping.x.value]), //get the first one since it's grouped
             y: yAggregator[0](vv.map((d) => d[mapping.y.value])), // aggregate
-            lines: multiplesLines
-              ? parseObject(vv[0][mapping.lines.value])
+            series: isSeriesDefined
+              ? parseObject(vv[0][mapping.series.value])
               : 'y', //get the first one since it's grouped
           };
           results.push(item);
         },
         (d) => parseObject(d[mapping.x.value])
       ),
-    (d) => parseObject(d[mapping.lines.value]) // group functions
+    (d) => parseObject(d[mapping.series.value]) // group functions
   );
 
   return results;
 };
 function getDimensions(resultMap, mapping) {
-  if (mapping.lines.value === undefined || mapping.lines.value.length === 0) {
-    return ['x', 'y'];
+  if (mapping.series.value === undefined || mapping.series.value.length === 0) {
+    return ['y'];
   } else {
     var dimensions = resultMap
-      .map((res) => parseObject(res.lines))
+      .map((res) => parseObject(res.series))
       .filter((value, index, self) => self.indexOf(value) === index)
-      .sort();
-    dimensions.unshift('x');
+      .sort();    
     return dimensions;
   }
 }
@@ -67,7 +66,7 @@ function getXData(resultMap, mappedType, reverseOrder) {
   return reverseOrder ? xData.reverse() : xData;
 }
 
-const getXAxis = (visualOptions, xData, name, locale, mappedType) => {
+const getXAxis = (visualOptions, name, mappedType) => {
   return {
     name: visualOptions.showXaxisName ? name : '',
     nameLocation: visualOptions.xAxisNamePosition,
@@ -115,10 +114,9 @@ export function getChartOptions(
     visualOptions.reverseOrder
   );
 
-  let data = _.groupBy(resultMap, 'lines');
+  let data = _.groupBy(resultMap, 'series');
 
-  const lineSeries = getDimensions(resultMap, mapping)
-    .filter((dimension) => dimension !== 'x')
+  const series = getDimensions(resultMap, mapping)    
     .map(function (item, index) {
       let colorValue;
       if (visualOptions.colorScale.userScaleValues?.length === 1) {
@@ -140,9 +138,9 @@ export function getChartOptions(
       return {
         name: item,
         type: 'line',
-        emphasis: { focus: 'series' },
-        showSymbol: visualOptions.showPoints,
-        symbolSize: visualOptions.dotsDiameter,
+        stack: 'Total',
+        areaStyle: {},
+        emphasis: { focus: 'series' },        
         color: colorValue,
         data: lineData,
         labelLayout: {
@@ -152,6 +150,7 @@ export function getChartOptions(
           show: visualOptions.endLabel,
           fontSize: visualOptions.endLabelSize,
           fontWeight: visualOptions.endLabelWeight ?? 'bold',
+          position: 'right',
           formatter: (params) =>
             formatNumber(params.value[1], visualOptions.endLabelFormat, locale) + 
           (visualOptions.showUnits ? visualOptions.units : ''),
@@ -159,29 +158,31 @@ export function getChartOptions(
         lineStyle: {
           width: visualOptions.lineWidth ?? 2
         },
-        markPoint: {
-          data: [
-            visualOptions.endLabel
-              ? {
-                  type: 'last',
-                  coord: [
-                    mapping.x.mappedType === 'category'
-                      ? lineData.length - 1
-                      : lineData[lineData.length - 1][0],
-                    lineData[lineData.length - 1][1],
-                  ],
-                  symbol: 'circle',
-                  symbolSize: visualOptions.endLabelPointDiameter,
-                }
-              : {},
-          ],
+        symbolSize: function (value, params) {
+          let dotsDiameter = visualOptions.showPoints ? visualOptions.dotsDiameter : 1;
+          let lastDotDiameter = visualOptions.endLabel ? visualOptions.endLabelPointDiameter : dotsDiameter;
+          return params.dataIndex === (lineData.length - 1) ?  lastDotDiameter : dotsDiameter;
         },
+        symbol: 'circle',
+        showSymbol: true,        
         tooltip: {
           valueFormatter: (value) =>
             formatNumber(value, visualOptions.tooltipValueFormat, locale) +
             visualOptions.units,
         },
       };
+    }).sort((a, b) => {
+      const sumValor = obj => obj.data.reduce((acc, [_, y]) => acc + y, 0);
+      switch(visualOptions.sortBy){
+        case 'original(desc)':
+          return -1;
+        case 'totalAscending':
+          return sumValor(a) - sumValor(b);
+        case 'totalDescending':
+          return sumValor(b) - sumValor(a);
+        default: 
+          return 0;
+      }      
     });
 
   const xAxisName = visualOptions.customXaxisName
@@ -203,17 +204,15 @@ export function getChartOptions(
     tooltip: {
       show: visualOptions.showTooltip,
       trigger: 'axis',
-    }, //añadir a las opciones
+    },
     toolbox: toolbox(visualOptions.showToolbox),
     grid: grid(visualOptions),
     xAxis: getXAxis(
-      visualOptions,
-      xData,
+      visualOptions,      
       xAxisName,
-      locale,
       mapping.x.mappedType
     ),
     yAxis: getYAxis(visualOptions, yAxisName, locale),
-    series: [...lineSeries],
+    series: [...series],
   };
 }

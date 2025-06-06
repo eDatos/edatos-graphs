@@ -243,7 +243,7 @@ export const visualOptions = {
         value: 'lighter',
       }
     ],
-    default: 'normal',
+    default: 'bold',
   },
   endLabelFormat: {
     type: 'text',

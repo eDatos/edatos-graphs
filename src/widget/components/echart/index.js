@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts';
 import LangES from './i18n/LangES';
@@ -42,6 +42,7 @@ colorPresets.ordinal = {
 };
 
 const EDatosGraph = (props) => {
+  const domRef = useRef(null);
   const [options, setOptions] = useState({});
   echarts.registerLocale('es', LangES);
   echarts.registerLocale('ca', LangESCa);
@@ -99,9 +100,25 @@ const EDatosGraph = (props) => {
     }
   }, [props]);
 
+  useEffect(() => {
+    const echartsInstance = domRef.current?.getEchartsInstance();
+    if (!echartsInstance) return;
+
+    const legendSelectChanged = () => {
+      var option = echartsInstance.getOption();
+
+      // Esto forzará a redibujar las series y recolocar endLabels
+      echartsInstance.setOption(option, {
+        replaceMerge: ['series']
+      });      
+    };
+    echartsInstance.on('legendselectchanged', legendSelectChanged);
+  }, [options])
+
   return (
     <ReactECharts
-      option={options}
+      ref={domRef}
+      option={options}      
       opts={{ renderer: props.visualOptions.renderer, locale: props.locale }}
     />
   );
