@@ -21,7 +21,7 @@ export const mapData = function (data, mapping, dataTypes, dimensions) {
   let results = [];
 
   d3.rollups(
-    data,
+    data.filter((d) => d[mapping.y.value[0]] !== null),
     (v) =>
       d3.rollups(
         v,
@@ -42,6 +42,19 @@ export const mapData = function (data, mapping, dataTypes, dimensions) {
 
   return results;
 };
+
+function findLastValidPoint(data, isCategory) {
+  for (let i = data.length - 1; i >= 0; i--) {
+    const point = data[i];
+    const y = isCategory ? point : point[1];
+    if (y != null && !isNaN(y)) {
+      const x = isCategory ? i : point[0];
+      return [x, y];
+    }
+  }
+  return null; // No hay puntos válidos
+}
+
 function getDimensions(resultMap, mapping) {
   if (mapping.lines.value === undefined || mapping.lines.value.length === 0) {
     return ['x', 'y'];
@@ -131,7 +144,7 @@ export function getChartOptions(
       let lineData = [];
       xData.forEach((e) => {
         let value = _.find(data[item], ['x', e], 0);
-        let y = value ? value.y : '';
+        let y = value ? value.y : null;
         lineData.push([
             format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType),
             y,
@@ -164,12 +177,7 @@ export function getChartOptions(
             visualOptions.endLabel
               ? {
                   type: 'last',
-                  coord: [
-                    mapping.x.mappedType === 'category'
-                      ? lineData.length - 1
-                      : lineData[lineData.length - 1][0],
-                    lineData[lineData.length - 1][1],
-                  ],
+                  coord: findLastValidPoint(lineData, mapping.x.mappedType === 'category'),
                   symbol: 'circle',
                   symbolSize: visualOptions.endLabelPointDiameter,
                 }
@@ -178,8 +186,10 @@ export function getChartOptions(
         },
         tooltip: {
           valueFormatter: (value) =>
-            formatNumber(value, visualOptions.tooltipValueFormat, locale) +
-            visualOptions.units,
+            value ? 
+            (formatNumber(value, visualOptions.tooltipValueFormat, locale) +
+            visualOptions.units) : '',
+
         },
       };
     });
