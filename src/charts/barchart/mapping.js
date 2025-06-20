@@ -31,7 +31,9 @@ const mapData = function (
   let results = [];
 
   d3.rollups(
-    data,
+    data.filter((d) => {
+      return mapping.size.value ? d[mapping.size.value[0]] !== null : true      
+    }),
     (v) => {
       const item = {
         series: v[0][mapping.series.value], //get the first one since it's grouped
