@@ -195,27 +195,7 @@ export const getChartOptions = function (
       data,
       color: colorValue,
     };
-    /*
-    return {
-      type: 'bar',
-      datasetIndex: visualOptions.sortBarsBy !== 'original' ? 1 : 0,
-      color: colorValue,
-      label: {
-        show: visualOptions.showBarsSizeValues,
-        position: visualOptions.barsSizeValuesPosition,
-        formatter(params) {
-          return formatNumber(
-            params.value[params.seriesName],
-            visualOptions.tooltipValueFormat,
-            locale
-          ) + (visualOptions.showUnits ? visualOptions.units : '')
-        },
-        fontSize: visualOptions.barsSizeValuesFontSize,
-        fontWeight: visualOptions.fontWeight,
-      },
-    };
-    */
-
+    
     function getColorValue() {
       if (!visualOptions.colorScale.userScaleValues) {
         return visualOptions.colorScale.defaultColor;

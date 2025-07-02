@@ -196,7 +196,7 @@ const colorValue = function (visualOptions, item) {
     ?.range;
 };
 
-const getSeries = (sortedMapData, bars, visualOptions) => {
+const getSeries = (sortedMapData, bars, visualOptions, locale) => {
   let series = [];
   bars.forEach((bar) => {
     let myData = sortedMapData.filter((d) => d.bars === bar);
@@ -205,6 +205,26 @@ const getSeries = (sortedMapData, bars, visualOptions) => {
       .filter((value, index, self) => self.indexOf(value) === index);
     myStacks.forEach((stack) => {
       const name = stack ? stack : bar;
+      const datosSerie = myData.filter((d) => d.series === stack);
+      const data = datosSerie.map((d, index) => ({
+        value: d.size,
+        label: {
+          show: visualOptions.showBarsSizeValues && (visualOptions.endLabel ? index === datosSerie.length - 1 : true),
+          position: visualOptions.barsSizeValuesPosition,
+          formatter(params) {
+            return formatNumber(
+              params.value,
+              visualOptions.tooltipValueFormat,
+              locale
+            ) + (visualOptions.showUnits ? visualOptions.units : '')
+          },
+          fontSize: visualOptions.barsSizeValuesFontSize,
+          fontWeight: visualOptions.fontWeight
+        },
+        labelLayout: {
+          hideOverlap: true
+        },
+      }));
       let serie = {
         name: name,
         type: 'bar',
@@ -216,8 +236,8 @@ const getSeries = (sortedMapData, bars, visualOptions) => {
           borderRadius: [2, 0, 0, 0],
           borderColor: white,
         },
-        data: myData.filter((d) => d.series === stack).map((d) => d.size),
-        color: colorValue(visualOptions, name),
+        data,
+        color: colorValue(visualOptions, name),        
       };
       series.push(serie);
     });
@@ -378,22 +398,6 @@ export const getChartOptions = function (
     },
     toolbox: toolbox(visualOptions.showToolbox),
     grid: grid(visualOptions),
-    label: {
-      show: visualOptions.showBarsSizeValues,
-      position: visualOptions.barsSizeValuesPosition,
-      formatter(params) {
-        return formatNumber(
-          params.value,
-          visualOptions.tooltipValueFormat,
-          locale
-        ) + (visualOptions.showUnits ? visualOptions.units : '')
-      },
-      fontSize: visualOptions.barsSizeValuesFontSize,
-      fontWeight: visualOptions.fontWeight
-    },
-    labelLayout: {
-      hideOverlap: true
-    },
     xAxis: getAxis(
       sortedMapData,
       getXAxisItem(visualOptions, mapping.stacks, locale),
@@ -404,6 +408,6 @@ export const getChartOptions = function (
       getYAxisItem(visualOptions, mapping.stacks, locale),
       visualOptions.sortBarsBy
     ),
-    series: getSeries(sortedMapData, mapping.bars.value, visualOptions),
+    series: getSeries(sortedMapData, mapping.bars.value, visualOptions, locale),
   };
 };

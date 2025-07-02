@@ -244,6 +244,11 @@ export const visualOptions = {
     },
     default: 12,
   },
+  endLabel: {
+    type: 'boolean',
+    default: false,
+    group: 'labels',
+  },
   showBarsSizeValues: {
     type: 'boolean',
     default: true,
@@ -277,10 +282,7 @@ export const visualOptions = {
   },
   fontWeight: {
     type: 'text',
-    group: 'labels',
-    disabled: {
-      endLabel: false,
-    },
+    group: 'labels',    
     options: [
       {
         label: 'normal',
