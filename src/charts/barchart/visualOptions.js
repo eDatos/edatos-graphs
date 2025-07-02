@@ -214,6 +214,11 @@ export const visualOptions = {
     default: '',
     group: 'barsSizelabels',
   },
+  endLabel: {
+    type: 'boolean',
+    default: false,
+    group: 'labels',
+  },
   showBarsSizeValues: {
     type: 'boolean',
     default: true,
