@@ -243,15 +243,15 @@ export const visualOptions = {
       showYaxisLabels: false,
     },
     default: 12,
+  },  
+  showBarsSizeValues: {
+    type: 'boolean',
+    default: true,
+    group: 'labels',
   },
   endLabel: {
     type: 'boolean',
     default: false,
-    group: 'labels',
-  },
-  showBarsSizeValues: {
-    type: 'boolean',
-    default: true,
     group: 'labels',
   },
   barsSizeValuesPosition: {

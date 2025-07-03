@@ -213,15 +213,15 @@ export const visualOptions = {
     type: 'text',
     default: '',
     group: 'barsSizelabels',
+  },  
+  showBarsSizeValues: {
+    type: 'boolean',
+    default: true,
+    group: 'labels',
   },
   endLabel: {
     type: 'boolean',
     default: false,
-    group: 'labels',
-  },
-  showBarsSizeValues: {
-    type: 'boolean',
-    default: true,
     group: 'labels',
   },
   barsSizeValuesPosition: {
