@@ -155,11 +155,11 @@ export const getChartOptions = function (
     visualOptions.barsLabelsFormat,
     locale
   );
-  let dimensiones = getDimensions(resultMap, mapping);
-  const barSeries = dimensiones.splice(1).map(function (item, index) {
+  let dimensions = getDimensions(resultMap, mapping);
+  const barSeries = dimensions.splice(1).map(function (item, index) {
     let colorValue = getColorValue();
 
-    const datosSerie = resultMap
+    const serieData = resultMap
       .filter(res => typeof res.size === 'number' && !isNaN(res.size))
       .filter(d => d.series ? (parseObject(d.series) === item) : true)
       .sort((a, b) => {                
@@ -172,11 +172,11 @@ export const getChartOptions = function (
         }        
       });
 
-    const data = datosSerie.map((d, index) => ({
+    const data = serieData.map((d, index) => ({
       value: d.size,
       name: d.bars,
       label: {
-        show: visualOptions.showBarsSizeValues && (visualOptions.endLabel ? index === datosSerie.length - 1 : true),
+        show: visualOptions.showBarsSizeValues && (visualOptions.endLabel ? index === serieData.length - 1 : true),
         position: visualOptions.barsSizeValuesPosition,
         formatter() {
           return (
