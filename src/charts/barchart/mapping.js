@@ -165,8 +165,8 @@ export const getChartOptions = function (
     visualOptions.barsLabelsFormat,
     locale
   );
-  let dimensions = getDimensions(resultMap, mapping);
-  const barSeries = dimensions.splice(1).map(function (item, index) {
+  let chartDimensions = getDimensions(resultMap, mapping);
+  const barSeries = chartDimensions.splice(1).map(function (item, index) {
     let colorValue = getColorValue();
 
     const serieData = resultMap
