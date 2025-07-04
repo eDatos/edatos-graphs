@@ -13,7 +13,7 @@ import {
 let charts = [
   barchart,
   stackedbarchart,
-  linechart,  
+  linechart,
   piechart,
   donut,
   halfdonut,

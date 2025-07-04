@@ -21,14 +21,16 @@ export default class WMSFetch extends React.Component {
       error: undefined,
       showOptions: false,
       defaultsWMS: [],
-      selectedWMS: []
+      selectedWMS: [],
     };
   }
 
   componentDidMount() {
     applicationConfig().then((applicationConfigJson) => {
-      this.setState({defaultsWMS : applicationConfigJson["maps"]["defaultsWMS"] ?? []})
-    })
+      this.setState({
+        defaultsWMS: applicationConfigJson['maps']['defaultsWMS'] ?? [],
+      });
+    });
   }
 
   removeWMS = (index) => {
@@ -173,16 +175,18 @@ export default class WMSFetch extends React.Component {
                   id="combo-input"
                   className="raw-dropdown"
                   options={this.state.defaultsWMS}
-                  labelKey="key"                  
-                  onInputChange={(text) => this.setState({url: text})} // Captura texto personalizado
+                  labelKey="key"
+                  onInputChange={(text) => this.setState({ url: text })} // Captura texto personalizado
                   onChange={(selected) => {
-                    const url = selected[0]?.customOption ? selected[0]?.key : selected[0]?.value;
-                    this.setState({url: url, selectedWMS: selected});
+                    const url = selected[0]?.customOption
+                      ? selected[0]?.key
+                      : selected[0]?.value;
+                    this.setState({ url: url, selectedWMS: selected });
                   }}
                   selected={this.state.selectedWMS} // Sincroniza la selección
                   allowNew // Permite entradas personalizadas
                   newSelectionPrefix="" // Prefijo para las entradas nuevas
-                />                
+                />
               </Form.Group>
               {this.state.error && (
                 <WarningMessage

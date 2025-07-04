@@ -68,7 +68,7 @@ export const visualOptions = {
       {
         label: 'totalAscending',
         value: 'totalAscending',
-      },      
+      },
       {
         label: 'original',
         value: 'original',
@@ -235,7 +235,7 @@ export const visualOptions = {
     type: 'text',
     default: '',
     group: 'labelsy',
-  },  
+  },
   endLabel: {
     type: 'boolean',
     default: true,
@@ -260,11 +260,11 @@ export const visualOptions = {
       {
         label: 'bold',
         value: 'bold',
-      },      
+      },
       {
         label: 'lighter',
         value: 'lighter',
-      }
+      },
     ],
     default: 'normal',
   },
@@ -282,7 +282,7 @@ export const visualOptions = {
   showUnits: {
     type: 'boolean',
     default: false,
-    group: 'labels'
+    group: 'labels',
   },
   showTooltip: {
     type: 'boolean',
@@ -294,7 +294,7 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
-  },  
+  },
   colorScale: {
     type: 'colorScale',
     domain: 'colorDomain',

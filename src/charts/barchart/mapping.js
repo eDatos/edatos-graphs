@@ -32,7 +32,7 @@ const mapData = function (
 
   d3.rollups(
     data.filter((d) => {
-      return mapping.size.value ? d[mapping.size.value[0]] !== null : true      
+      return mapping.size.value ? d[mapping.size.value[0]] !== null : true;
     }),
     (v) => {
       const item = {
@@ -109,7 +109,12 @@ function valueOptions(visualOptions, name, locale) {
 
 const getxAxis = (visualOptions, mapping, locale, data) => {
   if ('vertical' === visualOptions.barsOrientation) {
-    return categoryOptions(visualOptions, mapping.bars, locale, data.map(d => d.name));
+    return categoryOptions(
+      visualOptions,
+      mapping.bars,
+      locale,
+      data.map((d) => d.name)
+    );
   } else {
     return valueOptions(visualOptions, mapping.size?.value ?? '', locale);
   }
@@ -117,7 +122,12 @@ const getxAxis = (visualOptions, mapping, locale, data) => {
 
 const getyAxis = (visualOptions, mapping, locale, data) => {
   if ('horizontal' === visualOptions.barsOrientation) {
-    return categoryOptions(visualOptions, mapping.bars, locale, data.map(d => d.name));
+    return categoryOptions(
+      visualOptions,
+      mapping.bars,
+      locale,
+      data.map((d) => d.name)
+    );
   } else {
     return valueOptions(visualOptions, mapping.size?.value ?? '', locale);
   }
@@ -160,23 +170,27 @@ export const getChartOptions = function (
     let colorValue = getColorValue();
 
     const serieData = resultMap
-      .filter(res => typeof res.size === 'number' && !isNaN(res.size))
-      .filter(d => d.series ? (parseObject(d.series) === item) : true)
-      .sort((a, b) => {                
+      .filter((res) => typeof res.size === 'number' && !isNaN(res.size))
+      .filter((d) => (d.series ? parseObject(d.series) === item : true))
+      .sort((a, b) => {
         if ('original' === visualOptions.sortBarsBy) {
           return 0;
         } else if ('name' === visualOptions.sortBarsBy) {
-           return a.bars.localeCompare(b.bars);
+          return a.bars.localeCompare(b.bars);
         } else {
-          return 'totalAscending' === visualOptions.sortBarsBy ? a.size - b.size : b.size - a.size;
-        }        
+          return 'totalAscending' === visualOptions.sortBarsBy
+            ? a.size - b.size
+            : b.size - a.size;
+        }
       });
 
     const data = serieData.map((d, index) => ({
       value: d.size,
       name: d.bars,
       label: {
-        show: visualOptions.showBarsSizeValues && (visualOptions.endLabel ? index === serieData.length - 1 : true),
+        show:
+          visualOptions.showBarsSizeValues &&
+          (visualOptions.endLabel ? index === serieData.length - 1 : true),
         position: visualOptions.barsSizeValuesPosition,
         formatter() {
           return (
@@ -195,7 +209,7 @@ export const getChartOptions = function (
       data,
       color: colorValue,
     };
-    
+
     function getColorValue() {
       if (!visualOptions.colorScale.userScaleValues) {
         return visualOptions.colorScale.defaultColor;
@@ -254,7 +268,7 @@ export const getChartOptions = function (
         )}${visualOptions.units}</b>`;
       },
     },
-    toolbox: toolbox(visualOptions.showToolbox),    
+    toolbox: toolbox(visualOptions.showToolbox),
     grid: grid(visualOptions),
     xAxis: getxAxis(visualOptions, mapping, locale, barSeries[0].data),
     yAxis: getyAxis(visualOptions, mapping, locale, barSeries[0].data),

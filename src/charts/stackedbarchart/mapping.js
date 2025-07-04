@@ -209,20 +209,24 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
       const data = datosSerie.map((d, index) => ({
         value: d.size,
         label: {
-          show: visualOptions.showBarsSizeValues && (visualOptions.endLabel ? index === datosSerie.length - 1 : true),
+          show:
+            visualOptions.showBarsSizeValues &&
+            (visualOptions.endLabel ? index === datosSerie.length - 1 : true),
           position: visualOptions.barsSizeValuesPosition,
           formatter(params) {
-            return formatNumber(
-              params.value,
-              visualOptions.tooltipValueFormat,
-              locale
-            ) + (visualOptions.showUnits ? visualOptions.units : '')
+            return (
+              formatNumber(
+                params.value,
+                visualOptions.tooltipValueFormat,
+                locale
+              ) + (visualOptions.showUnits ? visualOptions.units : '')
+            );
           },
           fontSize: visualOptions.barsSizeValuesFontSize,
-          fontWeight: visualOptions.fontWeight
+          fontWeight: visualOptions.fontWeight,
         },
         labelLayout: {
-          hideOverlap: true
+          hideOverlap: true,
         },
       }));
       let serie = {
@@ -237,23 +241,23 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
           borderColor: white,
         },
         data,
-        color: colorValue(visualOptions, name),        
+        color: colorValue(visualOptions, name),
       };
       series.push(serie);
     });
   });
   return series.sort((a, b) => {
-    const sumValor = obj => obj.data.reduce((acc, valor) => acc + valor, 0);
-    switch(visualOptions.sortBy){
+    const sumValor = (obj) => obj.data.reduce((acc, valor) => acc + valor, 0);
+    switch (visualOptions.sortBy) {
       case 'original(desc)':
         return -1;
       case 'totalAscending':
         return sumValor(a) - sumValor(b);
       case 'totalDescending':
         return sumValor(b) - sumValor(a);
-      default: 
+      default:
         return 0;
-    }      
+    }
   });
 };
 
@@ -265,7 +269,6 @@ const mapData = function (
   barsLabelsFormat,
   locale
 ) {
-
   function filterValidGroups(data) {
     // Agrupar los valores por la clave de agrupación
     const grouped = data.reduce((acc, item) => {
@@ -274,18 +277,18 @@ const mapData = function (
       acc[group].push(item.size);
       return acc;
     }, {});
-  
+
     // Obtener los grupos que tienen al menos un valor no nulo
     const validGroups = new Set(
       Object.entries(grouped)
-        .filter(([_, values]) => values.some(v => v != null))
+        .filter(([_, values]) => values.some((v) => v != null))
         .map(([group]) => group)
     );
 
     // Filtrar los objetos que pertenecen a un grupo válido
-    return data.filter(item => validGroups.has(item.stacks));
-  }      
-  
+    return data.filter((item) => validGroups.has(item.stacks));
+  }
+
   // as we are working on a multiple dimension (bars), `getDimensionAggregator` will return an array of aggregator functions
   // the order of aggregators is the same as the value of the mapping
   const barsAggregators = getDimensionAggregator(
@@ -308,8 +311,10 @@ const mapData = function (
       // for every dimension in the bars field, create an item
       mapping.bars.value.forEach((barName, i) => {
         //getting values for aggregation
-        const valuesForSize = v.map((x) => x[barName]).filter(value => value !== null);
-        
+        const valuesForSize = v
+          .map((x) => x[barName])
+          .filter((value) => value !== null);
+
         //getting i-th aggregator
         const aggregator = barsAggregators[i];
 
@@ -323,7 +328,6 @@ const mapData = function (
           size: valuesForSize.length > 0 ? aggregator(valuesForSize) : null,
         };
         results.push(item);
-      
       });
     },
     (d) => d[mapping.series.value], // series grouping
@@ -334,7 +338,7 @@ const mapData = function (
         locale,
         mapping.stacks?.mappedType
       ) // stacks grouping.
-  );  
+  );
   return filterValidGroups(results);
 };
 

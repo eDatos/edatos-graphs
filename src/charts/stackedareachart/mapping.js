@@ -49,7 +49,7 @@ function getDimensions(resultMap, mapping) {
     var dimensions = resultMap
       .map((res) => parseObject(res.series))
       .filter((value, index, self) => self.indexOf(value) === index)
-      .sort();    
+      .sort();
     return dimensions;
   }
 }
@@ -116,7 +116,7 @@ export function getChartOptions(
 
   let data = _.groupBy(resultMap, 'series');
 
-  const series = getDimensions(resultMap, mapping)    
+  const series = getDimensions(resultMap, mapping)
     .map(function (item, index) {
       let colorValue;
       if (visualOptions.colorScale.userScaleValues?.length === 1) {
@@ -131,8 +131,8 @@ export function getChartOptions(
         let value = _.find(data[item], ['x', e], 0);
         let y = value ? value.y : null;
         lineData.push([
-            format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType),
-            y,
+          format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType),
+          y,
         ]);
       });
       return {
@@ -140,7 +140,7 @@ export function getChartOptions(
         type: 'line',
         stack: 'Total',
         areaStyle: {},
-        emphasis: { focus: 'series' },        
+        emphasis: { focus: 'series' },
         color: colorValue,
         data: lineData,
         labelLayout: {
@@ -152,40 +152,52 @@ export function getChartOptions(
           fontWeight: visualOptions.endLabelWeight ?? 'bold',
           position: 'right',
           formatter: (params) =>
-            formatNumber(params.value[1], visualOptions.endLabelFormat, locale) + 
-          (visualOptions.showUnits ? visualOptions.units : ''),
+            formatNumber(
+              params.value[1],
+              visualOptions.endLabelFormat,
+              locale
+            ) + (visualOptions.showUnits ? visualOptions.units : ''),
         },
         lineStyle: {
-          width: visualOptions.lineWidth ?? 2
+          width: visualOptions.lineWidth ?? 2,
         },
         symbolSize: function (value, params) {
-          let dotsDiameter = visualOptions.showPoints ? visualOptions.dotsDiameter : 1;
-          let lastDotDiameter = visualOptions.endLabel ? visualOptions.endLabelPointDiameter : dotsDiameter;
-          const lastValidIndex = lineData.map((point, index) => ({ index, y: point[1] }))
-                                         .filter(p => p.y != null && !isNaN(p.y))
-                                         .at(-1)?.index ?? -1;
-          return params.dataIndex === lastValidIndex ?  lastDotDiameter : dotsDiameter;
+          let dotsDiameter = visualOptions.showPoints
+            ? visualOptions.dotsDiameter
+            : 1;
+          let lastDotDiameter = visualOptions.endLabel
+            ? visualOptions.endLabelPointDiameter
+            : dotsDiameter;
+          const lastValidIndex =
+            lineData
+              .map((point, index) => ({ index, y: point[1] }))
+              .filter((p) => p.y != null && !isNaN(p.y))
+              .at(-1)?.index ?? -1;
+          return params.dataIndex === lastValidIndex
+            ? lastDotDiameter
+            : dotsDiameter;
         },
         symbol: 'circle',
-        showSymbol: true,        
+        showSymbol: true,
         tooltip: {
           valueFormatter: (value) =>
             formatNumber(value, visualOptions.tooltipValueFormat, locale) +
             visualOptions.units,
         },
       };
-    }).sort((a, b) => {
-      const sumValor = obj => obj.data.reduce((acc, [_, y]) => acc + y, 0);
-      switch(visualOptions.sortBy){
+    })
+    .sort((a, b) => {
+      const sumValor = (obj) => obj.data.reduce((acc, [_, y]) => acc + y, 0);
+      switch (visualOptions.sortBy) {
         case 'original(desc)':
           return -1;
         case 'totalAscending':
           return sumValor(a) - sumValor(b);
         case 'totalDescending':
           return sumValor(b) - sumValor(a);
-        default: 
+        default:
           return 0;
-      }      
+      }
     });
 
   const xAxisName = visualOptions.customXaxisName
@@ -210,11 +222,7 @@ export function getChartOptions(
     },
     toolbox: toolbox(visualOptions.showToolbox),
     grid: grid(visualOptions),
-    xAxis: getXAxis(
-      visualOptions,      
-      xAxisName,
-      mapping.x.mappedType
-    ),
+    xAxis: getXAxis(visualOptions, xAxisName, mapping.x.mappedType),
     yAxis: getYAxis(visualOptions, yAxisName, locale),
     series: [...series],
   };
