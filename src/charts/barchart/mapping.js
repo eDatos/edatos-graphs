@@ -192,9 +192,9 @@ export const getChartOptions = function (
           visualOptions.showBarsSizeValues &&
           (visualOptions.endLabel ? index === serieData.length - 1 : true),
         position: visualOptions.barsSizeValuesPosition,
-        formatter() {
+        formatter(params) {
           return (
-            formatNumber(d.size, visualOptions.tooltipValueFormat, locale) +
+            formatNumber(params.value, visualOptions.tooltipValueFormat, locale) +
             (visualOptions.showUnits ? visualOptions.units : '')
           );
         },
