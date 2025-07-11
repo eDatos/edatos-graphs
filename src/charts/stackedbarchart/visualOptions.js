@@ -45,7 +45,7 @@ export const visualOptions = {
       {
         label: 'totalAscending',
         value: 'totalAscending',
-      },      
+      },
       {
         label: 'original',
         value: 'original',
@@ -56,7 +56,7 @@ export const visualOptions = {
       },
     ],
     default: 'totalDescending',
-  },  
+  },
   groupSeriesInStack: {
     type: 'boolean',
     group: 'chart',
@@ -216,7 +216,7 @@ export const visualOptions = {
     type: 'text',
     group: 'barsSizelabels',
     default: 'compact',
-    options: visualOptionsNumberFormat.options    
+    options: visualOptionsNumberFormat.options,
   },
   units: {
     type: 'text',
@@ -249,6 +249,11 @@ export const visualOptions = {
     default: true,
     group: 'labels',
   },
+  endLabel: {
+    type: 'boolean',
+    default: false,
+    group: 'labels',
+  },
   barsSizeValuesPosition: {
     type: 'text',
     group: 'labels',
@@ -278,9 +283,6 @@ export const visualOptions = {
   fontWeight: {
     type: 'text',
     group: 'labels',
-    disabled: {
-      endLabel: false,
-    },
     options: [
       {
         label: 'normal',
@@ -289,18 +291,18 @@ export const visualOptions = {
       {
         label: 'bold',
         value: 'bold',
-      },      
+      },
       {
         label: 'lighter',
         value: 'lighter',
-      }
+      },
     ],
     default: 'normal',
   },
   showUnits: {
     type: 'boolean',
     default: false,
-    group: 'labels'
+    group: 'labels',
   },
   showTooltip: {
     type: 'boolean',
@@ -312,7 +314,7 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
-  },  
+  },
   colorScale: {
     type: 'colorScale',
     domain: 'colorDomain',

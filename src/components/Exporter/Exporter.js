@@ -147,7 +147,7 @@ export default function Exporter({
       dataTypes: getFilteredDataTypes(),
       dimensions: dimensions,
       data: !dynamicLoadWidget || !dataSource?.url ? getFilteredUserData() : [],
-      selectedSeries: selectedSeries
+      selectedSeries: selectedSeries,
     };
   }
 

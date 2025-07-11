@@ -66,7 +66,7 @@ const getSeries = (
     let results = [];
     d3.rollups(
       data.filter((d) => {
-        return mapping.size.value ? d[mapping.size.value[0]] !== null : true      
+        return mapping.size.value ? d[mapping.size.value[0]] !== null : true;
       }),
       (v) => {
         let children = [];
