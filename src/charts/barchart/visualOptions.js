@@ -57,7 +57,7 @@ export const visualOptions = {
     ],
     default: 'name',
   },
-  // labels  
+  // labels
   showBarsName: {
     type: 'boolean',
     default: false,
@@ -135,7 +135,7 @@ export const visualOptions = {
     disabled: {
       showBarsLabels: false,
     },
-  },    
+  },
   showBarsSizeName: {
     type: 'boolean',
     default: false,
@@ -219,6 +219,11 @@ export const visualOptions = {
     default: true,
     group: 'labels',
   },
+  endLabel: {
+    type: 'boolean',
+    default: false,
+    group: 'labels',
+  },
   barsSizeValuesPosition: {
     type: 'text',
     group: 'labels',
@@ -259,18 +264,18 @@ export const visualOptions = {
       {
         label: 'bold',
         value: 'bold',
-      },      
+      },
       {
         label: 'lighter',
         value: 'lighter',
-      }
+      },
     ],
     default: 'normal',
   },
   showUnits: {
     type: 'boolean',
     default: false,
-    group: 'labels'
+    group: 'labels',
   },
   showTooltip: {
     type: 'boolean',
@@ -282,7 +287,7 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
-  },  
+  },
   colorScale: {
     type: 'colorScale',
     domain: 'colorDomain',

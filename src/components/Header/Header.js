@@ -1,6 +1,9 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { applicationConfig, version } from '../ApplicationConfig/ApplicationConfig';
+import {
+  applicationConfig,
+  version,
+} from '../ApplicationConfig/ApplicationConfig';
 
 export default function Header({ value, setLogged }) {
   const divRef = useRef(null);
@@ -27,7 +30,7 @@ export default function Header({ value, setLogged }) {
         headers: { Accept: 'application/json' },
       };
       const applicationConfigJson = await applicationConfig();
-	  const versionJson = await version();
+      const versionJson = await version();
       const responseHeaderURL = await fetch(
         applicationConfigJson['metadata']['endpoint'] +
           '/properties/' +
@@ -35,7 +38,7 @@ export default function Header({ value, setLogged }) {
         requestOptions
       );
       const headerUrlData = await responseHeaderURL.json();
-	  const appVersion = versionJson['appVersion'];
+      const appVersion = versionJson['appVersion'];
       return await (
         await fetch(
           `${headerUrlData['value']}?appName=${appName}&chosenLocale=${value}&appId=egraficos&enableAuthentication&appVersion=${appVersion}`,

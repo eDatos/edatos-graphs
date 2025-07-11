@@ -86,17 +86,17 @@ const EDatosGraph = (props) => {
     const updateLegend = (options) => ({
       ...options,
       legend: {
-          ...options.legend, 
-          selected: props.selectedSeries
-      }
-    });    
+        ...options.legend,
+        selected: props.selectedSeries,
+      },
+    });
 
-    if (props.data?.length > 0) {      
+    if (props.data?.length > 0) {
       setOptions(updateLegend(getChartOptions(props.data)));
     } else {
-      fetchOptions(props.source).then((options) => {        
+      fetchOptions(props.source).then((options) => {
         setOptions(updateLegend(options));
-      });      
+      });
     }
   }, [props]);
 
@@ -109,16 +109,16 @@ const EDatosGraph = (props) => {
 
       // Esto forzará a redibujar las series y recolocar endLabels
       echartsInstance.setOption(option, {
-        replaceMerge: ['series']
-      });      
+        replaceMerge: ['series'],
+      });
     };
     echartsInstance.on('legendselectchanged', legendSelectChanged);
-  }, [options])
+  }, [options]);
 
   return (
     <ReactECharts
       ref={domRef}
-      option={options}      
+      option={options}
       opts={{ renderer: props.visualOptions.renderer, locale: props.locale }}
     />
   );

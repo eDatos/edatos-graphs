@@ -146,8 +146,8 @@ export function getChartOptions(
         let value = _.find(data[item], ['x', e], 0);
         let y = value ? value.y : null;
         lineData.push([
-            format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType),
-            y,
+          format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType),
+          y,
         ]);
       });
       return {
@@ -166,18 +166,24 @@ export function getChartOptions(
           fontSize: visualOptions.endLabelSize,
           fontWeight: visualOptions.endLabelWeight ?? 'bold',
           formatter: (params) =>
-            formatNumber(params.value[1], visualOptions.endLabelFormat, locale) + 
-          (visualOptions.showUnits ? visualOptions.units : ''),
+            formatNumber(
+              params.value[1],
+              visualOptions.endLabelFormat,
+              locale
+            ) + (visualOptions.showUnits ? visualOptions.units : ''),
         },
         lineStyle: {
-          width: visualOptions.lineWidth ?? 2
+          width: visualOptions.lineWidth ?? 2,
         },
         markPoint: {
           data: [
             visualOptions.endLabel
               ? {
                   type: 'last',
-                  coord: findLastValidPoint(lineData, mapping.x.mappedType === 'category'),
+                  coord: findLastValidPoint(
+                    lineData,
+                    mapping.x.mappedType === 'category'
+                  ),
                   symbol: 'circle',
                   symbolSize: visualOptions.endLabelPointDiameter,
                 }
@@ -186,10 +192,10 @@ export function getChartOptions(
         },
         tooltip: {
           valueFormatter: (value) =>
-            value ? 
-            (formatNumber(value, visualOptions.tooltipValueFormat, locale) +
-            visualOptions.units) : '',
-
+            value
+              ? formatNumber(value, visualOptions.tooltipValueFormat, locale) +
+                visualOptions.units
+              : '',
         },
       };
     });

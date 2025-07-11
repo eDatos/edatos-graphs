@@ -16,7 +16,7 @@ const ChartPreview = ({
   error,
   setError,
   setRawViz,
-  setSelectedSeries
+  setSelectedSeries,
 }) => {
   const domRef = useRef(null);
   const vizOptionsDebounced = useDebounce(visualOptions, 300);
@@ -129,14 +129,16 @@ const ChartPreview = ({
 
         // Esto forzará a redibujar las series y recolocar endLabels
         echartsInstance.setOption(option, {
-          replaceMerge: ['series']
+          replaceMerge: ['series'],
         });
         // Guardamos selección de leyenda
         setSelectedSeries(legendSelected);
       };
       if (!error) {
-        echartsInstance.setOption(chartOptions, true);        
-        echartsInstance.on('legendselectchanged', event => legendSelectChanged(event.selected));
+        echartsInstance.setOption(chartOptions, true);
+        echartsInstance.on('legendselectchanged', (event) =>
+          legendSelectChanged(event.selected)
+        );
       }
     } catch (e) {
       setError({ variant: 'danger', message: 'Chart error. ' + e.message });
@@ -151,7 +153,7 @@ const ChartPreview = ({
     mapping,
     setError,
     setRawViz,
-    setSelectedSeries
+    setSelectedSeries,
   ]);
 
   return (

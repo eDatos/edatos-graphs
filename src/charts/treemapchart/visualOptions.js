@@ -63,11 +63,11 @@ export const visualOptions = {
       {
         label: 'bold',
         value: 'bold',
-      },      
+      },
       {
         label: 'lighter',
         value: 'lighter',
-      }
+      },
     ],
     default: 'normal',
   },

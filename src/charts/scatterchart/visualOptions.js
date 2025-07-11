@@ -7,7 +7,7 @@ export const visualOptions = {
     type: 'number',
     default: 40,
     group: 'artboard',
-  },  
+  },
   marginLeft: {
     type: 'number',
     default: 40,
