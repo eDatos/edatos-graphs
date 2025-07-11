@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import { getDimensionAggregator } from '@rawgraphs/rawgraphs-core';
-import { format, formatNumber, parseObject } from '../utils/parseUtils';
+import { diff, format, formatNumber, parseObject } from '../utils/parseUtils';
 import { grid, legend, toolbox } from '../baseChartOptions';
 
 const mapData = function (
@@ -176,7 +176,7 @@ export const getChartOptions = function (
         if ('original' === visualOptions.sortBarsBy) {
           return 0;
         } else if ('name' === visualOptions.sortBarsBy) {
-          return a.bars.localeCompare(b.bars);
+          return diff(a.bars, b.bars, mapping.bars.mappedType)          
         } else {
           return 'totalAscending' === visualOptions.sortBarsBy
             ? a.size - b.size
