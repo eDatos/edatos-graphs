@@ -40,7 +40,7 @@ export const visualOptions = {
     type: 'number',
     default: 2,
     group: 'chart',
-    min: 0
+    min: 0,
   },
   reverseOrder: {
     type: 'boolean',
@@ -56,7 +56,7 @@ export const visualOptions = {
     type: 'boolean',
     default: true,
     group: 'chart',
-  },  
+  },
   showXaxisName: {
     type: 'boolean',
     default: false,
@@ -212,7 +212,7 @@ export const visualOptions = {
     type: 'text',
     default: '',
     group: 'labelsy',
-  },  
+  },
   endLabel: {
     type: 'boolean',
     default: true,
@@ -237,11 +237,11 @@ export const visualOptions = {
       {
         label: 'bold',
         value: 'bold',
-      },      
+      },
       {
         label: 'lighter',
         value: 'lighter',
-      }
+      },
     ],
     default: 'bold',
   },
@@ -259,7 +259,7 @@ export const visualOptions = {
   showUnits: {
     type: 'boolean',
     default: false,
-    group: 'labels'
+    group: 'labels',
   },
   showTooltip: {
     type: 'boolean',
@@ -271,7 +271,7 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
-  },  
+  },
   colorScale: {
     type: 'colorScale',
     domain: 'colorDomain',

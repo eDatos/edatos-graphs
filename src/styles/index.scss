@@ -382,7 +382,6 @@ input:disabled {
   border: 1px solid $color-black-20;
 }
 
-.custom-control-input[type="checkbox"] + .custom-control-label {
+.custom-control-input[type='checkbox'] + .custom-control-label {
   line-height: 1.8;
 }
-

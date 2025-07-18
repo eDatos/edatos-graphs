@@ -131,11 +131,11 @@ export const visualOptions = {
       {
         label: 'bold',
         value: 'bold',
-      },      
+      },
       {
         label: 'lighter',
         value: 'lighter',
-      }
+      },
     ],
     default: 'normal',
   },
@@ -156,7 +156,7 @@ export const visualOptions = {
     disabled: {
       showLegend: false,
     },
-  },  
+  },
   legendItemSize: {
     type: 'number',
     default: 70,
