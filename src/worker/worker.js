@@ -1,5 +1,6 @@
 import * as Comlink from 'comlink';
-import { parseDataset, chart as rawChart } from '@rawgraphs/rawgraphs-core';
+import { chart as rawChart } from '@rawgraphs/rawgraphs-core';
+import { customParseDataSet as parseDataset } from '../hooks/customParseDataSet';
 import charts from '../charts';
 import { requireRawChartsFromUrlWebWorker } from '../hooks/rawRequire';
 

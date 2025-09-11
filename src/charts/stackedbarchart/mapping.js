@@ -339,7 +339,7 @@ const mapData = function (
         mapping.stacks?.mappedType
       ) // stacks grouping.
   );
-  return filterValidGroups(results);
+  return mapping.stacks?.mappedType !== 'date' ? filterValidGroups(results) : results;
 };
 
 export const getChartOptions = function (

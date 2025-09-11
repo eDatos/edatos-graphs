@@ -7,8 +7,7 @@ import charts from '../../../charts';
 import { parseAndCheckData } from '../../../hooks/useDataLoaderUtils/parser';
 import {
   colorPresets,
-  dateFormats,
-  parseDataset,
+  dateFormats,  
 } from '@rawgraphs/rawgraphs-core';
 import { get } from 'lodash';
 import {
@@ -18,6 +17,7 @@ import {
   localeList,
   sexPalette,
 } from '../../../constants';
+import { customParseDataSet as parseDataset } from '../../../hooks/customParseDataSet';
 
 //add custom date formats
 dateFormats['YYYY-MMM'] = '%Y-M%m';

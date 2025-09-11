@@ -217,6 +217,7 @@ export const dateParsersPatterns = {
   yearmonth2: 'MM/YYYY',
   yearmonthday1: 'DD-MM-YYYY',
   yearmonthday2: 'DD/MM/YYYY',
+  yearquat: 'YYYY-[Q]Q',
   original: null,
 };
 
@@ -254,6 +255,10 @@ export const visualOptionsDateFormat = {
     {
       label: 'DD/MM/YYYY',
       value: 'yearmonthday2',
+    },
+    {
+      label: 'YYYY-QX',
+      value: 'yearquat',
     },
   ],
 };

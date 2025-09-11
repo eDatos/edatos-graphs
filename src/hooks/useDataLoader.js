@@ -1,4 +1,4 @@
-import { parseDataset } from '@rawgraphs/rawgraphs-core';
+import { customParseDataSet as parseDataset } from './customParseDataSet';
 import { difference, get } from 'lodash';
 import { useCallback, useState } from 'react';
 import { DefaultSeparator, localeList, WEBWORKER_ACTIVE } from '../constants';
@@ -343,8 +343,7 @@ export default function useDataLoader() {
         locale,
         decimal: newDecimalSeparator,
         group: thousandsSeparator,
-      });
-      //setData(parseDataset(parsedUserData, undefined, {locale, decimal: newDecimalSeparator, group:thousandsSeparator}));
+      });      
     }
   }
 
@@ -361,8 +360,7 @@ export default function useDataLoader() {
         locale,
         decimal: decimalsSeparator,
         group: newThousandsSeparator,
-      });
-      // setData(parseDataset(parsedUserData, undefined, {locale, decimal: decimalsSeparator, group:newThousandsSeparator}));
+      });      
     }
   }
 
@@ -400,8 +398,7 @@ export default function useDataLoader() {
       locale,
       decimal: decimalsSeparator,
       group: thousandsSeparator,
-    });
-    // setData(parseDataset(newDataset, data.dataTypes, {locale}))
+    });    
   }
 
   function handleStackOperation(column) {
@@ -416,8 +413,7 @@ export default function useDataLoader() {
         locale,
         decimal: decimalsSeparator,
         group: thousandsSeparator,
-      });
-      // setData(parseDataset(stackedData, undefined, { locale }))
+      });      
     } else {
       setUserData(unstackedData);
       parseDatasetAndSetData(unstackedData, unstackedColumns, {

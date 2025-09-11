@@ -32,7 +32,7 @@ const mapData = function (
 
   d3.rollups(
     data.filter((d) => {
-      return mapping.size.value ? d[mapping.size.value[0]] !== null : true;
+      return (mapping.size.value && mapping.bars.mappedType !== 'date') ? d[mapping.size.value[0]] !== null : true;
     }),
     (v) => {
       const item = {
@@ -194,7 +194,7 @@ export const getChartOptions = function (
         position: visualOptions.barsSizeValuesPosition,
         formatter(params) {
           return (
-            formatNumber(params.value, visualOptions.tooltipValueFormat, locale) +
+            params.value === 0 ? '' : formatNumber(params.value, visualOptions.tooltipValueFormat, locale) +
             (visualOptions.showUnits ? visualOptions.units : '')
           );
         },
