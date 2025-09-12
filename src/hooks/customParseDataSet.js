@@ -17,9 +17,9 @@ function parseQuarterStrToDate(str) {
 export function customParseDataSet(data, dataTypes, parsingOptions) {
     // Creamos una copia para no mutar dataTypes original
     const dt = { ...dataTypes };
-    // Recorremos tipos para detectar 'YYYY-QX' y transformar la data
+    // Recorremos tipos para detectar 'YYYY-[Q]Q' y transformar la data
     Object.keys(dt).forEach(key => {
-        if (typeof dt[key] === "object" && dt[key].type === "date" && dt[key].dateFormat === "YYYY-QX") {
+        if (typeof dt[key] === "object" && dt[key].type === "date" && dt[key].dateFormat === "YYYY-[Q]Q") {
             data.forEach(row => {
                 row[key] = parseQuarterStrToDate(row[key]);
             });
