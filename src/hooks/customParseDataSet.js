@@ -15,6 +15,10 @@ function parseQuarterStrToDate(str) {
   }
 
 export function customParseDataSet(data, dataTypes, parsingOptions) {
+    // Si no hay dataTypes, llamamos directamente
+    if (dataTypes === undefined) {
+        return parseDataset(data, dataTypes, parsingOptions);
+    }
     // Creamos una copia para no mutar dataTypes original
     const dt = { ...dataTypes };
     // Recorremos tipos para detectar 'YYYY-[Q]Q' y transformar la data
