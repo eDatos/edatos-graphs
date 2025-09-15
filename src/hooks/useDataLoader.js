@@ -343,7 +343,7 @@ export default function useDataLoader() {
         locale,
         decimal: newDecimalSeparator,
         group: thousandsSeparator,
-      });      
+      });
     }
   }
 
@@ -360,7 +360,7 @@ export default function useDataLoader() {
         locale,
         decimal: decimalsSeparator,
         group: newThousandsSeparator,
-      });      
+      });
     }
   }
 
@@ -398,7 +398,7 @@ export default function useDataLoader() {
       locale,
       decimal: decimalsSeparator,
       group: thousandsSeparator,
-    });    
+    });
   }
 
   function handleStackOperation(column) {
@@ -413,7 +413,7 @@ export default function useDataLoader() {
         locale,
         decimal: decimalsSeparator,
         group: thousandsSeparator,
-      });      
+      });
     } else {
       setUserData(unstackedData);
       parseDatasetAndSetData(unstackedData, unstackedColumns, {
