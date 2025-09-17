@@ -247,11 +247,12 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
     });
   });
   return series.sort((a, b) => {
-    const sumValor = (obj) => obj.data.reduce((acc, valor) => acc + valor.value, 0);
+    const sumValor = (obj) =>
+      obj.data.reduce((acc, valor) => acc + valor.value, 0);
     switch (visualOptions.sortBy) {
       case 'original(desc)':
         return -1;
-      case 'totalAscending':        
+      case 'totalAscending':
         return sumValor(a) - sumValor(b);
       case 'totalDescending':
         return sumValor(b) - sumValor(a);
@@ -339,7 +340,9 @@ const mapData = function (
         mapping.stacks?.mappedType
       ) // stacks grouping.
   );
-  return filterValidGroups(results);
+  return mapping.stacks?.mappedType !== 'date'
+    ? filterValidGroups(results)
+    : results;
 };
 
 export const getChartOptions = function (
