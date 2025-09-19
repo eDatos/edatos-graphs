@@ -32,7 +32,9 @@ const mapData = function (
 
   d3.rollups(
     data.filter((d) => {
-      return mapping.size.value ? d[mapping.size.value[0]] !== null : true;
+      return mapping.size.value && mapping.bars.mappedType !== 'date'
+        ? d[mapping.size.value[0]] !== null
+        : true;
     }),
     (v) => {
       const item = {
@@ -176,7 +178,7 @@ export const getChartOptions = function (
         if ('original' === visualOptions.sortBarsBy) {
           return 0;
         } else if ('name' === visualOptions.sortBarsBy) {
-          return diff(a.bars, b.bars, mapping.bars.mappedType)          
+          return diff(a.bars, b.bars, mapping.bars.mappedType);
         } else {
           return 'totalAscending' === visualOptions.sortBarsBy
             ? a.size - b.size
@@ -193,10 +195,13 @@ export const getChartOptions = function (
           (visualOptions.endLabel ? index === serieData.length - 1 : true),
         position: visualOptions.barsSizeValuesPosition,
         formatter(params) {
-          return (
-            formatNumber(params.value, visualOptions.tooltipValueFormat, locale) +
-            (visualOptions.showUnits ? visualOptions.units : '')
-          );
+          return params.value === 0
+            ? ''
+            : formatNumber(
+                params.value,
+                visualOptions.tooltipValueFormat,
+                locale
+              ) + (visualOptions.showUnits ? visualOptions.units : '');
         },
         fontSize: visualOptions.barsSizeValuesFontSize,
         fontWeight: visualOptions.fontWeight,
