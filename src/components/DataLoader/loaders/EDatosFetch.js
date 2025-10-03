@@ -24,6 +24,7 @@ const SelectionCombo = React.forwardRef((props, ref) => (
 
 class DataSetTypeahead extends React.Component {
   constructor(props) {
+    console.log('DataSetTypeahead:props', props);
     super(props);
     this.state = {
       collection: [],
@@ -100,6 +101,7 @@ class DataSetTypeahead extends React.Component {
 
 class OperationTypeahead extends React.Component {
   constructor(props) {
+    console.log('OperationTypeahead:props', props);
     super(props);
     this.state = {
       collection: [],
@@ -168,6 +170,7 @@ class OperationTypeahead extends React.Component {
 
 export default class EDatosFetch extends React.Component {
   constructor(props) {
+    console.log('EdatosFetch:props', props);
     super(props);
     this.state = {
       url: '',
@@ -222,6 +225,7 @@ export default class EDatosFetch extends React.Component {
               t={t}
               language={i18n.language}
               selectionComboRef={this.selectionComboRef}
+              apikey={this.props}
             />
             {this.state.operationId && (
               <DataSetTypeahead
@@ -229,6 +233,7 @@ export default class EDatosFetch extends React.Component {
                 handleOnChangeDataSet={this.handleOnChangeDataSet}
                 t={t}
                 language={i18n.language}
+                apikey={this.props.apikey}
               />
             )}
             <div className="general-buttons row">

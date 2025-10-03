@@ -5,7 +5,7 @@ import {
   version,
 } from '../ApplicationConfig/ApplicationConfig';
 
-export default function Header({ value, setLogged }) {
+export default function Header({ value, setLogged, apiKey }) {
   const divRef = useRef(null);
   const { t } = useTranslation(['translation']);
   const appName = t('global.appName');
@@ -27,7 +27,7 @@ export default function Header({ value, setLogged }) {
     const fetchData = async () => {
       const requestOptions = {
         method: 'GET',
-        headers: { Accept: 'application/json' },
+        headers: { Accept: 'application/json', apiKey: apiKey },
       };
       const applicationConfigJson = await applicationConfig();
       const versionJson = await version();
@@ -41,30 +41,32 @@ export default function Header({ value, setLogged }) {
       const appVersion = versionJson['appVersion'];
       return await (
         await fetch(
-          `${headerUrlData['value']}?appName=${appName}&chosenLocale=${value}&appId=egraficos&enableAuthentication&appVersion=${appVersion}`,
+          `${headerUrlData['value']}?appName=${appName}&chosenLocale=${value}&appId=egraficos&enableAuthentication&appVersion=${appVersion}&apiKey=${apiKey}`,
           requestOptions
         )
       ).text();
     };
 
-    fetchData().then((htmlContent) => {
-      if (isSubscribed) {
-        const slotHtml = document
-          .createRange()
-          .createContextualFragment(htmlContent); // Create a 'tiny' document and parse the html string
-        current.innerHTML = ''; // Clear the container
-        current.append(slotHtml); // Append the new content
-        window.Edatos.UserManagement.getAccount()
-          .then(() => setLogged(true))
-          .catch(() => handleLogin());
-        window.Edatos.UserManagement.addOnLogoutListener(() => {
-          setLogged(false);
-          handleLogin();
-        });
-      }
-    });
+    if (apiKey) {
+      fetchData().then((htmlContent) => {
+        if (isSubscribed) {
+          const slotHtml = document
+            .createRange()
+            .createContextualFragment(htmlContent); // Create a 'tiny' document and parse the html string
+          current.innerHTML = ''; // Clear the container
+          current.append(slotHtml); // Append the new content
+          window.Edatos.UserManagement.getAccount()
+            .then(() => setLogged(true))
+            .catch(() => handleLogin());
+          window.Edatos.UserManagement.addOnLogoutListener(() => {
+            setLogged(false);
+            handleLogin();
+          });
+        }
+      });
+    }
 
     return () => (isSubscribed = false);
-  }, [value, setLogged, appName, handleLogin]);
+  }, [value, setLogged, appName, handleLogin, apiKey]);
   return <div ref={divRef}></div>;
 }

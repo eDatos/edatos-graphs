@@ -37,6 +37,7 @@ import {
   islandPalette,
   sexPalette,
 } from './constants';
+import apiKey from './hooks/apiKey';
 import favicon from './hooks/favicon';
 import { Tab, Tabs } from 'react-bootstrap';
 import classNames from 'classnames';
@@ -69,6 +70,7 @@ function App() {
   const [activeTab, setActiveTab] = useState('graphs');
   const [activeSubTab, setActiveSubTab] = useState('eDatos');
   const [enableMaps, setEnableMaps] = useState(false);
+  const [apiKeyValue, setApiKey] = useState(null);
 
   applicationConfig().then((applicationConfigJson) => {
     setEnableMaps(applicationConfigJson['maps']['enable'] ?? true);
@@ -134,6 +136,16 @@ function App() {
       dataMappingRef.current.clearLocalMapping();
     }
   }, []);
+
+  useEffect(() => {
+    apiKey()
+      .then(data => {
+        setApiKey(data['value']);
+      })
+      .catch(error => {
+        console.error("Error fetching apiKey:", error);
+      });
+  });
 
   useEffect(() => {
     setVisualOptions((visualOptions) => {
@@ -315,6 +327,7 @@ function App() {
         {...dataLoader}
         initialState={name}
         hydrateFromProject={importProject}
+        apiKey={apiKeyValue}
       />
     </Section>
   );
@@ -395,7 +408,7 @@ function App() {
   return (
     <div className="app">
       <Title>{t('global.appName')}</Title>
-      <Header value={i18n.language} setLogged={setLogged} />
+      <Header value={i18n.language} setLogged={setLogged} apiKey={apiKeyValue}/>
       <div className="container">
         <div className="col col-12">
           <div className="app-header">
@@ -554,7 +567,7 @@ function App() {
           <ScreenSizeAlert />
         </div>
       </div>
-      <Footer value={i18n.language} />
+      <Footer value={i18n.language} apiKey={apiKeyValue} />
     </div>
   );
 }
