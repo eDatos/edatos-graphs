@@ -13,7 +13,7 @@
 * Es necesario ejecutar el siguiente script SQL, donde se incluye la api-key para llamadas a apis:
 
 ```
-etc/changes-from-release/1.9.0/db/common-metadata/postgresql/20250926_create_edatos_graphs_api_key.sql
+etc/changes-from-release/1.10.0/db/common-metadata/postgresql/20250926_create_edatos_graphs_api_key.sql
 ```
 
 ## 1.1.0 a 1.2.0
