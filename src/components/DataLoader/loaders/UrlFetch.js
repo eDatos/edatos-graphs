@@ -7,13 +7,13 @@ import styles from '../DataLoader.module.scss';
 import classNames from 'classnames';
 
 export async function fetchData(source) {
-  return fetchFromUrl(source.url, source.acceptHeader);
+  return fetchFromUrl(source.url, source.acceptHeader, source.apiKey);
 }
 
-async function fetchFromUrl(url, acceptHeader = 'text/csv') {
+async function fetchFromUrl(url, acceptHeader = 'text/csv', apiKey) {
   const response = await fetch(url, {
     method: 'GET',
-    headers: { Accept: acceptHeader },
+    headers: { Accept: acceptHeader, apiKey: apiKey },
   });
   return await response.text();
 }
@@ -23,6 +23,7 @@ export default function UrlFetch({
   setUserInput,
   setLoadingError,
   initialState = null,
+  apiKey
 }) {
   const [url, setUrl] = useState(initialState?.url);
   const [acceptHeader, setAcceptHeader] = useState('text/csv');
@@ -32,7 +33,7 @@ export default function UrlFetch({
 
   const fetchUrl = useCallback(
     async (url) => {
-      const source = { type: 'url', url, acceptHeader };
+      const source = { type: 'url', url, acceptHeader, apiKey };
       setLoading(true);
       let data;
       try {
@@ -44,7 +45,7 @@ export default function UrlFetch({
       }
       setLoading(false);
     },
-    [setLoadingError, setUserInput, acceptHeader]
+    [setLoadingError, setUserInput, acceptHeader, apiKey]
   );
 
   const handleSubmit = useCallback(

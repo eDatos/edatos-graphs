@@ -24,12 +24,12 @@ const SelectionCombo = React.forwardRef((props, ref) => (
 
 class DataSetTypeahead extends React.Component {
   constructor(props) {
-    console.log('DataSetTypeahead:props', props);
     super(props);
     this.state = {
       collection: [],
       value: '',
     };
+    this.apikey = props.apikey['apiKey']
   }
   componentDidMount() {
     applicationConfig().then((applicationConfigJson) => {
@@ -39,7 +39,7 @@ class DataSetTypeahead extends React.Component {
           applicationConfigJson['metadata']['statisticalResourcesPathKey'],
         {
           method: 'GET',
-          headers: { Accept: 'application/json' },
+          headers: { Accept: 'application/json', apikey: this.apikey },
         }
       )
         .then((response) => response.json())
@@ -48,7 +48,8 @@ class DataSetTypeahead extends React.Component {
             urlData['value'] +
               "/latest/datasets.json?limit=1000&orderBy=ID ASC&query=STATISTICAL_OPERATION_URN EQ 'urn:siemac:org.siemac.metamac.infomodel.statisticaloperations.Operation=" +
               this.props.operationId +
-              "'"
+              "'",
+            { headers: {"api-key": this.apikey }}
           )
             .then((response) => response.json())
             .then((res) => {
@@ -101,12 +102,12 @@ class DataSetTypeahead extends React.Component {
 
 class OperationTypeahead extends React.Component {
   constructor(props) {
-    console.log('OperationTypeahead:props', props);
     super(props);
     this.state = {
       collection: [],
       value: '',
     };
+    this.apikey = props.apikey['apiKey']
   }
   componentDidMount() {
     applicationConfig().then((applicationConfigJson) => {
@@ -116,14 +117,15 @@ class OperationTypeahead extends React.Component {
           applicationConfigJson['metadata']['statisticalOperationsPathKey'],
         {
           method: 'GET',
-          headers: { Accept: 'application/json' },
+          headers: { Accept: 'application/json', apikey: this.apikey },
         }
       )
         .then((response) => response.json())
         .then((urlData) => {
           fetch(
             urlData['value'] +
-              '/latest/operations.json?query=STATUS EQ "PRODUCTION"&limit=1000&orderBy=ID ASC'
+              '/latest/operations.json?query=STATUS EQ "PRODUCTION"&limit=1000&orderBy=ID ASC',
+            { headers: {"api-key": this.apikey }},
           )
             .then((response) => response.json())
             .then((res) =>
@@ -170,7 +172,6 @@ class OperationTypeahead extends React.Component {
 
 export default class EDatosFetch extends React.Component {
   constructor(props) {
-    console.log('EdatosFetch:props', props);
     super(props);
     this.state = {
       url: '',
@@ -194,10 +195,11 @@ export default class EDatosFetch extends React.Component {
       type: 'url',
       url: this.state.url,
       acceptHeader: 'text/csv',
+      apiKey: this.props.apiKey
     };
     fetch(this.state.url, {
       method: 'GET',
-      headers: { Accept: source.acceptHeader },
+      headers: { Accept: source.acceptHeader, apiKey: this.props.apiKey },
     })
       .then((response) => response.text())
       .then((data) => {
@@ -233,7 +235,7 @@ export default class EDatosFetch extends React.Component {
                 handleOnChangeDataSet={this.handleOnChangeDataSet}
                 t={t}
                 language={i18n.language}
-                apikey={this.props.apikey}
+                apikey={this.props}
               />
             )}
             <div className="general-buttons row">

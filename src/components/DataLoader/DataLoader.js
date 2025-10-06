@@ -123,6 +123,7 @@ function DataLoader({
           userInput={userInput}
           setUserInput={(rawInput, source) => setUserInput(rawInput, source)}
           setLoadingError={setLoadingError}
+          apiKey={apiKey}
         />
       ),
       allowedForReplace: true,
