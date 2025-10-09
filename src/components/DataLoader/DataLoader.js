@@ -54,8 +54,7 @@ function DataLoader({
   commitDataReplace,
   replaceRequiresConfirmation,
   hydrateFromProject,
-  initialState,
-  apiKey
+  initialState
 }) {
   const handle = useFullScreenHandle();
   const [loadingError, setLoadingError] = useState();
@@ -78,7 +77,6 @@ function DataLoader({
       loader: [
         <EDatosFetch
           setUserInput={(rawInput, source) => setUserInput(rawInput, source)}
-          apiKey={apiKey}
         />,
         <DataSamples
           onSampleReady={loadSample}
@@ -123,7 +121,6 @@ function DataLoader({
           userInput={userInput}
           setUserInput={(rawInput, source) => setUserInput(rawInput, source)}
           setLoadingError={setLoadingError}
-          apiKey={apiKey}
         />
       ),
       allowedForReplace: true,

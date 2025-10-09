@@ -31,6 +31,7 @@ import CustomChartWarnModal from './components/CustomChartWarnModal';
 import { useTranslation } from 'react-i18next';
 import { useCookies } from 'react-cookie';
 import WMSMap from './components/WMSMap/WMSMap';
+import axios from 'axios';
 import {
   defaultPalette,
   grayPalette2,
@@ -140,7 +141,8 @@ function App() {
   useEffect(() => {
     apiKey()
       .then(data => {
-        setApiKey(data['value']);
+        setApiKey(data)
+        axios.defaults.headers.common['api-key'] = data;
       })
       .catch(error => {
         console.error("Error fetching apiKey:", error);
@@ -327,7 +329,6 @@ function App() {
         {...dataLoader}
         initialState={name}
         hydrateFromProject={importProject}
-        apiKey={apiKeyValue}
       />
     </Section>
   );
@@ -567,7 +568,7 @@ function App() {
           <ScreenSizeAlert />
         </div>
       </div>
-      <Footer value={i18n.language} apiKey={apiKeyValue} />
+      <Footer value={i18n.language} />
     </div>
   );
 }

@@ -1,17 +1,13 @@
 import { applicationConfig } from '../components/ApplicationConfig/ApplicationConfig';
+import axios from 'axios';
 
 export default async function apiKey() {
   const applicationConfigJson = await applicationConfig();
-  const requestOptions = {
-    method: 'GET',
-    headers: { Accept: 'application/json' },
-  };
-
-  const response  = await fetch(
+  const response = await axios.get(
     applicationConfigJson['metadata']['endpoint'] +
       '/properties/' +
-      applicationConfigJson['metadata']['edatosGraphApiKey'],
-    requestOptions
+      applicationConfigJson['metadata']['edatosGraphApiKey']
   );
-  return await response.json();
+  
+  return await response.data['value'];
 }

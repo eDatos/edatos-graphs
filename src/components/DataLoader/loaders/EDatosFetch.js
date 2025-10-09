@@ -7,6 +7,7 @@ import { applicationConfig } from '../../ApplicationConfig/ApplicationConfig';
 import { CustomDropdownIcon } from '../../CustomDropdown/CustomDropdownIcon';
 import { LoadDataButton } from '../../LoadDataButton';
 import styles from './../DataLoader.module.scss';
+import { customFetch } from '../../../hooks/customFetch';
 
 const SelectionCombo = React.forwardRef((props, ref) => (
   <Typeahead
@@ -29,27 +30,25 @@ class DataSetTypeahead extends React.Component {
       collection: [],
       value: '',
     };
-    this.apikey = props.apikey['apiKey']
   }
   componentDidMount() {
     applicationConfig().then((applicationConfigJson) => {
-      fetch(
+      customFetch(
         applicationConfigJson['metadata']['endpoint'] +
           '/properties/' +
           applicationConfigJson['metadata']['statisticalResourcesPathKey'],
         {
           method: 'GET',
-          headers: { Accept: 'application/json', apikey: this.apikey },
+          headers: { Accept: 'application/json' },
         }
       )
         .then((response) => response.json())
         .then((urlData) => {
-          fetch(
+          customFetch(
             urlData['value'] +
               "/latest/datasets.json?limit=1000&orderBy=ID ASC&query=STATISTICAL_OPERATION_URN EQ 'urn:siemac:org.siemac.metamac.infomodel.statisticaloperations.Operation=" +
               this.props.operationId +
-              "'",
-            { headers: {"api-key": this.apikey }}
+              "'"
           )
             .then((response) => response.json())
             .then((res) => {
@@ -107,25 +106,24 @@ class OperationTypeahead extends React.Component {
       collection: [],
       value: '',
     };
-    this.apikey = props.apikey['apiKey']
   }
   componentDidMount() {
     applicationConfig().then((applicationConfigJson) => {
-      fetch(
+      customFetch(
         applicationConfigJson['metadata']['endpoint'] +
           '/properties/' +
           applicationConfigJson['metadata']['statisticalOperationsPathKey'],
         {
           method: 'GET',
-          headers: { Accept: 'application/json', apikey: this.apikey },
+          headers: { Accept: 'application/json' },
         }
       )
         .then((response) => response.json())
         .then((urlData) => {
+          //TODO: hay que pasarlo a customFetch pero se deja pendiente pq en local da problema de cors
           fetch(
             urlData['value'] +
               '/latest/operations.json?query=STATUS EQ "PRODUCTION"&limit=1000&orderBy=ID ASC',
-            { headers: {"api-key": this.apikey }},
           )
             .then((response) => response.json())
             .then((res) =>
@@ -194,12 +192,11 @@ export default class EDatosFetch extends React.Component {
     const source = {
       type: 'url',
       url: this.state.url,
-      acceptHeader: 'text/csv',
-      apiKey: this.props.apiKey
+      acceptHeader: 'text/csv'
     };
-    fetch(this.state.url, {
+    customFetch(this.state.url, {
       method: 'GET',
-      headers: { Accept: source.acceptHeader, apiKey: this.props.apiKey },
+      headers: { Accept: source.acceptHeader },
     })
       .then((response) => response.text())
       .then((data) => {
@@ -227,7 +224,6 @@ export default class EDatosFetch extends React.Component {
               t={t}
               language={i18n.language}
               selectionComboRef={this.selectionComboRef}
-              apikey={this.props}
             />
             {this.state.operationId && (
               <DataSetTypeahead
@@ -235,7 +231,6 @@ export default class EDatosFetch extends React.Component {
                 handleOnChangeDataSet={this.handleOnChangeDataSet}
                 t={t}
                 language={i18n.language}
-                apikey={this.props}
               />
             )}
             <div className="general-buttons row">

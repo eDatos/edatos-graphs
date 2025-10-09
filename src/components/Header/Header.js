@@ -4,6 +4,7 @@ import {
   applicationConfig,
   version,
 } from '../ApplicationConfig/ApplicationConfig';
+import { customFetch } from '../../hooks/customFetch';
 
 export default function Header({ value, setLogged, apiKey }) {
   const divRef = useRef(null);
@@ -27,11 +28,11 @@ export default function Header({ value, setLogged, apiKey }) {
     const fetchData = async () => {
       const requestOptions = {
         method: 'GET',
-        headers: { Accept: 'application/json', apiKey: apiKey },
+        headers: { Accept: 'application/json' },
       };
       const applicationConfigJson = await applicationConfig();
       const versionJson = await version();
-      const responseHeaderURL = await fetch(
+      const responseHeaderURL = await customFetch(
         applicationConfigJson['metadata']['endpoint'] +
           '/properties/' +
           applicationConfigJson['metadata']['navbarPathKey'],

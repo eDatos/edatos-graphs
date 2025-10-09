@@ -5,15 +5,16 @@ import { LoadDataButton } from '../../LoadDataButton';
 import { useTranslation } from 'react-i18next';
 import styles from '../DataLoader.module.scss';
 import classNames from 'classnames';
+import { customFetch } from '../../../hooks/customFetch';
 
 export async function fetchData(source) {
-  return fetchFromUrl(source.url, source.acceptHeader, source.apiKey);
+  return fetchFromUrl(source.url, source.acceptHeader);
 }
 
-async function fetchFromUrl(url, acceptHeader = 'text/csv', apiKey) {
-  const response = await fetch(url, {
+async function fetchFromUrl(url, acceptHeader = 'text/csv') {
+  const response = await customFetch(url, {
     method: 'GET',
-    headers: { Accept: acceptHeader, apiKey: apiKey },
+    headers: { Accept: acceptHeader },
   });
   return await response.text();
 }
@@ -23,7 +24,6 @@ export default function UrlFetch({
   setUserInput,
   setLoadingError,
   initialState = null,
-  apiKey
 }) {
   const [url, setUrl] = useState(initialState?.url);
   const [acceptHeader, setAcceptHeader] = useState('text/csv');
@@ -33,7 +33,7 @@ export default function UrlFetch({
 
   const fetchUrl = useCallback(
     async (url) => {
-      const source = { type: 'url', url, acceptHeader, apiKey };
+      const source = { type: 'url', url, acceptHeader };
       setLoading(true);
       let data;
       try {
@@ -45,7 +45,7 @@ export default function UrlFetch({
       }
       setLoading(false);
     },
-    [setLoadingError, setUserInput, acceptHeader, apiKey]
+    [setLoadingError, setUserInput, acceptHeader]
   );
 
   const handleSubmit = useCallback(

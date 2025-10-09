@@ -1,16 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import { applicationConfig } from '../ApplicationConfig/ApplicationConfig';
+import { customFetch } from '../../hooks/customFetch';
 
 export default function Footer(props) {
   const divRef = useRef(null);
 
-  async function fetchHtml(chosenLocale, apiKey) {
+  async function fetchHtml(chosenLocale) {
     const requestOptions = {
       method: 'GET',
-      headers: { Accept: 'application/json', apiKey: apiKey },
+      headers: { Accept: 'application/json' },
     };
     const applicationConfigJson = await applicationConfig();
-    const responseFooterURL = await fetch(
+    const responseFooterURL = await customFetch(
       applicationConfigJson['metadata']['endpoint'] +
         '/properties/' +
         applicationConfigJson['metadata']['footerPathKey'],
@@ -19,7 +20,7 @@ export default function Footer(props) {
     const footerUrlData = await responseFooterURL.json();
 
     return await (
-      await fetch(
+      await customFetch(
         footerUrlData['value'] + '?chosenLocale=' + chosenLocale,
         requestOptions
       )
@@ -28,15 +29,14 @@ export default function Footer(props) {
   useEffect(() => {
     const { current } = divRef;
 
-    if (props.apiKey) {
-      fetchHtml(props.value, props.apiKey).then((htmlContent) => {
-        const slotHtml = document
-          .createRange()
-          .createContextualFragment(htmlContent); // Create a 'tiny' document and parse the html string
-        current.innerHTML = ''; // Clear the container
-        current.append(slotHtml); // Append the new content
-      });
-    }
-  }, [props.value, props.apiKey]);
+    fetchHtml(props.value).then((htmlContent) => {
+      const slotHtml = document
+        .createRange()
+        .createContextualFragment(htmlContent); // Create a 'tiny' document and parse the html string
+      current.innerHTML = ''; // Clear the container
+      current.append(slotHtml); // Append the new content
+    });
+
+  }, [props.value]);
   return <div ref={divRef}></div>;
 }
