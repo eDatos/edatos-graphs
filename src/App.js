@@ -38,7 +38,7 @@ import {
   islandPalette,
   sexPalette,
 } from './constants';
-import apiKey from './hooks/apiKey';
+import getApiKey from './hooks/getApiKey';
 import favicon from './hooks/favicon';
 import { Tab, Tabs } from 'react-bootstrap';
 import classNames from 'classnames';
@@ -139,7 +139,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    apiKey()
+    getApiKey()
       .then(data => {
         setApiKey(data)
         axios.defaults.headers.common['api-key'] = data;

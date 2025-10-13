@@ -1,8 +1,8 @@
-import apiKey from './apiKey'
+import getApiKey from './getApiKey'
 
 export const customFetch = async (url, options = {}) => {
   const defaultHeaders = {
-    'api-key': await apiKey(),
+    'api-key': await getApiKey(),
     'Content-Type': 'application/json',
   };
 
@@ -15,8 +15,8 @@ export const customFetch = async (url, options = {}) => {
   };
 
   const response = await fetch(url, mergedOptions);
-    if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
-    }
-    return response;
+  if (!response.ok) {
+    throw new Error(`Error: ${response.status}`);
+  }
+  return response;
 };
