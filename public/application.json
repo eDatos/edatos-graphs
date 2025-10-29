@@ -5,7 +5,8 @@
     "footerPathKey": "metamac.app.style.footer.url",
     "statisticalResourcesPathKey": "metamac.statistical_resources.rest.internal",
     "statisticalOperationsPathKey": "metamac.statistical_operations.rest.internal",
-    "faviconPathKey": "metamac.app.style.favicon.url"
+    "faviconPathKey": "metamac.app.style.favicon.url",
+    "edatosGraphApiKey": "edatos.graphs.rest.api_key"
   },
   "maps": {
     "enable": true,
