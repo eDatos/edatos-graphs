@@ -120,8 +120,7 @@ class OperationTypeahead extends React.Component {
       )
         .then((response) => response.json())
         .then((urlData) => {
-          //TODO: hay que pasarlo a customFetch pero se deja pendiente pq en local da problema de cors
-          fetch(
+          customFetch(
             urlData['value'] +
               '/latest/operations.json?query=STATUS EQ "PRODUCTION"&limit=1000&orderBy=ID ASC',
           )
