@@ -15,6 +15,7 @@
 ```
 etc/changes-from-release/1.10.0/db/common-metadata/postgresql/20250926_create_edatos_graphs_api_key.sql
 ```
+* Se ha modificado el fichero application.json para añadir la propiedad "edatos.graphs.rest.api_key"
 
 ## 1.1.0 a 1.2.0
 * Se ha modificado el fichero application.json para permitir las siguientes propiedades cuando la opción de mapas está habilitada en dicho fichero:
