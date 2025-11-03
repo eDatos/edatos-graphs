@@ -114,7 +114,10 @@ export default class WMSFetch extends React.Component {
       selectedLayers: [],
     };
 
-    axios
+    const axiosWithoutHeaders = axios.create();
+    delete axiosWithoutHeaders.defaults.headers.common['api-key'];
+    // Usar la instancia sin la cabecera
+    axiosWithoutHeaders
       .get(this.state.url)
       .then((response) => response.data)
       .then((xmlText) => {
