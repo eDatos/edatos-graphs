@@ -9,11 +9,11 @@
 *Se deberá realizar primero la actualización de la versión 1.0.0 a la 2.0.0 y luego desde la 2.0.0 a la 3.0.0*
 
 
-## 1.10.0 a 1.10.1-SNAPSHOT
+## 1.11.0 a 1.11.1-SNAPSHOT
 * Es necesario ejecutar el siguiente script SQL, donde se incluye la api-key para llamadas a apis:
 
 ```
-etc/changes-from-release/1.10.0/db/common-metadata/postgresql/20250926_create_edatos_graphs_api_key.sql
+etc/changes-from-release/1.11.0/db/common-metadata/postgresql/20250926_create_edatos_graphs_api_key.sql
 ```
 * Se ha modificado el fichero application.json para añadir la propiedad "edatos.graphs.rest.api_key"
 
