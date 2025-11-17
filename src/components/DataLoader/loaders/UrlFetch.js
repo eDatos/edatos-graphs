@@ -5,13 +5,14 @@ import { LoadDataButton } from '../../LoadDataButton';
 import { useTranslation } from 'react-i18next';
 import styles from '../DataLoader.module.scss';
 import classNames from 'classnames';
+import { customFetch } from '../../../hooks/customFetch';
 
 export async function fetchData(source) {
   return fetchFromUrl(source.url, source.acceptHeader);
 }
 
 async function fetchFromUrl(url, acceptHeader = 'text/csv') {
-  const response = await fetch(url, {
+  const response = await customFetch(url, {
     method: 'GET',
     headers: { Accept: acceptHeader },
   });
