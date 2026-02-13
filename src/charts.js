@@ -8,6 +8,7 @@ import {
   treemapchart,
   stackedbarchart,
   stackedareachart,
+  pyramidchart,
 } from './charts/index.js';
 
 let charts = [
@@ -20,6 +21,7 @@ let charts = [
   stackedareachart,
   scatterchart,
   treemapchart,
+  pyramidchart,
 ];
 
 export default charts;

@@ -7,3 +7,4 @@ export { stackedareachart } from './stackedareachart/stackedareachart.js';
 export { scatterchart } from './scatterchart/scatterchart.js';
 export { treemapchart } from './treemapchart/treemapchart.js';
 export { stackedbarchart } from './stackedbarchart/stackedchart.js';
+export { pyramidchart } from './pyramidchart/pyramidchart.js';
