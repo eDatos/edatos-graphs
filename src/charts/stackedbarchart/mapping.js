@@ -92,6 +92,8 @@ const getCategoryItem = (
     nameLocation: visualOptions.barsNameLocation,
     nameGap: visualOptions.barsNameGap,
     type: 'category',
+    axisLine: { show: visualOptions.isPyramid ? false : true},
+    axisTick: { show: visualOptions.isPyramid ? false : true },
     axisLabel: {
       show: axisLabel,
       rotate: axisLabelRotate,
@@ -174,6 +176,7 @@ var getYAxisItem = (visualOptions, stacks, locale) => {
   return getAxisItem(
     name(visualOptions, stacks, type),
     type,
+    
     visualOptions.showYaxisLabels,
     visualOptions.showYaxisLabelsRotate,
     visualOptions.showYaxisLabelsFontSize,
@@ -222,7 +225,7 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
             formatter(params) {
               return (
                 formatNumber(
-                  params.value,
+                  visualOptions.isPyramid ? Math.abs(params.value) : params.value,
                   visualOptions.tooltipValueFormat,
                   locale
                 ) + (visualOptions.showUnits ? visualOptions.units : '')
@@ -246,6 +249,7 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
         itemStyle: {
           borderRadius: [2, 0, 0, 0],
           borderColor: white,
+          borderWidth: visualOptions.isPyramid ? 0 : 2, 
         },
         data,
         color: colorValue(visualOptions, name),
