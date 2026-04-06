@@ -248,8 +248,7 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
         },
         itemStyle: {
           borderRadius: [2, 0, 0, 0],
-          borderColor: white,
-          borderWidth: visualOptions.isPyramid ? 0 : 2, 
+          borderColor: white,          
         },
         data,
         color: colorValue(visualOptions, name),
