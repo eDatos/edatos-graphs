@@ -241,8 +241,7 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
       });
       let serie = {
         name: name,
-        type: 'bar',
-        barCategoryGap: visualOptions.isPyramid ? '0%' : '20%',
+        type: 'bar',        
         stack: stack && !visualOptions.groupSeriesInStack ? stack : 'default',
         emphasis: {
           focus: 'series',
@@ -254,6 +253,7 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
         },
         data,
         color: colorValue(visualOptions, name),
+        ...(visualOptions.isPyramid && { barCategoryGap: '0%' }),
       };
       series.push(serie);
     });
