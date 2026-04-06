@@ -242,6 +242,7 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
       let serie = {
         name: name,
         type: 'bar',
+        barCategoryGap: visualOptions.isPyramid ? '0%' : '20%',
         stack: stack && !visualOptions.groupSeriesInStack ? stack : 'default',
         emphasis: {
           focus: 'series',
