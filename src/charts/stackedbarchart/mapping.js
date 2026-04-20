@@ -92,7 +92,7 @@ const getCategoryItem = (
     nameLocation: visualOptions.barsNameLocation,
     nameGap: visualOptions.barsNameGap,
     type: 'category',
-    axisLine: { show: visualOptions.isPyramid ? false : true},
+    axisLine: { show: !visualOptions.isPyramid },
     axisTick: { show: visualOptions.isPyramid ? false : true },
     axisLabel: {
       show: axisLabel,
