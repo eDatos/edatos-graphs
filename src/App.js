@@ -140,12 +140,12 @@ function App() {
 
   useEffect(() => {
     getApiKey()
-      .then(data => {
-        setApiKey(data)
+      .then((data) => {
+        setApiKey(data);
         axios.defaults.headers.common['api-key'] = data;
       })
-      .catch(error => {
-        console.error("Error fetching apiKey:", error);
+      .catch((error) => {
+        console.error('Error fetching apiKey:', error);
       });
   });
 
@@ -409,7 +409,11 @@ function App() {
   return (
     <div className="app">
       <Title>{t('global.appName')}</Title>
-      <Header value={i18n.language} setLogged={setLogged} apiKey={apiKeyValue}/>
+      <Header
+        value={i18n.language}
+        setLogged={setLogged}
+        apiKey={apiKeyValue}
+      />
       <div className="container">
         <div className="col col-12">
           <div className="app-header">

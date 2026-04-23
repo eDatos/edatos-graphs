@@ -179,6 +179,15 @@
                         "series": "Series"
                     }
                 },
+                "pyramidchart": {
+                    "title": "Diagrama tipo pirámide",
+                    "description": "Muestra la distribución de los datos a partir de dos dimensiones cualitativas. Las barras se disponen horizontalmente y se extienden en sentidos opuestos desde un eje común. Cada barra representa la combinación específica de ambas dimensiones, y su tamaño refleja la magnitud asociada.",
+                    "dimensions": {
+                        "axis": "Eje",
+                        "size": "Magnitud",
+                        "series": "Series"
+                    }
+                },
                 "warnings": {
                     "required": "Variables de gráfico requeridas",
                     "map": "necesita indicar dimensiones"

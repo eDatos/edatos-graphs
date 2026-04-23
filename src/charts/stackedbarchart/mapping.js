@@ -69,9 +69,10 @@ const getValueItem = (
       rotate: axisLabelRotate,
       fontSize: axisLabelFontSize,
       formatter: (value) => {
+        const finalValue = visualOptions.isPyramid ? Math.abs(value) : value;
         return new Intl.NumberFormat(locale, {
           notation: visualOptions.barsSizeLabelsFormat,
-        }).format(value);
+        }).format(finalValue);
       },
     },
   };
@@ -91,6 +92,8 @@ const getCategoryItem = (
     nameLocation: visualOptions.barsNameLocation,
     nameGap: visualOptions.barsNameGap,
     type: 'category',
+    axisLine: { show: !visualOptions.isPyramid },
+    axisTick: { show: !visualOptions.isPyramid },
     axisLabel: {
       show: axisLabel,
       rotate: axisLabelRotate,
@@ -173,6 +176,7 @@ var getYAxisItem = (visualOptions, stacks, locale) => {
   return getAxisItem(
     name(visualOptions, stacks, type),
     type,
+    
     visualOptions.showYaxisLabels,
     visualOptions.showYaxisLabelsRotate,
     visualOptions.showYaxisLabelsFontSize,
@@ -203,45 +207,52 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
     let myStacks = myData
       .map((item) => item.series)
       .filter((value, index, self) => self.indexOf(value) === index);
-    myStacks.forEach((stack) => {
+    myStacks.forEach((stack, stackIndex) => {
       const name = stack ? stack : bar;
       const datosSerie = myData.filter((d) => d.series === stack);
-      const data = datosSerie.map((d, index) => ({
-        value: d.size,
-        label: {
-          show:
-            visualOptions.showBarsSizeValues &&
-            (visualOptions.endLabel ? index === datosSerie.length - 1 : true),
-          position: visualOptions.barsSizeValuesPosition,
-          formatter(params) {
-            return (
-              formatNumber(
-                params.value,
-                visualOptions.tooltipValueFormat,
-                locale
-              ) + (visualOptions.showUnits ? visualOptions.units : '')
-            );
+      const data = datosSerie.map((d, index) => {
+        const finalValue =
+          visualOptions.isPyramid && stackIndex === 0
+            ? -Math.abs(d.size)
+            : d.size;
+        return {
+          value: finalValue,
+          label: {
+            show:
+              visualOptions.showBarsSizeValues &&
+              (visualOptions.endLabel ? index === datosSerie.length - 1 : true),
+            position: visualOptions.barsSizeValuesPosition,
+            formatter(params) {
+              return (
+                formatNumber(
+                  visualOptions.isPyramid ? Math.abs(params.value) : params.value,
+                  visualOptions.tooltipValueFormat,
+                  locale
+                ) + (visualOptions.showUnits ? visualOptions.units : '')
+              );
+            },
+            fontSize: visualOptions.barsSizeValuesFontSize,
+            fontWeight: visualOptions.fontWeight,
           },
-          fontSize: visualOptions.barsSizeValuesFontSize,
-          fontWeight: visualOptions.fontWeight,
-        },
-        labelLayout: {
-          hideOverlap: true,
-        },
-      }));
+          labelLayout: {
+            hideOverlap: true,
+          },
+        };
+      });
       let serie = {
         name: name,
-        type: 'bar',
+        type: 'bar',        
         stack: stack && !visualOptions.groupSeriesInStack ? stack : 'default',
         emphasis: {
           focus: 'series',
         },
         itemStyle: {
           borderRadius: [2, 0, 0, 0],
-          borderColor: white,
+          borderColor: white,          
         },
         data,
         color: colorValue(visualOptions, name),
+        ...(visualOptions.isPyramid && { barCategoryGap: '0%' }),
       };
       series.push(serie);
     });
@@ -397,7 +408,7 @@ export const getChartOptions = function (
           locale,
           mapping.stacks?.mappedType
         )}&nbsp;&nbsp;&nbsp;<b>${formatNumber(
-          params.value,
+          visualOptions.isPyramid ? Math.abs(params.value) : params.value,
           visualOptions.tooltipValueFormat,
           locale
         )}${visualOptions.units}</b>`;

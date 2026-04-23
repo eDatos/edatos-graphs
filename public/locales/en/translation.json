@@ -179,6 +179,15 @@
                         "series": "Series"
                     }
                 },
+                "pyramidchart": {
+                    "title": "Pyramid chart",
+                    "description": "It displays the distribution of data based on two qualitative dimensions. The bars are arranged horizontally and extend in opposite directions from a common axis. Each bar represents a specific combination of both dimensions, and its size reflects the associated magnitude.",
+                    "dimensions": {
+                        "axis": "Axis",
+                        "size": "Size",
+                        "series": "Series"
+                    }
+                },
                 "warnings": {
                     "required": "Required chart variables",
                     "map": "you need to map dimensions"

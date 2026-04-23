@@ -54,7 +54,7 @@ function DataLoader({
   commitDataReplace,
   replaceRequiresConfirmation,
   hydrateFromProject,
-  initialState
+  initialState,
 }) {
   const handle = useFullScreenHandle();
   const [loadingError, setLoadingError] = useState();
