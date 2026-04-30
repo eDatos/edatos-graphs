@@ -179,6 +179,15 @@
                         "series": "Sèries"
                     }
                 },
+                "pyramidchart": {
+                    "title": "Diagrama tipus piràmide",
+                    "description": "Mostra la distribució de les dades a partir de dues dimensions qualitatives. Les barres es disposen horitzontalment i s'estenen en sentits oposats des d'un eix comú. Cada barra representa la combinació específica de totes dues dimensions, i la seva mida reflecteix la magnitud associada.",
+                    "dimensions": {
+                        "axis": "Eix",
+                        "size": "Mida",
+                        "series": "Sèries"
+                    }
+                },
                 "warnings": {
                     "required": "Variables de gràfic requerides",
                     "map": "necessita indicar dimensions"

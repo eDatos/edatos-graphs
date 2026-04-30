@@ -36,7 +36,6 @@ export default function Footer(props) {
       current.innerHTML = ''; // Clear the container
       current.append(slotHtml); // Append the new content
     });
-
   }, [props.value]);
   return <div ref={divRef}></div>;
 }
