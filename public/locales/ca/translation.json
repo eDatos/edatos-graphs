@@ -128,6 +128,15 @@
                         "lines": "Línies"
                     }
                 },
+                "stackedareachart": {
+                    "title": "Diagrama d'àrees",
+                    "description": "Mostra múltiples dimensions quantitatives durant un interval continu o període de temps. El color es pot utilitzar opcionalment per codificar una dimensió quantitativa o categòrica addicional.",
+                    "dimensions": {
+                        "xAxis": "Eix X",
+                        "yAxis": "Eix Y",
+                        "series": "Àrees"
+                    }
+                },
                 "piechart": {
                     "title": "Diagrama de sectors",
                     "description": "Permet veure les proporcions entre els valors que formen un tot, utilitzant arcs que componen un cercle.",
@@ -164,6 +173,15 @@
                 "stackedbarchart": {
                     "title": "Diagrama de barres apilades",
                     "description": "Mostra múltiples dimensions quantitatives relacionades amb categories. Les barres s'apilen visualment segons la dimensió categòrica, cada barra representa una dimensió quantitativa, mapejada a la seva alçada.",
+                    "dimensions": {
+                        "axis": "Eix",
+                        "size": "Mida",
+                        "series": "Sèries"
+                    }
+                },
+                "pyramidchart": {
+                    "title": "Diagrama tipus piràmide",
+                    "description": "Mostra la distribució de les dades a partir de dues dimensions qualitatives. Les barres es disposen horitzontalment i s'estenen en sentits oposats des d'un eix comú. Cada barra representa la combinació específica de totes dues dimensions, i la seva mida reflecteix la magnitud associada.",
                     "dimensions": {
                         "axis": "Eix",
                         "size": "Mida",

@@ -3,6 +3,26 @@ import { baseVisualOptions } from '../baseVisualOptions';
 
 export const visualOptions = {
   ...baseVisualOptions,
+  marginTop: {
+    type: 'number',
+    default: 46,
+    group: 'artboard',
+  },
+  marginRight: {
+    type: 'number',
+    default: 80,
+    group: 'artboard',
+  },
+  marginBottom: {
+    type: 'number',
+    default: 60,
+    group: 'artboard',
+  },
+  marginLeft: {
+    type: 'number',
+    default: 40,
+    group: 'artboard',
+  },
   showPoints: {
     type: 'boolean',
     default: false,
@@ -16,30 +36,13 @@ export const visualOptions = {
       showPoints: false,
     },
   },
-  stepCurve: {
-    type: 'boolean',
-    default: false,
+  lineWidth: {
+    type: 'number',
+    default: 2,
     group: 'chart',
-  },
-  stepType: {
-    type: 'text',
-    default: 'start',
-    options: [
-      { label: 'start', value: 'start' },
-      { label: 'middle', value: 'middle' },
-      { label: 'end', value: 'end' },
-    ],
-    group: 'chart',
-    disabled: {
-      stepCurve: false,
-    },
+    min: 0,
   },
   reverseOrder: {
-    type: 'boolean',
-    default: false,
-    group: 'chart',
-  },
-  smooth: {
     type: 'boolean',
     default: false,
     group: 'chart',
@@ -199,11 +202,64 @@ export const visualOptions = {
   yAxisFormat: {
     type: 'text',
     group: 'labelsy',
-    default: 'standard',
+    default: 'compact',
     options: visualOptionsNumberFormat.options,
     disabled: {
       showYaxisLabels: false,
     },
+  },
+  units: {
+    type: 'text',
+    default: '',
+    group: 'labelsy',
+  },
+  endLabel: {
+    type: 'boolean',
+    default: true,
+    group: 'labels',
+  },
+  endLabelSize: {
+    type: 'number',
+    default: 14,
+    group: 'labels',
+  },
+  endLabelWeight: {
+    type: 'text',
+    group: 'labels',
+    disabled: {
+      endLabel: false,
+    },
+    options: [
+      {
+        label: 'normal',
+        value: 'normal',
+      },
+      {
+        label: 'bold',
+        value: 'bold',
+      },
+      {
+        label: 'lighter',
+        value: 'lighter',
+      },
+    ],
+    default: 'bold',
+  },
+  endLabelFormat: {
+    type: 'text',
+    default: 'standard',
+    options: visualOptionsNumberFormat.options,
+    group: 'labels',
+  },
+  endLabelPointDiameter: {
+    type: 'number',
+    default: 10,
+    group: 'labels',
+  },
+  showUnits: {
+    type: 'boolean',
+    default: false,
+    group: 'labels',
   },
   showTooltip: {
     type: 'boolean',
@@ -215,11 +271,6 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
-  },
-  units: {
-    type: 'text',
-    default: '',
-    group: 'tooltip',
   },
   colorScale: {
     type: 'colorScale',

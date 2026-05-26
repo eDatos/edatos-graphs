@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { applicationConfig } from '../ApplicationConfig/ApplicationConfig';
+import { customFetch } from '../../hooks/customFetch';
 
 export default function Footer(props) {
   const divRef = useRef(null);
@@ -10,7 +11,7 @@ export default function Footer(props) {
       headers: { Accept: 'application/json' },
     };
     const applicationConfigJson = await applicationConfig();
-    const responseFooterURL = await fetch(
+    const responseFooterURL = await customFetch(
       applicationConfigJson['metadata']['endpoint'] +
         '/properties/' +
         applicationConfigJson['metadata']['footerPathKey'],
@@ -19,7 +20,7 @@ export default function Footer(props) {
     const footerUrlData = await responseFooterURL.json();
 
     return await (
-      await fetch(
+      await customFetch(
         footerUrlData['value'] + '?chosenLocale=' + chosenLocale,
         requestOptions
       )

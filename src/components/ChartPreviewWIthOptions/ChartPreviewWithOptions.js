@@ -11,6 +11,7 @@ const ChartPreviewWithOptions = ({
   visualOptions,
   setVisualOptions,
   setRawViz,
+  setSelectedSeries,
 }) => {
   const [error, setError] = useState({
     variant: 'secondary',
@@ -39,6 +40,7 @@ const ChartPreviewWithOptions = ({
           error={error}
           setError={setError}
           setRawViz={setRawViz}
+          setSelectedSeries={setSelectedSeries}
         />
       </Col>
     </Row>

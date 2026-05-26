@@ -90,7 +90,7 @@ export const visualOptions = {
     disabled: {
       showSeriesLabels: false,
     },
-    default: false,
+    default: true,
   },
   showValueAndPercentage: {
     type: 'text',
@@ -117,6 +117,28 @@ export const visualOptions = {
     default: 'standard',
     options: visualOptionsNumberFormat.options,
   },
+  fontWeight: {
+    type: 'text',
+    group: 'labels',
+    disabled: {
+      endLabel: false,
+    },
+    options: [
+      {
+        label: 'normal',
+        value: 'normal',
+      },
+      {
+        label: 'bold',
+        value: 'bold',
+      },
+      {
+        label: 'lighter',
+        value: 'lighter',
+      },
+    ],
+    default: 'normal',
+  },
   units: {
     type: 'text',
     default: '',
@@ -126,6 +148,22 @@ export const visualOptions = {
     type: 'boolean',
     default: true,
     group: 'labels',
+  },
+  legendMarginBottom: {
+    type: 'number',
+    default: 20,
+    group: 'legend',
+    disabled: {
+      showLegend: false,
+    },
+  },
+  legendItemSize: {
+    type: 'number',
+    default: 70,
+    group: 'legend',
+    disabled: {
+      showLegend: false,
+    },
   },
   colorScale: {
     type: 'colorScale',

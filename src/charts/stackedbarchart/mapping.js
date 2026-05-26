@@ -69,9 +69,10 @@ const getValueItem = (
       rotate: axisLabelRotate,
       fontSize: axisLabelFontSize,
       formatter: (value) => {
+        const finalValue = visualOptions.isPyramid ? Math.abs(value) : value;
         return new Intl.NumberFormat(locale, {
           notation: visualOptions.barsSizeLabelsFormat,
-        }).format(value);
+        }).format(finalValue);
       },
     },
   };
@@ -91,6 +92,8 @@ const getCategoryItem = (
     nameLocation: visualOptions.barsNameLocation,
     nameGap: visualOptions.barsNameGap,
     type: 'category',
+    axisLine: { show: !visualOptions.isPyramid },
+    axisTick: { show: !visualOptions.isPyramid },
     axisLabel: {
       show: axisLabel,
       rotate: axisLabelRotate,
@@ -173,6 +176,7 @@ var getYAxisItem = (visualOptions, stacks, locale) => {
   return getAxisItem(
     name(visualOptions, stacks, type),
     type,
+    
     visualOptions.showYaxisLabels,
     visualOptions.showYaxisLabelsRotate,
     visualOptions.showYaxisLabelsFontSize,
@@ -196,33 +200,77 @@ const colorValue = function (visualOptions, item) {
     ?.range;
 };
 
-const getSeries = (sortedMapData, bars, visualOptions) => {
+const getSeries = (sortedMapData, bars, visualOptions, locale) => {
   let series = [];
   bars.forEach((bar) => {
     let myData = sortedMapData.filter((d) => d.bars === bar);
     let myStacks = myData
       .map((item) => item.series)
       .filter((value, index, self) => self.indexOf(value) === index);
-    myStacks.forEach((stack) => {
+    myStacks.forEach((stack, stackIndex) => {
       const name = stack ? stack : bar;
+      const datosSerie = myData.filter((d) => d.series === stack);
+      const data = datosSerie.map((d, index) => {
+        const finalValue =
+          visualOptions.isPyramid && stackIndex === 0
+            ? -Math.abs(d.size)
+            : d.size;
+        return {
+          value: finalValue,
+          label: {
+            show:
+              visualOptions.showBarsSizeValues &&
+              (visualOptions.endLabel ? index === datosSerie.length - 1 : true),
+            position: visualOptions.barsSizeValuesPosition,
+            formatter(params) {
+              return (
+                formatNumber(
+                  visualOptions.isPyramid ? Math.abs(params.value) : params.value,
+                  visualOptions.tooltipValueFormat,
+                  locale
+                ) + (visualOptions.showUnits ? visualOptions.units : '')
+              );
+            },
+            fontSize: visualOptions.barsSizeValuesFontSize,
+            fontWeight: visualOptions.fontWeight,
+          },
+          labelLayout: {
+            hideOverlap: true,
+          },
+        };
+      });
       let serie = {
         name: name,
-        type: 'bar',
+        type: 'bar',        
         stack: stack && !visualOptions.groupSeriesInStack ? stack : 'default',
         emphasis: {
           focus: 'series',
         },
         itemStyle: {
           borderRadius: [2, 0, 0, 0],
-          borderColor: white,
+          borderColor: white,          
         },
-        data: myData.filter((d) => d.series === stack).map((d) => d.size),
+        data,
         color: colorValue(visualOptions, name),
+        ...(visualOptions.isPyramid && { barCategoryGap: '0%' }),
       };
       series.push(serie);
     });
   });
-  return series;
+  return series.sort((a, b) => {
+    const sumValor = (obj) =>
+      obj.data.reduce((acc, valor) => acc + valor.value, 0);
+    switch (visualOptions.sortBy) {
+      case 'original(desc)':
+        return -1;
+      case 'totalAscending':
+        return sumValor(a) - sumValor(b);
+      case 'totalDescending':
+        return sumValor(b) - sumValor(a);
+      default:
+        return 0;
+    }
+  });
 };
 
 const mapData = function (
@@ -233,6 +281,26 @@ const mapData = function (
   barsLabelsFormat,
   locale
 ) {
+  function filterValidGroups(data) {
+    // Agrupar los valores por la clave de agrupación
+    const grouped = data.reduce((acc, item) => {
+      const group = item.stacks;
+      acc[group] = acc[group] || [];
+      acc[group].push(item.size);
+      return acc;
+    }, {});
+
+    // Obtener los grupos que tienen al menos un valor no nulo
+    const validGroups = new Set(
+      Object.entries(grouped)
+        .filter(([_, values]) => values.some((v) => v != null))
+        .map(([group]) => group)
+    );
+
+    // Filtrar los objetos que pertenecen a un grupo válido
+    return data.filter((item) => validGroups.has(item.stacks));
+  }
+
   // as we are working on a multiple dimension (bars), `getDimensionAggregator` will return an array of aggregator functions
   // the order of aggregators is the same as the value of the mapping
   const barsAggregators = getDimensionAggregator(
@@ -255,7 +323,10 @@ const mapData = function (
       // for every dimension in the bars field, create an item
       mapping.bars.value.forEach((barName, i) => {
         //getting values for aggregation
-        const valuesForSize = v.map((x) => x[barName]);
+        const valuesForSize = v
+          .map((x) => x[barName])
+          .filter((value) => value !== null);
+
         //getting i-th aggregator
         const aggregator = barsAggregators[i];
 
@@ -266,7 +337,7 @@ const mapData = function (
             ? parseObject(v[0][mapping.stacks?.value])
             : '', // get the first one since it's grouped
           bars: barName,
-          size: aggregator(valuesForSize),
+          size: valuesForSize.length > 0 ? aggregator(valuesForSize) : null,
         };
         results.push(item);
       });
@@ -280,7 +351,9 @@ const mapData = function (
         mapping.stacks?.mappedType
       ) // stacks grouping.
   );
-  return results;
+  return mapping.stacks?.mappedType !== 'date'
+    ? filterValidGroups(results)
+    : results;
 };
 
 export const getChartOptions = function (
@@ -335,7 +408,7 @@ export const getChartOptions = function (
           locale,
           mapping.stacks?.mappedType
         )}&nbsp;&nbsp;&nbsp;<b>${formatNumber(
-          params.value,
+          visualOptions.isPyramid ? Math.abs(params.value) : params.value,
           visualOptions.tooltipValueFormat,
           locale
         )}${visualOptions.units}</b>`;
@@ -353,6 +426,6 @@ export const getChartOptions = function (
       getYAxisItem(visualOptions, mapping.stacks, locale),
       visualOptions.sortBarsBy
     ),
-    series: getSeries(sortedMapData, mapping.bars.value, visualOptions),
+    series: getSeries(sortedMapData, mapping.bars.value, visualOptions, locale),
   };
 };

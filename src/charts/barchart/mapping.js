@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import { getDimensionAggregator } from '@rawgraphs/rawgraphs-core';
-import { format, formatNumber, parseObject } from '../utils/parseUtils';
+import { diff, format, formatNumber, parseObject } from '../utils/parseUtils';
 import { grid, legend, toolbox } from '../baseChartOptions';
 
 const mapData = function (
@@ -31,7 +31,11 @@ const mapData = function (
   let results = [];
 
   d3.rollups(
-    data,
+    data.filter((d) => {
+      return mapping.size.value && mapping.bars.mappedType !== 'date'
+        ? d[mapping.size.value[0]] !== null
+        : true;
+    }),
     (v) => {
       const item = {
         series: v[0][mapping.series.value], //get the first one since it's grouped
@@ -57,7 +61,7 @@ const mapData = function (
   return results;
 };
 
-function categoryOptions(visualOptions, bars, locale) {
+function categoryOptions(visualOptions, bars, locale, data) {
   const categoryName = visualOptions.customBarsName
     ? visualOptions.customBarsName
     : bars.value;
@@ -65,6 +69,7 @@ function categoryOptions(visualOptions, bars, locale) {
     name: visualOptions.showBarsName ? categoryName : '',
     nameLocation: visualOptions.barsNameLocation,
     nameGap: visualOptions.barsNameGap,
+    data,
     type: 'category',
     axisLabel: {
       show: visualOptions.showBarsLabels,
@@ -104,17 +109,27 @@ function valueOptions(visualOptions, name, locale) {
   };
 }
 
-const getxAxis = (visualOptions, mapping, locale) => {
+const getxAxis = (visualOptions, mapping, locale, data) => {
   if ('vertical' === visualOptions.barsOrientation) {
-    return categoryOptions(visualOptions, mapping.bars, locale);
+    return categoryOptions(
+      visualOptions,
+      mapping.bars,
+      locale,
+      data.map((d) => d.name)
+    );
   } else {
     return valueOptions(visualOptions, mapping.size?.value ?? '', locale);
   }
 };
 
-const getyAxis = (visualOptions, mapping, locale) => {
+const getyAxis = (visualOptions, mapping, locale, data) => {
   if ('horizontal' === visualOptions.barsOrientation) {
-    return categoryOptions(visualOptions, mapping.bars, locale);
+    return categoryOptions(
+      visualOptions,
+      mapping.bars,
+      locale,
+      data.map((d) => d.name)
+    );
   } else {
     return valueOptions(visualOptions, mapping.size?.value ?? '', locale);
   }
@@ -136,59 +151,6 @@ function getDimensions(resultMap, mapping) {
   }
 }
 
-function getParser(mappedType) {
-  switch (mappedType) {
-    case 'date':
-      return 'time';
-    case 'string':
-      return 'trim';
-    default:
-      return 'number';
-  }
-}
-
-function getSorterConfig(visualOptions, dimensions, mapping) {
-  const dimension =
-    'name' !== visualOptions.sortBarsBy && dimensions.length < 3
-      ? dimensions.slice(-1)
-      : 'bars';
-  let sortBySize = dimension !== 'bars';
-  let order =
-    sortBySize && 'totalDescending' === visualOptions.sortBarsBy
-      ? 'desc'
-      : 'asc';
-
-  return {
-    transform: {
-      type: 'sort',
-      config: {
-        dimension,
-        order,
-        parser: getParser(
-          sortBySize ? mapping.size?.mappedType : mapping.bars?.mappedType
-        ),
-      },
-    },
-  };
-}
-
-function getDataset(resultMap, mapping, visualOptions) {
-  const dimensions = getDimensions(resultMap, mapping);
-  return [
-    {
-      dimensions: dimensions,
-      source: resultMap.map((res) => {
-        if (res.series) {
-          return { bars: res.bars, [parseObject(res.series)]: res.size };
-        } else {
-          const sizeName = mapping.size.value ?? 'Size';
-          return { bars: res.bars, [sizeName]: res.size };
-        }
-      }),
-    },
-    getSorterConfig(visualOptions, dimensions, mapping),
-  ];
-}
 export const getChartOptions = function (
   visualOptions,
   datachart,
@@ -205,12 +167,51 @@ export const getChartOptions = function (
     visualOptions.barsLabelsFormat,
     locale
   );
-  let dimensiones = getDimensions(resultMap, mapping);
-  const barSeries = dimensiones.splice(1).map(function (item, index) {
+  let chartDimensions = getDimensions(resultMap, mapping);
+  const barSeries = chartDimensions.splice(1).map(function (item, index) {
     let colorValue = getColorValue();
+
+    const serieData = resultMap
+      .filter((res) => typeof res.size === 'number' && !isNaN(res.size))
+      .filter((d) => (d.series ? parseObject(d.series) === item : true))
+      .sort((a, b) => {
+        if ('original' === visualOptions.sortBarsBy) {
+          return 0;
+        } else if ('name' === visualOptions.sortBarsBy) {
+          return diff(a.bars, b.bars, mapping.bars.mappedType);
+        } else {
+          return 'totalAscending' === visualOptions.sortBarsBy
+            ? a.size - b.size
+            : b.size - a.size;
+        }
+      });
+
+    const data = serieData.map((d, index) => ({
+      value: d.size,
+      name: d.bars,
+      label: {
+        show:
+          visualOptions.showBarsSizeValues &&
+          (visualOptions.endLabel ? index === serieData.length - 1 : true),
+        position: visualOptions.barsSizeValuesPosition,
+        formatter(params) {
+          return params.value === 0
+            ? ''
+            : formatNumber(
+                params.value,
+                visualOptions.tooltipValueFormat,
+                locale
+              ) + (visualOptions.showUnits ? visualOptions.units : '');
+        },
+        fontSize: visualOptions.barsSizeValuesFontSize,
+        fontWeight: visualOptions.fontWeight,
+      },
+    }));
+
     return {
       type: 'bar',
-      datasetIndex: visualOptions.sortBarsBy !== 'original' ? 1 : 0,
+      name: item,
+      data,
       color: colorValue,
     };
 
@@ -266,17 +267,16 @@ export const getChartOptions = function (
           locale,
           mapping.bars?.mappedType
         )}&nbsp;&nbsp;&nbsp;<b>${formatNumber(
-          params.value[params.seriesName],
+          params.value,
           visualOptions.tooltipValueFormat,
           locale
         )}${visualOptions.units}</b>`;
       },
     },
     toolbox: toolbox(visualOptions.showToolbox),
-    dataset: getDataset(resultMap, mapping, visualOptions),
     grid: grid(visualOptions),
-    xAxis: getxAxis(visualOptions, mapping, locale),
-    yAxis: getyAxis(visualOptions, mapping, locale),
+    xAxis: getxAxis(visualOptions, mapping, locale, barSeries[0].data),
+    yAxis: getyAxis(visualOptions, mapping, locale, barSeries[0].data),
     series: [...barSeries],
   };
 };

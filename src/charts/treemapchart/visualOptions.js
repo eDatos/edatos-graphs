@@ -49,6 +49,28 @@ export const visualOptions = {
     default: 'original',
     options: visualOptionsDateFormat.options,
   },
+  fontWeight: {
+    type: 'text',
+    group: 'labels',
+    disabled: {
+      endLabel: false,
+    },
+    options: [
+      {
+        label: 'normal',
+        value: 'normal',
+      },
+      {
+        label: 'bold',
+        value: 'bold',
+      },
+      {
+        label: 'lighter',
+        value: 'lighter',
+      },
+    ],
+    default: 'normal',
+  },
   showTooltip: {
     type: 'boolean',
     default: true,

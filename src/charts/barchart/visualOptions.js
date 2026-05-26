@@ -3,6 +3,21 @@ import { baseVisualOptions } from '../baseVisualOptions';
 
 export const visualOptions = {
   ...baseVisualOptions,
+  marginTop: {
+    type: 'number',
+    default: 46,
+    group: 'artboard',
+  },
+  marginRight: {
+    type: 'number',
+    default: 40,
+    group: 'artboard',
+  },
+  marginBottom: {
+    type: 'number',
+    default: 60,
+    group: 'artboard',
+  },
   barsOrientation: {
     type: 'text',
     label: 'Bars orientation',
@@ -173,7 +188,7 @@ export const visualOptions = {
     type: 'number',
     group: 'barsSizelabels',
     disabled: {
-      showBarsSizeName: false,
+      showBarsSizeLabels: false,
     },
     default: 0,
   },
@@ -181,18 +196,86 @@ export const visualOptions = {
     type: 'number',
     group: 'barsSizelabels',
     disabled: {
-      showBarsSizeName: false,
+      showBarsSizeLabels: false,
     },
     default: 12,
   },
   barsSizeLabelsFormat: {
     type: 'text',
     group: 'barsSizelabels',
-    default: 'standard',
+    default: 'compact',
     options: visualOptionsNumberFormat.options,
     disabled: {
       showBarsSizeLabels: false,
     },
+  },
+  units: {
+    type: 'text',
+    default: '',
+    group: 'barsSizelabels',
+  },
+  showBarsSizeValues: {
+    type: 'boolean',
+    default: true,
+    group: 'labels',
+  },
+  endLabel: {
+    type: 'boolean',
+    default: false,
+    group: 'labels',
+  },
+  barsSizeValuesPosition: {
+    type: 'text',
+    group: 'labels',
+    default: 'outside',
+    options: [
+      {
+        label: 'outside',
+        value: 'outside',
+      },
+      {
+        label: 'inside',
+        value: 'inside',
+      },
+    ],
+    disabled: {
+      showBarsSizeValues: false,
+    },
+  },
+  barsSizeValuesFontSize: {
+    type: 'number',
+    group: 'labels',
+    disabled: {
+      showBarsSizeValues: false,
+    },
+    default: 14,
+  },
+  fontWeight: {
+    type: 'text',
+    group: 'labels',
+    disabled: {
+      endLabel: false,
+    },
+    options: [
+      {
+        label: 'normal',
+        value: 'normal',
+      },
+      {
+        label: 'bold',
+        value: 'bold',
+      },
+      {
+        label: 'lighter',
+        value: 'lighter',
+      },
+    ],
+    default: 'normal',
+  },
+  showUnits: {
+    type: 'boolean',
+    default: false,
+    group: 'labels',
   },
   showTooltip: {
     type: 'boolean',
@@ -204,11 +287,6 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
-  },
-  units: {
-    type: 'text',
-    default: '',
-    group: 'tooltip',
   },
   colorScale: {
     type: 'colorScale',

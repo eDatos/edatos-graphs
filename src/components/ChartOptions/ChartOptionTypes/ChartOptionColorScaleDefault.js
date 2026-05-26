@@ -52,10 +52,10 @@ const ChartOptionColorScaleDefault = ({
   return (
     <>
       <div className={props.className}>
-        <Col xs={6} className={style['chart-option-label']}>
+        <Col xs={5} className={style['chart-option-label']}>
           {t('color')}
         </Col>
-        <Col xs={6}>
+        <Col xs={7}>
           <InilineColorPicker
             color={defaultColor}
             onChange={handleChangeDefaultColor}

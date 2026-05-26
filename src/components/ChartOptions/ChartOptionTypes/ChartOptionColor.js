@@ -28,10 +28,10 @@ const ChartOptionColor = ({
 
   return (
     <div className={props.className}>
-      <Col xs={6} className={styles['chart-option-label']}>
+      <Col xs={5} className={styles['chart-option-label']}>
         {label}
       </Col>
-      <Col xs={6}>
+      <Col xs={7}>
         <InilineColorPicker
           disabled={!isEnabled}
           color={value}

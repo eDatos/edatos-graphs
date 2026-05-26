@@ -128,6 +128,15 @@
                         "lines": "Líneas"
                     }
                 },
+                "stackedareachart": {
+                    "title": "Diagrama de áreas",
+                    "description": "Muestra multiples dimensiones cuantitativas sobre un intervalo continuo o período de tiempo. El color se puede usar opcionalmente para codificar una dimensión cuantitativa o categórica adicional.",
+                    "dimensions": {
+                        "xAxis": "Eje X",
+                        "yAxis": "Eje Y",
+                        "series": "Áreas"
+                    }
+                },
                 "piechart": {
                     "title": "Diagrama de sectores",
                     "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen un círculo.",
@@ -137,12 +146,12 @@
                     }
                 },
                 "donutchart": {
-                    "title": "Diagrama de donut",
-                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen un donut."
+                    "title": "Diagrama de dónut",
+                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen un dónut."
                 },
                 "halfdonutchart": {
-                    "title": "Diagrama de medio donut",
-                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen medio donut."
+                    "title": "Diagrama de medio dónut",
+                    "description": "Te permite ver las proporciones entre los valores que forman un todo, mediante el uso de arcos que componen medio dónut."
                 },
                 "scatterchart": {
                     "title": "Diagrama de dispersión",
@@ -164,6 +173,15 @@
                 "stackedbarchart": {
                     "title": "Diagrama de barras apiladas",
                     "description": "Muestra múltiples dimensiones cuantitativas relacionadas con categorías. Las barras se apilan visualmente de acuerdo con la dimensión categórica, cada barra representa una dimensión cuantitativa, mapeada en su altura.",
+                    "dimensions": {
+                        "axis": "Eje",
+                        "size": "Magnitud",
+                        "series": "Series"
+                    }
+                },
+                "pyramidchart": {
+                    "title": "Diagrama tipo pirámide",
+                    "description": "Muestra la distribución de los datos a partir de dos dimensiones cualitativas. Las barras se disponen horizontalmente y se extienden en sentidos opuestos desde un eje común. Cada barra representa la combinación específica de ambas dimensiones, y su tamaño refleja la magnitud asociada.",
                     "dimensions": {
                         "axis": "Eje",
                         "size": "Magnitud",

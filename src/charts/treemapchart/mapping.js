@@ -65,7 +65,9 @@ const getSeries = (
     const hierarchy = allValues.splice(0, index + 1);
     let results = [];
     d3.rollups(
-      data,
+      data.filter((d) => {
+        return mapping.size.value ? d[mapping.size.value[0]] !== null : true;
+      }),
       (v) => {
         let children = [];
         if (index < mapping.hierarchy.value.length - 1) {
@@ -105,10 +107,12 @@ const getSeries = (
       label: {
         show: visualOptions.showLabel,
         formatter: '{b}',
+        fontWeight: visualOptions.fontWeight,
       },
       upperLabel: {
         show: visualOptions.showUpperLabel,
         height: 30,
+        fontWeight: visualOptions.fontWeight,
       },
       itemStyle: {
         borderColor: white,
