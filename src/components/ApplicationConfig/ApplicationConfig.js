@@ -11,6 +11,6 @@ export const version = (baseUrl = '') => {
   return readConfig(baseUrl, 'version.json');
 };
 
-export const applicationSampleDatasets = () => {
-  return readConfig('', 'sample-datasets.json');
+export const applicationSampleDatasets = (client = 'ISTAC') => {
+  return readConfig('', `sample-datasets/${client}/sample-datasets.json`);
 };

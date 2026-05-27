@@ -6,7 +6,8 @@
     "statisticalResourcesPathKey": "metamac.statistical_resources.rest.internal",
     "statisticalOperationsPathKey": "metamac.statistical_operations.rest.internal",
     "faviconPathKey": "metamac.app.style.favicon.url",
-    "edatosGraphApiKey": "edatos.graphs.rest.api_key"
+    "edatosGraphApiKey": "edatos.graphs.rest.api_key",
+    "client": "ISTAC"
   },
   "maps": {
     "enable": true,    
