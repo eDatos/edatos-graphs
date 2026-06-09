@@ -298,7 +298,7 @@ function App() {
     i18n.changeLanguage(cookies.chosenLocale);
   }, [setCookie, i18n, cookies.chosenLocale]);
 
-  const [logged, setLogged] = useState(null);
+  const [logged, setLogged] = useState(false);
 
   const chartIndex = charts.findIndex((c) => c === currentChart);
   const [map, setMap] = useState(null);
