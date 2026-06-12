@@ -414,7 +414,7 @@ function App() {
         setLogged={setLogged}
         apiKey={apiKeyValue}
       />
-      <div className="container">
+      {logged && <div className="container">
         <div className="col col-12">
           <div className="app-header">
             <span className="app-title">{t('global.appName')}</span>
@@ -571,7 +571,7 @@ function App() {
           />
           <ScreenSizeAlert />
         </div>
-      </div>
+      </div>}
       <Footer value={i18n.language} />
     </div>
   );
