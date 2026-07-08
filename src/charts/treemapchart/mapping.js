@@ -142,6 +142,8 @@ export const getChartOptions = function (
     },
     title: {
       text: parseTitle(visualOptions.title, datachart),
+      left: 10,
+      top: 10,
     },
     legend: legend(visualOptions),
     backgroundColor: visualOptions.background,
