@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { format, parseObjectToValue } from '../utils/parseUtils';
+import { format, parseObjectToValue, parseTitle } from '../utils/parseUtils';
 import { grid, legend, toolbox } from '../baseChartOptions';
 import { dateParsersPatterns } from '../../constants';
 
@@ -112,7 +112,7 @@ export const getChartOptions = function (
       show: true,
     },
     title: {
-      text: visualOptions.title,
+      text: parseTitle(visualOptions.title, datachart),
     },
     legend: legend(visualOptions),
     backgroundColor: visualOptions.background,

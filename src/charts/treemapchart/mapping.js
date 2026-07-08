@@ -1,5 +1,5 @@
 import { getDimensionAggregator } from '@rawgraphs/rawgraphs-core';
-import { format, formatNumber } from '../utils/parseUtils';
+import { format, formatNumber, parseTitle } from '../utils/parseUtils';
 import * as d3 from 'd3';
 import { grayPalette, white } from '../../constants';
 import { grid, legend, toolbox } from '../baseChartOptions';
@@ -141,7 +141,7 @@ export const getChartOptions = function (
       show: true,
     },
     title: {
-      text: visualOptions.title,
+      text: parseTitle(visualOptions.title, datachart),
     },
     legend: legend(visualOptions),
     backgroundColor: visualOptions.background,
