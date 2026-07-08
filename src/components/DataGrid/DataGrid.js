@@ -17,7 +17,7 @@ import { useTranslation } from 'react-i18next';
 
 //add custom date formats
 dateFormats['YYYY-MMM'] = '%Y-M%m';
-const DATE_FORMATS = [...Object.keys(dateFormats), 'YYYY-[Q]Q'];
+const DATE_FORMATS = [...Object.keys(dateFormats), 'YYYY-[Q]Q', 'YYYY-[W]WW'];
 
 const DateFormatSelector = React.forwardRef(
   ({ currentFormat, onChange, className, ...props }, ref) => {

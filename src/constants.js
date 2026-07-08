@@ -218,6 +218,7 @@ export const dateParsersPatterns = {
   yearmonthday1: 'DD-MM-YYYY',
   yearmonthday2: 'DD/MM/YYYY',
   yearquart: 'YYYY-[Q]Q',
+  isoweek: 'GGGG-[W]WW', // ej: "2026-W27"
   original: null,
 };
 
@@ -259,6 +260,10 @@ export const visualOptionsDateFormat = {
     {
       label: 'YYYY-[Q]Q',
       value: 'yearquart',
+    },
+    {
+      label: 'YYYY-[W]WW',
+      value: 'isoweek',
     },
   ],
 };
