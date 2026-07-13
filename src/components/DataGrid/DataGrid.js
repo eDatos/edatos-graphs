@@ -11,13 +11,19 @@ import {
   DateIcon,
   StringIcon,
   NumberIcon,
+  QUARTER_DATA_FORMAT,
+  ISO_WEEK_DATA_FORMAT,
 } from '../../constants';
 import { BsFillCaretRightFill } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
 //add custom date formats
 dateFormats['YYYY-MMM'] = '%Y-M%m';
-const DATE_FORMATS = [...Object.keys(dateFormats), 'YYYY-[Q]Q', 'YYYY-[W]WW'];
+const DATE_FORMATS = [
+  ...Object.keys(dateFormats),
+  QUARTER_DATA_FORMAT,
+  ISO_WEEK_DATA_FORMAT,
+];
 
 const DateFormatSelector = React.forwardRef(
   ({ currentFormat, onChange, className, ...props }, ref) => {

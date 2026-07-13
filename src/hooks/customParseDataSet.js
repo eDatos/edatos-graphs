@@ -1,4 +1,5 @@
 import { parseDataset } from '@rawgraphs/rawgraphs-core';
+import { QUARTER_DATA_FORMAT, ISO_WEEK_DATA_FORMAT } from '../constants';
 
 function parseQuarterStrToDate(str) {
   // Espera 'YYYY-Qn' donde n es de 1 a 4
@@ -42,18 +43,18 @@ export function customParseDataSet(data, dataTypes, parsingOptions) {
   }
   // Creamos una copia para no mutar dataTypes original
   const dt = { ...dataTypes };
-  // Recorremos tipos para detectar 'YYYY-[Q]Q' / 'YYYY-[W]WW' y transformar la data
+  // Recorremos tipos para detectar QUARTER_DATA_FORMAT / ISO_WEEK_DATA_FORMAT y transformar la data
   Object.keys(dt).forEach((key) => {
     if (typeof dt[key] !== 'object' || dt[key].type !== 'date') {
       return;
     }
-    if (dt[key].dateFormat === 'YYYY-[Q]Q') {
+    if (dt[key].dateFormat === QUARTER_DATA_FORMAT) {
       data.forEach((row) => {
         row[key] = parseQuarterStrToDate(row[key]);
       });
       // Cambiamos formato para que RAWGraphs lo entienda
       dt[key] = { type: 'date', dateFormat: 'YYYY-MM-DD' };
-    } else if (dt[key].dateFormat === 'YYYY-[W]WW') {
+    } else if (dt[key].dateFormat === ISO_WEEK_DATA_FORMAT) {
       data.forEach((row) => {
         row[key] = parseIsoWeekStrToDate(row[key]);
       });
