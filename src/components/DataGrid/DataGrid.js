@@ -323,12 +323,11 @@ export default function DataGrid({
         );
         break;
       case 'date':
-        sortedRows =
-          datasetWithIds.sort(
-            (a, b) =>
-              a._stage3[columnKey]?.valueOf() ??
-              0 - b._stage3[columnKey]?.valueOf()
-          ) ?? 0;
+        sortedRows = datasetWithIds.sort(
+          (a, b) =>
+            (a._stage3[columnKey]?.valueOf() ?? 0) -
+            (b._stage3[columnKey]?.valueOf() ?? 0)
+        );
         break;
       default:
         sortedRows = datasetWithIds.sort((a, b) =>
