@@ -209,6 +209,11 @@ export const islandPalette = [
   { color: '#009BD7', title: 'Tenerife' },
 ];
 
+// Identificadores de formato de fecha de entrada que RAWGraphs no sabe parsear de forma
+// nativa y que por tanto requieren conversión previa en customParseDataSet.js
+export const QUARTER_DATA_FORMAT = 'YYYY-[Q]Q';
+export const ISO_WEEK_DATA_FORMAT = 'YYYY-[W]WW';
+
 export const dateParsersPatterns = {
   year: 'YYYY',
   month: 'MMMM',
@@ -218,6 +223,7 @@ export const dateParsersPatterns = {
   yearmonthday1: 'DD-MM-YYYY',
   yearmonthday2: 'DD/MM/YYYY',
   yearquart: 'YYYY-[Q]Q',
+  isoweek: 'GGGG-[W]WW', // ej: "2026-W27"
   original: null,
 };
 
@@ -259,6 +265,10 @@ export const visualOptionsDateFormat = {
     {
       label: 'YYYY-[Q]Q',
       value: 'yearquart',
+    },
+    {
+      label: 'YYYY-[W]WW',
+      value: 'isoweek',
     },
   ],
 };

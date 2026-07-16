@@ -105,6 +105,7 @@
     "yearmonthday1": "DD-MM-YYYY",
     "yearmonthday2": "DD/MM/YYYY",
     "yearquart": "YYYY-[Q]Q",
+    "isoweek": "YYYY-[W]WW",
     "showBarsName": "Show",
     "barsNameLocation": "Name position",
     "barsNameGap": "Name gap",
