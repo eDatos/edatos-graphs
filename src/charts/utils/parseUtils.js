@@ -38,6 +38,17 @@ export const format = (data, patternFormat, locale, type) => {
   }
 };
 
+export const parseTitle = (title, datachart) => {
+  if (!title) {
+    return title;
+  }
+  const lastRow = datachart?.[datachart.length - 1];
+  return title.replace(/\$\{\s*([^}]+?)\s*\}/g, (match, columnName) => {
+    const value = lastRow?.[columnName];
+    return value === undefined ? match : parseObject(value);
+  });
+};
+
 export const diff = (a, b, type) => {
   switch (type) {
     case 'date':

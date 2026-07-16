@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 import { getDimensionAggregator } from '@rawgraphs/rawgraphs-core';
 import { white } from '../../constants';
 import { legend, toolbox } from '../baseChartOptions';
-import { formatNumber } from '../utils/parseUtils';
+import { formatNumber, parseTitle } from '../utils/parseUtils';
 
 export const mapData = function (data, mapping, dataTypes, dimensions) {
   // define aggregators
@@ -181,7 +181,9 @@ export function getChartOptions(
       show: true,
     },
     title: {
-      text: visualOptions.title,
+      text: parseTitle(visualOptions.title, datachart),
+      left: 10,
+      top: 10,
     },
     legend: legend(visualOptions),
     backgroundColor: visualOptions.background,

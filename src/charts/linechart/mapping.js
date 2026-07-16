@@ -1,7 +1,13 @@
 import * as d3 from 'd3';
 import { getDimensionAggregator } from '@rawgraphs/rawgraphs-core';
 import _ from 'lodash';
-import { diff, format, formatNumber, parseObject } from '../utils/parseUtils';
+import {
+  diff,
+  format,
+  formatNumber,
+  parseObject,
+  parseTitle,
+} from '../utils/parseUtils';
 import { grid, legend, toolbox } from '../baseChartOptions';
 
 export const mapData = function (data, mapping, dataTypes, dimensions) {
@@ -212,7 +218,9 @@ export function getChartOptions(
       show: true,
     },
     title: {
-      text: visualOptions.title,
+      text: parseTitle(visualOptions.title, datachart),
+      left: 10,
+      top: 10,
     },
     legend: legend(visualOptions),
     backgroundColor: visualOptions.background,
