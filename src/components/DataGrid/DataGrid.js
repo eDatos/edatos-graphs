@@ -11,13 +11,19 @@ import {
   DateIcon,
   StringIcon,
   NumberIcon,
+  QUARTER_DATA_FORMAT,
+  ISO_WEEK_DATA_FORMAT,
 } from '../../constants';
 import { BsFillCaretRightFill } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
 //add custom date formats
 dateFormats['YYYY-MMM'] = '%Y-M%m';
-const DATE_FORMATS = [...Object.keys(dateFormats), 'YYYY-[Q]Q'];
+const DATE_FORMATS = [
+  ...Object.keys(dateFormats),
+  QUARTER_DATA_FORMAT,
+  ISO_WEEK_DATA_FORMAT,
+];
 
 const DateFormatSelector = React.forwardRef(
   ({ currentFormat, onChange, className, ...props }, ref) => {
@@ -265,6 +271,7 @@ function createColumns(
 
 export default function DataGrid({
   userDataset,
+  dataset,
   errors,
   dataTypes,
   coerceTypes,
@@ -300,7 +307,7 @@ export default function DataGrid({
       // Using .map ensures that we are not mutating a property
       ...item,
       id: i + 1, // Give items some id to populate left-most column
-      _stage3: item, // The dataset parsed by raw lib basing on data types is needed for sorting!
+      _stage3: dataset?.[i] ?? item, // The dataset parsed by raw lib basing on data types is needed for sorting!
       _errors: keyedErrors[i]?.error, // Inject errors to format cells with parsing errors
     }));
     if (sortColumns.length === 0) return datasetWithIds;
@@ -317,12 +324,11 @@ export default function DataGrid({
         );
         break;
       case 'date':
-        sortedRows =
-          datasetWithIds.sort(
-            (a, b) =>
-              a._stage3[columnKey]?.valueOf() ??
-              0 - b._stage3[columnKey]?.valueOf()
-          ) ?? 0;
+        sortedRows = datasetWithIds.sort(
+          (a, b) =>
+            (a._stage3[columnKey]?.valueOf() ?? 0) -
+            (b._stage3[columnKey]?.valueOf() ?? 0)
+        );
         break;
       default:
         sortedRows = datasetWithIds.sort((a, b) =>
@@ -332,7 +338,7 @@ export default function DataGrid({
         );
     }
     return direction === 'DESC' ? sortedRows.reverse() : sortedRows;
-  }, [userDataset, sortColumns, dataTypes, keyedErrors]);
+  }, [userDataset, dataset, sortColumns, dataTypes, keyedErrors]);
 
   return (
     <ReactDataGrid
