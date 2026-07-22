@@ -143,6 +143,7 @@ function DataLoader({
     mainContent = (
       <DataGrid
         userDataset={userData}
+        dataset={data.dataset}
         errors={data.errors}
         dataTypes={data.dataTypes}
         coerceTypes={coerceTypes}
