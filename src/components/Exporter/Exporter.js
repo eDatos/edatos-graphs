@@ -144,8 +144,8 @@ export default function Exporter({
       decimalsSeparator: decimalsSeparator,
       thousandsSeparator: thousandsSeparator,
       source: dataSource,
-      // Resolvemos las variables ${columna} del título con los datos actuales:
-      // el widget exportado muestra el valor, no la referencia a la variable
+      // Resolve the ${column} variables of the title against the current data,
+      // so the exported widget shows the value instead of the variable reference
       visualOptions: {
         ...visualOptions,
         title: parseTitle(visualOptions.title, dataset),
