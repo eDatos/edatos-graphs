@@ -6,6 +6,7 @@ import { CopyToClipboardButton } from '../CopyToClipboardButton';
 import { t } from 'i18next';
 import styles from '../DataLoader/DataLoader.module.scss';
 import classNames from 'classnames';
+import { parseTitle } from '../../charts/utils/parseUtils';
 
 function downloadBlob(url, filename) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -21,6 +22,7 @@ export default function Exporter({
   rawViz,
   exportProject,
   userData,
+  dataset,
   dataSource,
   chartIndex,
   mapping,
@@ -142,7 +144,12 @@ export default function Exporter({
       decimalsSeparator: decimalsSeparator,
       thousandsSeparator: thousandsSeparator,
       source: dataSource,
-      visualOptions: visualOptions,
+      // Resolvemos las variables ${columna} del título con los datos actuales:
+      // el widget exportado muestra el valor, no la referencia a la variable
+      visualOptions: {
+        ...visualOptions,
+        title: parseTitle(visualOptions.title, dataset),
+      },
       mapping: mapping,
       dataTypes: getFilteredDataTypes(),
       dimensions: dimensions,

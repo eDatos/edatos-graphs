@@ -391,6 +391,7 @@ function App() {
         rawViz={rawViz}
         exportProject={exportProject}
         userData={dataLoader.userData}
+        dataset={data?.dataset}
         dataSource={dataLoader.dataSource}
         chartIndex={chartIndex}
         mapping={mapping}
