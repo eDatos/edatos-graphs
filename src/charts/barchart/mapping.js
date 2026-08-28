@@ -218,6 +218,9 @@ export const getChartOptions = function (
       type: 'bar',
       name: item,
       data,
+      labelLayout: {
+        hideOverlap: true,
+      },
       color: colorValue,
     };
 
