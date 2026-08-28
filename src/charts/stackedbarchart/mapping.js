@@ -57,6 +57,16 @@ const sortFunction = (a, b, sortBarsBy, type, mapData) => {
   }
 };
 
+// Límites del eje de valores centrados en el 0, para que los dos lados de la
+// pirámide se dibujen a la misma escala. Se redondean a valores "bonitos" con el
+// mismo número de divisiones que usa echarts por defecto (splitNumber: 5).
+const symmetricExtent = ({ min, max }) => {
+  const bound = Math.max(Math.abs(min ?? 0), Math.abs(max ?? 0));
+  return Number.isFinite(bound) && bound > 0
+    ? d3.scaleLinear().domain([-bound, bound]).nice(5).domain()
+    : [null, null]; // sin datos: se deja el cálculo automático de echarts
+};
+
 const getValueItem = (
   name,
   axisLabel,
@@ -81,6 +91,10 @@ const getValueItem = (
         }).format(finalValue);
       },
     },
+    ...(visualOptions.isPyramid && {
+      min: (value) => symmetricExtent(value)[0],
+      max: (value) => symmetricExtent(value)[1],
+    }),
   };
 };
 
