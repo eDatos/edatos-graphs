@@ -259,9 +259,6 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
             fontSize: visualOptions.barsSizeValuesFontSize,
             fontWeight: visualOptions.fontWeight,
           },
-          labelLayout: {
-            hideOverlap: true,
-          },
         };
       });
       let serie = {
@@ -276,6 +273,9 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
           borderColor: white,          
         },
         data,
+        labelLayout: {
+          hideOverlap: true,
+        },
         color: colorValue(visualOptions, name),
         ...(visualOptions.isPyramid && { barCategoryGap: '0%' }),
       };
