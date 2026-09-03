@@ -96,6 +96,7 @@
     "yAxisFormat": "Formato",
     "yAxisDecimals": "Decimales",
     "valuesFormat": "Formato de valores",
+    "valuesDecimals": "Decimales de valores",
     "dateFormat": "Formato de fecha",
     "tooltipValueFormat": "Formato",
     "tooltipValueDecimals": "Decimales",

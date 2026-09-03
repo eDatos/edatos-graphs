@@ -55,5 +55,7 @@ export const yAxisDecimals = (visualOptions) =>
   visualOptions.yAxisDecimals ?? 0;
 export const endLabelDecimals = (visualOptions) =>
   visualOptions.endLabelDecimals ?? 1;
+export const valuesDecimals = (visualOptions) =>
+  visualOptions.valuesDecimals ?? 1;
 export const tooltipValueDecimals = (visualOptions) =>
   visualOptions.tooltipValueDecimals ?? 1;
