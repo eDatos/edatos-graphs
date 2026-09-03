@@ -209,6 +209,16 @@ export const visualOptions = {
       showBarsSizeLabels: false,
     },
   },
+  barsSizeLabelsDecimals: {
+    type: 'number',
+    group: 'barsSizelabels',
+    default: 0,
+    min: 0,
+    max: 10,
+    disabled: {
+      showBarsSizeLabels: false,
+    },
+  },
   units: {
     type: 'text',
     default: '',
@@ -287,6 +297,13 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
+  },
+  tooltipValueDecimals: {
+    type: 'number',
+    group: 'tooltip',
+    default: 1,
+    min: 0,
+    max: 10,
   },
   colorScale: {
     type: 'colorScale',
