@@ -57,6 +57,21 @@ const sortFunction = (a, b, sortBarsBy, type, mapData) => {
   }
 };
 
+// Value axis bounds centered on 0, so both sides of the pyramid are drawn at the
+// same scale. The upper bound is rounded up to the next multiple of the tick step,
+// leaving at least a 5% gap so the longest bar never touches the edge of the plot
+// area. Being a multiple of the step keeps 0 as a tick and the labels round.
+const symmetricExtent = ({ min, max }) => {
+  const bound = Math.max(Math.abs(min ?? 0), Math.abs(max ?? 0));
+  if (!Number.isFinite(bound) || bound <= 0) {
+    return [null, null]; // no data: let echarts compute the bounds
+  }
+  const step = d3.tickStep(0, bound, 5);
+  // toPrecision avoids floating point noise on decimal steps (0.2 * 6 = 1.2000000000000002)
+  const upper = +(step * Math.ceil((bound * 1.05) / step)).toPrecision(12);
+  return [-upper, upper];
+};
+
 const getValueItem = (
   name,
   axisLabel,
@@ -81,6 +96,10 @@ const getValueItem = (
         }).format(finalValue);
       },
     },
+    ...(visualOptions.isPyramid && {
+      min: (value) => symmetricExtent(value)[0],
+      max: (value) => symmetricExtent(value)[1],
+    }),
   };
 };
 
@@ -240,9 +259,6 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
             fontSize: visualOptions.barsSizeValuesFontSize,
             fontWeight: visualOptions.fontWeight,
           },
-          labelLayout: {
-            hideOverlap: true,
-          },
         };
       });
       let serie = {
@@ -257,6 +273,9 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
           borderColor: white,          
         },
         data,
+        labelLayout: {
+          hideOverlap: true,
+        },
         color: colorValue(visualOptions, name),
         ...(visualOptions.isPyramid && { barCategoryGap: '0%' }),
       };
