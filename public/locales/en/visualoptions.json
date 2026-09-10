@@ -123,7 +123,7 @@
     "barsSizeLabelsRotate": "Label rotation",
     "barsSizeLabelsFontSize": "Label fontsize",
     "barsSizeLabelsFormat": "Label format",
-    "barsSizeLabelsDecimals": "Label decimals",
+    "barsSizeLabelsDecimals": "Decimals",
     "standard": "Standard",
     "scientific": "Scientific",
     "engineering": "Engineering",
