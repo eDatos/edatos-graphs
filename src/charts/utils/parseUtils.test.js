@@ -23,6 +23,9 @@ describe('formatNumber', () => {
   it('clamps the decimals to the range accepted by Intl', () => {
     expect(normalize(formatNumber(1234, 'standard', 'es', -1))).toBe('1.234');
     expect(() => formatNumber(1234, 'standard', 'es', 99)).not.toThrow();
+    expect(normalize(formatNumber(1234, 'standard', 'es', 99))).toBe(
+      '1.234,00000000000000000000'
+    );
   });
 
   it('pins compact to one decimal when no decimals are given', () => {
