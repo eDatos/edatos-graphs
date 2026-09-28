@@ -112,6 +112,13 @@ export const visualOptions = {
     default: 'standard',
     options: visualOptionsNumberFormat.options,
   },
+  valuesDecimals: {
+    type: 'number',
+    group: 'labels',
+    default: 1,
+    min: 0,
+    max: 10,
+  },
   fontWeight: {
     type: 'text',
     group: 'labels',

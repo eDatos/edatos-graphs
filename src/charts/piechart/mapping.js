@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import { getDimensionAggregator } from '@rawgraphs/rawgraphs-core';
 import { white } from '../../constants';
-import { legend, toolbox } from '../baseChartOptions';
+import { legend, toolbox, valuesDecimals } from '../baseChartOptions';
 import { formatNumber, parseTitle } from '../utils/parseUtils';
 
 export const mapData = function (data, mapping, dataTypes, dimensions) {
@@ -86,9 +86,22 @@ export function getChartOptions(
   }
 
   const labelValue = (visualOptions, value, percent, locale) => {
-    let percentValue =
-      (visualOptions.halfDonut ? percent * 2 : percent).toFixed(1) + '%';
-    const valueFormat = formatNumber(value, visualOptions.valuesFormat, locale);
+    const decimals = valuesDecimals(visualOptions);
+    // the percentage goes through formatNumber too, so it uses the same number of
+    // decimals and the same decimal separator as the value next to it
+    const percentValue =
+      formatNumber(
+        visualOptions.halfDonut ? percent * 2 : percent,
+        'standard',
+        locale,
+        decimals
+      ) + '%';
+    const valueFormat = formatNumber(
+      value,
+      visualOptions.valuesFormat,
+      locale,
+      decimals
+    );
     switch (visualOptions.showValueAndPercentage) {
       case 'both':
         return `${valueFormat}${visualOptions.units} - ${percentValue}`;

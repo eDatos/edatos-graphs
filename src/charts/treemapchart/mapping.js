@@ -2,7 +2,12 @@ import { getDimensionAggregator } from '@rawgraphs/rawgraphs-core';
 import { format, formatNumber, parseTitle } from '../utils/parseUtils';
 import * as d3 from 'd3';
 import { grayPalette, white } from '../../constants';
-import { grid, legend, toolbox } from '../baseChartOptions';
+import {
+  grid,
+  legend,
+  toolbox,
+  tooltipValueDecimals,
+} from '../baseChartOptions';
 
 const getSeries = (
   visualOptions,
@@ -121,8 +126,12 @@ const getSeries = (
       data: dataHierarchy(0, data),
       tooltip: {
         valueFormatter: (value) =>
-          formatNumber(value, visualOptions.tooltipValueFormat, locale) +
-          visualOptions.units,
+          formatNumber(
+            value,
+            visualOptions.tooltipValueFormat,
+            locale,
+            tooltipValueDecimals(visualOptions)
+          ) + visualOptions.units,
       },
     },
   ];

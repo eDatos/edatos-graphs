@@ -208,6 +208,16 @@ export const visualOptions = {
       showYaxisLabels: false,
     },
   },
+  yAxisDecimals: {
+    type: 'number',
+    group: 'labelsy',
+    default: 0,
+    min: 0,
+    max: 10,
+    disabled: {
+      showYaxisLabels: false,
+    },
+  },
   units: {
     type: 'text',
     default: '',
@@ -251,6 +261,13 @@ export const visualOptions = {
     options: visualOptionsNumberFormat.options,
     group: 'labels',
   },
+  endLabelDecimals: {
+    type: 'number',
+    default: 1,
+    min: 0,
+    max: 10,
+    group: 'labels',
+  },
   endLabelPointDiameter: {
     type: 'number',
     default: 10,
@@ -271,6 +288,13 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
+  },
+  tooltipValueDecimals: {
+    type: 'number',
+    group: 'tooltip',
+    default: 1,
+    min: 0,
+    max: 10,
   },
   colorScale: {
     type: 'colorScale',

@@ -8,7 +8,15 @@ import {
   parseObject,
   parseTitle,
 } from '../utils/parseUtils';
-import { grid, legend, toolbox } from '../baseChartOptions';
+import {
+  AXIS_LABELS_DECIMALS,
+  endLabelDecimals,
+  grid,
+  legend,
+  toolbox,
+  tooltipValueDecimals,
+  yAxisDecimals,
+} from '../baseChartOptions';
 
 export const mapData = function (data, mapping, dataTypes, dimensions) {
   const yAggregator = getDimensionAggregator(
@@ -98,7 +106,12 @@ const getYAxis = (visualOptions, name, locale) => {
       rotate: visualOptions.showYaxisLabelsRotate,
       fontSize: visualOptions.showYaxisLabelsFontSize,
       formatter: (value) => {
-        return formatNumber(value, visualOptions.yAxisFormat, locale);
+        return formatNumber(
+          value,
+          visualOptions.yAxisFormat,
+          locale,
+          yAxisDecimals(visualOptions)
+        );
       },
     },
     scale: !visualOptions.yAxisOriginTo0,
@@ -137,7 +150,13 @@ export function getChartOptions(
         let value = _.find(data[item], ['x', e], 0);
         let y = value ? value.y : null;
         lineData.push([
-          format(e, visualOptions.xAxisFormat, locale, mapping.x.mappedType),
+          format(
+            e,
+            visualOptions.xAxisFormat,
+            locale,
+            mapping.x.mappedType,
+            AXIS_LABELS_DECIMALS
+          ),
           y,
         ]);
       });
@@ -161,7 +180,8 @@ export function getChartOptions(
             formatNumber(
               params.value[1],
               visualOptions.endLabelFormat,
-              locale
+              locale,
+              endLabelDecimals(visualOptions)
             ) + (visualOptions.showUnits ? visualOptions.units : ''),
         },
         lineStyle: {
@@ -187,8 +207,12 @@ export function getChartOptions(
         showSymbol: true,
         tooltip: {
           valueFormatter: (value) =>
-            formatNumber(value, visualOptions.tooltipValueFormat, locale) +
-            visualOptions.units,
+            formatNumber(
+              value,
+              visualOptions.tooltipValueFormat,
+              locale,
+              tooltipValueDecimals(visualOptions)
+            ) + visualOptions.units,
         },
       };
     })
