@@ -1,6 +1,13 @@
 import _ from 'lodash';
 import { format, parseObjectToValue, parseTitle } from '../utils/parseUtils';
-import { grid, legend, toolbox } from '../baseChartOptions';
+import {
+  AXIS_LABELS_DECIMALS,
+  grid,
+  legend,
+  toolbox,
+  tooltipValueDecimals,
+  yAxisDecimals,
+} from '../baseChartOptions';
 import { dateParsersPatterns } from '../../constants';
 
 const getAxis = (
@@ -14,7 +21,8 @@ const getAxis = (
   showaxisLabelsFontSize,
   axisFormat,
   mappedType,
-  locale
+  locale,
+  decimals
 ) => {
   return {
     name: showName ? name : '',
@@ -31,7 +39,7 @@ const getAxis = (
       fontSize: showaxisLabelsFontSize,
       formatter: (value) => {
         const type = dateParsersPatterns[axisFormat] ? 'date' : mappedType;
-        return format(value, axisFormat, locale, type);
+        return format(value, axisFormat, locale, type, decimals);
       },
     },
     scale: scale,
@@ -84,7 +92,8 @@ const getSeries = (visualOptions, data, mapping, locale) => {
               value,
               visualOptions.tooltipValueFormat,
               locale,
-              mapping.y.mappedType
+              mapping.y.mappedType,
+              tooltipValueDecimals(visualOptions)
             ),
         },
       };
@@ -134,7 +143,8 @@ export const getChartOptions = function (
       visualOptions.showXaxisLabelsFontSize,
       visualOptions.xAxisFormat,
       mapping.x.mappedType,
-      locale
+      locale,
+      AXIS_LABELS_DECIMALS
     ),
     yAxis: getAxis(
       visualOptions.showYaxisName,
@@ -147,7 +157,8 @@ export const getChartOptions = function (
       visualOptions.showYaxisLabelsFontSize,
       visualOptions.yAxisFormat,
       mapping.y.mappedType,
-      locale
+      locale,
+      yAxisDecimals(visualOptions)
     ),
     series: getSeries(visualOptions, datachart, mapping, locale),
   };

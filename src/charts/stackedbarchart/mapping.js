@@ -8,7 +8,14 @@ import {
   parseTitle,
 } from '../utils/parseUtils';
 import { white } from '../../constants';
-import { grid, legend, toolbox } from '../baseChartOptions';
+import {
+  AXIS_LABELS_DECIMALS,
+  barsSizeLabelsDecimals,
+  grid,
+  legend,
+  toolbox,
+  tooltipValueDecimals,
+} from '../baseChartOptions';
 
 const reduceDataByStacks = (mapData) => {
   return mapData
@@ -91,9 +98,12 @@ const getValueItem = (
       fontSize: axisLabelFontSize,
       formatter: (value) => {
         const finalValue = visualOptions.isPyramid ? Math.abs(value) : value;
-        return new Intl.NumberFormat(locale, {
-          notation: visualOptions.barsSizeLabelsFormat,
-        }).format(finalValue);
+        return formatNumber(
+          finalValue,
+          visualOptions.barsSizeLabelsFormat,
+          locale,
+          barsSizeLabelsDecimals(visualOptions)
+        );
       },
     },
     ...(visualOptions.isPyramid && {
@@ -128,7 +138,8 @@ const getCategoryItem = (
           param,
           visualOptions.barsLabelsFormat,
           locale,
-          stacks?.mappedType
+          stacks?.mappedType,
+          AXIS_LABELS_DECIMALS
         );
       },
     },
@@ -250,9 +261,12 @@ const getSeries = (sortedMapData, bars, visualOptions, locale) => {
             formatter(params) {
               return (
                 formatNumber(
-                  visualOptions.isPyramid ? Math.abs(params.value) : params.value,
+                  visualOptions.isPyramid
+                    ? Math.abs(params.value)
+                    : params.value,
                   visualOptions.tooltipValueFormat,
-                  locale
+                  locale,
+                  tooltipValueDecimals(visualOptions)
                 ) + (visualOptions.showUnits ? visualOptions.units : '')
               );
             },
@@ -373,7 +387,8 @@ const mapData = function (
         d[mapping.stacks?.value],
         barsLabelsFormat,
         locale,
-        mapping.stacks?.mappedType
+        mapping.stacks?.mappedType,
+        AXIS_LABELS_DECIMALS
       ) // stacks grouping.
   );
   return mapping.stacks?.mappedType !== 'date'
@@ -433,11 +448,13 @@ export const getChartOptions = function (
           params.name,
           visualOptions.barsLabelsFormat,
           locale,
-          mapping.stacks?.mappedType
+          mapping.stacks?.mappedType,
+          AXIS_LABELS_DECIMALS
         )}&nbsp;&nbsp;&nbsp;<b>${formatNumber(
           visualOptions.isPyramid ? Math.abs(params.value) : params.value,
           visualOptions.tooltipValueFormat,
-          locale
+          locale,
+          tooltipValueDecimals(visualOptions)
         )}${visualOptions.units}</b>`;
       },
     },

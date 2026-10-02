@@ -7,7 +7,14 @@ import {
   parseObject,
   parseTitle,
 } from '../utils/parseUtils';
-import { grid, legend, toolbox } from '../baseChartOptions';
+import {
+  AXIS_LABELS_DECIMALS,
+  barsSizeLabelsDecimals,
+  grid,
+  legend,
+  toolbox,
+  tooltipValueDecimals,
+} from '../baseChartOptions';
 
 const mapData = function (
   data,
@@ -60,7 +67,8 @@ const mapData = function (
         d[mapping.bars.value],
         barsLabelsFormat,
         locale,
-        mapping.bars.mappedType
+        mapping.bars.mappedType,
+        AXIS_LABELS_DECIMALS
       ) // bars grouping
   );
 
@@ -86,7 +94,8 @@ function categoryOptions(visualOptions, bars, locale, data) {
           param,
           visualOptions.barsLabelsFormat,
           locale,
-          bars.mappedType
+          bars.mappedType,
+          AXIS_LABELS_DECIMALS
         );
       },
     },
@@ -107,9 +116,12 @@ function valueOptions(visualOptions, name, locale) {
       rotate: visualOptions.barsSizeLabelsRotate,
       fontSize: visualOptions.barsSizeLabelsFontSize,
       formatter: (value) => {
-        return new Intl.NumberFormat(locale, {
-          notation: visualOptions.barsSizeLabelsFormat,
-        }).format(value);
+        return formatNumber(
+          value,
+          visualOptions.barsSizeLabelsFormat,
+          locale,
+          barsSizeLabelsDecimals(visualOptions)
+        );
       },
     },
   };
@@ -206,7 +218,8 @@ export const getChartOptions = function (
             : formatNumber(
                 params.value,
                 visualOptions.tooltipValueFormat,
-                locale
+                locale,
+                tooltipValueDecimals(visualOptions)
               ) + (visualOptions.showUnits ? visualOptions.units : '');
         },
         fontSize: visualOptions.barsSizeValuesFontSize,
@@ -276,11 +289,13 @@ export const getChartOptions = function (
           params.name,
           visualOptions.barsLabelsFormat,
           locale,
-          mapping.bars?.mappedType
+          mapping.bars?.mappedType,
+          AXIS_LABELS_DECIMALS
         )}&nbsp;&nbsp;&nbsp;<b>${formatNumber(
           params.value,
           visualOptions.tooltipValueFormat,
-          locale
+          locale,
+          tooltipValueDecimals(visualOptions)
         )}${visualOptions.units}</b>`;
       },
     },

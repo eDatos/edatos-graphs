@@ -173,13 +173,23 @@ export const visualOptions = {
   yAxisFormat: {
     type: 'text',
     group: 'labelsy',
-    default: 'original',
+    default: 'compact',
     options: [
       {
         label: 'original',
         value: 'original',
       },
     ],
+    disabled: {
+      showYaxisLabels: false,
+    },
+  },
+  yAxisDecimals: {
+    type: 'number',
+    group: 'labelsy',
+    default: 0,
+    min: 0,
+    max: 10,
     disabled: {
       showYaxisLabels: false,
     },
@@ -194,6 +204,13 @@ export const visualOptions = {
     group: 'tooltip',
     default: 'standard',
     options: visualOptionsNumberFormat.options,
+  },
+  tooltipValueDecimals: {
+    type: 'number',
+    group: 'tooltip',
+    default: 1,
+    min: 0,
+    max: 10,
   },
   legendMarginBottom: {
     type: 'number',
